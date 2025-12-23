@@ -9,7 +9,7 @@ import net.neoforged.neoforge.registries.DeferredRegister;
 public class ModItems {
     public static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(ClassicMobs.MOD_ID);
 
-    // given names for items must be json complient (no spaces all lowercase)
+    // given names for items must be JSON compliant (no spaces all lowercase)
     public static final DeferredItem<Item> RAW_DODO = ITEMS.register("raw_dodo",
             () -> new Item(new Item.Properties()));
 
