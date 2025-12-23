@@ -1,6 +1,7 @@
 package com.memedream.classicmobs.item;
 
 import com.memedream.classicmobs.ClassicMobs;
+import com.memedream.classicmobs.block.ModBlocks;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.CreativeModeTab;
@@ -20,6 +21,7 @@ public class ModCreativeModeTabs {
                     .displayItems((itemDisplayParameters, output) -> {
                         output.accept(ModItems.RAW_DODO);
                         output.accept(ModItems.COOKED_DODO);
+                        output.accept(ModBlocks.GUNPOWDER_BLOCK);
                     }).build());
 
 

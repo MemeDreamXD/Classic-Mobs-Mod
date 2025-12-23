@@ -1,0 +1,51 @@
+package com.memedream.classicmobs.block;
+
+import com.memedream.classicmobs.ClassicMobs;
+import com.memedream.classicmobs.item.ModItems;
+import net.minecraft.util.ColorRGBA;
+import net.minecraft.world.item.BlockItem;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.ColoredFallingBlock;
+import net.minecraft.world.level.block.SoundType;
+import net.minecraft.world.level.block.state.BlockBehaviour;
+import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
+import net.minecraft.world.level.material.MapColor;
+import net.neoforged.bus.api.IEventBus;
+import net.neoforged.neoforge.registries.DeferredBlock;
+import net.neoforged.neoforge.registries.DeferredItem;
+import net.neoforged.neoforge.registries.DeferredRegister;
+
+import java.util.function.Supplier;
+
+public class ModBlocks {
+    // Initializing list of blocks that we're going to register
+    public static final DeferredRegister.Blocks BLOCKS = DeferredRegister.createBlocks(ClassicMobs.MOD_ID);
+
+    // ColoredFallingBlock needed for falling blocks like sand
+    // ColorRGBA is a functionally useless 8 hex number to represent it's hex color (I used the one for gravel)
+    // TODO: CUSTOM FUNCTIONALITY
+    // TODO: Make the Gunpowder Block explode instantly when ignited with 1.6 times TNT's explosive power
+    public static final DeferredBlock<Block> GUNPOWDER_BLOCK = registerBlock("gunpowder_block",
+            () -> new ColoredFallingBlock(
+                    new ColorRGBA(-8356741),
+                    BlockBehaviour.Properties.of().mapColor(MapColor.STONE).instrument(NoteBlockInstrument.SNARE).strength(0.5F).sound(SoundType.SAND)));
+
+    // Main function that registers the block & item using helper
+    private static <T extends Block> DeferredBlock<T> registerBlock(String name, Supplier<T> block) {
+        // This registers the block itself
+        DeferredBlock<T> toReturn = BLOCKS.register(name, block);
+        registerBlockItem(name, toReturn);
+        return toReturn;
+    }
+
+    // Helper function to create and register a block's associated item
+    private static <T extends Block> void registerBlockItem(String name, DeferredBlock<T> block) {
+        ModItems.ITEMS.register(name, () -> new BlockItem(block.get(), new Item.Properties()));
+    }
+
+    // Function ships the list of blocks to the mod itself
+    public static void register(IEventBus eventBus) {
+        BLOCKS.register(eventBus);
+    }
+}

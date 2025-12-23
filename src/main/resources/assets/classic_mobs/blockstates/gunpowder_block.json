@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model" : "classic_mobs:block/gunpowder_block"
+    }
+  }
+}
