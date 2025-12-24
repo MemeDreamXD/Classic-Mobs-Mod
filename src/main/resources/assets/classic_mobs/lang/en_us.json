@@ -3,5 +3,7 @@
   "item.classic_mobs.cooked_dodo": "Cooked Dodo",
   "block.classic_mobs.gunpowder_block": "Block of Gunpowder",
   "block.classic_mobs.rotten_flesh_block": "Block of Rotten Flesh",
+  "block.classic_mobs.raw_beef_block": "Raw Beef Block",
+  "block.classic_mobs.cooked_beef_block": "Steak Block",
   "creativetab.classic_mobs.classic_mobs_tab": "Classic Mobs"
 }

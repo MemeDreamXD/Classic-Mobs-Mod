@@ -15,7 +15,6 @@ import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
 import net.minecraft.world.level.material.MapColor;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredBlock;
-import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
 import java.util.function.Supplier;
@@ -37,6 +36,14 @@ public class ModBlocks {
             () -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.NETHER).instrument(NoteBlockInstrument.ZOMBIE).strength(2.0F).sound(SoundType.FROGSPAWN)),
             ModFoodProperties.ROTTEN_FLESH_BLOCK);
 
+    public static final DeferredBlock<Block> RAW_BEEF_BLOCK = registerBlockEdible("raw_beef_block",
+            () -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.NETHER).instrument(NoteBlockInstrument.COW_BELL).strength(2.0F).sound(SoundType.FROGSPAWN)),
+            ModFoodProperties.RAW_BEEF_BLOCK);
+
+    public static final DeferredBlock<Block> COOKED_BEEF_BLOCK = registerBlockEdible("cooked_beef_block",
+            () -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.NETHER).instrument(NoteBlockInstrument.COW_BELL).strength(2.0F).sound(SoundType.FROGSPAWN)),
+            ModFoodProperties.COOKED_BEEF_BLOCK);
+
     // Main function that registers the block & item using helper
     private static <T extends Block> DeferredBlock<T> registerBlock(String name, Supplier<T> block) {
         // This registers the block itself
@@ -45,7 +52,7 @@ public class ModBlocks {
         return toReturn;
     }
 
-    // Main function that registers the block & item using helper
+    // Main function that registers the block & item using helper if it's edible
     private static <T extends Block> DeferredBlock<T> registerBlockEdible(String name, Supplier<T> block, FoodProperties foodProperties) {
         // This registers the block itself
         DeferredBlock<T> toReturn = BLOCKS.register(name, block);

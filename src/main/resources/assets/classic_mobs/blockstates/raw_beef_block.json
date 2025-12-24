@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model" : "classic_mobs:block/raw_beef_block"
+    }
+  }
+}

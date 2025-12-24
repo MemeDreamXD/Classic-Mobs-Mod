@@ -1,6 +1,8 @@
 {
   "replace": false,
   "values": [
-    "classic_mobs:rotten_flesh_block"
+    "classic_mobs:rotten_flesh_block",
+    "classic_mobs:raw_beef_block",
+    "classic_mobs:cooked_beef_block"
   ]
 }
