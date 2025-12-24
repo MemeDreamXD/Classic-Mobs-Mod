@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "classic_mobs:block/cooked_beef_block_top",
+    "side": "classic_mobs:block/cooked_beef_block"
+  }
+}

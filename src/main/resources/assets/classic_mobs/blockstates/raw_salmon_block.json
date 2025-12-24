@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "axis=x": {
+      "model": "classic_mobs:block/raw_salmon_block_horizontal",
+      "x": 90,
+      "y": 90
+    },
+    "axis=y": {
+      "model": "classic_mobs:block/raw_salmon_block"
+    },
+    "axis=z": {
+      "model": "classic_mobs:block/raw_salmon_block_horizontal",
+      "x": 90
+    }
+  }
+}

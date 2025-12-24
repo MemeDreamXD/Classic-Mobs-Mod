@@ -25,6 +25,20 @@ public class ModCreativeModeTabs {
                         output.accept(ModBlocks.ROTTEN_FLESH_BLOCK);
                         output.accept(ModBlocks.RAW_BEEF_BLOCK);
                         output.accept(ModBlocks.COOKED_BEEF_BLOCK);
+                        output.accept(ModBlocks.RAW_MUTTON_BLOCK);
+                        output.accept(ModBlocks.COOKED_MUTTON_BLOCK);
+                        output.accept(ModBlocks.RAW_PORK_BLOCK);
+                        output.accept(ModBlocks.COOKED_PORK_BLOCK);
+                        output.accept(ModBlocks.RAW_RABBIT_BLOCK);
+                        output.accept(ModBlocks.COOKED_RABBIT_BLOCK);
+                        output.accept(ModBlocks.RAW_CHICKEN_BLOCK);
+                        output.accept(ModBlocks.COOKED_CHICKEN_BLOCK);
+                        output.accept(ModBlocks.RAW_SALMON_BLOCK);
+                        output.accept(ModBlocks.COOKED_SALMON_BLOCK);
+                        output.accept(ModBlocks.RAW_COD_BLOCK);
+                        output.accept(ModBlocks.COOKED_COD_BLOCK);
+                        output.accept(ModBlocks.TROPICAL_FISH_BLOCK);
+                        output.accept(ModBlocks.PUFFERFISH_BLOCK);
                     }).build());
 
 
