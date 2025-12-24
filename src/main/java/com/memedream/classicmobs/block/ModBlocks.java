@@ -1,8 +1,10 @@
 package com.memedream.classicmobs.block;
 
 import com.memedream.classicmobs.ClassicMobs;
+import com.memedream.classicmobs.item.ModFoodProperties;
 import com.memedream.classicmobs.item.ModItems;
 import net.minecraft.util.ColorRGBA;
+import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
@@ -31,8 +33,9 @@ public class ModBlocks {
                     new ColorRGBA(-8356741),
                     BlockBehaviour.Properties.of().mapColor(MapColor.STONE).instrument(NoteBlockInstrument.SNARE).strength(0.5F).sound(SoundType.SAND)));
 
-    public static final DeferredBlock<Block> ROTTEN_FLESH_BLOCK = registerBlock("rotten_flesh_block",
-            () -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.NETHER).instrument(NoteBlockInstrument.ZOMBIE).strength(2.0F).sound(SoundType.FROGSPAWN)));
+    public static final DeferredBlock<Block> ROTTEN_FLESH_BLOCK = registerBlockEdible("rotten_flesh_block",
+            () -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.NETHER).instrument(NoteBlockInstrument.ZOMBIE).strength(2.0F).sound(SoundType.FROGSPAWN)),
+            ModFoodProperties.ROTTEN_FLESH_BLOCK);
 
     // Main function that registers the block & item using helper
     private static <T extends Block> DeferredBlock<T> registerBlock(String name, Supplier<T> block) {
@@ -42,9 +45,22 @@ public class ModBlocks {
         return toReturn;
     }
 
+    // Main function that registers the block & item using helper
+    private static <T extends Block> DeferredBlock<T> registerBlockEdible(String name, Supplier<T> block, FoodProperties foodProperties) {
+        // This registers the block itself
+        DeferredBlock<T> toReturn = BLOCKS.register(name, block);
+        registerBlockItemEdible(name, toReturn, foodProperties);
+        return toReturn;
+    }
+
     // Helper function to create and register a block's associated item
     private static <T extends Block> void registerBlockItem(String name, DeferredBlock<T> block) {
         ModItems.ITEMS.register(name, () -> new BlockItem(block.get(), new Item.Properties()));
+    }
+
+    // Helper function to create and register a block's associated item IF IT IS EDIBLE
+    private static <T extends Block> void registerBlockItemEdible(String name, DeferredBlock<T> block, FoodProperties foodProperties) {
+        ModItems.ITEMS.register(name, () -> new BlockItem(block.get(), new Item.Properties().food(foodProperties)));
     }
 
     // Function ships the list of blocks to the mod itself
