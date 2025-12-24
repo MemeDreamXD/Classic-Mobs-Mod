@@ -31,6 +31,9 @@ public class ModBlocks {
                     new ColorRGBA(-8356741),
                     BlockBehaviour.Properties.of().mapColor(MapColor.STONE).instrument(NoteBlockInstrument.SNARE).strength(0.5F).sound(SoundType.SAND)));
 
+    public static final DeferredBlock<Block> ROTTEN_FLESH_BLOCK = registerBlock("rotten_flesh_block",
+            () -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.NETHER).instrument(NoteBlockInstrument.ZOMBIE).strength(2.0F).sound(SoundType.FROGSPAWN)));
+
     // Main function that registers the block & item using helper
     private static <T extends Block> DeferredBlock<T> registerBlock(String name, Supplier<T> block) {
         // This registers the block itself

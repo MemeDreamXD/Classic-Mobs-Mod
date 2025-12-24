@@ -22,6 +22,7 @@ public class ModCreativeModeTabs {
                         output.accept(ModItems.RAW_DODO);
                         output.accept(ModItems.COOKED_DODO);
                         output.accept(ModBlocks.GUNPOWDER_BLOCK);
+                        //output.accept(ModBlocks.ROTTEN_FLESH_BLOCK);
                     }).build());
 
 

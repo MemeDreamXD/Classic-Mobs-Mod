@@ -11,10 +11,10 @@ public class ModItems {
 
     // given names for items must be JSON compliant (no spaces all lowercase)
     public static final DeferredItem<Item> RAW_DODO = ITEMS.register("raw_dodo",
-            () -> new Item(new Item.Properties()));
+            () -> new Item(new Item.Properties().food(ModFoodProperties.RAW_DODO)));
 
     public static final DeferredItem<Item> COOKED_DODO = ITEMS.register("cooked_dodo",
-            () -> new Item(new Item.Properties()));
+            () -> new Item(new Item.Properties().food(ModFoodProperties.COOKED_DODO)));
 
     public static void register(IEventBus eventBus) {
         ITEMS.register(eventBus);
