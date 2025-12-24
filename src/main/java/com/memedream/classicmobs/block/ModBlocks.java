@@ -97,6 +97,7 @@ public class ModBlocks {
             () -> new RotatedPillarBlock(BlockBehaviour.Properties.of().mapColor(MapColor.NETHER).instrument(NoteBlockInstrument.COW_BELL).strength(2.0F).sound(SoundType.FROGSPAWN)),
             ModFoodProperties.TROPICAL_FISH_BLOCK);
 
+    //TODO: Fix Pufferfish block model to correctly rotate such that the top / bottom depend on exact placement rather than explicitly x/y/z placement.
     public static final DeferredBlock<Block> PUFFERFISH_BLOCK = registerBlockEdible("pufferfish_block",
             () -> new RotatedPillarBlock(BlockBehaviour.Properties.of().mapColor(MapColor.NETHER).instrument(NoteBlockInstrument.COW_BELL).strength(2.0F).sound(SoundType.FROGSPAWN)),
             ModFoodProperties.PUFFERFISH_BLOCK);

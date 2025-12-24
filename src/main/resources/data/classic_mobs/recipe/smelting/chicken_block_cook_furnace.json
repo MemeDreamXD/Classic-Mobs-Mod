@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:smelting",
+  "category": "food",
+  "cookingtime": 1800,
+  "experience": 3.15,
+  "ingredient": {
+    "item": "classic_mobs:raw_chicken_block"
+  },
+  "result": {
+    "id": "classic_mobs:cooked_chicken_block"
+  }
+}

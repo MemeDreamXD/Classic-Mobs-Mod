@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "classic_mobs:cooked_rabbit_block"
+    }
+  ],
+  "result": {
+    "count": 9,
+    "id": "minecraft:cooked_rabbit"
+  }
+}

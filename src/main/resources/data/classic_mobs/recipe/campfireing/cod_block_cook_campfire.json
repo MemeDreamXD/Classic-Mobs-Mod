@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:campfire_cooking",
+  "category": "food",
+  "cookingtime": 5400,
+  "experience": 3.15,
+  "ingredient": {
+    "item": "classic_mobs:raw_cod_block"
+  },
+  "result": {
+    "id": "classic_mobs:cooked_cod_block"
+  }
+}

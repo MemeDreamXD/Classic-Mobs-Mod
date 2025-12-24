@@ -3,6 +3,20 @@
   "values": [
     "classic_mobs:rotten_flesh_block",
     "classic_mobs:raw_beef_block",
-    "classic_mobs:cooked_beef_block"
+    "classic_mobs:cooked_beef_block",
+    "classic_mobs:raw_mutton_block",
+    "classic_mobs:cooked_mutton_block",
+    "classic_mobs:raw_pork_block",
+    "classic_mobs:cooked_pork_block",
+    "classic_mobs:raw_rabbit_block",
+    "classic_mobs:cooked_rabbit_block",
+    "classic_mobs:raw_chicken_block",
+    "classic_mobs:cooked_chicken_block",
+    "classic_mobs:raw_salmon_block",
+    "classic_mobs:cooked_salmon_block",
+    "classic_mobs:raw_cod_block",
+    "classic_mobs:cooked_cod_block",
+    "classic_mobs:tropical_fish_block",
+    "classic_mobs:pufferfish_block"
   ]
 }
