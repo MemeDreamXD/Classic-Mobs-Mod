@@ -1,6 +1,7 @@
 package com.memedream.classicmobs;
 
 import com.memedream.classicmobs.block.ModBlocks;
+import com.memedream.classicmobs.entity.ModEntities;
 import com.memedream.classicmobs.item.ModCreativeModeTabs;
 import com.memedream.classicmobs.item.ModItems;
 import net.minecraft.world.item.CreativeModeTabs;
@@ -44,6 +45,9 @@ public class ClassicMobs {
 
         // Register mod blocks
         ModBlocks.register(modEventBus);
+
+        // Register mod entities
+        ModEntities.register(modEventBus);
 
         // Register the item to a creative tab
         modEventBus.addListener(this::addCreative);
