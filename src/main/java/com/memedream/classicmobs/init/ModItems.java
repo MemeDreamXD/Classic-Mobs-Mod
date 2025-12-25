@@ -18,7 +18,10 @@ public class ModItems {
     public static final DeferredItem<Item> COOKED_DODO = ITEMS.register("cooked_dodo",
             () -> new Item(new Item.Properties().food(ModFoodProperties.COOKED_DODO)));
 
-    public static final DeferredItem<Item> DODO_SPWAN_EGG = ITEMS.register("dodo_spawn_egg",
+    public static final DeferredItem<Item> CHITIN = ITEMS.register("chitin",
+            () -> new Item(new Item.Properties()));
+
+    public static final DeferredItem<Item> DODO_SPAWN_EGG = ITEMS.register("dodo_spawn_egg",
             () -> new DeferredSpawnEggItem(ModEntities.DODO, 0x988476, 0x604835,
                     new Item.Properties()));
 

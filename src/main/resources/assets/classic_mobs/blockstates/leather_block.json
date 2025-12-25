@@ -1,0 +1,30 @@
+{
+  "variants": {
+    "facing=down": {
+      "model": "classic_mobs:block/leather_block",
+      "x": 180
+    },
+    "facing=east": {
+      "model": "classic_mobs:block/leather_block",
+      "y": 90,
+      "x": 90
+    },
+    "facing=north": {
+      "model": "classic_mobs:block/leather_block",
+      "x": 90
+    },
+    "facing=south": {
+      "model": "classic_mobs:block/leather_block",
+      "y": 180,
+      "x": 90
+    },
+    "facing=up": {
+      "model": "classic_mobs:block/leather_block"
+    },
+    "facing=west": {
+      "model": "classic_mobs:block/leather_block",
+      "y": 270,
+      "x": 90
+    }
+  }
+}

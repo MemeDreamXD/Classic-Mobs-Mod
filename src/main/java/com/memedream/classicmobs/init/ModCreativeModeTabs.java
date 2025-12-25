@@ -18,9 +18,10 @@ public class ModCreativeModeTabs {
             () -> CreativeModeTab.builder().icon(() -> new ItemStack(ModItems.RAW_DODO.get()))
                     .title(Component.translatable("creativetab.classic_mobs.classic_mobs_tab"))
                     .displayItems((itemDisplayParameters, output) -> {
-                        output.accept(ModItems.DODO_SPWAN_EGG);
+                        output.accept(ModItems.DODO_SPAWN_EGG);
                         output.accept(ModItems.RAW_DODO);
                         output.accept(ModItems.COOKED_DODO);
+                        output.accept(ModItems.CHITIN);
                         output.accept(ModBlocks.GUNPOWDER_BLOCK);
                         output.accept(ModBlocks.ROTTEN_FLESH_BLOCK);
                         output.accept(ModBlocks.RAW_BEEF_BLOCK);
@@ -39,6 +40,10 @@ public class ModCreativeModeTabs {
                         output.accept(ModBlocks.COOKED_COD_BLOCK);
                         output.accept(ModBlocks.TROPICAL_FISH_BLOCK);
                         output.accept(ModBlocks.PUFFERFISH_BLOCK);
+                        output.accept(ModBlocks.LEATHER_BLOCK);
+                        output.accept(ModBlocks.CHITIN_BLOCK);
+                        output.accept(ModBlocks.MAGMA_CREAM_BLOCK);
+                        output.accept(ModBlocks.PHANTOM_MEMBRANE_BLOCK);
                     }).build());
 
 

@@ -33,6 +33,15 @@ public class ModBlocks {
             () -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.NETHER).instrument(NoteBlockInstrument.ZOMBIE).strength(2.0F).sound(SoundType.FROGSPAWN)),
             ModFoodProperties.ROTTEN_FLESH_BLOCK);
 
+    public static final DeferredBlock<Block> CHITIN_BLOCK = registerBlock("chitin_block",
+            () -> new Block(BlockBehaviour.Properties.of().requiresCorrectToolForDrops().mapColor(MapColor.COLOR_BROWN).instrument(NoteBlockInstrument.DIDGERIDOO).strength(1.5F).sound(SoundType.PACKED_MUD)));
+
+    public static final DeferredBlock<Block> MAGMA_CREAM_BLOCK = registerBlock("magma_cream_block",
+            () -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_ORANGE).instrument(NoteBlockInstrument.PLING).strength(0.8F).sound(SoundType.SLIME_BLOCK)));
+
+    public static final DeferredBlock<Block> PHANTOM_MEMBRANE_BLOCK = registerBlock("phantom_membrane_block",
+            () -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_LIGHT_GRAY).instrument(NoteBlockInstrument.XYLOPHONE).strength(0.8F).sound(SoundType.SOUL_SOIL)));
+
     public static final DeferredBlock<Block> RAW_BEEF_BLOCK = registerBlockEdible("raw_beef_block",
             () -> new RotatedPillarBlock(BlockBehaviour.Properties.of().mapColor(MapColor.NETHER).instrument(NoteBlockInstrument.COW_BELL).strength(2.0F).sound(SoundType.FROGSPAWN)),
             ModFoodProperties.RAW_BEEF_BLOCK);
@@ -82,20 +91,23 @@ public class ModBlocks {
             ModFoodProperties.COOKED_SALMON_BLOCK);
 
     public static final DeferredBlock<Block> RAW_COD_BLOCK = registerBlockEdible("raw_cod_block",
-            () -> new RotatedPillarBlock(BlockBehaviour.Properties.of().mapColor(MapColor.NETHER).instrument(NoteBlockInstrument.COW_BELL).strength(2.0F).sound(SoundType.FROGSPAWN)),
+            () -> new RotatedPillarBlock(BlockBehaviour.Properties.of().mapColor(MapColor.RAW_IRON).instrument(NoteBlockInstrument.COW_BELL).strength(2.0F).sound(SoundType.FROGSPAWN)),
             ModFoodProperties.RAW_COD_BLOCK);
 
     public static final DeferredBlock<Block> COOKED_COD_BLOCK = registerBlockEdible("cooked_cod_block",
-            () -> new RotatedPillarBlock(BlockBehaviour.Properties.of().mapColor(MapColor.NETHER).instrument(NoteBlockInstrument.COW_BELL).strength(2.0F).sound(SoundType.FROGSPAWN)),
+            () -> new RotatedPillarBlock(BlockBehaviour.Properties.of().mapColor(MapColor.RAW_IRON).instrument(NoteBlockInstrument.COW_BELL).strength(2.0F).sound(SoundType.FROGSPAWN)),
             ModFoodProperties.COOKED_COD_BLOCK);
 
     public static final DeferredBlock<Block> TROPICAL_FISH_BLOCK = registerBlockEdible("tropical_fish_block",
-            () -> new RotatedPillarBlock(BlockBehaviour.Properties.of().mapColor(MapColor.NETHER).instrument(NoteBlockInstrument.COW_BELL).strength(2.0F).sound(SoundType.FROGSPAWN)),
+            () -> new RotatedPillarBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_ORANGE).instrument(NoteBlockInstrument.COW_BELL).strength(2.0F).sound(SoundType.FROGSPAWN)),
             ModFoodProperties.TROPICAL_FISH_BLOCK);
 
     public static final DeferredBlock<Block> PUFFERFISH_BLOCK = registerBlockEdible("pufferfish_block",
-            () -> new PufferfishBlock(BlockBehaviour.Properties.of().mapColor(MapColor.NETHER).instrument(NoteBlockInstrument.COW_BELL).strength(2.0F).sound(SoundType.FROGSPAWN)),
+            () -> new PufferfishBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_YELLOW).instrument(NoteBlockInstrument.COW_BELL).strength(2.0F).sound(SoundType.FROGSPAWN)),
             ModFoodProperties.PUFFERFISH_BLOCK);
+
+    public static final DeferredBlock<Block> LEATHER_BLOCK = registerBlock("leather_block",
+            () -> new PufferfishBlock(BlockBehaviour.Properties.of().mapColor(MapColor.DIRT).instrument(NoteBlockInstrument.COW_BELL).strength(0.8F).sound(SoundType.WOOL)));
 
     // Main function that registers the block & item using helper
     private static <T extends Block> DeferredBlock<T> registerBlock(String name, Supplier<T> block) {

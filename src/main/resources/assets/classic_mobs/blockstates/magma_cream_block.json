@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model" : "classic_mobs:block/magma_cream_block"
+    }
+  }
+}

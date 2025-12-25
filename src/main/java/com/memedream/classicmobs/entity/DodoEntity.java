@@ -20,8 +20,6 @@ import org.jetbrains.annotations.Nullable;
 
 public class DodoEntity extends Animal {
 
-    //TODO: Figure out why this isn't working
-    //private static final EntityDimensions BABY_DIMENSIONS = ModEntities.DODO.get().getDimensions().scale(0.5F).withEyeHeight(0.2975F);
     public float oFlap;
     public float flap;
     public float oFlapSpeed;
@@ -45,11 +43,6 @@ public class DodoEntity extends Animal {
         this.goalSelector.addGoal(6, new LookAtPlayerGoal(this, Player.class, 6.0F));
         this.goalSelector.addGoal(7, new RandomLookAroundGoal(this));
     }
-    //TODO: Figure out why this isn't working
-    //@Override
-    //public EntityDimensions getDefaultDimensions(Pose pose) {
-    //    return this.isBaby() ? BABY_DIMENSIONS : super.getDefaultDimensions(pose);
-   // }
 
     public static AttributeSupplier.Builder createAttributes() {
         return Mob.createMobAttributes().add(Attributes.MAX_HEALTH, 6.0d).add(Attributes.MOVEMENT_SPEED, 0.25d).add(Attributes.FOLLOW_RANGE, 24.0d);
