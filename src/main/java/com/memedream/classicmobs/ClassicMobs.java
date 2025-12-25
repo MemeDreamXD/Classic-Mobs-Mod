@@ -4,7 +4,7 @@ import com.memedream.classicmobs.block.ModBlocks;
 import com.memedream.classicmobs.entity.ModEntities;
 import com.memedream.classicmobs.item.ModCreativeModeTabs;
 import com.memedream.classicmobs.item.ModItems;
-import net.minecraft.world.item.CreativeModeTabs;
+import com.memedream.classicmobs.sound.ModSounds;
 import org.slf4j.Logger;
 
 import com.mojang.logging.LogUtils;
@@ -45,6 +45,9 @@ public class ClassicMobs {
 
         // Register mod blocks
         ModBlocks.register(modEventBus);
+
+        // Register mod entities
+        ModSounds.register(modEventBus);
 
         // Register mod entities
         ModEntities.register(modEventBus);

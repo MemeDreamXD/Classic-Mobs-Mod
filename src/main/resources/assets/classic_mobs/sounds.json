@@ -1,0 +1,32 @@
+{
+  "dodo_idle_1": {
+    "subtitle": "sounds.classic_mobs.dodo_idle_1",
+    "sounds": [
+      "classic_mobs:dodo_idle_1"
+    ]
+  },
+  "dodo_idle_2": {
+    "subtitle": "sounds.classic_mobs.dodo_idle_2",
+    "sounds": [
+      "classic_mobs:dodo_idle_2"
+    ]
+  },
+  "dodo_idle_3": {
+    "subtitle": "sounds.classic_mobs.dodo_idle_3",
+    "sounds": [
+      "classic_mobs:dodo_idle_3"
+    ]
+  },
+  "dodo_hurt": {
+    "subtitle": "sounds.classic_mobs.dodo_hurt",
+    "sounds": [
+      "classic_mobs:dodo_hurt"
+    ]
+  },
+  "dodo_death": {
+    "subtitle": "sounds.classic_mobs.dodo_death",
+    "sounds": [
+      "classic_mobs:dodo_death"
+    ]
+  }
+}
