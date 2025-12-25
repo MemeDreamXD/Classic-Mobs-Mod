@@ -18,6 +18,7 @@ public class ModCreativeModeTabs {
             () -> CreativeModeTab.builder().icon(() -> new ItemStack(ModItems.RAW_DODO.get()))
                     .title(Component.translatable("creativetab.classic_mobs.classic_mobs_tab"))
                     .displayItems((itemDisplayParameters, output) -> {
+                        output.accept(ModItems.DODO_SPWAN_EGG);
                         output.accept(ModItems.RAW_DODO);
                         output.accept(ModItems.COOKED_DODO);
                         output.accept(ModBlocks.GUNPOWDER_BLOCK);

@@ -4,6 +4,7 @@ import com.memedream.classicmobs.ClassicMobs;
 import com.memedream.classicmobs.item.ModFoodProperties;
 import net.minecraft.world.item.Item;
 import net.neoforged.bus.api.IEventBus;
+import net.neoforged.neoforge.common.DeferredSpawnEggItem;
 import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
@@ -16,6 +17,10 @@ public class ModItems {
 
     public static final DeferredItem<Item> COOKED_DODO = ITEMS.register("cooked_dodo",
             () -> new Item(new Item.Properties().food(ModFoodProperties.COOKED_DODO)));
+
+    public static final DeferredItem<Item> DODO_SPWAN_EGG = ITEMS.register("dodo_spawn_egg",
+            () -> new DeferredSpawnEggItem(ModEntities.DODO, 0x988476, 0x604835,
+                    new Item.Properties()));
 
     public static void register(IEventBus eventBus) {
         ITEMS.register(eventBus);

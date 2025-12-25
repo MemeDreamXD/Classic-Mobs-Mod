@@ -13,9 +13,7 @@ public class ModSounds {
     public static final DeferredRegister<SoundEvent> SOUND_EVENTS =
             DeferredRegister.create(BuiltInRegistries.SOUND_EVENT, ClassicMobs.MOD_ID);
 
-    public static final Supplier<SoundEvent> DODO_IDLE_1 = registerSoundEvent("dodo_idle_1");
-    public static final Supplier<SoundEvent> DODO_IDLE_2 = registerSoundEvent("dodo_idle_2");
-    public static final Supplier<SoundEvent> DODO_IDLE_3 = registerSoundEvent("dodo_idle_3");
+    public static final Supplier<SoundEvent> DODO_IDLE = registerSoundEvent("dodo_idle");
     public static final Supplier<SoundEvent> DODO_HURT = registerSoundEvent("dodo_hurt");
     public static final Supplier<SoundEvent> DODO_DEATH = registerSoundEvent("dodo_death");
 

@@ -1,4 +1,5 @@
 {
+  "item.classic_mobs.dodo_spawn_egg": "Dodo Spawn Egg",
   "item.classic_mobs.raw_dodo": "Raw Dodo",
   "item.classic_mobs.cooked_dodo": "Cooked Dodo",
   "block.classic_mobs.gunpowder_block": "Block of Gunpowder",
@@ -20,9 +21,7 @@
   "block.classic_mobs.tropical_fish_block": "Tropical Fish Block",
   "block.classic_mobs.pufferfish_block": "Pufferfish Block",
   "creativetab.classic_mobs.classic_mobs_tab": "Classic Mobs",
-  "sounds.classic_mobs.dodo_idle_1": "Dodo Squawks",
-  "sounds.classic_mobs.dodo_idle_2": "Dodo Caws",
-  "sounds.classic_mobs.dodo_idle_3": "Dodo Caws",
+  "sounds.classic_mobs.dodo_idle": "Dodo Squawks",
   "sounds.classic_mobs.dodo_hurt": "Dodo is Hurt",
   "sounds.classic_mobs.dodo_death": "Dodo Dies."
 }
