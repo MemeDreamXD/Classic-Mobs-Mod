@@ -6,6 +6,7 @@ import net.minecraft.client.model.geom.ModelLayerLocation;
 public class ModModelLayers {
 
     public static final ModelLayerLocation DODO = register("dodo");
+    public static final ModelLayerLocation ANTLION = register("antlion");
 
     private static ModelLayerLocation register(String name, String type) {
         return new ModelLayerLocation(ClassicMobs.prefix(name), type);

@@ -75,7 +75,7 @@ public class DodoEntity extends Animal {
 
     @Override
     public boolean isFood(ItemStack stack) {
-        return stack.is(ModItems.RAW_DODO);
+        return stack.is(ModTags.Items.DODO_FOOD);
     }
 
 
