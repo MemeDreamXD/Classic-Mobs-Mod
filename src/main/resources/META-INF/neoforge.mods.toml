@@ -1,0 +1,28 @@
+modLoader="javafml"
+loaderVersion="[4,)"
+license="GNU General Public License"
+issueTrackerURL="https://github.com/MemeDreamXD/Classic-Mobs-Mod/issues"
+
+[[mods]]
+modId="classic_mobs"
+version="${file.jarVersion}"
+displayName="Classic Mobs"
+#displayURL="https://change.me.to.your.mods.homepage.example.invalid/"
+#logoFile="examplemod.png"
+#credits=""
+authors="Meme Dream"
+description='''More than just mobs! Classic Mobs adds features that would be considered vanilla+ in 2011, and some features that wouldn't!'''
+
+[[dependencies.classic_mobs]]
+    modId="neoforge"
+    type="required"
+    versionRange="[21.1.216,)"
+    ordering="NONE"
+    side="BOTH"
+
+[[dependencies.classic_mobs]]
+    modId="minecraft"
+    type="required"
+    versionRange="[1.21.1]"
+    ordering="NONE"
+    side="BOTH"
