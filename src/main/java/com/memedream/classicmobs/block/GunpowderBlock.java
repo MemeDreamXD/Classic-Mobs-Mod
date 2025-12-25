@@ -91,6 +91,13 @@ public class GunpowderBlock extends ColoredFallingBlock {
     }
 
     @Override
+    public void wasExploded(Level level, BlockPos pos, Explosion explosion) {
+        if (!level.isClientSide()) {
+            explode(level, pos, null);
+        }
+    }
+
+    @Override
     public boolean dropFromExplosion(Explosion explosion) {
         return false;
     }
