@@ -23,6 +23,6 @@ public class ModClientRegistrationEvents {
 
     private static void registerModelLayers(EntityRenderersEvent.RegisterLayerDefinitions event) {
         event.registerLayerDefinition(ModModelLayers.DODO, DodoModel::create);
-        //event.registerLayerDefinition(ModModelLayers.ANTLION, AntlionModel::create);
+        event.registerLayerDefinition(ModModelLayers.ANTLION, AntlionModel::create);
     }
 }

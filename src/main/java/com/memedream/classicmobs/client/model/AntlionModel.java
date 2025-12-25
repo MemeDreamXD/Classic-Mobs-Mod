@@ -1,45 +1,20 @@
 package com.memedream.classicmobs.client.model;
 
-import com.memedream.classicmobs.ClassicMobs;
 import com.memedream.classicmobs.entity.AntlionEntity;
-import com.mojang.blaze3d.vertex.PoseStack;
-import com.mojang.blaze3d.vertex.VertexConsumer;
-import net.minecraft.client.model.EntityModel;
-import net.minecraft.client.model.geom.ModelLayerLocation;
+import net.minecraft.client.model.HierarchicalModel;
 import net.minecraft.client.model.geom.ModelPart;
 import net.minecraft.client.model.geom.PartPose;
 import net.minecraft.client.model.geom.builders.*;
-import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.entity.Entity;
 
-public class AntlionModel extends EntityModel<AntlionEntity> {
-    // This layer location should be baked with EntityRendererProvider.Context in the entity renderer and passed into this model's constructor
-    //public static final ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(ResourceLocation.fromNamespaceAndPath(ClassicMobs.MOD_ID, "antlion"), "main");
-    private final ModelPart head;
-    private final ModelPart jaw1;
-    private final ModelPart jaw2;
-    private final ModelPart body;
-    private final ModelPart leg1;
-    private final ModelPart leg2;
-    private final ModelPart leg3;
-    private final ModelPart leg4;
-    private final ModelPart leg5;
-    private final ModelPart leg6;
+public class AntlionModel extends HierarchicalModel<AntlionEntity> {
+
+    private final ModelPart root;
 
     public AntlionModel(ModelPart root) {
-        this.head = root.getChild("head");
-        this.jaw1 = root.getChild("jaw1");
-        this.jaw2 = root.getChild("jaw2");
-        this.body = root.getChild("body");
-        this.leg1 = root.getChild("leg1");
-        this.leg2 = root.getChild("leg2");
-        this.leg3 = root.getChild("leg3");
-        this.leg4 = root.getChild("leg4");
-        this.leg5 = root.getChild("leg5");
-        this.leg6 = root.getChild("leg6");
+        this.root = root;
     }
 
-    public static LayerDefinition createBodyLayer() {
+    public static LayerDefinition create() {
         MeshDefinition meshdefinition = new MeshDefinition();
         PartDefinition partdefinition = meshdefinition.getRoot();
 
@@ -83,21 +58,12 @@ public class AntlionModel extends EntityModel<AntlionEntity> {
     }
 
     @Override
-    public void renderToBuffer(PoseStack poseStack, VertexConsumer vertexConsumer, int packedLight, int packedOverlay, int color) {
-        head.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
-        jaw1.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
-        jaw2.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
-        body.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
-        leg1.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
-        leg2.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
-        leg3.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
-        leg4.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
-        leg5.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
-        leg6.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+    public ModelPart root() {
+        return this.root;
     }
 
     @Override
-    public void setupAnim(AntlionEntity antlionEntity, float v, float v1, float v2, float v3, float v4) {
+    public void setupAnim(AntlionEntity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
 
     }
 }
