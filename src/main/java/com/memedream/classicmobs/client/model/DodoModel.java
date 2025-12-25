@@ -1,26 +1,28 @@
 package com.memedream.classicmobs.client.model;
 
+import com.google.common.collect.ImmutableList;
 import com.memedream.classicmobs.entity.DodoEntity;
-import net.minecraft.client.model.HierarchicalModel;
+import net.minecraft.client.model.AgeableListModel;
 import net.minecraft.client.model.geom.ModelPart;
 import net.minecraft.client.model.geom.PartPose;
 import net.minecraft.client.model.geom.builders.*;
 import net.minecraft.util.Mth;
 
-public class DodoModel extends HierarchicalModel<DodoEntity> {
+public class DodoModel extends AgeableListModel<DodoEntity> {
 
-    private final ModelPart root;
 	private final ModelPart head;
+    private final ModelPart body;
 	private final ModelPart rightWing;
 	private final ModelPart leftWing;
 	private final ModelPart rightLeg;
 	private final ModelPart leftLeg;
 
     public DodoModel(ModelPart root) {
-        this.root = root;
+        super(true, 9.0F, 2.0F, 1.95F, 2.0F, 24.0F);
 		this.head = root.getChild("head");
-		this.rightWing = root.getChild("body").getChild("right_wing");
-		this.leftWing = root.getChild("body").getChild("left_wing");
+        this.body = root.getChild("body");
+		this.rightWing = this.body.getChild("right_wing");
+		this.leftWing = this.body.getChild("left_wing");
 		this.rightLeg = root.getChild("right_leg");
 		this.leftLeg = root.getChild("left_leg");
     }
@@ -73,11 +75,6 @@ public class DodoModel extends HierarchicalModel<DodoEntity> {
         return LayerDefinition.create(meshdefinition, 64, 64);
     }
 
-    @Override
-    public ModelPart root() {
-        return this.root;
-    }
-
 	//TODO currently uses same animations chickens do. Might want to add some more fun stuff later
     @Override
     public void setupAnim(DodoEntity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
@@ -87,5 +84,15 @@ public class DodoModel extends HierarchicalModel<DodoEntity> {
 		this.leftLeg.xRot = Mth.cos(limbSwing * 0.6662F + (float) Math.PI) * 1.4F * limbSwingAmount;
 		this.rightWing.zRot = ageInTicks;
 		this.leftWing.zRot = -ageInTicks;
+    }
+
+    @Override
+    protected Iterable<ModelPart> headParts() {
+        return ImmutableList.of(this.head);
+    }
+
+    @Override
+    protected Iterable<ModelPart> bodyParts() {
+        return ImmutableList.of(this.body, this.rightLeg, this.leftLeg);
     }
 }
