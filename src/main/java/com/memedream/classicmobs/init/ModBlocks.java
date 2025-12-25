@@ -8,6 +8,7 @@ import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.HalfTransparentBlock;
 import net.minecraft.world.level.block.RotatedPillarBlock;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
@@ -37,7 +38,7 @@ public class ModBlocks {
             () -> new Block(BlockBehaviour.Properties.of().requiresCorrectToolForDrops().mapColor(MapColor.COLOR_BROWN).instrument(NoteBlockInstrument.DIDGERIDOO).strength(1.5F).sound(SoundType.PACKED_MUD)));
 
     public static final DeferredBlock<Block> MAGMA_CREAM_BLOCK = registerBlock("magma_cream_block",
-            () -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_ORANGE).instrument(NoteBlockInstrument.PLING).strength(0.8F).sound(SoundType.SLIME_BLOCK)));
+            () -> new HalfTransparentBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_ORANGE).noOcclusion().instrument(NoteBlockInstrument.PLING).strength(0.8F).sound(SoundType.SLIME_BLOCK)));
 
     public static final DeferredBlock<Block> PHANTOM_MEMBRANE_BLOCK = registerBlock("phantom_membrane_block",
             () -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_LIGHT_GRAY).instrument(NoteBlockInstrument.XYLOPHONE).strength(0.8F).sound(SoundType.SOUL_SOIL)));
