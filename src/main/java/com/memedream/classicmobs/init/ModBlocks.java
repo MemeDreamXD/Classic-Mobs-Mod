@@ -1,13 +1,12 @@
 package com.memedream.classicmobs.init;
 
 import com.memedream.classicmobs.ClassicMobs;
+import com.memedream.classicmobs.block.GunpowderBlock;
 import com.memedream.classicmobs.item.ModFoodProperties;
-import net.minecraft.util.ColorRGBA;
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.ColoredFallingBlock;
 import net.minecraft.world.level.block.RotatedPillarBlock;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
@@ -25,11 +24,8 @@ public class ModBlocks {
 
     // ColoredFallingBlock needed for falling blocks like sand
     // ColorRGBA is a functionally useless 8 hex number to represent it's hex color (I used the one for gravel)
-    // TODO: CUSTOM FUNCTIONALITY
-    // TODO: Make the Gunpowder Block explode instantly when ignited with 1.6 times TNT's explosive power
     public static final DeferredBlock<Block> GUNPOWDER_BLOCK = registerBlock("gunpowder_block",
-            () -> new ColoredFallingBlock(
-                    new ColorRGBA(-8356741),
+            () -> new GunpowderBlock(
                     BlockBehaviour.Properties.of().mapColor(MapColor.STONE).instrument(NoteBlockInstrument.SNARE).strength(0.5F).sound(SoundType.SAND)));
 
     public static final DeferredBlock<Block> ROTTEN_FLESH_BLOCK = registerBlockEdible("rotten_flesh_block",
