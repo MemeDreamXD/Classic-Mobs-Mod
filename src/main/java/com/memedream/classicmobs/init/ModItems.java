@@ -1,6 +1,7 @@
-package com.memedream.classicmobs.item;
+package com.memedream.classicmobs.init;
 
 import com.memedream.classicmobs.ClassicMobs;
+import com.memedream.classicmobs.item.ModFoodProperties;
 import net.minecraft.world.item.Item;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredItem;

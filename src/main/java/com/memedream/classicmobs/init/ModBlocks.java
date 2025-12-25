@@ -1,8 +1,7 @@
-package com.memedream.classicmobs.block;
+package com.memedream.classicmobs.init;
 
 import com.memedream.classicmobs.ClassicMobs;
 import com.memedream.classicmobs.item.ModFoodProperties;
-import com.memedream.classicmobs.item.ModItems;
 import net.minecraft.util.ColorRGBA;
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.BlockItem;

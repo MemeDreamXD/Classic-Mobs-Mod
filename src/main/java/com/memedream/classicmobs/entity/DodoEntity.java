@@ -1,8 +1,9 @@
-package com.memedream.classicmobs.entity.custom;
+package com.memedream.classicmobs.entity;
 
-import com.memedream.classicmobs.entity.ModEntities;
-import com.memedream.classicmobs.item.ModItems;
+import com.memedream.classicmobs.init.ModEntities;
+import com.memedream.classicmobs.init.ModItems;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.util.Mth;
 import net.minecraft.world.entity.AgeableMob;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.Mob;
@@ -16,6 +17,13 @@ import net.minecraft.world.level.Level;
 import org.jetbrains.annotations.Nullable;
 
 public class DodoEntity extends Animal {
+
+    public float oFlap;
+    public float flap;
+    public float oFlapSpeed;
+    public float flapSpeed;
+    public float flapping = 1.0F;
+    private float nextFlap = 1.0F;
 
     public DodoEntity(EntityType<? extends Animal> entityType, Level level) {
         super(entityType, level);
@@ -35,6 +43,31 @@ public class DodoEntity extends Animal {
 
     public static AttributeSupplier.Builder createAttributes() {
         return Mob.createMobAttributes().add(Attributes.MAX_HEALTH, 6.0d).add(Attributes.MOVEMENT_SPEED, 0.25d).add(Attributes.FOLLOW_RANGE, 24.0d);
+    }
+
+    @Override
+    public void aiStep() {
+        super.aiStep();
+        this.oFlap = this.flap;
+        this.oFlapSpeed = this.flapSpeed;
+        this.flapSpeed = this.flapSpeed + (this.onGround() ? -1.0F : 4.0F) * 0.3F;
+        this.flapSpeed = Mth.clamp(this.flapSpeed, 0.0F, 1.0F);
+        if (!this.onGround() && this.flapping < 1.0F) {
+            this.flapping = 1.0F;
+        }
+
+        this.flapping *= 0.9F;
+        this.flap = this.flap + this.flapping * 2.0F;
+    }
+
+    @Override
+    protected boolean isFlapping() {
+        return this.flyDist > this.nextFlap;
+    }
+
+    @Override
+    protected void onFlap() {
+        this.nextFlap = this.flyDist + this.flapSpeed / 2.0F;
     }
 
     @Override

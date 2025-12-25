@@ -1,7 +1,7 @@
-package com.memedream.classicmobs.entity;
+package com.memedream.classicmobs.init;
 
 import com.memedream.classicmobs.ClassicMobs;
-import com.memedream.classicmobs.entity.custom.DodoEntity;
+import com.memedream.classicmobs.entity.DodoEntity;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
@@ -16,7 +16,7 @@ public class ModEntities {
 
     public static final Supplier<EntityType<DodoEntity>> DODO =
             ENTITY_TYPES.register("dodo", () -> EntityType.Builder.of(DodoEntity::new, MobCategory.CREATURE)
-                    .sized(0.75f, 0.75f).build("dodo"));
+                    .sized(0.75f, 0.75f).build(ClassicMobs.prefix("dodo").toString()));
 
     public static void register(IEventBus eventBus) {
         ENTITY_TYPES.register(eventBus);

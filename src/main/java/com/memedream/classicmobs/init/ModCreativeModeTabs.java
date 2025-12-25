@@ -1,7 +1,6 @@
-package com.memedream.classicmobs.item;
+package com.memedream.classicmobs.init;
 
 import com.memedream.classicmobs.ClassicMobs;
-import com.memedream.classicmobs.block.ModBlocks;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.CreativeModeTab;

@@ -1,4 +1,4 @@
-package com.memedream.classicmobs.sound;
+package com.memedream.classicmobs.init;
 
 import com.memedream.classicmobs.ClassicMobs;
 import net.minecraft.core.registries.BuiltInRegistries;
