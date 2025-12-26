@@ -1,5 +1,6 @@
 {
   "item.classic_mobs.dodo_spawn_egg": "Dodo Spawn Egg",
+  "item.classic_mobs.antlion_spawn_egg": "Antlion Spawn Egg",
   "item.classic_mobs.raw_dodo": "Raw Dodo",
   "item.classic_mobs.cooked_dodo": "Cooked Dodo",
   "item.classic_mobs.chitin": "Chitin",
@@ -28,5 +29,7 @@
   "creativetab.classic_mobs.classic_mobs_tab": "Classic Mobs",
   "sounds.classic_mobs.dodo_idle": "Dodo Squawks",
   "sounds.classic_mobs.dodo_hurt": "Dodo is Hurt",
-  "sounds.classic_mobs.dodo_death": "Dodo Dies."
+  "sounds.classic_mobs.dodo_death": "Dodo Dies.",
+  "entity.classic_mobs.dodo": "Dodo",
+  "entity.classic_mobs.antlion": "Antlion"
 }

@@ -25,6 +25,10 @@ public class ModItems {
             () -> new DeferredSpawnEggItem(ModEntities.DODO, 0x988476, 0x604835,
                     new Item.Properties()));
 
+    public static final DeferredItem<Item> ANTLION_SPAWN_EGG = ITEMS.register("antlion_spawn_egg",
+            () -> new DeferredSpawnEggItem(ModEntities.ANTLION, 0x686658, 0x3a3930,
+                    new Item.Properties()));
+
     public static void register(IEventBus eventBus) {
         ITEMS.register(eventBus);
     }

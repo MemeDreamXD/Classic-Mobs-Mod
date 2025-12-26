@@ -19,6 +19,7 @@ public class ModCreativeModeTabs {
                     .title(Component.translatable("creativetab.classic_mobs.classic_mobs_tab"))
                     .displayItems((itemDisplayParameters, output) -> {
                         output.accept(ModItems.DODO_SPAWN_EGG);
+                        output.accept(ModItems.ANTLION_SPAWN_EGG);
                         output.accept(ModItems.RAW_DODO);
                         output.accept(ModItems.COOKED_DODO);
                         output.accept(ModItems.CHITIN);
