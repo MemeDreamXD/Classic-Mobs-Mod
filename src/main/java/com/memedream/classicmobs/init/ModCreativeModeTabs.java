@@ -23,6 +23,11 @@ public class ModCreativeModeTabs {
                         output.accept(ModItems.RAW_DODO);
                         output.accept(ModItems.COOKED_DODO);
                         output.accept(ModItems.CHITIN);
+                        output.accept(ModItems.CHITIN_HELMET);
+                        output.accept(ModItems.CHITIN_CHESTPLATE);
+                        output.accept(ModItems.CHITIN_LEGGINGS);
+                        output.accept(ModItems.CHITIN_BOOTS);
+                        output.accept(ModItems.CHITIN_UPGRADE_SMITHING_TEMPLATE);
                         output.accept(ModBlocks.GUNPOWDER_BLOCK);
                         output.accept(ModBlocks.ROTTEN_FLESH_BLOCK);
                         output.accept(ModBlocks.RAW_BEEF_BLOCK);
