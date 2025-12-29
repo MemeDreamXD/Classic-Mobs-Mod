@@ -6,14 +6,23 @@ import com.memedream.classicmobs.client.model.DodoModel;
 import com.memedream.classicmobs.client.renderer.AntlionRenderer;
 import com.memedream.classicmobs.client.renderer.DodoRenderer;
 import com.memedream.classicmobs.init.ModEntities;
+import com.memedream.classicmobs.init.ModItems;
+import net.minecraft.client.color.item.ItemColors;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
+import net.minecraft.world.item.component.DyedItemColor;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.client.event.EntityRenderersEvent;
+import net.neoforged.neoforge.client.event.RegisterColorHandlersEvent;
+import net.neoforged.neoforge.client.extensions.common.IClientItemExtensions;
+import net.neoforged.neoforge.client.extensions.common.RegisterClientExtensionsEvent;
 
 public class ModClientRegistrationEvents {
 
     public static void init(IEventBus bus) {
         bus.addListener(ModClientRegistrationEvents::registerRenderers);
         bus.addListener(ModClientRegistrationEvents::registerModelLayers);
+        bus.addListener(ModClientRegistrationEvents::registerItemColors);
     }
 
     private static void registerRenderers(EntityRenderersEvent.RegisterRenderers event) {
@@ -24,5 +33,15 @@ public class ModClientRegistrationEvents {
     private static void registerModelLayers(EntityRenderersEvent.RegisterLayerDefinitions event) {
         event.registerLayerDefinition(ModModelLayers.DODO, DodoModel::create);
         event.registerLayerDefinition(ModModelLayers.ANTLION, AntlionModel::create);
+    }
+
+    private static void registerItemColors(RegisterColorHandlersEvent.Item event) {
+        event.register(
+                (stack, index) -> index > 0 ? -1 : DyedItemColor.getOrDefault(stack, DyedItemColor.LEATHER_COLOR),
+                ModItems.CHITIN_HELMET,
+                ModItems.CHITIN_CHESTPLATE,
+                ModItems.CHITIN_LEGGINGS,
+                ModItems.CHITIN_BOOTS
+        );
     }
 }

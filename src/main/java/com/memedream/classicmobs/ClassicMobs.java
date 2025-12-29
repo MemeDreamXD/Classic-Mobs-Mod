@@ -19,31 +19,23 @@ public class ClassicMobs {
     public static final String MOD_ID = "classic_mobs";
     public static final Logger LOGGER = LogUtils.getLogger();
 
-    public ClassicMobs(IEventBus modEventBus, ModContainer modContainer, Dist dist) {
+    public ClassicMobs(IEventBus bus, ModContainer container, Dist dist) {
         //only fire client events if actually on the client
         if (dist.isClient()) {
-            ModClientRegistrationEvents.init(modEventBus);
+            ModClientRegistrationEvents.init(bus);
         }
-        ModRegistrationEvents.init(modEventBus);
+        ModRegistrationEvents.init(bus);
 
-        // Register creative tab
-        ModCreativeModeTabs.register(modEventBus);
-
-        // Register mod items
-        ModItems.register(modEventBus);
-
-        // Register mod blocks
-        ModBlocks.register(modEventBus);
-
-        // Register mod entities
-        ModSounds.register(modEventBus);
-
-        // Register mod entities
-        ModEntities.register(modEventBus);
+        ModItems.ITEMS.register(bus);
+        ModBlocks.BLOCKS.register(bus);
+        ModSounds.SOUND_EVENTS.register(bus);
+        ModCreativeModeTabs.TABS.register(bus);
+        ModEntities.ENTITY_TYPES.register(bus);
+        ModArmorMaterials.MATERIALS.register(bus);
 
         // Register our mod's ModConfigSpec so that FML can create and load the config file for us
         //...we'll do this if we actually add a config file
-        //modContainer.registerConfig(ModConfig.Type.COMMON, Config.SPEC);
+        //container.registerConfig(ModConfig.Type.COMMON, Config.SPEC);
     }
 
     public static ResourceLocation prefix(String name) {

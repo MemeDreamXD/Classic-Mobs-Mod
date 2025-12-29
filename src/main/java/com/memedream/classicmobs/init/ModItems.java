@@ -1,10 +1,15 @@
 package com.memedream.classicmobs.init;
 
 import com.memedream.classicmobs.ClassicMobs;
-import com.memedream.classicmobs.item.ModArmorMaterials;
+import com.memedream.classicmobs.item.ChitinTemplateItem;
 import com.memedream.classicmobs.item.ModFoodProperties;
+import net.minecraft.ChatFormatting;
+import net.minecraft.Util;
+import net.minecraft.network.chat.Component;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.SmithingTemplateItem;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.common.DeferredSpawnEggItem;
 import net.neoforged.neoforge.registries.DeferredItem;
@@ -32,23 +37,22 @@ public class ModItems {
                     new Item.Properties()));
 
     public static final DeferredItem<ArmorItem> CHITIN_HELMET = ITEMS.register("chitin_helmet",
-            () -> new ArmorItem(ModArmorMaterials.CHITIN_ARMOR_MATERIAL, ArmorItem.Type.HELMET,
+            () -> new ArmorItem(ModArmorMaterials.CHITIN, ArmorItem.Type.HELMET,
                     new Item.Properties().durability(ArmorItem.Type.HELMET.getDurability(10))));
 
     public static final DeferredItem<ArmorItem> CHITIN_CHESTPLATE = ITEMS.register("chitin_chestplate",
-            () -> new ArmorItem(ModArmorMaterials.CHITIN_ARMOR_MATERIAL, ArmorItem.Type.CHESTPLATE,
+            () -> new ArmorItem(ModArmorMaterials.CHITIN, ArmorItem.Type.CHESTPLATE,
                     new Item.Properties().durability(ArmorItem.Type.CHESTPLATE.getDurability(10))));
 
     public static final DeferredItem<ArmorItem> CHITIN_LEGGINGS = ITEMS.register("chitin_leggings",
-            () -> new ArmorItem(ModArmorMaterials.CHITIN_ARMOR_MATERIAL, ArmorItem.Type.LEGGINGS,
+            () -> new ArmorItem(ModArmorMaterials.CHITIN, ArmorItem.Type.LEGGINGS,
                     new Item.Properties().durability(ArmorItem.Type.LEGGINGS.getDurability(10))));
 
     public static final DeferredItem<ArmorItem> CHITIN_BOOTS = ITEMS.register("chitin_boots",
-            () -> new ArmorItem(ModArmorMaterials.CHITIN_ARMOR_MATERIAL, ArmorItem.Type.BOOTS,
+            () -> new ArmorItem(ModArmorMaterials.CHITIN, ArmorItem.Type.BOOTS,
                     new Item.Properties().durability(ArmorItem.Type.BOOTS.getDurability(10))));
 
-    public static final DeferredItem<Item> CHITIN_UPGRADE_SMITHING_TEMPLATE = ITEMS.register("chitin_upgrade_smithing_template",
-            () -> new Item(new Item.Properties()));
+    public static final DeferredItem<Item> CHITIN_UPGRADE_SMITHING_TEMPLATE = ITEMS.register("chitin_upgrade_smithing_template", ChitinTemplateItem::new);
 
     public static void register(IEventBus eventBus) {
         ITEMS.register(eventBus);

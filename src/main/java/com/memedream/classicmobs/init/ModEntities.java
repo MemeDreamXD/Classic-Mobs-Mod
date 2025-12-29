@@ -22,9 +22,4 @@ public class ModEntities {
     public static final Supplier<EntityType<AntlionEntity>> ANTLION =
             ENTITY_TYPES.register("antlion", () -> EntityType.Builder.of(AntlionEntity::new, MobCategory.MONSTER)
                     .sized(0.8f, 0.4f).build(ClassicMobs.prefix("antlion").toString()));
-
-    public static void register(IEventBus eventBus) {
-        ENTITY_TYPES.register(eventBus);
-    }
-
 }
