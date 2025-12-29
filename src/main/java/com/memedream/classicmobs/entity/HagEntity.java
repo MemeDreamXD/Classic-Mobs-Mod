@@ -26,11 +26,6 @@ public class HagEntity extends Monster {
     @Override
     protected void registerGoals() {
         this.goalSelector.addGoal(1, new FloatGoal(this));
-        // LOL I didn't know spiders did this
-        this.goalSelector.addGoal(2, new AvoidEntityGoal<>(this, Armadillo.class, 6.0F, 1.0, 1.2, p_320185_ -> !((Armadillo)p_320185_).isScared()));
-        // Attack animation we want to use goes in place of leap
-        //this.goalSelector.addGoal(3, new LeapAtTargetGoal(this, 0.4F));
-        // TODO: Using MeleeAttackGoal for now, would like custom attack goal that makes him pinch his lil pinchers
         this.goalSelector.addGoal(4, new MeleeAttackGoal(this, 1.0f, false));
         this.goalSelector.addGoal(5, new WaterAvoidingRandomStrollGoal(this, 0.8));
         this.goalSelector.addGoal(6, new LookAtPlayerGoal(this, Player.class, 8.0F));
@@ -39,7 +34,7 @@ public class HagEntity extends Monster {
     }
 
     public static AttributeSupplier.Builder createAttributes() {
-        return Monster.createMonsterAttributes().add(Attributes.MAX_HEALTH, 12.0F).add(Attributes.ARMOR, 7F).add(Attributes.MOVEMENT_SPEED, 0.3F);
+        return Monster.createMonsterAttributes().add(Attributes.MAX_HEALTH, 26.0F).add(Attributes.ARMOR, 2F).add(Attributes.MOVEMENT_SPEED, 0.3F);
     }
 
     @Override

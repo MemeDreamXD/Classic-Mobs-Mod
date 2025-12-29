@@ -44,6 +44,10 @@ public class ModItems {
             () -> new DeferredSpawnEggItem(ModEntities.HAG, 0x19240c, 0x4d6957,
                     new Item.Properties()));
 
+    public static final DeferredItem<Item> HARPY_SPAWN_EGG = ITEMS.register("harpy_spawn_egg",
+            () -> new DeferredSpawnEggItem(ModEntities.HARPY, 0x231f32, 0x766a4d,
+                    new Item.Properties()));
+
     public static final DeferredItem<ArmorItem> CHITIN_HELMET = ITEMS.register("chitin_helmet",
             () -> new ArmorItem(ModArmorMaterials.CHITIN, ArmorItem.Type.HELMET,
                     new Item.Properties().durability(ArmorItem.Type.HELMET.getDurability(10))));

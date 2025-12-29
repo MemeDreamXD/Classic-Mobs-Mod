@@ -26,7 +26,6 @@ public class AntlionEntity extends Monster {
     @Override
     protected void registerGoals() {
         this.goalSelector.addGoal(1, new FloatGoal(this));
-        // LOL I didn't know spiders did this
         this.goalSelector.addGoal(2, new AvoidEntityGoal<>(this, Armadillo.class, 6.0F, 1.0, 1.2, p_320185_ -> !((Armadillo)p_320185_).isScared()));
         // Attack animation we want to use goes in place of leap
         //this.goalSelector.addGoal(3, new LeapAtTargetGoal(this, 0.4F));

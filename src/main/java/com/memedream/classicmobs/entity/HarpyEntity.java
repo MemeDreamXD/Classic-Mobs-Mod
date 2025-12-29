@@ -15,11 +15,11 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
 
-public class MyrmexEntity extends Monster {
+public class HarpyEntity extends Monster {
 
     // Variables go here
 
-    public MyrmexEntity(EntityType<? extends Monster> entityType, Level level) {
+    public HarpyEntity(EntityType<? extends Monster> entityType, Level level) {
         super(entityType, level);
     }
 
@@ -34,7 +34,7 @@ public class MyrmexEntity extends Monster {
     }
 
     public static AttributeSupplier.Builder createAttributes() {
-        return Monster.createMonsterAttributes().add(Attributes.MAX_HEALTH, 20.0F).add(Attributes.ARMOR, 6F).add(Attributes.MOVEMENT_SPEED, 0.3F);
+        return Monster.createMonsterAttributes().add(Attributes.MAX_HEALTH, 16.0F).add(Attributes.MOVEMENT_SPEED, 0.5F);
     }
 
     @Override
