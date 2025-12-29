@@ -24,6 +24,7 @@ public class ModCreativeModeTabs {
                 output.accept(ModItems.RAW_DODO);
                 output.accept(ModItems.COOKED_DODO);
                 output.accept(ModItems.CHITIN);
+                output.accept(ModItems.HARPY_FEATHER);
                 output.accept(ModItems.CHITIN_HELMET);
                 output.accept(ModItems.CHITIN_CHESTPLATE);
                 output.accept(ModItems.CHITIN_LEGGINGS);
