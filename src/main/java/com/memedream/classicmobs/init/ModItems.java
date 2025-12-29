@@ -28,6 +28,9 @@ public class ModItems {
     public static final DeferredItem<Item> CHITIN = ITEMS.register("chitin",
             () -> new Item(new Item.Properties()));
 
+    public static final DeferredItem<Item> HARPY_FEATHER = ITEMS.register("harpy_feather",
+            () -> new Item(new Item.Properties()));
+
     public static final DeferredItem<Item> DODO_SPAWN_EGG = ITEMS.register("dodo_spawn_egg",
             () -> new DeferredSpawnEggItem(ModEntities.DODO, 0x988476, 0x604835,
                     new Item.Properties()));
