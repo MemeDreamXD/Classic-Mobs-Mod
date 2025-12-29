@@ -3,10 +3,10 @@ package com.memedream.classicmobs.init;
 import com.memedream.classicmobs.ClassicMobs;
 import com.memedream.classicmobs.entity.AntlionEntity;
 import com.memedream.classicmobs.entity.DodoEntity;
+import com.memedream.classicmobs.entity.MyrmexEntity;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
-import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
 import java.util.function.Supplier;
@@ -22,4 +22,8 @@ public class ModEntities {
     public static final Supplier<EntityType<AntlionEntity>> ANTLION =
             ENTITY_TYPES.register("antlion", () -> EntityType.Builder.of(AntlionEntity::new, MobCategory.MONSTER)
                     .sized(0.8f, 0.4f).build(ClassicMobs.prefix("antlion").toString()));
+
+    public static final Supplier<EntityType<MyrmexEntity>> MYRMEX =
+            ENTITY_TYPES.register("myrmex", () -> EntityType.Builder.of(MyrmexEntity::new, MobCategory.MONSTER)
+                    .sized(0.8f, 0.4f).build(ClassicMobs.prefix("myrmex").toString()));
 }

@@ -15,6 +15,7 @@ public class ModRegistrationEvents {
     private static void registerAttributes(EntityAttributeCreationEvent event) {
         event.put(ModEntities.DODO.get(), DodoEntity.createAttributes().build());
         event.put(ModEntities.ANTLION.get(), AntlionEntity.createAttributes().build());
+        event.put(ModEntities.MYRMEX.get(), AntlionEntity.createAttributes().build());
     }
 
 

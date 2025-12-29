@@ -3,8 +3,10 @@ package com.memedream.classicmobs.client.event;
 import com.memedream.classicmobs.client.ModModelLayers;
 import com.memedream.classicmobs.client.model.AntlionModel;
 import com.memedream.classicmobs.client.model.DodoModel;
+import com.memedream.classicmobs.client.model.MyrmexModel;
 import com.memedream.classicmobs.client.renderer.AntlionRenderer;
 import com.memedream.classicmobs.client.renderer.DodoRenderer;
+import com.memedream.classicmobs.client.renderer.MyrmexRenderer;
 import com.memedream.classicmobs.init.ModEntities;
 import com.memedream.classicmobs.init.ModItems;
 import net.minecraft.client.color.item.ItemColors;
@@ -28,11 +30,13 @@ public class ModClientRegistrationEvents {
     private static void registerRenderers(EntityRenderersEvent.RegisterRenderers event) {
         event.registerEntityRenderer(ModEntities.DODO.get(), DodoRenderer::new);
         event.registerEntityRenderer(ModEntities.ANTLION.get(), AntlionRenderer::new);
+        event.registerEntityRenderer(ModEntities.MYRMEX.get(), MyrmexRenderer::new);
     }
 
     private static void registerModelLayers(EntityRenderersEvent.RegisterLayerDefinitions event) {
         event.registerLayerDefinition(ModModelLayers.DODO, DodoModel::create);
         event.registerLayerDefinition(ModModelLayers.ANTLION, AntlionModel::create);
+        event.registerLayerDefinition(ModModelLayers.MYRMEX, MyrmexModel::create);
     }
 
     private static void registerItemColors(RegisterColorHandlersEvent.Item event) {
