@@ -3,6 +3,7 @@ package com.memedream.classicmobs.init;
 import com.memedream.classicmobs.ClassicMobs;
 import com.memedream.classicmobs.entity.AntlionEntity;
 import com.memedream.classicmobs.entity.DodoEntity;
+import com.memedream.classicmobs.entity.HagEntity;
 import com.memedream.classicmobs.entity.MyrmexEntity;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.world.entity.EntityType;
@@ -26,4 +27,8 @@ public class ModEntities {
     public static final Supplier<EntityType<MyrmexEntity>> MYRMEX =
             ENTITY_TYPES.register("myrmex", () -> EntityType.Builder.of(MyrmexEntity::new, MobCategory.MONSTER)
                     .sized(0.8f, 0.4f).build(ClassicMobs.prefix("myrmex").toString()));
+
+    public static final Supplier<EntityType<HagEntity>> HAG =
+            ENTITY_TYPES.register("hag", () -> EntityType.Builder.of(HagEntity::new, MobCategory.MONSTER)
+                    .sized(0.8f, 0.4f).build(ClassicMobs.prefix("hag").toString()));
 }

@@ -18,6 +18,9 @@ public class ModCreativeModeTabs {
             .displayItems((itemDisplayParameters, output) -> {
                 output.accept(ModItems.DODO_SPAWN_EGG);
                 output.accept(ModItems.ANTLION_SPAWN_EGG);
+                output.accept(ModItems.MYRMEX_SPAWN_EGG);
+                output.accept(ModItems.HAG_SPAWN_EGG);
+                //output.accept(ModItems.HARPY_SPAWN_EGG);
                 output.accept(ModItems.RAW_DODO);
                 output.accept(ModItems.COOKED_DODO);
                 output.accept(ModItems.CHITIN);

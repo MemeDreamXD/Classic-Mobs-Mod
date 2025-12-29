@@ -62,6 +62,7 @@ public class AntlionModel extends HierarchicalModel<AntlionEntity> {
         return this.root;
     }
 
+    //TODO: Needs animations. Pinchers should move while breaching and perhaps snap shut when attacking. Legs move in a rotation similarly to the oars of a boat.
     @Override
     public void setupAnim(AntlionEntity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
 

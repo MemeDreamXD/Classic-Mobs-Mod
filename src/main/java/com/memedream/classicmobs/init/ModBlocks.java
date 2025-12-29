@@ -36,10 +36,10 @@ public class ModBlocks {
 
     public static final DeferredBlock<Block> CHITIN_BLOCK = registerBlock("chitin_block",
             () -> new Block(BlockBehaviour.Properties.of().requiresCorrectToolForDrops().mapColor(MapColor.COLOR_BROWN).instrument(NoteBlockInstrument.DIDGERIDOO).strength(1.5F).sound(SoundType.PACKED_MUD)));
-
+//TODO: Make magma cream light non-crouching entities on fire. If possible, give it an glowing texture as well.
     public static final DeferredBlock<Block> MAGMA_CREAM_BLOCK = registerBlock("magma_cream_block",
             () -> new HalfTransparentBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_ORANGE).noOcclusion().instrument(NoteBlockInstrument.PLING).strength(0.8F).sound(SoundType.SLIME_BLOCK)));
-
+    // TODO: Function like an openblocks elevator.
     public static final DeferredBlock<Block> PHANTOM_MEMBRANE_BLOCK = registerBlock("phantom_membrane_block",
             () -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_LIGHT_GRAY).instrument(NoteBlockInstrument.XYLOPHONE).strength(0.8F).sound(SoundType.SOUL_SOIL)));
 
@@ -106,7 +106,7 @@ public class ModBlocks {
     public static final DeferredBlock<Block> PUFFERFISH_BLOCK = registerBlockEdible("pufferfish_block",
             () -> new PufferfishBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_YELLOW).instrument(NoteBlockInstrument.COW_BELL).strength(2.0F).sound(SoundType.FROGSPAWN)),
             ModFoodProperties.PUFFERFISH_BLOCK);
-
+// TODO: Make Dyeable.
     public static final DeferredBlock<Block> LEATHER_BLOCK = registerBlock("leather_block",
             () -> new PufferfishBlock(BlockBehaviour.Properties.of().mapColor(MapColor.DIRT).instrument(NoteBlockInstrument.COW_BELL).strength(0.8F).sound(SoundType.WOOL)));
 

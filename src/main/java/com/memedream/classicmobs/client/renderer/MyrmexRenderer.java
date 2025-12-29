@@ -16,7 +16,7 @@ public class MyrmexRenderer extends MobRenderer<MyrmexEntity, MyrmexModel> {
     public MyrmexRenderer(EntityRendererProvider.Context context) {
         super(context, new MyrmexModel(context.bakeLayer(ModModelLayers.MYRMEX)), 0.4F);
     }
-
+// TODO: Get multiple textures for Myrmex variants
     @Override
     public ResourceLocation getTextureLocation(MyrmexEntity entity) {
         return TEXTURE;

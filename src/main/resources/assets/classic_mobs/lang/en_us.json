@@ -1,6 +1,11 @@
 {
   "item.classic_mobs.dodo_spawn_egg": "Dodo Spawn Egg",
   "item.classic_mobs.antlion_spawn_egg": "Antlion Spawn Egg",
+  "item.classic_mobs.myrmex_spawn_egg": "Myrmex Spawn Egg",
+  "item.classic_mobs.hag_spawn_egg": "Hag Spawn Egg",
+  "item.classic_mobs.harpy_spawn_egg": "Harpy Spawn Egg",
+  "item.classic_mobs.mimic_spawn_egg": "Mimic Spawn Egg",
+  "item.classic_mobs.void_eye_spawn_egg": "Void Eye Spawn Egg",
   "item.classic_mobs.raw_dodo": "Raw Dodo",
   "item.classic_mobs.cooked_dodo": "Cooked Dodo",
   "item.classic_mobs.chitin": "Chitin",
@@ -41,5 +46,10 @@
   "sounds.classic_mobs.dodo_hurt": "Dodo is Hurt",
   "sounds.classic_mobs.dodo_death": "Dodo Dies.",
   "entity.classic_mobs.dodo": "Dodo",
-  "entity.classic_mobs.antlion": "Antlion"
+  "entity.classic_mobs.antlion": "Antlion",
+  "entity.classic_mobs.myrmex": "Myrmex",
+  "entity.classic_mobs.hag": "Hag",
+  "entity.classic_mobs.harpy": "Harpy",
+  "entity.classic_mobs.mimic": "Mimic",
+  "entity.classic_mobs.void_eye": "Void Eye"
 }

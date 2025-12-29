@@ -36,6 +36,14 @@ public class ModItems {
             () -> new DeferredSpawnEggItem(ModEntities.ANTLION, 0x686658, 0x3a3930,
                     new Item.Properties()));
 
+    public static final DeferredItem<Item> MYRMEX_SPAWN_EGG = ITEMS.register("myrmex_spawn_egg",
+            () -> new DeferredSpawnEggItem(ModEntities.MYRMEX, 0x531e10, 0x6e2c19,
+                    new Item.Properties()));
+
+    public static final DeferredItem<Item> HAG_SPAWN_EGG = ITEMS.register("hag_spawn_egg",
+            () -> new DeferredSpawnEggItem(ModEntities.HAG, 0x19240c, 0x4d6957,
+                    new Item.Properties()));
+
     public static final DeferredItem<ArmorItem> CHITIN_HELMET = ITEMS.register("chitin_helmet",
             () -> new ArmorItem(ModArmorMaterials.CHITIN, ArmorItem.Type.HELMET,
                     new Item.Properties().durability(ArmorItem.Type.HELMET.getDurability(10))));

@@ -8,6 +8,8 @@ public class ModModelLayers {
     public static final ModelLayerLocation DODO = register("dodo");
     public static final ModelLayerLocation ANTLION = register("antlion");
     public static final ModelLayerLocation MYRMEX = register("myrmex");
+    public static final ModelLayerLocation HAG = register("hag");
+
 
 
     private static ModelLayerLocation register(String name, String type) {

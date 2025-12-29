@@ -50,6 +50,7 @@ public class MyrmexModel extends HierarchicalModel<MyrmexEntity> {
         return this.root;
     }
 
+    //TODO: Needs animations. This one should be simple, it's basically a zombie with two extra legs. It'll eventually need to be able to wield genric tool items and a shield while still looking correct.
     @Override
     public void setupAnim(MyrmexEntity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
 
