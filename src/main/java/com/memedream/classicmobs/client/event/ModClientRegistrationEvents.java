@@ -1,16 +1,8 @@
 package com.memedream.classicmobs.client.event;
 
 import com.memedream.classicmobs.client.ModModelLayers;
-import com.memedream.classicmobs.client.model.AntlionModel;
-import com.memedream.classicmobs.client.model.DodoModel;
-import com.memedream.classicmobs.client.model.HagModel;
-import com.memedream.classicmobs.client.model.MyrmexModel;
-import com.memedream.classicmobs.client.model.HarpyModel;
-import com.memedream.classicmobs.client.renderer.AntlionRenderer;
-import com.memedream.classicmobs.client.renderer.DodoRenderer;
-import com.memedream.classicmobs.client.renderer.HagRenderer;
-import com.memedream.classicmobs.client.renderer.MyrmexRenderer;
-import com.memedream.classicmobs.client.renderer.HarpyRenderer;
+import com.memedream.classicmobs.client.model.*;
+import com.memedream.classicmobs.client.renderer.*;
 import com.memedream.classicmobs.init.ModEntities;
 import com.memedream.classicmobs.init.ModItems;
 import net.minecraft.client.color.item.ItemColors;
@@ -37,6 +29,9 @@ public class ModClientRegistrationEvents {
         event.registerEntityRenderer(ModEntities.MYRMEX.get(), MyrmexRenderer::new);
         event.registerEntityRenderer(ModEntities.HAG.get(), HagRenderer::new);
         event.registerEntityRenderer(ModEntities.HARPY.get(), HarpyRenderer::new);
+        event.registerEntityRenderer(ModEntities.ROCKET_CREEPER.get(), RocketCreeperRenderer::new);
+        event.registerEntityRenderer(ModEntities.SUPPORT_CREEPER.get(), SupportCreeperRenderer::new);
+        event.registerEntityRenderer(ModEntities.FESTIVE_CREEPER.get(), FestiveCreeperRenderer::new);
     }
 
     private static void registerModelLayers(EntityRenderersEvent.RegisterLayerDefinitions event) {
@@ -45,6 +40,9 @@ public class ModClientRegistrationEvents {
         event.registerLayerDefinition(ModModelLayers.MYRMEX, MyrmexModel::create);
         event.registerLayerDefinition(ModModelLayers.HAG, HagModel::create);
         event.registerLayerDefinition(ModModelLayers.HARPY, HarpyModel::create);
+        event.registerLayerDefinition(ModModelLayers.ROCKET_CREEPER, RocketCreeperModel::create);
+        event.registerLayerDefinition(ModModelLayers.SUPPORT_CREEPER, SupportCreeperModel::create);
+        event.registerLayerDefinition(ModModelLayers.FESTIVE_CREEPER, FestiveCreeperModel::create);
     }
 
     private static void registerItemColors(RegisterColorHandlersEvent.Item event) {

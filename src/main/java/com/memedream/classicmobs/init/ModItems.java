@@ -51,6 +51,18 @@ public class ModItems {
             () -> new DeferredSpawnEggItem(ModEntities.HARPY, 0x231f32, 0x766a4d,
                     new Item.Properties()));
 
+    public static final DeferredItem<Item> ROCKET_SPAWN_EGG = ITEMS.register("rocket_creeper_spawn_egg",
+            () -> new DeferredSpawnEggItem(ModEntities.ROCKET_CREEPER, 0x136ba9, 0x000000,
+                    new Item.Properties()));
+
+    public static final DeferredItem<Item> SUPPORT_SPAWN_EGG = ITEMS.register("support_creeper_spawn_egg",
+            () -> new DeferredSpawnEggItem(ModEntities.SUPPORT_CREEPER, 0xe2c03c, 0x000000,
+                    new Item.Properties()));
+
+    public static final DeferredItem<Item> FESTIVE_SPAWN_EGG = ITEMS.register("festive_creeper_spawn_egg",
+            () -> new DeferredSpawnEggItem(ModEntities.FESTIVE_CREEPER, 0xa62b00, 0x000000,
+                    new Item.Properties()));
+
     public static final DeferredItem<ArmorItem> CHITIN_HELMET = ITEMS.register("chitin_helmet",
             () -> new ArmorItem(ModArmorMaterials.CHITIN, ArmorItem.Type.HELMET,
                     new Item.Properties().durability(ArmorItem.Type.HELMET.getDurability(10))));

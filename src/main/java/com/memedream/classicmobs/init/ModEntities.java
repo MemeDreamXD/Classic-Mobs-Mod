@@ -32,4 +32,17 @@ public class ModEntities {
     public static final Supplier<EntityType<HarpyEntity>> HARPY =
             ENTITY_TYPES.register("harpy", () -> EntityType.Builder.of(HarpyEntity::new, MobCategory.MONSTER)
                     .sized(1.4f, 0.6f).build(ClassicMobs.prefix("harpy").toString()));
+
+    public static final Supplier<EntityType<RocketCreeperEntity>> ROCKET_CREEPER =
+            ENTITY_TYPES.register("rocket_creeper", () -> EntityType.Builder.of(RocketCreeperEntity::new, MobCategory.MONSTER)
+                    .sized(1.4f, 0.6f).build(ClassicMobs.prefix("rocket_creeper").toString()));
+
+    public static final Supplier<EntityType<SupportCreeperEntity>> SUPPORT_CREEPER =
+            ENTITY_TYPES.register("support_creeper", () -> EntityType.Builder.of(SupportCreeperEntity::new, MobCategory.MONSTER)
+                    .sized(1.4f, 0.6f).build(ClassicMobs.prefix("support_creeper").toString()));
+
+    public static final Supplier<EntityType<FestiveCreeperEntity>> FESTIVE_CREEPER =
+            ENTITY_TYPES.register("festive_creeper", () -> EntityType.Builder.of(FestiveCreeperEntity::new, MobCategory.MONSTER)
+                    .sized(1.4f, 0.6f).build(ClassicMobs.prefix("festive_creeper").toString()));
+
 }

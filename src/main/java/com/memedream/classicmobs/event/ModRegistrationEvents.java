@@ -17,6 +17,9 @@ public class ModRegistrationEvents {
         event.put(ModEntities.MYRMEX.get(), MyrmexEntity.createAttributes().build());
         event.put(ModEntities.HAG.get(), HagEntity.createAttributes().build());
         event.put(ModEntities.HARPY.get(), HarpyEntity.createAttributes().build());
+        event.put(ModEntities.ROCKET_CREEPER.get(), RocketCreeperEntity.createAttributes().build());
+        event.put(ModEntities.SUPPORT_CREEPER.get(), SupportCreeperEntity.createAttributes().build());
+        event.put(ModEntities.FESTIVE_CREEPER.get(), FestiveCreeperEntity.createAttributes().build());
 
     }
 

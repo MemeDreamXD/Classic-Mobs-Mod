@@ -21,6 +21,9 @@ public class ModCreativeModeTabs {
                 output.accept(ModItems.MYRMEX_SPAWN_EGG);
                 output.accept(ModItems.HAG_SPAWN_EGG);
                 output.accept(ModItems.HARPY_SPAWN_EGG);
+                output.accept(ModItems.ROCKET_SPAWN_EGG);
+                output.accept(ModItems.SUPPORT_SPAWN_EGG);
+                output.accept(ModItems.FESTIVE_SPAWN_EGG);
                 output.accept(ModItems.RAW_DODO);
                 output.accept(ModItems.COOKED_DODO);
                 output.accept(ModItems.CHITIN);
