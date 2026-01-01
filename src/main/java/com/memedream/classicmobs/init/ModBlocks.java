@@ -50,7 +50,7 @@ public class ModBlocks {
             () -> new BlazeRodBlock(BlockBehaviour.Properties.of().forceSolidOff().instabreak().lightLevel(p_187435_ -> 14).sound(SoundType.WOOD).noOcclusion()));
 
     //TODO: Push entites away from the tip like a fan block.
-    //TODO: Fix "wind" rendering as a solid color. Allow block to animate using the texture provided in #resource-dump channel
+    //TODO: Fix "wind" rendering as a solid color.
     public static final DeferredBlock<BreezeRodBlock> BREEZE_ROD_BLOCK = registerBlock("breeze_rod_block",
             () -> new BreezeRodBlock(BlockBehaviour.Properties.of().forceSolidOff().noOcclusion().instabreak().sound(SoundType.WOOD).noOcclusion()));
 
