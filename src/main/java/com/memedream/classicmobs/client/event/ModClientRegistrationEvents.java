@@ -40,9 +40,6 @@ public class ModClientRegistrationEvents {
         event.registerLayerDefinition(ModModelLayers.MYRMEX, MyrmexModel::create);
         event.registerLayerDefinition(ModModelLayers.HAG, HagModel::create);
         event.registerLayerDefinition(ModModelLayers.HARPY, HarpyModel::create);
-        event.registerLayerDefinition(ModModelLayers.ROCKET_CREEPER, RocketCreeperModel::create);
-        event.registerLayerDefinition(ModModelLayers.SUPPORT_CREEPER, SupportCreeperModel::create);
-        event.registerLayerDefinition(ModModelLayers.FESTIVE_CREEPER, FestiveCreeperModel::create);
     }
 
     private static void registerItemColors(RegisterColorHandlersEvent.Item event) {
