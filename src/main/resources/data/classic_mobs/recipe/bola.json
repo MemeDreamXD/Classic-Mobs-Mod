@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key":{
+    "A":{
+      "item": "minecraft:leather"
+    },
+    "B":{
+      "item": "minecraft:string"
+    },
+    "C":{
+      "item": "classic_mobs:chitin"
+    },
+    "D":{
+      "item": "minecraft:cobblestone"
+    }
+  },
+  "pattern": [
+    " A ",
+    "B B",
+    "CDC"
+  ],
+  "result": {
+    "count": 1,
+    "id": "classic_mobs:bola"
+  }
+}
