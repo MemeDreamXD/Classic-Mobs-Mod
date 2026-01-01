@@ -34,9 +34,11 @@ public class ModItems {
     public static final DeferredItem<Item> LOCK_OF_HAG = ITEMS.register("lock_of_hag",
             () -> new Item(new Item.Properties()));
 
+    //TODO: Make actual arrow lol
     public static final DeferredItem<Item> FLIGHT_ARROW = ITEMS.register("flight_arrow",
             () -> new Item(new Item.Properties()));
 
+    //TODO: Bola functionality
     public static final DeferredItem<Item> BOLA = ITEMS.register("bola",
             () -> new Item(new Item.Properties()));
 

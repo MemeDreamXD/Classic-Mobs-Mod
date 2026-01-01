@@ -1,0 +1,30 @@
+{
+  "variants": {
+    "facing=down": {
+      "model": "classic_mobs:block/breeze_rod_block",
+      "x": 180
+    },
+    "facing=east": {
+      "model": "classic_mobs:block/breeze_rod_block",
+      "x": 90,
+      "y": 90
+    },
+    "facing=north": {
+      "model": "classic_mobs:block/breeze_rod_block",
+      "x": 90
+    },
+    "facing=south": {
+      "model": "classic_mobs:block/breeze_rod_block",
+      "x": 90,
+      "y": 180
+    },
+    "facing=up": {
+      "model": "classic_mobs:block/breeze_rod_block"
+    },
+    "facing=west": {
+      "model": "classic_mobs:block/breeze_rod_block",
+      "x": 90,
+      "y": 270
+    }
+  }
+}

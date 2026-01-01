@@ -48,6 +48,8 @@
   "block.classic_mobs.tropical_fish_block": "Tropical Fish Block",
   "block.classic_mobs.pufferfish_block": "Pufferfish Block",
   "block.classic_mobs.leather_block": "Leather Block",
+  "block.classic_mobs.blaze_rod_block": "Blaze Rod Block",
+  "block.classic_mobs.breeze_rod_block": "Breeze Rod Block",
   "creativetab.classic_mobs.classic_mobs_tab": "Classic Mobs",
   "sounds.classic_mobs.dodo_idle": "Dodo Squawks",
   "sounds.classic_mobs.dodo_hurt": "Dodo is Hurt",

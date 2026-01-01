@@ -58,5 +58,7 @@ public class ModCreativeModeTabs {
                 output.accept(ModBlocks.CHITIN_BLOCK);
                 output.accept(ModBlocks.MAGMA_CREAM_BLOCK);
                 output.accept(ModBlocks.PHANTOM_MEMBRANE_BLOCK);
+                output.accept(ModBlocks.BLAZE_ROD_BLOCK);
+                output.accept(ModBlocks.BREEZE_ROD_BLOCK);
             }).build());
 }
