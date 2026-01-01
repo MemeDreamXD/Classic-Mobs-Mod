@@ -1,18 +1,31 @@
 package com.memedream.classicmobs.client.model;
 
+import com.google.common.collect.ImmutableList;
 import com.memedream.classicmobs.entity.FestiveCreeperEntity;
-import com.memedream.classicmobs.entity.RocketCreeperEntity;
 import net.minecraft.client.model.HierarchicalModel;
 import net.minecraft.client.model.geom.ModelPart;
 import net.minecraft.client.model.geom.PartPose;
 import net.minecraft.client.model.geom.builders.*;
+import net.minecraft.util.Mth;
 
 public class FestiveCreeperModel extends HierarchicalModel<FestiveCreeperEntity> {
 
-    private final ModelPart root;
+    private final ModelPart head;
+    private final ModelPart body;
+    private final ModelPart leg1;
+    private final ModelPart leg2;
+    private final ModelPart leg3;
+    private final ModelPart leg4;
 
     public FestiveCreeperModel(ModelPart root) {
-        this.root = root;
+        //super(true, 9.0F, 2.0F, 1.95F, 2.0F, 24.0F);
+        // Not sure what this means
+        this.head = root.getChild("head");
+        this.body = root.getChild("body");
+        this.leg1 = root.getChild("leg1");
+        this.leg2 = root.getChild("leg2");
+        this.leg3 = root.getChild("leg3");
+        this.leg4 = root.getChild("leg4");
     }
 
     public static LayerDefinition create() {
@@ -35,13 +48,21 @@ public class FestiveCreeperModel extends HierarchicalModel<FestiveCreeperEntity>
     }
 
     @Override
-    public ModelPart root() {
-        return this.root;
+    public void setupAnim(FestiveCreeperEntity entity, float limbSwing, float limbSwingAmount, float netHeadYaw, float headPitch) {
+        this.head.xRot = headPitch * Mth.DEG_TO_RAD;
+        this.head.yRot = netHeadYaw * Mth.DEG_TO_RAD;
+        this.leg1.xRot = Mth.cos(limbSwing * 0.6662F) * 1.4F * limbSwingAmount;
+        this.leg2.xRot = Mth.cos(limbSwing * 0.6662F + (float) Math.PI) * 1.4F * limbSwingAmount;
+        this.leg3.xRot = Mth.cos(limbSwing * 0.6662F + (float) Math.PI) * 1.4F * limbSwingAmount;
+        this.leg4.xRot = Mth.cos(limbSwing * 0.6662F) * 1.4F * limbSwingAmount;
+    }
+    @Override
+    protected Iterable<ModelPart> headParts() {
+        return ImmutableList.of(this.head);
     }
 
-    //TODO: Needs creeper animations.
     @Override
-    public void setupAnim(FestiveCreeperEntity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
-
+    protected Iterable<ModelPart> bodyParts() {
+        return ImmutableList.of(this.body, this.leg1, this.leg2, this.leg3, this.leg4);
     }
 }
