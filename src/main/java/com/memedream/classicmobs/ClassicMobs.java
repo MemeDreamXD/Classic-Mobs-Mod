@@ -32,6 +32,8 @@ public class ClassicMobs {
         ModCreativeModeTabs.TABS.register(bus);
         ModEntities.ENTITY_TYPES.register(bus);
         ModArmorMaterials.MATERIALS.register(bus);
+        ModEffects.MOB_EFFECTS.register(bus);
+        ModPotions.POTIONS.register(bus);
 
         // Register our mod's ModConfigSpec so that FML can create and load the config file for us
         //...we'll do this if we actually add a config file
