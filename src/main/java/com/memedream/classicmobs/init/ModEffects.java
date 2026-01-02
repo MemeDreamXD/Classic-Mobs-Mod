@@ -23,6 +23,22 @@ public class ModEffects {
     public static final Holder<MobEffect> STENCH_EFFECT = MOB_EFFECTS.register("stench",
             () -> new FaeCurseEffect(MobEffectCategory.HARMFUL, 0x15140f));
 
+    public static final Holder<MobEffect> VELOCITY_EFFECT = MOB_EFFECTS.register("velocity",
+            () -> new FaeCurseEffect(MobEffectCategory.BENEFICIAL, 3402751).addAttributeModifier(Attributes.MOVEMENT_SPEED, ResourceLocation.fromNamespaceAndPath(ClassicMobs.MOD_ID, "velocity"), 0.2f,
+                    AttributeModifier.Operation.ADD_MULTIPLIED_TOTAL).addAttributeModifier(Attributes.ATTACK_SPEED, ResourceLocation.fromNamespaceAndPath(ClassicMobs.MOD_ID, "velocity"), 0.2f,
+                    AttributeModifier.Operation.ADD_MULTIPLIED_TOTAL).addAttributeModifier(Attributes.BLOCK_BREAK_SPEED, ResourceLocation.fromNamespaceAndPath(ClassicMobs.MOD_ID, "velocity"), 0.2f,
+                    AttributeModifier.Operation.ADD_MULTIPLIED_TOTAL));
+
+    public static final Holder<MobEffect> FORTIFY_EFFECT = MOB_EFFECTS.register("fortify",
+            () -> new FaeCurseEffect(MobEffectCategory.BENEFICIAL, 16750848).addAttributeModifier(Attributes.ARMOR, ResourceLocation.fromNamespaceAndPath(ClassicMobs.MOD_ID, "fortify"), 4.0f,
+                    AttributeModifier.Operation.ADD_VALUE).addAttributeModifier(Attributes.ARMOR_TOUGHNESS, ResourceLocation.fromNamespaceAndPath(ClassicMobs.MOD_ID, "fortify"), 0.4f,
+                    AttributeModifier.Operation.ADD_VALUE));
+
+    public static final Holder<MobEffect> EMPOWER_EFFECT = MOB_EFFECTS.register("empower",
+            () -> new FaeCurseEffect(MobEffectCategory.BENEFICIAL, 16762624).addAttributeModifier(Attributes.ATTACK_DAMAGE, ResourceLocation.fromNamespaceAndPath(ClassicMobs.MOD_ID, "empower"), 0.2f,
+                    AttributeModifier.Operation.ADD_MULTIPLIED_TOTAL).addAttributeModifier(Attributes.ATTACK_KNOCKBACK, ResourceLocation.fromNamespaceAndPath(ClassicMobs.MOD_ID, "empower"), 0.2f,
+                    AttributeModifier.Operation.ADD_MULTIPLIED_TOTAL));
+
     public static void register(IEventBus eventBus) {
         MOB_EFFECTS.register(eventBus);
     }
