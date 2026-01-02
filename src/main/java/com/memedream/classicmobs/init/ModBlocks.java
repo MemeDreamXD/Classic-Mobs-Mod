@@ -1,10 +1,7 @@
 package com.memedream.classicmobs.init;
 
 import com.memedream.classicmobs.ClassicMobs;
-import com.memedream.classicmobs.block.BlazeRodBlock;
-import com.memedream.classicmobs.block.BreezeRodBlock;
-import com.memedream.classicmobs.block.GunpowderBlock;
-import com.memedream.classicmobs.block.PufferfishBlock;
+import com.memedream.classicmobs.block.*;
 import com.memedream.classicmobs.item.ModFoodProperties;
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.BlockItem;
@@ -39,7 +36,7 @@ public class ModBlocks {
 
     //TODO: Make magma cream light non-crouching entities on fire. If possible, give it an glowing texture as well.
     public static final DeferredBlock<Block> MAGMA_CREAM_BLOCK = registerBlock("magma_cream_block",
-            () -> new HalfTransparentBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_ORANGE).noOcclusion().instrument(NoteBlockInstrument.PLING).strength(0.8F).sound(SoundType.SLIME_BLOCK)));
+            () -> new MagmaCreamBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_ORANGE).noOcclusion().instrument(NoteBlockInstrument.PLING).strength(0.8F).sound(SoundType.SLIME_BLOCK),1f));
 
     // TODO: Function like an openblocks elevator.
     public static final DeferredBlock<Block> PHANTOM_MEMBRANE_BLOCK = registerBlock("phantom_membrane_block",
