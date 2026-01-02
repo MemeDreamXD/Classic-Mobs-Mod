@@ -33,6 +33,7 @@ public class ClassicMobs {
         ModEntities.ENTITY_TYPES.register(bus);
         ModArmorMaterials.MATERIALS.register(bus);
         ModEffects.MOB_EFFECTS.register(bus);
+        ModParticles.PARTICLES.register(bus);
         ModPotions.POTIONS.register(bus);
 
         // Register our mod's ModConfigSpec so that FML can create and load the config file for us

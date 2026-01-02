@@ -2,9 +2,11 @@ package com.memedream.classicmobs.client.event;
 
 import com.memedream.classicmobs.client.ModModelLayers;
 import com.memedream.classicmobs.client.model.*;
+import com.memedream.classicmobs.client.particle.FleshDripParticle;
 import com.memedream.classicmobs.client.renderer.*;
 import com.memedream.classicmobs.init.ModEntities;
 import com.memedream.classicmobs.init.ModItems;
+import com.memedream.classicmobs.init.ModParticles;
 import net.minecraft.client.color.item.ItemColors;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
@@ -12,6 +14,7 @@ import net.minecraft.world.item.component.DyedItemColor;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.client.event.EntityRenderersEvent;
 import net.neoforged.neoforge.client.event.RegisterColorHandlersEvent;
+import net.neoforged.neoforge.client.event.RegisterParticleProvidersEvent;
 import net.neoforged.neoforge.client.extensions.common.IClientItemExtensions;
 import net.neoforged.neoforge.client.extensions.common.RegisterClientExtensionsEvent;
 
@@ -20,6 +23,7 @@ public class ModClientRegistrationEvents {
     public static void init(IEventBus bus) {
         bus.addListener(ModClientRegistrationEvents::registerRenderers);
         bus.addListener(ModClientRegistrationEvents::registerModelLayers);
+        bus.addListener(ModClientRegistrationEvents::registerParticles);
         bus.addListener(ModClientRegistrationEvents::registerItemColors);
     }
 
@@ -40,6 +44,12 @@ public class ModClientRegistrationEvents {
         event.registerLayerDefinition(ModModelLayers.MYRMEX, MyrmexModel::create);
         event.registerLayerDefinition(ModModelLayers.HAG, HagModel::create);
         event.registerLayerDefinition(ModModelLayers.HARPY, HarpyModel::create);
+    }
+
+    private static void registerParticles(RegisterParticleProvidersEvent event) {
+        event.registerSprite(ModParticles.DRIPPING_FLESH.get(), FleshDripParticle::createFleshHangParticle);
+        event.registerSprite(ModParticles.FALLING_FLESH.get(), FleshDripParticle::createFleshFallParticle);
+        event.registerSprite(ModParticles.LANDING_FLESH.get(), FleshDripParticle::createFleshLandParticle);
     }
 
     private static void registerItemColors(RegisterColorHandlersEvent.Item event) {

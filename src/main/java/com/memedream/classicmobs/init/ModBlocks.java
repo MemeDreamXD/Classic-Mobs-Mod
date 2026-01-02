@@ -23,9 +23,8 @@ public class ModBlocks {
             () -> new GunpowderBlock(
                     BlockBehaviour.Properties.of().mapColor(MapColor.STONE).instrument(NoteBlockInstrument.SNARE).strength(0.5F).sound(SoundType.SAND)));
 
-    //TODO: Dripping particles of green water similarly to the dripping particles from a wet sponge block.
     public static final DeferredBlock<Block> ROTTEN_FLESH_BLOCK = registerBlockEdible("rotten_flesh_block",
-            () -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.NETHER).instrument(NoteBlockInstrument.ZOMBIE).strength(2.0F).sound(SoundType.FROGSPAWN)),
+            () -> new RottenFleshBlock(BlockBehaviour.Properties.of().mapColor(MapColor.NETHER).instrument(NoteBlockInstrument.ZOMBIE).strength(2.0F).sound(SoundType.FROGSPAWN)),
             ModFoodProperties.ROTTEN_FLESH_BLOCK);
 
     //TODO: Should reflect projectiles
