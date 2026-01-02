@@ -38,14 +38,13 @@ public class MagmaCreamBlock extends Block {
     @Override
     public void stepOn(Level level, BlockPos pos, BlockState state, Entity entity) {
         if (!entity.isSteppingCarefully() && entity instanceof LivingEntity && !entity.fireImmune()) {
+            entity.hurt(level.damageSources().inFire(), this.fireDamage);
+            super.stepOn(level, pos, state, entity);
                 entity.setRemainingFireTicks(entity.getRemainingFireTicks() + 1);
                 if (entity.getRemainingFireTicks() == 0) {
                     entity.igniteForSeconds(8.0F);
                 }
 
             }
-
-        entity.hurt(level.damageSources().inFire(), this.fireDamage);
-        super.stepOn(level, pos, state, entity);
     }
 }
