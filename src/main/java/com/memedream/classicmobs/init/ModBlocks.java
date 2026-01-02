@@ -19,8 +19,6 @@ public class ModBlocks {
     // Initializing list of blocks that we're going to register
     public static final DeferredRegister.Blocks BLOCKS = DeferredRegister.createBlocks(ClassicMobs.MOD_ID);
 
-    // ColoredFallingBlock needed for falling blocks like sand
-    // ColorRGBA is a functionally useless 8 hex number to represent it's hex color (I used the one for gravel)
     public static final DeferredBlock<Block> GUNPOWDER_BLOCK = registerBlock("gunpowder_block",
             () -> new GunpowderBlock(
                     BlockBehaviour.Properties.of().mapColor(MapColor.STONE).instrument(NoteBlockInstrument.SNARE).strength(0.5F).sound(SoundType.SAND)));
@@ -34,7 +32,6 @@ public class ModBlocks {
     public static final DeferredBlock<Block> CHITIN_BLOCK = registerBlock("chitin_block",
             () -> new Block(BlockBehaviour.Properties.of().requiresCorrectToolForDrops().mapColor(MapColor.COLOR_BROWN).instrument(NoteBlockInstrument.DIDGERIDOO).strength(1.5F).sound(SoundType.PACKED_MUD)));
 
-    //TODO: Make magma cream light non-crouching entities on fire. If possible, give it an glowing texture as well.
     public static final DeferredBlock<Block> MAGMA_CREAM_BLOCK = registerBlock("magma_cream_block",
             () -> new MagmaCreamBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_ORANGE).noOcclusion().instrument(NoteBlockInstrument.PLING).strength(0.8F).sound(SoundType.SLIME_BLOCK),1f));
 
