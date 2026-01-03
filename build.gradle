@@ -103,6 +103,7 @@ dependencies {
 //	compileOnly "me.shedaniel:RoughlyEnoughItems-neoforge:${project.rei_version}"
 //	implementation "dev.emi:emi-neoforge:${project.emi_version}+${project.minecraft_version}"
 
+    runtimeOnly "curse.maven:just-enough-resources-jer-240630:6174588"
 	runtimeOnly "curse.maven:jade-324717:6853386"
 }
 
