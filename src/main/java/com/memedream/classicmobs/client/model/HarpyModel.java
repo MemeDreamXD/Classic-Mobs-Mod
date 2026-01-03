@@ -18,17 +18,17 @@ public class HarpyModel extends HierarchicalModel<HarpyEntity> {
         MeshDefinition meshdefinition = new MeshDefinition();
         PartDefinition partdefinition = meshdefinition.getRoot();
 
-        PartDefinition head = partdefinition.addOrReplaceChild("head", CubeListBuilder.create().texOffs(36, 0).addBox(-7.0F, -8.0F, -1.0F, 8.0F, 8.0F, 8.0F, new CubeDeformation(0.0F))
-                .texOffs(36, 16).addBox(-7.0F, -8.0F, -1.0F, 8.0F, 8.0F, 8.0F, new CubeDeformation(0.1F)), PartPose.offset(3.0F, 7.0F, -8.0F));
+        PartDefinition head = partdefinition.addOrReplaceChild("head", CubeListBuilder.create().texOffs(36, 0).addBox(-4.0F, -4.0F, -8.0F, 8.0F, 8.0F, 8.0F, new CubeDeformation(0.0F))
+                .texOffs(36, 16).addBox(-4.0F, -4.0F, -8.0F, 8.0F, 8.0F, 8.0F, new CubeDeformation(0.1F)), PartPose.offset(0.0F, 3.0F, -1.0F));
 
         PartDefinition body = partdefinition.addOrReplaceChild("body", CubeListBuilder.create().texOffs(0, 0).addBox(-7.0F, -15.0F, -1.0F, 10.0F, 15.0F, 8.0F, new CubeDeformation(0.0F))
                 .texOffs(0, 23).addBox(-7.0F, -15.0F, -1.0F, 10.0F, 9.0F, 8.0F, new CubeDeformation(0.6F)), PartPose.offset(2.0F, 16.0F, -3.0F));
 
-        PartDefinition left_leg = partdefinition.addOrReplaceChild("left_leg", CubeListBuilder.create().texOffs(18, 40).addBox(-3.0F, -8.0F, -3.0F, 4.0F, 8.0F, 4.0F, new CubeDeformation(0.0F))
-                .texOffs(54, 32).addBox(-3.0F, -8.0F, -3.0F, 4.0F, 4.0F, 4.0F, new CubeDeformation(0.3F)), PartPose.offset(4.0F, 24.0F, 1.0F));
+        PartDefinition left_leg = partdefinition.addOrReplaceChild("left_leg", CubeListBuilder.create().texOffs(18, 40).addBox(-2.0F, 0.0F, -2.0F, 4.0F, 8.0F, 4.0F, new CubeDeformation(0.0F))
+                .texOffs(54, 32).addBox(-2.0F, 0.0F, -2.0F, 4.0F, 4.0F, 4.0F, new CubeDeformation(0.3F)), PartPose.offset(3.0F, 16.0F, 0.0F));
 
-        PartDefinition right_leg = partdefinition.addOrReplaceChild("right_leg", CubeListBuilder.create().texOffs(18, 52).addBox(-3.0F, -8.0F, -3.0F, 4.0F, 8.0F, 4.0F, new CubeDeformation(0.0F))
-                .texOffs(54, 40).addBox(-3.0F, -8.0F, -3.0F, 4.0F, 4.0F, 4.0F, new CubeDeformation(0.3F)), PartPose.offset(-2.0F, 24.0F, 1.0F));
+        PartDefinition right_leg = partdefinition.addOrReplaceChild("right_leg", CubeListBuilder.create().texOffs(18, 52).addBox(-2.0F, 0.0F, -2.0F, 4.0F, 8.0F, 4.0F, new CubeDeformation(0.0F))
+                .texOffs(54, 40).addBox(-2.0F, 0.0F, -2.0F, 4.0F, 4.0F, 4.0F, new CubeDeformation(0.3F)), PartPose.offset(-3.0F, 16.0F, 0.0F));
 
         PartDefinition left_wing = partdefinition.addOrReplaceChild("left_wing", CubeListBuilder.create().texOffs(36, 32).addBox(0.0F, 0.0F, -4.0F, 1.0F, 12.0F, 8.0F, new CubeDeformation(0.0F))
                 .texOffs(34, 52).addBox(1.0F, 12.0F, -4.0F, 0.0F, 2.0F, 8.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(5.0F, 2.0F, 0.0F, 0.0F, 0.0F, -0.7854F));
