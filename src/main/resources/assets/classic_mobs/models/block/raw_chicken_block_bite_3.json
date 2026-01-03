@@ -1,0 +1,7 @@
+{
+  "parent": "classic_mobs:block/template/thin_meat_block_bite_3",
+  "textures": {
+    "end": "classic_mobs:block/raw_chicken_block_top",
+    "side": "classic_mobs:block/raw_chicken_block"
+  }
+}

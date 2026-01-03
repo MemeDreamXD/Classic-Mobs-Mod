@@ -3,6 +3,7 @@ package com.memedream.classicmobs.init;
 import com.memedream.classicmobs.ClassicMobs;
 import com.memedream.classicmobs.item.ChitinTemplateItem;
 import com.memedream.classicmobs.item.ModFoodProperties;
+import com.memedream.classicmobs.item.PufferfishBlockItem;
 import net.minecraft.ChatFormatting;
 import net.minecraft.Util;
 import net.minecraft.network.chat.Component;
@@ -91,6 +92,9 @@ public class ModItems {
                     new Item.Properties().durability(ArmorItem.Type.BOOTS.getDurability(10))));
 
     public static final DeferredItem<Item> CHITIN_UPGRADE_SMITHING_TEMPLATE = ITEMS.register("chitin_upgrade_smithing_template", ChitinTemplateItem::new);
+
+    public static final DeferredItem<Item> PUFFERFISH_BLOCK = ITEMS.register("pufferfish_block",
+            () -> new PufferfishBlockItem(new Item.Properties().food(ModFoodProperties.PUFFERFISH_BLOCK)));
 
     public static void register(IEventBus eventBus) {
         ITEMS.register(eventBus);

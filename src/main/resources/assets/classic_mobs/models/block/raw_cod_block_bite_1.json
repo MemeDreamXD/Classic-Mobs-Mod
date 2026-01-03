@@ -1,0 +1,7 @@
+{
+  "parent": "classic_mobs:block/template/three_quarter_block",
+  "textures": {
+    "end": "classic_mobs:block/raw_cod_block_top",
+    "side": "classic_mobs:block/raw_cod_block"
+  }
+}

@@ -2,6 +2,7 @@ package com.memedream.classicmobs.init;
 
 import com.memedream.classicmobs.ClassicMobs;
 import com.memedream.classicmobs.block.*;
+import com.memedream.classicmobs.item.MeatBlockItem;
 import com.memedream.classicmobs.item.ModFoodProperties;
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.BlockItem;
@@ -32,7 +33,7 @@ public class ModBlocks {
             () -> new Block(BlockBehaviour.Properties.of().requiresCorrectToolForDrops().mapColor(MapColor.COLOR_BROWN).instrument(NoteBlockInstrument.DIDGERIDOO).strength(1.5F).sound(SoundType.PACKED_MUD)));
 
     public static final DeferredBlock<Block> MAGMA_CREAM_BLOCK = registerBlock("magma_cream_block",
-            () -> new MagmaCreamBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_ORANGE).noOcclusion().instrument(NoteBlockInstrument.PLING).strength(0.8F).sound(SoundType.SLIME_BLOCK),1f));
+            () -> new MagmaCreamBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_ORANGE).noOcclusion().instrument(NoteBlockInstrument.PLING).strength(0.8F).sound(SoundType.SLIME_BLOCK), 1f));
 
     // TODO: Function like an openblocks elevator.
     public static final DeferredBlock<Block> PHANTOM_MEMBRANE_BLOCK = registerBlock("phantom_membrane_block",
@@ -46,74 +47,72 @@ public class ModBlocks {
     public static final DeferredBlock<BreezeRodBlock> BREEZE_ROD_BLOCK = registerBlock("breeze_rod_block",
             () -> new BreezeRodBlock(BlockBehaviour.Properties.of().forceSolidOff().noOcclusion().instabreak().sound(SoundType.WOOD).noOcclusion()));
 
-
-    public static final DeferredBlock<Block> RAW_BEEF_BLOCK = registerBlockEdible("raw_beef_block",
-            () -> new RotatedPillarBlock(BlockBehaviour.Properties.of().mapColor(MapColor.NETHER).instrument(NoteBlockInstrument.COW_BELL).strength(2.0F).sound(SoundType.FROGSPAWN)),
-            ModFoodProperties.RAW_BEEF_BLOCK);
-
     public static final DeferredBlock<Block> COOKED_BEEF_BLOCK = registerBlockEdible("cooked_beef_block",
-            () -> new RotatedPillarBlock(BlockBehaviour.Properties.of().mapColor(MapColor.NETHER).instrument(NoteBlockInstrument.COW_BELL).strength(2.0F).sound(SoundType.FROGSPAWN)),
+            () -> new MeatBlock(MeatBlock.BoneType.NORMAL, BlockBehaviour.Properties.of().mapColor(MapColor.NETHER).instrument(NoteBlockInstrument.COW_BELL).strength(2.0F).sound(SoundType.FROGSPAWN)),
             ModFoodProperties.COOKED_BEEF_BLOCK);
 
-    public static final DeferredBlock<Block> RAW_MUTTON_BLOCK = registerBlockEdible("raw_mutton_block",
-            () -> new RotatedPillarBlock(BlockBehaviour.Properties.of().mapColor(MapColor.NETHER).instrument(NoteBlockInstrument.COW_BELL).strength(2.0F).sound(SoundType.FROGSPAWN)),
-            ModFoodProperties.RAW_MUTTON_BLOCK);
-
     public static final DeferredBlock<Block> COOKED_MUTTON_BLOCK = registerBlockEdible("cooked_mutton_block",
-            () -> new RotatedPillarBlock(BlockBehaviour.Properties.of().mapColor(MapColor.NETHER).instrument(NoteBlockInstrument.COW_BELL).strength(2.0F).sound(SoundType.FROGSPAWN)),
+            () -> new MeatBlock(MeatBlock.BoneType.NORMAL, BlockBehaviour.Properties.of().mapColor(MapColor.NETHER).instrument(NoteBlockInstrument.COW_BELL).strength(2.0F).sound(SoundType.FROGSPAWN)),
             ModFoodProperties.COOKED_MUTTON_BLOCK);
 
-    public static final DeferredBlock<Block> RAW_PORK_BLOCK = registerBlockEdible("raw_pork_block",
-            () -> new RotatedPillarBlock(BlockBehaviour.Properties.of().mapColor(MapColor.NETHER).instrument(NoteBlockInstrument.COW_BELL).strength(2.0F).sound(SoundType.FROGSPAWN)),
-            ModFoodProperties.RAW_PORK_BLOCK);
-
     public static final DeferredBlock<Block> COOKED_PORK_BLOCK = registerBlockEdible("cooked_pork_block",
-            () -> new RotatedPillarBlock(BlockBehaviour.Properties.of().mapColor(MapColor.NETHER).instrument(NoteBlockInstrument.COW_BELL).strength(2.0F).sound(SoundType.FROGSPAWN)),
+            () -> new MeatBlock(MeatBlock.BoneType.NORMAL, BlockBehaviour.Properties.of().mapColor(MapColor.NETHER).instrument(NoteBlockInstrument.COW_BELL).strength(2.0F).sound(SoundType.FROGSPAWN)),
             ModFoodProperties.COOKED_PORK_BLOCK);
 
-    public static final DeferredBlock<Block> RAW_RABBIT_BLOCK = registerBlockEdible("raw_rabbit_block",
-            () -> new RotatedPillarBlock(BlockBehaviour.Properties.of().mapColor(MapColor.NETHER).instrument(NoteBlockInstrument.COW_BELL).strength(2.0F).sound(SoundType.FROGSPAWN)),
-            ModFoodProperties.RAW_RABBIT_BLOCK);
-
     public static final DeferredBlock<Block> COOKED_RABBIT_BLOCK = registerBlockEdible("cooked_rabbit_block",
-            () -> new RotatedPillarBlock(BlockBehaviour.Properties.of().mapColor(MapColor.NETHER).instrument(NoteBlockInstrument.COW_BELL).strength(2.0F).sound(SoundType.FROGSPAWN)),
+            () -> new MeatBlock(MeatBlock.BoneType.THIN, BlockBehaviour.Properties.of().mapColor(MapColor.NETHER).instrument(NoteBlockInstrument.COW_BELL).strength(2.0F).sound(SoundType.FROGSPAWN)),
             ModFoodProperties.COOKED_RABBIT_BLOCK);
 
-    public static final DeferredBlock<Block> RAW_CHICKEN_BLOCK = registerBlockEdible("raw_chicken_block",
-            () -> new RotatedPillarBlock(BlockBehaviour.Properties.of().mapColor(MapColor.NETHER).instrument(NoteBlockInstrument.COW_BELL).strength(2.0F).sound(SoundType.FROGSPAWN)),
-            ModFoodProperties.RAW_CHICKEN_BLOCK);
-
     public static final DeferredBlock<Block> COOKED_CHICKEN_BLOCK = registerBlockEdible("cooked_chicken_block",
-            () -> new RotatedPillarBlock(BlockBehaviour.Properties.of().mapColor(MapColor.NETHER).instrument(NoteBlockInstrument.COW_BELL).strength(2.0F).sound(SoundType.FROGSPAWN)),
+            () -> new MeatBlock(MeatBlock.BoneType.THIN, BlockBehaviour.Properties.of().mapColor(MapColor.NETHER).instrument(NoteBlockInstrument.COW_BELL).strength(2.0F).sound(SoundType.FROGSPAWN)),
             ModFoodProperties.COOKED_CHICKEN_BLOCK);
 
-    public static final DeferredBlock<Block> RAW_SALMON_BLOCK = registerBlockEdible("raw_salmon_block",
-            () -> new RotatedPillarBlock(BlockBehaviour.Properties.of().mapColor(MapColor.NETHER).instrument(NoteBlockInstrument.COW_BELL).strength(2.0F).sound(SoundType.FROGSPAWN)),
-            ModFoodProperties.RAW_SALMON_BLOCK);
-
     public static final DeferredBlock<Block> COOKED_SALMON_BLOCK = registerBlockEdible("cooked_salmon_block",
-            () -> new RotatedPillarBlock(BlockBehaviour.Properties.of().mapColor(MapColor.NETHER).instrument(NoteBlockInstrument.COW_BELL).strength(2.0F).sound(SoundType.FROGSPAWN)),
+            () -> new MeatBlock(MeatBlock.BoneType.NONE, BlockBehaviour.Properties.of().mapColor(MapColor.NETHER).instrument(NoteBlockInstrument.COW_BELL).strength(2.0F).sound(SoundType.FROGSPAWN)),
             ModFoodProperties.COOKED_SALMON_BLOCK);
 
-    public static final DeferredBlock<Block> RAW_COD_BLOCK = registerBlockEdible("raw_cod_block",
-            () -> new RotatedPillarBlock(BlockBehaviour.Properties.of().mapColor(MapColor.RAW_IRON).instrument(NoteBlockInstrument.COW_BELL).strength(2.0F).sound(SoundType.FROGSPAWN)),
-            ModFoodProperties.RAW_COD_BLOCK);
-
     public static final DeferredBlock<Block> COOKED_COD_BLOCK = registerBlockEdible("cooked_cod_block",
-            () -> new RotatedPillarBlock(BlockBehaviour.Properties.of().mapColor(MapColor.RAW_IRON).instrument(NoteBlockInstrument.COW_BELL).strength(2.0F).sound(SoundType.FROGSPAWN)),
+            () -> new MeatBlock(MeatBlock.BoneType.NONE, BlockBehaviour.Properties.of().mapColor(MapColor.RAW_IRON).instrument(NoteBlockInstrument.COW_BELL).strength(2.0F).sound(SoundType.FROGSPAWN)),
             ModFoodProperties.COOKED_COD_BLOCK);
 
     public static final DeferredBlock<Block> TROPICAL_FISH_BLOCK = registerBlockEdible("tropical_fish_block",
-            () -> new RotatedPillarBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_ORANGE).instrument(NoteBlockInstrument.COW_BELL).strength(2.0F).sound(SoundType.FROGSPAWN)),
+            () -> new MeatBlock(MeatBlock.BoneType.NONE, BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_ORANGE).instrument(NoteBlockInstrument.COW_BELL).strength(2.0F).sound(SoundType.FROGSPAWN)),
             ModFoodProperties.TROPICAL_FISH_BLOCK);
 
-    public static final DeferredBlock<Block> PUFFERFISH_BLOCK = registerBlockEdible("pufferfish_block",
-            () -> new PufferfishBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_YELLOW).instrument(NoteBlockInstrument.COW_BELL).strength(2.0F).sound(SoundType.FROGSPAWN)),
-            ModFoodProperties.PUFFERFISH_BLOCK);
+    public static final DeferredBlock<Block> PUFFERFISH_BLOCK = BLOCKS.register("pufferfish_block",
+            () -> new ConfiguredDirectionalBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_YELLOW).instrument(NoteBlockInstrument.COW_BELL).strength(2.0F).sound(SoundType.FROGSPAWN)));
 
-// TODO: Make Dyeable.
+    public static final DeferredBlock<Block> RAW_BEEF_BLOCK = registerBlockEdible("raw_beef_block",
+            () -> new RawMeatBlock(COOKED_BEEF_BLOCK, MeatBlock.BoneType.NORMAL, BlockBehaviour.Properties.of().mapColor(MapColor.NETHER).instrument(NoteBlockInstrument.COW_BELL).strength(2.0F).sound(SoundType.FROGSPAWN)),
+            ModFoodProperties.RAW_BEEF_BLOCK);
+
+    public static final DeferredBlock<Block> RAW_MUTTON_BLOCK = registerBlockEdible("raw_mutton_block",
+            () -> new RawMeatBlock(COOKED_MUTTON_BLOCK, MeatBlock.BoneType.NORMAL, BlockBehaviour.Properties.of().mapColor(MapColor.NETHER).instrument(NoteBlockInstrument.COW_BELL).strength(2.0F).sound(SoundType.FROGSPAWN)),
+            ModFoodProperties.RAW_MUTTON_BLOCK);
+
+    public static final DeferredBlock<Block> RAW_PORK_BLOCK = registerBlockEdible("raw_pork_block",
+            () -> new RawMeatBlock(COOKED_PORK_BLOCK, MeatBlock.BoneType.NORMAL, BlockBehaviour.Properties.of().mapColor(MapColor.NETHER).instrument(NoteBlockInstrument.COW_BELL).strength(2.0F).sound(SoundType.FROGSPAWN)),
+            ModFoodProperties.RAW_PORK_BLOCK);
+
+    public static final DeferredBlock<Block> RAW_RABBIT_BLOCK = registerBlockEdible("raw_rabbit_block",
+            () -> new RawMeatBlock(COOKED_RABBIT_BLOCK, MeatBlock.BoneType.THIN, BlockBehaviour.Properties.of().mapColor(MapColor.NETHER).instrument(NoteBlockInstrument.COW_BELL).strength(2.0F).sound(SoundType.FROGSPAWN)),
+            ModFoodProperties.RAW_RABBIT_BLOCK);
+
+    public static final DeferredBlock<Block> RAW_CHICKEN_BLOCK = registerBlockEdible("raw_chicken_block",
+            () -> new RawMeatBlock(COOKED_CHICKEN_BLOCK, MeatBlock.BoneType.THIN, BlockBehaviour.Properties.of().mapColor(MapColor.NETHER).instrument(NoteBlockInstrument.COW_BELL).strength(2.0F).sound(SoundType.FROGSPAWN)),
+            ModFoodProperties.RAW_CHICKEN_BLOCK);
+
+    public static final DeferredBlock<Block> RAW_SALMON_BLOCK = registerBlockEdible("raw_salmon_block",
+            () -> new RawMeatBlock(COOKED_SALMON_BLOCK, MeatBlock.BoneType.NONE, BlockBehaviour.Properties.of().mapColor(MapColor.NETHER).instrument(NoteBlockInstrument.COW_BELL).strength(2.0F).sound(SoundType.FROGSPAWN)),
+            ModFoodProperties.RAW_SALMON_BLOCK);
+
+    public static final DeferredBlock<Block> RAW_COD_BLOCK = registerBlockEdible("raw_cod_block",
+            () -> new RawMeatBlock(COOKED_COD_BLOCK, MeatBlock.BoneType.NONE, BlockBehaviour.Properties.of().mapColor(MapColor.RAW_IRON).instrument(NoteBlockInstrument.COW_BELL).strength(2.0F).sound(SoundType.FROGSPAWN)),
+            ModFoodProperties.RAW_COD_BLOCK);
+
+    // TODO: Make Dyeable.
     public static final DeferredBlock<Block> LEATHER_BLOCK = registerBlock("leather_block",
-            () -> new PufferfishBlock(BlockBehaviour.Properties.of().mapColor(MapColor.DIRT).instrument(NoteBlockInstrument.COW_BELL).strength(0.8F).sound(SoundType.WOOL)));
+            () -> new ConfiguredDirectionalBlock(BlockBehaviour.Properties.of().mapColor(MapColor.DIRT).instrument(NoteBlockInstrument.COW_BELL).strength(0.8F).sound(SoundType.WOOL)));
 //TODO: Make rabbit hide "slab-slab" block (should be able to be stacked four times to create a full block"
 
 
@@ -140,6 +139,6 @@ public class ModBlocks {
 
     // Helper function to create and register a block's associated item IF IT IS EDIBLE
     private static <T extends Block> void registerBlockItemEdible(String name, DeferredBlock<T> block, FoodProperties foodProperties) {
-        ModItems.ITEMS.register(name, () -> new BlockItem(block.get(), new Item.Properties().food(foodProperties)));
+        ModItems.ITEMS.register(name, () -> new MeatBlockItem(block.get(), new Item.Properties().food(foodProperties)));
     }
 }

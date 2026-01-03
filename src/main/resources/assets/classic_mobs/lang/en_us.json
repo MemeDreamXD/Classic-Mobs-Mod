@@ -74,5 +74,6 @@
   "entity.classic_mobs.void_eye": "Void Eye",
   "entity.classic_mobs.rocket_creeper": "Rocket Creeper",
   "entity.classic_mobs.festive_creeper": "Festive Creeper",
-  "entity.classic_mobs.support_creeper": "Support Creeper"
+  "entity.classic_mobs.support_creeper": "Support Creeper",
+  "death.attack.classic_mobs.adventurous_eater": "%1$s was an adventurous eater"
 }
