@@ -2,14 +2,17 @@ package com.memedream.classicmobs.client.model;
 
 import com.memedream.classicmobs.entity.AntlionEntity;
 import com.memedream.classicmobs.entity.HagEntity;
+import com.mojang.blaze3d.vertex.PoseStack;
 import net.minecraft.client.model.AnimationUtils;
+import net.minecraft.client.model.ArmedModel;
 import net.minecraft.client.model.HierarchicalModel;
 import net.minecraft.client.model.geom.ModelPart;
 import net.minecraft.client.model.geom.PartPose;
 import net.minecraft.client.model.geom.builders.*;
 import net.minecraft.util.Mth;
+import net.minecraft.world.entity.HumanoidArm;
 
-public class HagModel extends HierarchicalModel<HagEntity> {
+public class HagModel extends HierarchicalModel<HagEntity> implements ArmedModel {
 
     private final ModelPart root;
     private final ModelPart head;
@@ -78,5 +81,15 @@ public class HagModel extends HierarchicalModel<HagEntity> {
         this.arm_left.xRot = 1.0F * Mth.triangleWave(limbSwing, 7.0F) * limbSwingAmount;
         this.arm_right.yRot = 0.0F;
         this.arm_left.yRot = 0.0F;
+    }
+
+    @Override
+    public void translateToHand(HumanoidArm side, PoseStack poseStack) {
+        this.getArm(side).translateAndRotate(poseStack);
+        poseStack.translate(side == HumanoidArm.LEFT ? 0.05D : -0.05D, 0.2D, 0.1D);
+    }
+
+    protected ModelPart getArm(HumanoidArm side) {
+        return side == HumanoidArm.LEFT ? this.arm_left : this.arm_right;
     }
 }
