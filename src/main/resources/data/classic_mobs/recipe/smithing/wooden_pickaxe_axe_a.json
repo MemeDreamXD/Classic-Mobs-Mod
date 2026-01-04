@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "minecraft:wooden_pickaxe"
+  },
+  "base": {
+    "item": "minecraft:wooden_axe"
+  },
+  "result": {
+    "count": 1,
+    "id": "classic_mobs:wooden_pickaxe_axe"
+  },
+  "template": {
+    "item": "classic_mobs:combination_upgrade_smithing_template"
+  }
+}

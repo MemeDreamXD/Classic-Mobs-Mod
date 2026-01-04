@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "minecraft:stone_shovel"
+  },
+  "base": {
+    "item": "minecraft:stone_hoe"
+  },
+  "result": {
+    "count": 1,
+    "id": "classic_mobs:stone_mattock"
+  },
+  "template": {
+    "item": "classic_mobs:combination_upgrade_smithing_template"
+  }
+}

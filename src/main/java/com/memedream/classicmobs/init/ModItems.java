@@ -137,6 +137,8 @@ public class ModItems {
 
     public static final DeferredItem<Item> CHITIN_UPGRADE_SMITHING_TEMPLATE = ITEMS.register("chitin_upgrade_smithing_template", ChitinTemplateItem::new);
 
+    public static final DeferredItem<Item> COMBINATION_UPGRADE_SMITHING_TEMPLATE = ITEMS.register("combination_upgrade_smithing_template", CombinationTemplateItem::new);
+
     public static final DeferredItem<Item> PUFFERFISH_BLOCK = ITEMS.register("pufferfish_block",
             () -> new PufferfishBlockItem(new Item.Properties().food(ModFoodProperties.PUFFERFISH_BLOCK)));
 

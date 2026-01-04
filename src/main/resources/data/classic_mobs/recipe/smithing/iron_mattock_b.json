@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "minecraft:iron_hoe"
+  },
+  "base": {
+    "item": "minecraft:iron_shovel"
+  },
+  "result": {
+    "count": 1,
+    "id": "classic_mobs:iron_mattock"
+  },
+  "template": {
+    "item": "classic_mobs:combination_upgrade_smithing_template"
+  }
+}

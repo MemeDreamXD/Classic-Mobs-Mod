@@ -37,6 +37,7 @@ public class ModCreativeModeTabs {
                 output.accept(ModItems.CHITIN_UPGRADE_SMITHING_TEMPLATE);
                 output.accept(ModItems.FLIGHT_ARROW);
                 output.accept(ModItems.BOLA);
+                output.accept(ModItems.COMBINATION_UPGRADE_SMITHING_TEMPLATE);
                 output.accept(ModItems.WOODEN_PICKAXE_AXE);
                 output.accept(ModItems.WOODEN_MATTOCK);
                 output.accept(ModItems.STONE_PICKAXE_AXE);
