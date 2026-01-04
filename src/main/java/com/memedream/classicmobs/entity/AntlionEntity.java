@@ -5,10 +5,12 @@ import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.goal.*;
 import net.minecraft.world.entity.ai.goal.target.HurtByTargetGoal;
+import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
 import net.minecraft.world.entity.animal.armadillo.Armadillo;
 import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.player.Player;
@@ -27,6 +29,13 @@ public class AntlionEntity extends Monster {
     protected void registerGoals() {
         this.goalSelector.addGoal(1, new FloatGoal(this));
         this.goalSelector.addGoal(2, new AvoidEntityGoal<>(this, Armadillo.class, 6.0F, 1.0, 1.2, p_320185_ -> !((Armadillo)p_320185_).isScared()));
+        //TODO: Make Antlions path towards sand / red sand blocks.
+        //this.goalSelector.addGoal(3, new MoveToBlockGoal() {
+        //    @Override
+        //    protected boolean isValidTarget(LevelReader levelReader, BlockPos blockPos) {
+        //        return false;
+        //    }
+        //});
         // Attack animation we want to use goes in place of leap
         //this.goalSelector.addGoal(3, new LeapAtTargetGoal(this, 0.4F));
         // TODO: Using MeleeAttackGoal for now, would like custom attack goal that makes him pinch his lil pinchers
@@ -35,6 +44,9 @@ public class AntlionEntity extends Monster {
         this.goalSelector.addGoal(6, new LookAtPlayerGoal(this, Player.class, 8.0F));
         this.goalSelector.addGoal(6, new RandomLookAroundGoal(this));
         this.targetSelector.addGoal(1, new HurtByTargetGoal(this));
+        this.targetSelector.addGoal(2, new AntlionEntity.AntlionEntityTargetGoal<>(this, Player.class));
+
+
     }
 
     public static AttributeSupplier.Builder createAttributes() {
@@ -59,5 +71,11 @@ public class AntlionEntity extends Monster {
     @Override
     protected void playStepSound(BlockPos p_33804_, BlockState p_33805_) {
         this.playSound(SoundEvents.SPIDER_STEP, 0.15F, 1.0F);
+    }
+
+    static class AntlionEntityTargetGoal<T extends LivingEntity> extends NearestAttackableTargetGoal<T> {
+        public AntlionEntityTargetGoal(AntlionEntity antlion, Class<T> entityTypeToTarget) {
+            super(antlion, entityTypeToTarget, true);
+        }
     }
 }

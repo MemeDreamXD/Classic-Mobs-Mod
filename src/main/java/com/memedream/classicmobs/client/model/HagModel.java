@@ -13,7 +13,6 @@ public class HagModel extends HierarchicalModel<HagEntity> {
 
     private final ModelPart root;
     private final ModelPart head;
-    private final ModelPart body;
     private final ModelPart arm_right;
     private final ModelPart arm_left;
     private final ModelPart leg_right;
@@ -22,7 +21,6 @@ public class HagModel extends HierarchicalModel<HagEntity> {
     public HagModel(ModelPart root) {
         this.root = root;
         this.head = root.getChild("head");
-        this.body = root.getChild("body");
         this.arm_right = root.getChild("arm_right");
         this.arm_left = root.getChild("arm_left");
         this.leg_left = root.getChild("leg_left");
