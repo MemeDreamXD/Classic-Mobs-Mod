@@ -37,6 +37,18 @@ public class ModCreativeModeTabs {
                 output.accept(ModItems.CHITIN_UPGRADE_SMITHING_TEMPLATE);
                 output.accept(ModItems.FLIGHT_ARROW);
                 output.accept(ModItems.BOLA);
+                output.accept(ModItems.WOODEN_PICKAXE_AXE);
+                output.accept(ModItems.WOODEN_MATTOCK);
+                output.accept(ModItems.STONE_PICKAXE_AXE);
+                output.accept(ModItems.STONE_MATTOCK);
+                output.accept(ModItems.IRON_PICKAXE_AXE);
+                output.accept(ModItems.IRON_MATTOCK);
+                output.accept(ModItems.GOLDEN_PICKAXE_AXE);
+                output.accept(ModItems.GOLDEN_MATTOCK);
+                output.accept(ModItems.DIAMOND_PICKAXE_AXE);
+                output.accept(ModItems.DIAMOND_MATTOCK);
+                output.accept(ModItems.NETHERITE_PICKAXE_AXE);
+                output.accept(ModItems.NETHERITE_MATTOCK);
                 output.accept(ModBlocks.GUNPOWDER_BLOCK);
                 output.accept(ModBlocks.ROTTEN_FLESH_BLOCK);
                 output.accept(ModBlocks.RAW_BEEF_BLOCK);

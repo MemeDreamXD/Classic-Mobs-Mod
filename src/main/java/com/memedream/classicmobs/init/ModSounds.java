@@ -16,6 +16,9 @@ public class ModSounds {
     public static final Supplier<SoundEvent> DODO_IDLE = registerSoundEvent("dodo_idle");
     public static final Supplier<SoundEvent> DODO_HURT = registerSoundEvent("dodo_hurt");
     public static final Supplier<SoundEvent> DODO_DEATH = registerSoundEvent("dodo_death");
+    public static final Supplier<SoundEvent> HARPY_IDLE = registerSoundEvent("harpy_idle");
+    public static final Supplier<SoundEvent> HARPY_HURT = registerSoundEvent("harpy_hurt");
+    public static final Supplier<SoundEvent> HARPY_DEATH = registerSoundEvent("harpy_death");
 
     private static Supplier<SoundEvent> registerSoundEvent(String name) {
         ResourceLocation id = ResourceLocation.fromNamespaceAndPath(ClassicMobs.MOD_ID, name);

@@ -18,5 +18,23 @@
     "sounds": [
       "classic_mobs:dodo_death"
     ]
+  },
+  "harpy_idle": {
+    "subtitle": "sounds.classic_mobs.harpy_idle",
+    "sounds": [
+      "classic_mobs:harpy_idle"
+    ]
+  },
+  "harpy_hurt": {
+    "subtitle": "sounds.classic_mobs.harpy_hurt",
+    "sounds": [
+      "classic_mobs:harpy_hurt"
+    ]
+  },
+  "harpy_death": {
+    "subtitle": "sounds.classic_mobs.harpy_death",
+    "sounds": [
+      "classic_mobs:harpy_death"
+    ]
   }
 }

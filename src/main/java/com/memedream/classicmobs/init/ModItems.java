@@ -1,16 +1,12 @@
 package com.memedream.classicmobs.init;
 
 import com.memedream.classicmobs.ClassicMobs;
-import com.memedream.classicmobs.item.ChitinTemplateItem;
-import com.memedream.classicmobs.item.ModFoodProperties;
-import com.memedream.classicmobs.item.PufferfishBlockItem;
+import com.memedream.classicmobs.item.*;
 import net.minecraft.ChatFormatting;
 import net.minecraft.Util;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.item.ArmorItem;
-import net.minecraft.world.item.Item;
-import net.minecraft.world.item.SmithingTemplateItem;
+import net.minecraft.world.item.*;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.common.DeferredSpawnEggItem;
 import net.neoforged.neoforge.registries.DeferredItem;
@@ -42,6 +38,54 @@ public class ModItems {
     //TODO: Bola functionality
     public static final DeferredItem<Item> BOLA = ITEMS.register("bola",
             () -> new Item(new Item.Properties()));
+
+    public static final DeferredItem<PickaxeAxeItem> WOODEN_PICKAXE_AXE = ITEMS.register("wooden_pickaxe_axe",
+            () -> new PickaxeAxeItem(Tiers.WOOD, new Item.Properties()
+                    .attributes(PickaxeAxeItem.createAttributes(Tiers.WOOD, 6.0f, -3.2f))));
+
+    public static final DeferredItem<MattockItem> WOODEN_MATTOCK = ITEMS.register("wooden_mattock",
+            () -> new MattockItem(Tiers.WOOD, new Item.Properties()
+                    .attributes(MattockItem.createAttributes(Tiers.WOOD, 1.5f, -3.0f))));
+
+    public static final DeferredItem<PickaxeAxeItem> STONE_PICKAXE_AXE = ITEMS.register("stone_pickaxe_axe",
+            () -> new PickaxeAxeItem(Tiers.STONE, new Item.Properties()
+                    .attributes(PickaxeAxeItem.createAttributes(Tiers.STONE, 7.0f, -3.2f))));
+
+    public static final DeferredItem<MattockItem> STONE_MATTOCK = ITEMS.register("stone_mattock",
+            () -> new MattockItem(Tiers.STONE, new Item.Properties()
+                    .attributes(MattockItem.createAttributes(Tiers.STONE, 1.5f, -3.0f))));
+
+    public static final DeferredItem<PickaxeAxeItem> IRON_PICKAXE_AXE = ITEMS.register("iron_pickaxe_axe",
+            () -> new PickaxeAxeItem(Tiers.IRON, new Item.Properties()
+                    .attributes(PickaxeAxeItem.createAttributes(Tiers.IRON, 6.0f, -3.1f))));
+
+    public static final DeferredItem<MattockItem> IRON_MATTOCK = ITEMS.register("iron_mattock",
+            () -> new MattockItem(Tiers.IRON, new Item.Properties()
+                    .attributes(MattockItem.createAttributes(Tiers.IRON, 1.5f, -3.0f))));
+
+    public static final DeferredItem<PickaxeAxeItem> GOLDEN_PICKAXE_AXE = ITEMS.register("golden_pickaxe_axe",
+            () -> new PickaxeAxeItem(Tiers.GOLD, new Item.Properties()
+                    .attributes(PickaxeAxeItem.createAttributes(Tiers.GOLD, 6.0f, -3.0f))));
+
+    public static final DeferredItem<MattockItem> GOLDEN_MATTOCK = ITEMS.register("golden_mattock",
+            () -> new MattockItem(Tiers.GOLD, new Item.Properties()
+                    .attributes(MattockItem.createAttributes(Tiers.GOLD, 1.5f, -3.0f))));
+
+    public static final DeferredItem<PickaxeAxeItem> DIAMOND_PICKAXE_AXE = ITEMS.register("diamond_pickaxe_axe",
+            () -> new PickaxeAxeItem(Tiers.DIAMOND, new Item.Properties()
+                    .attributes(PickaxeAxeItem.createAttributes(Tiers.DIAMOND, 5.0f, -3.0f))));
+
+    public static final DeferredItem<MattockItem> DIAMOND_MATTOCK = ITEMS.register("diamond_mattock",
+            () -> new MattockItem(Tiers.DIAMOND, new Item.Properties()
+                    .attributes(MattockItem.createAttributes(Tiers.DIAMOND, 1.5f, -3.0f))));
+
+    public static final DeferredItem<PickaxeAxeItem> NETHERITE_PICKAXE_AXE = ITEMS.register("netherite_pickaxe_axe",
+            () -> new PickaxeAxeItem(Tiers.NETHERITE, new Item.Properties()
+                    .attributes(PickaxeAxeItem.createAttributes(Tiers.NETHERITE, 5.0f, -3.0f))));
+
+    public static final DeferredItem<MattockItem> NETHERITE_MATTOCK = ITEMS.register("netherite_mattock",
+            () -> new MattockItem(Tiers.NETHERITE, new Item.Properties()
+                    .attributes(MattockItem.createAttributes(Tiers.NETHERITE, 1.5f, -3.0f))));
 
     public static final DeferredItem<Item> DODO_SPAWN_EGG = ITEMS.register("dodo_spawn_egg",
             () -> new DeferredSpawnEggItem(ModEntities.DODO, 0x988476, 0x604835,
