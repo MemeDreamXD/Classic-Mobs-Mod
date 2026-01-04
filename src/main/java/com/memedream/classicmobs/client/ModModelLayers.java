@@ -10,6 +10,7 @@ public class ModModelLayers {
     public static final ModelLayerLocation MYRMEX = register("myrmex");
     public static final ModelLayerLocation HAG = register("hag");
     public static final ModelLayerLocation HARPY = register("harpy");
+    public static final ModelLayerLocation FESTIVE_TNT = register("festive_tnt");
 
     private static ModelLayerLocation register(String name, String type) {
         return new ModelLayerLocation(ClassicMobs.prefix(name), type);

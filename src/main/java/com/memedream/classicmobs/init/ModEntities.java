@@ -45,4 +45,8 @@ public class ModEntities {
             ENTITY_TYPES.register("festive_creeper", () -> EntityType.Builder.of(FestiveCreeperEntity::new, MobCategory.MONSTER)
                     .sized(0.6f, 1.7f).build(ClassicMobs.prefix("festive_creeper").toString()));
 
+    public static final Supplier<EntityType<FestiveTntEntity>> FESTIVE_TNT =
+            ENTITY_TYPES.register("festive_tnt", () -> EntityType.Builder.<FestiveTntEntity>of(FestiveTntEntity::new, MobCategory.MISC)
+                    .sized(0.5F, 0.5F).build(ClassicMobs.prefix("festive_tnt").toString()));
+
 }
