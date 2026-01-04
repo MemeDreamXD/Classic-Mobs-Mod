@@ -36,6 +36,7 @@ public class ModClientRegistrationEvents {
         event.registerEntityRenderer(ModEntities.ROCKET_CREEPER.get(), RocketCreeperRenderer::new);
         event.registerEntityRenderer(ModEntities.SUPPORT_CREEPER.get(), SupportCreeperRenderer::new);
         event.registerEntityRenderer(ModEntities.FESTIVE_CREEPER.get(), FestiveCreeperRenderer::new);
+        event.registerEntityRenderer(ModEntities.FESTIVE_TNT.get(), FestiveTntRenderer::new);
     }
 
     private static void registerModelLayers(EntityRenderersEvent.RegisterLayerDefinitions event) {
@@ -44,6 +45,7 @@ public class ModClientRegistrationEvents {
         event.registerLayerDefinition(ModModelLayers.MYRMEX, MyrmexModel::create);
         event.registerLayerDefinition(ModModelLayers.HAG, HagModel::create);
         event.registerLayerDefinition(ModModelLayers.HARPY, HarpyModel::create);
+        event.registerLayerDefinition(ModModelLayers.FESTIVE_TNT, FestiveTntRenderer::createModel);
     }
 
     private static void registerParticles(RegisterParticleProvidersEvent event) {
