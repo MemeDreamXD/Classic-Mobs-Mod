@@ -43,6 +43,11 @@ public class ModBlocks {
     public static final DeferredBlock<BlazeRodBlock> BLAZE_ROD_BLOCK = registerBlock("blaze_rod_block",
             () -> new BlazeRodBlock(BlockBehaviour.Properties.of().forceSolidOff().instabreak().lightLevel(p_187435_ -> 14).sound(SoundType.WOOD).noOcclusion()));
 
+    //TODO:
+    public static final DeferredBlock<EnderPearlBlock> ENDER_PEARL_BLOCK = registerBlock("ender_pearl_block",
+            () -> new EnderPearlBlock(BlockBehaviour.Properties.of().instabreak().sound(SoundType.AMETHYST)));
+
+
     //TODO: Push entites away from the tip like a fan block.
     public static final DeferredBlock<BreezeRodBlock> BREEZE_ROD_BLOCK = registerBlock("breeze_rod_block",
             () -> new BreezeRodBlock(BlockBehaviour.Properties.of().forceSolidOff().noOcclusion().instabreak().sound(SoundType.WOOD).noOcclusion()));

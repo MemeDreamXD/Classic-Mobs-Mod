@@ -50,7 +50,14 @@ public class ModCreativeModeTabs {
                 output.accept(ModItems.DIAMOND_MATTOCK);
                 output.accept(ModItems.NETHERITE_PICKAXE_AXE);
                 output.accept(ModItems.NETHERITE_MATTOCK);
+                output.accept(ModBlocks.LEATHER_BLOCK);
+                output.accept(ModBlocks.CHITIN_BLOCK);
+                output.accept(ModBlocks.MAGMA_CREAM_BLOCK);
+                output.accept(ModBlocks.PHANTOM_MEMBRANE_BLOCK);
+                output.accept(ModBlocks.BLAZE_ROD_BLOCK);
+                output.accept(ModBlocks.BREEZE_ROD_BLOCK);
                 output.accept(ModBlocks.GUNPOWDER_BLOCK);
+                output.accept(ModBlocks.ENDER_PEARL_BLOCK);
                 output.accept(ModBlocks.ROTTEN_FLESH_BLOCK);
                 output.accept(ModBlocks.RAW_BEEF_BLOCK);
                 output.accept(ModBlocks.COOKED_BEEF_BLOCK);
@@ -68,11 +75,6 @@ public class ModCreativeModeTabs {
                 output.accept(ModBlocks.COOKED_COD_BLOCK);
                 output.accept(ModBlocks.TROPICAL_FISH_BLOCK);
                 output.accept(ModBlocks.PUFFERFISH_BLOCK);
-                output.accept(ModBlocks.LEATHER_BLOCK);
-                output.accept(ModBlocks.CHITIN_BLOCK);
-                output.accept(ModBlocks.MAGMA_CREAM_BLOCK);
-                output.accept(ModBlocks.PHANTOM_MEMBRANE_BLOCK);
-                output.accept(ModBlocks.BLAZE_ROD_BLOCK);
-                output.accept(ModBlocks.BREEZE_ROD_BLOCK);
+
             }).build());
 }

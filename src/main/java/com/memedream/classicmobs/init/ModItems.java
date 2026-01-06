@@ -37,7 +37,7 @@ public class ModItems {
 
     //TODO: Bola functionality
     public static final DeferredItem<Item> BOLA = ITEMS.register("bola",
-            () -> new Item(new Item.Properties()));
+            () -> new Item(new Item.Properties().stacksTo(16)));
 
     public static final DeferredItem<PickaxeAxeItem> WOODEN_PICKAXE_AXE = ITEMS.register("wooden_pickaxe_axe",
             () -> new PickaxeAxeItem(Tiers.WOOD, new Item.Properties()
