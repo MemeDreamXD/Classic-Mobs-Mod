@@ -1,9 +1,11 @@
 {
-	"texture_size": [32, 32],
 	"render_type": "cutout",
 	"textures": {
-		"0": "classic_mobs:block/pointed_tricklith_up_base",
-		"particle": "classic_mobs:block/pointed_tricklith_up_base"
+		"0": "classic_mobs:block/tricklith_block",
+		"1": "classic_mobs:block/pointed_tricklith_up_base",
+		"2": "classic_mobs:block/pointed_tricklith_roots",
+		"3": "classic_mobs:block/pointed_tricklith_crystal",
+		"particle": "classic_mobs:block/tricklith_block"
 	},
 	"elements": [
 		{
@@ -11,10 +13,8 @@
 			"to": [18.5, 16, 2],
 			"rotation": {"angle": -45, "axis": "y", "origin": [2, 0, 2]},
 			"faces": {
-				"north": {"uv": [0, 0, 8, 8], "texture": "#0"},
-				"east": {"uv": [0, 0, 0, 8], "texture": "#0"},
-				"south": {"uv": [0, 0, 8, 8], "texture": "#0"},
-				"west": {"uv": [0, 0, 0, 8], "texture": "#0"}
+				"north": {"uv": [0, 0, 16, 16], "texture": "#1"},
+				"south": {"uv": [0, 0, 16, 16], "texture": "#1"}
 			}
 		},
 		{
@@ -22,10 +22,8 @@
 			"to": [18.5, 16, 14],
 			"rotation": {"angle": 45, "axis": "y", "origin": [2, 0, 14]},
 			"faces": {
-				"north": {"uv": [0, 0, 8, 8], "texture": "#0"},
-				"east": {"uv": [0, 0, 0, 8], "texture": "#0"},
-				"south": {"uv": [0, 0, 8, 8], "texture": "#0"},
-				"west": {"uv": [0, 0, 0, 8], "texture": "#0"}
+				"north": {"uv": [0, 0, 16, 16], "texture": "#1"},
+				"south": {"uv": [0, 0, 16, 16], "texture": "#1"}
 			}
 		},
 		{
@@ -33,12 +31,12 @@
 			"to": [10.5, 8, 10.5],
 			"rotation": {"angle": 0, "axis": "y", "origin": [6, -8, 6]},
 			"faces": {
-				"north": {"uv": [0, 8, 2.5, 12], "texture": "#0"},
-				"east": {"uv": [5.5, 8, 8, 12], "texture": "#0"},
-				"south": {"uv": [0, 12, 2.5, 16], "texture": "#0"},
-				"west": {"uv": [5.5, 12, 8, 16], "texture": "#0"},
-				"up": {"uv": [5.5, 13.5, 3, 11], "texture": "#0"},
-				"down": {"uv": [10.5, 5.5, 8, 8], "texture": "#0"}
+				"north": {"uv": [0, 0, 5, 8], "texture": "#0"},
+				"east": {"uv": [11, 0, 16, 8], "texture": "#0"},
+				"south": {"uv": [0, 8, 5, 16], "texture": "#0"},
+				"west": {"uv": [11, 8, 16, 16], "texture": "#0"},
+				"up": {"uv": [10, 10, 5, 5], "texture": "#0"},
+				"down": {"uv": [5, 11, 0, 16], "texture": "#3"}
 			}
 		},
 		{
@@ -46,12 +44,11 @@
 			"to": [10, 16, 10],
 			"rotation": {"angle": 0, "axis": "y", "origin": [6, 0, 6]},
 			"faces": {
-				"north": {"uv": [0, 8, 2, 12], "texture": "#0"},
-				"east": {"uv": [6, 8, 8, 12], "texture": "#0"},
-				"south": {"uv": [0, 12, 2, 16], "texture": "#0"},
-				"west": {"uv": [6, 12, 8, 16], "texture": "#0"},
-				"up": {"uv": [10, 4.5, 8, 2.5], "texture": "#0"},
-				"down": {"uv": [10, 2.5, 8, 4.5], "texture": "#0"}
+				"north": {"uv": [0, 0, 4, 8], "texture": "#0"},
+				"east": {"uv": [12, 0, 16, 8], "texture": "#0"},
+				"south": {"uv": [0, 8, 4, 16], "texture": "#0"},
+				"west": {"uv": [12, 8, 16, 16], "texture": "#0"},
+				"up": {"uv": [10, 11, 6, 7], "texture": "#0"}
 			}
 		},
 		{
@@ -59,10 +56,10 @@
 			"to": [10.1, 16.1, 10.1],
 			"rotation": {"angle": 0, "axis": "y", "origin": [6, 0, 6]},
 			"faces": {
-				"north": {"uv": [8, 8, 10, 12], "texture": "#0"},
-				"east": {"uv": [14, 8, 16, 12], "texture": "#0"},
-				"south": {"uv": [8, 12, 10, 16], "texture": "#0"},
-				"west": {"uv": [14, 12, 16, 16], "texture": "#0"}
+				"north": {"uv": [0, 0, 4, 8], "texture": "#2"},
+				"east": {"uv": [12, 0, 16, 8], "texture": "#2"},
+				"south": {"uv": [0, 8, 4, 16], "texture": "#2"},
+				"west": {"uv": [12, 8, 16, 16], "texture": "#2"}
 			}
 		},
 		{
@@ -70,10 +67,10 @@
 			"to": [10.6, 8.1, 10.6],
 			"rotation": {"angle": 0, "axis": "y", "origin": [6, -8, 6]},
 			"faces": {
-				"north": {"uv": [8, 8, 10.5, 12], "texture": "#0"},
-				"east": {"uv": [13.5, 8, 16, 12], "texture": "#0"},
-				"south": {"uv": [8, 12, 10.5, 16], "texture": "#0"},
-				"west": {"uv": [13.5, 12, 16, 16], "texture": "#0"}
+				"north": {"uv": [0, 0, 5, 8], "texture": "#2"},
+				"east": {"uv": [11, 0, 16, 8], "texture": "#2"},
+				"south": {"uv": [0, 8, 5, 16], "texture": "#2"},
+				"west": {"uv": [11, 8, 16, 16], "texture": "#2"}
 			}
 		}
 	],
