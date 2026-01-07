@@ -11,6 +11,7 @@ import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
 import net.minecraft.world.level.material.MapColor;
+import net.minecraft.world.level.material.PushReaction;
 import net.neoforged.neoforge.registries.DeferredBlock;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
@@ -46,6 +47,13 @@ public class ModBlocks {
     //TODO:
     public static final DeferredBlock<EnderPearlBlock> ENDER_PEARL_BLOCK = registerBlock("ender_pearl_block",
             () -> new EnderPearlBlock(BlockBehaviour.Properties.of().instabreak().sound(SoundType.AMETHYST)));
+
+    public static final DeferredBlock<Block> TRICKLITH_BLOCK = registerBlock("tricklith_block",
+            () -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_BROWN).requiresCorrectToolForDrops().instrument(NoteBlockInstrument.BASEDRUM).sound(SoundType.DRIPSTONE_BLOCK).randomTicks().strength(1.5F, 3.0F)));
+
+
+    public static final DeferredBlock<PointedTricklithBlock> POINTED_TRICKLITH = registerBlock("pointed_tricklith",
+            () -> new PointedTricklithBlock(BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_BROWN).requiresCorrectToolForDrops().forceSolidOn().instrument(NoteBlockInstrument.BASEDRUM).noOcclusion().sound(SoundType.POINTED_DRIPSTONE).randomTicks().strength(1.5F, 3.0F).dynamicShape().offsetType(BlockBehaviour.OffsetType.XZ).pushReaction(PushReaction.DESTROY)));
 
 
     //TODO: Push entites away from the tip like a fan block.

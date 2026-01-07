@@ -1,8 +1,9 @@
 {
 	"texture_size": [32, 32],
+	"render_type": "cutout",
 	"textures": {
-		"0": "classic_mobs:block/tricklith_down_middle",
-		"particle": "classic_mobs:block/tricklith_down_middle"
+		"0": "classic_mobs:block/pointed_tricklith_up_frustum",
+		"particle": "classic_mobs:block/pointed_tricklith_up_frustum"
 	},
 	"elements": [
 		{
@@ -36,27 +37,27 @@
 				"east": {"uv": [6.5, 8, 8, 12], "texture": "#0"},
 				"south": {"uv": [0, 12, 1.5, 16], "texture": "#0"},
 				"west": {"uv": [6.5, 12, 8, 16], "texture": "#0"},
-				"up": {"uv": [10, 7.5, 8.5, 6], "texture": "#0"},
+				"up": {"uv": [4.5, 12.5, 3, 11], "texture": "#0"},
 				"down": {"uv": [10, 6, 8.5, 7.5], "texture": "#0"}
 			}
 		},
 		{
-			"from": [6, 8, 6],
-			"to": [10, 16, 10],
-			"rotation": {"angle": 0, "axis": "y", "origin": [6, 0, 6]},
+			"from": [7, 8, 7],
+			"to": [9, 16, 9],
+			"rotation": {"angle": 0, "axis": "y", "origin": [7, 0, 7]},
 			"faces": {
-				"north": {"uv": [0, 8, 2, 12], "texture": "#0"},
-				"east": {"uv": [6, 8, 8, 12], "texture": "#0"},
-				"south": {"uv": [0, 12, 2, 16], "texture": "#0"},
-				"west": {"uv": [6, 12, 8, 16], "texture": "#0"},
-				"up": {"uv": [10, 4.5, 8, 2.5], "texture": "#0"},
-				"down": {"uv": [5, 11, 3, 13], "texture": "#0"}
+				"north": {"uv": [0, 8, 1, 12], "texture": "#0"},
+				"east": {"uv": [7, 8, 8, 12], "texture": "#0"},
+				"south": {"uv": [0, 12, 1, 16], "texture": "#0"},
+				"west": {"uv": [7, 12, 8, 16], "texture": "#0"},
+				"up": {"uv": [9.5, 4, 8.5, 3], "texture": "#0"},
+				"down": {"uv": [9.5, 3, 8.5, 4], "texture": "#0"}
 			}
 		}
 	],
 	"groups": [
 		{
-			"name": "middle",
+			"name": "frustum",
 			"origin": [8, 8, 8],
 			"color": 0,
 			"children": [0, 1, 2, 3]

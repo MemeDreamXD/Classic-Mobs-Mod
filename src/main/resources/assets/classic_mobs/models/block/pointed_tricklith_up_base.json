@@ -1,8 +1,9 @@
 {
 	"texture_size": [32, 32],
+	"render_type": "cutout",
 	"textures": {
-		"0": "classic_mobs:block/tricklith_down_base",
-		"particle": "classic_mobs:block/tricklith_down_base"
+		"0": "classic_mobs:block/pointed_tricklith_up_base",
+		"particle": "classic_mobs:block/pointed_tricklith_up_base"
 	},
 	"elements": [
 		{
@@ -28,22 +29,22 @@
 			}
 		},
 		{
-			"from": [5.5, 8, 5.5],
-			"to": [10.5, 16, 10.5],
-			"rotation": {"angle": 0, "axis": "y", "origin": [6, 0, 6]},
+			"from": [5.5, 0, 5.5],
+			"to": [10.5, 8, 10.5],
+			"rotation": {"angle": 0, "axis": "y", "origin": [6, -8, 6]},
 			"faces": {
 				"north": {"uv": [0, 8, 2.5, 12], "texture": "#0"},
 				"east": {"uv": [5.5, 8, 8, 12], "texture": "#0"},
 				"south": {"uv": [0, 12, 2.5, 16], "texture": "#0"},
 				"west": {"uv": [5.5, 12, 8, 16], "texture": "#0"},
-				"up": {"uv": [10.5, 8, 8, 5.5], "texture": "#0"},
-				"down": {"uv": [5.5, 11, 3, 13.5], "texture": "#0"}
+				"up": {"uv": [5.5, 13.5, 3, 11], "texture": "#0"},
+				"down": {"uv": [10.5, 5.5, 8, 8], "texture": "#0"}
 			}
 		},
 		{
-			"from": [6, 0, 6],
-			"to": [10, 8, 10],
-			"rotation": {"angle": 0, "axis": "y", "origin": [6, -8, 6]},
+			"from": [6, 8, 6],
+			"to": [10, 16, 10],
+			"rotation": {"angle": 0, "axis": "y", "origin": [6, 0, 6]},
 			"faces": {
 				"north": {"uv": [0, 8, 2, 12], "texture": "#0"},
 				"east": {"uv": [6, 8, 8, 12], "texture": "#0"},

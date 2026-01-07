@@ -50,6 +50,8 @@ public class ModCreativeModeTabs {
                 output.accept(ModItems.DIAMOND_MATTOCK);
                 output.accept(ModItems.NETHERITE_PICKAXE_AXE);
                 output.accept(ModItems.NETHERITE_MATTOCK);
+                output.accept(ModBlocks.TRICKLITH_BLOCK);
+                output.accept(ModBlocks.POINTED_TRICKLITH);
                 output.accept(ModBlocks.LEATHER_BLOCK);
                 output.accept(ModBlocks.CHITIN_BLOCK);
                 output.accept(ModBlocks.MAGMA_CREAM_BLOCK);

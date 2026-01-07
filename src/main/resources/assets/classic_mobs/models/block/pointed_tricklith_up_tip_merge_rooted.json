@@ -1,8 +1,9 @@
 {
 	"texture_size": [32, 32],
+	"render_type": "cutout",
 	"textures": {
-		"0": "classic_mobs:block/tricklith_up_tip",
-		"particle": "classic_mobs:block/tricklith_up_tip"
+		"0": "classic_mobs:block/pointed_tricklith_up_tip_merge",
+		"particle": "classic_mobs:block/pointed_tricklith_up_tip_merge"
 	},
 	"elements": [
 		{

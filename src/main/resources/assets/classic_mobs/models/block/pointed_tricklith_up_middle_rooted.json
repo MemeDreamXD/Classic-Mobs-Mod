@@ -1,8 +1,9 @@
 {
 	"texture_size": [32, 32],
+	"render_type": "cutout",
 	"textures": {
-		"0": "classic_mobs:block/tricklith_up_frustum",
-		"particle": "classic_mobs:block/tricklith_up_frustum"
+		"0": "classic_mobs:block/pointed_tricklith_up_middle",
+		"particle": "classic_mobs:block/pointed_tricklith_up_middle"
 	},
 	"elements": [
 		{
@@ -28,57 +29,57 @@
 			}
 		},
 		{
-			"from": [6.5, 0, 6.5],
-			"to": [9.5, 8, 9.5],
-			"rotation": {"angle": 0, "axis": "y", "origin": [7, -8, 7]},
+			"from": [6.5, 8, 6.5],
+			"to": [9.5, 16, 9.5],
+			"rotation": {"angle": 0, "axis": "y", "origin": [7, 0, 7]},
 			"faces": {
 				"north": {"uv": [0, 8, 1.5, 12], "texture": "#0"},
 				"east": {"uv": [6.5, 8, 8, 12], "texture": "#0"},
 				"south": {"uv": [0, 12, 1.5, 16], "texture": "#0"},
 				"west": {"uv": [6.5, 12, 8, 16], "texture": "#0"},
-				"up": {"uv": [4.5, 12.5, 3, 11], "texture": "#0"},
+				"up": {"uv": [10, 7.5, 8.5, 6], "texture": "#0"},
 				"down": {"uv": [10, 6, 8.5, 7.5], "texture": "#0"}
 			}
 		},
 		{
-			"from": [7, 8, 7],
-			"to": [9, 16, 9],
-			"rotation": {"angle": 0, "axis": "y", "origin": [7, 0, 7]},
+			"from": [6, 0, 6],
+			"to": [10, 8, 10],
+			"rotation": {"angle": 0, "axis": "y", "origin": [6, -8, 6]},
 			"faces": {
-				"north": {"uv": [0, 8, 1, 12], "texture": "#0"},
-				"east": {"uv": [7, 8, 8, 12], "texture": "#0"},
-				"south": {"uv": [0, 12, 1, 16], "texture": "#0"},
-				"west": {"uv": [7, 12, 8, 16], "texture": "#0"},
-				"up": {"uv": [9.5, 4, 8.5, 3], "texture": "#0"},
-				"down": {"uv": [9.5, 3, 8.5, 4], "texture": "#0"}
+				"north": {"uv": [0, 8, 2, 12], "texture": "#0"},
+				"east": {"uv": [6, 8, 8, 12], "texture": "#0"},
+				"south": {"uv": [0, 12, 2, 16], "texture": "#0"},
+				"west": {"uv": [6, 12, 8, 16], "texture": "#0"},
+				"up": {"uv": [5, 13, 3, 11], "texture": "#0"},
+				"down": {"uv": [10, 2.5, 8, 4.5], "texture": "#0"}
 			}
 		},
 		{
-			"from": [6.9, 7.9, 6.9],
-			"to": [9.1, 16.1, 9.1],
+			"from": [6.4, 7.9, 6.4],
+			"to": [9.6, 16.1, 9.6],
 			"rotation": {"angle": 0, "axis": "y", "origin": [7, 0, 7]},
-			"faces": {
-				"north": {"uv": [8, 8, 9, 12], "texture": "#0"},
-				"east": {"uv": [15, 8, 16, 12], "texture": "#0"},
-				"south": {"uv": [8, 12, 9, 16], "texture": "#0"},
-				"west": {"uv": [15, 12, 16, 16], "texture": "#0"}
-			}
-		},
-		{
-			"from": [6.4, -0.1, 6.4],
-			"to": [9.6, 8.1, 9.6],
-			"rotation": {"angle": 0, "axis": "y", "origin": [7, -8, 7]},
 			"faces": {
 				"north": {"uv": [8, 8, 9.5, 12], "texture": "#0"},
 				"east": {"uv": [14.5, 8, 16, 12], "texture": "#0"},
 				"south": {"uv": [8, 12, 9.5, 16], "texture": "#0"},
 				"west": {"uv": [14.5, 12, 16, 16], "texture": "#0"}
 			}
+		},
+		{
+			"from": [5.9, -0.1, 5.9],
+			"to": [10.1, 8.1, 10.1],
+			"rotation": {"angle": 0, "axis": "y", "origin": [6, -8, 6]},
+			"faces": {
+				"north": {"uv": [8, 8, 10, 12], "texture": "#0"},
+				"east": {"uv": [14, 8, 16, 12], "texture": "#0"},
+				"south": {"uv": [8, 12, 10, 16], "texture": "#0"},
+				"west": {"uv": [14, 12, 16, 16], "texture": "#0"}
+			}
 		}
 	],
 	"groups": [
 		{
-			"name": "frustum",
+			"name": "middle",
 			"origin": [8, 8, 8],
 			"color": 0,
 			"children": [0, 1, 2, 3]
