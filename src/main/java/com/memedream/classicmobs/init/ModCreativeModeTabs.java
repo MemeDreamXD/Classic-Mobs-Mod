@@ -57,6 +57,7 @@ public class ModCreativeModeTabs {
                 output.accept(ModBlocks.FERMENTED_SPIDER_EYE_BLOCK);
                 output.accept(ModBlocks.STRING_BLOCK);
                 output.accept(ModBlocks.CHITIN_BLOCK);
+                output.accept(ModBlocks.BLOCK_OF_BONES);
                 output.accept(ModBlocks.MAGMA_CREAM_BLOCK);
                 output.accept(ModBlocks.PHANTOM_MEMBRANE_BLOCK);
                 output.accept(ModBlocks.BLAZE_ROD_BLOCK);

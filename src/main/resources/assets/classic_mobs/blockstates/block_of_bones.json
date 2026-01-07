@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "axis=x": {
+      "model": "classic_mobs:block/block_of_bones",
+      "x": 90,
+      "y": 90
+    },
+    "axis=y": {
+      "model": "classic_mobs:block/block_of_bones"
+    },
+    "axis=z": {
+      "model": "classic_mobs:block/block_of_bones",
+      "x": 90
+    }
+  }
+}

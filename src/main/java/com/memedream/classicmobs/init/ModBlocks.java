@@ -44,6 +44,9 @@ public class ModBlocks {
     public static final DeferredBlock<Block> PHANTOM_MEMBRANE_BLOCK = registerBlock("phantom_membrane_block",
             () -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_LIGHT_GRAY).instrument(NoteBlockInstrument.XYLOPHONE).strength(0.8F).sound(SoundType.SOUL_SOIL)));
 
+    public static final DeferredBlock<Block> BLOCK_OF_BONES = registerBlock("block_of_bones",
+            () -> new RotatedPillarBlock(BlockBehaviour.Properties.of().mapColor(MapColor.SAND).instrument(NoteBlockInstrument.XYLOPHONE).requiresCorrectToolForDrops().strength(2.0F).noOcclusion().sound(SoundType.BONE_BLOCK)));
+
     //TODO: Speed up "furnace blocks" that the tip is pointing towards.
     public static final DeferredBlock<BlazeRodBlock> BLAZE_ROD_BLOCK = registerBlock("blaze_rod_block",
             () -> new BlazeRodBlock(BlockBehaviour.Properties.of().forceSolidOff().instabreak().lightLevel(p_187435_ -> 14).sound(SoundType.WOOD).noOcclusion()));
@@ -59,6 +62,8 @@ public class ModBlocks {
     public static final DeferredBlock<PointedTricklithBlock> POINTED_TRICKLITH = registerBlock("pointed_tricklith",
             () -> new PointedTricklithBlock(BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_BROWN).requiresCorrectToolForDrops().forceSolidOn().instrument(NoteBlockInstrument.BASEDRUM).noOcclusion().sound(SoundType.POINTED_DRIPSTONE).randomTicks().strength(1.5F, 3.0F).dynamicShape().offsetType(BlockBehaviour.OffsetType.XZ).pushReaction(PushReaction.DESTROY)));
 
+    //public static final DeferredBlock<Block> GHAST_TEARS = registerBlock("ghast_tears",
+    //        () -> new LiquidBlock(ModFluids.GHAST_TEARS, Properties.of().mapColor(MapColor.TERRACOTTA_GRAY).replaceable().noCollission().strength(100.0F).pushReaction(PushReaction.DESTROY).noLootTable().liquid().sound(SoundType.EMPTY)));
 
     //TODO: Push entites away from the tip like a fan block.
     public static final DeferredBlock<BreezeRodBlock> BREEZE_ROD_BLOCK = registerBlock("breeze_rod_block",
