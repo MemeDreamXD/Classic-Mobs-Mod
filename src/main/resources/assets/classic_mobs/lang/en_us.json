@@ -64,6 +64,8 @@
   "block.classic_mobs.gunpowder_block": "Block of Gunpowder",
   "block.classic_mobs.string_block": "Block of String",
   "block.classic_mobs.ender_pearl_block": "Ender Pearl Block",
+  "block.classic_mobs.spider_eye_block": "Spider Eye Block",
+  "block.classic_mobs.fermented_spider_eye_block": "Fermented Spider Eye Block",
   "block.classic_mobs.chitin_block": "Block of Chitin",
   "block.classic_mobs.magma_cream_block": "Block of Magma Cream",
   "block.classic_mobs.rotten_flesh_block": "Block of Rotten Flesh",

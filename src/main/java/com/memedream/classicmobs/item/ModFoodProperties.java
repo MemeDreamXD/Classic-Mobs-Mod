@@ -10,6 +10,7 @@ public class ModFoodProperties {
     public static final FoodProperties RAW_DODO = new FoodProperties.Builder().nutrition(4).saturationModifier(0.24f).effect(() -> new MobEffectInstance(MobEffects.HUNGER, 600), 0.3f).build();
     public static final FoodProperties COOKED_DODO = new FoodProperties.Builder().nutrition(10).saturationModifier(0.85f).effect(() -> new MobEffectInstance(MobEffects.SATURATION, 200), 1.0f).build();
     public static final FoodProperties ROTTEN_FLESH_BLOCK = new FoodProperties.Builder().nutrition(36).saturationModifier(0.1f).effect(() -> new MobEffectInstance(MobEffects.HUNGER, 600, 9), 0.8f).build();
+    public static final FoodProperties SPIDER_EYE_BLOCK = new FoodProperties.Builder().nutrition(18).saturationModifier(0.8f).effect(() -> new MobEffectInstance(MobEffects.POISON, 100, 9), 1.0f).build();
     public static final FoodProperties RAW_BEEF_BLOCK = new FoodProperties.Builder().nutrition(27).saturationModifier(1.62f).build();
     public static final FoodProperties COOKED_BEEF_BLOCK = new FoodProperties.Builder().nutrition(64).saturationModifier(7.2f).build();
     public static final FoodProperties RAW_MUTTON_BLOCK = new FoodProperties.Builder().nutrition(18).saturationModifier(2.7F).build();

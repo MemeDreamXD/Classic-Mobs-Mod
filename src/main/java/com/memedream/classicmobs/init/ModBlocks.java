@@ -68,6 +68,13 @@ public class ModBlocks {
             () -> new MeatBlock(MeatBlock.BoneType.NORMAL, BlockBehaviour.Properties.of().mapColor(MapColor.NETHER).instrument(NoteBlockInstrument.COW_BELL).strength(2.0F).sound(SoundType.FROGSPAWN)),
             ModFoodProperties.COOKED_BEEF_BLOCK);
 
+    public static final DeferredBlock<Block> SPIDER_EYE_BLOCK = registerBlockEdible("spider_eye_block",
+            () -> new SpiderEyeBlock(BlockBehaviour.Properties.of().noOcclusion().mapColor(MapColor.NETHER).instrument(NoteBlockInstrument.COW_BELL).strength(2.0F).sound(SoundType.FROGSPAWN)),
+            ModFoodProperties.SPIDER_EYE_BLOCK);
+
+    public static final DeferredBlock<Block> FERMENTED_SPIDER_EYE_BLOCK = registerBlock("fermented_spider_eye_block",
+            () -> new SpiderEyeBlock(BlockBehaviour.Properties.of().noOcclusion().mapColor(MapColor.NETHER).instrument(NoteBlockInstrument.COW_BELL).strength(2.0F).sound(SoundType.FROGSPAWN)));
+
     public static final DeferredBlock<Block> COOKED_MUTTON_BLOCK = registerBlockEdible("cooked_mutton_block",
             () -> new MeatBlock(MeatBlock.BoneType.NORMAL, BlockBehaviour.Properties.of().mapColor(MapColor.NETHER).instrument(NoteBlockInstrument.COW_BELL).strength(2.0F).sound(SoundType.FROGSPAWN)),
             ModFoodProperties.COOKED_MUTTON_BLOCK);
