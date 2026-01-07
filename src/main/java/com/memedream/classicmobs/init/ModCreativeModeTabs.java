@@ -53,6 +53,7 @@ public class ModCreativeModeTabs {
                 output.accept(ModBlocks.TRICKLITH_BLOCK);
                 output.accept(ModBlocks.POINTED_TRICKLITH);
                 output.accept(ModBlocks.LEATHER_BLOCK);
+                output.accept(ModBlocks.STRING_BLOCK);
                 output.accept(ModBlocks.CHITIN_BLOCK);
                 output.accept(ModBlocks.MAGMA_CREAM_BLOCK);
                 output.accept(ModBlocks.PHANTOM_MEMBRANE_BLOCK);

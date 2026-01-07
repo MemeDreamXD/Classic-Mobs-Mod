@@ -33,6 +33,10 @@ public class ModBlocks {
     public static final DeferredBlock<Block> CHITIN_BLOCK = registerBlock("chitin_block",
             () -> new Block(BlockBehaviour.Properties.of().requiresCorrectToolForDrops().mapColor(MapColor.COLOR_BROWN).instrument(NoteBlockInstrument.DIDGERIDOO).strength(1.5F).sound(SoundType.PACKED_MUD)));
 
+    public static final DeferredBlock<Block> STRING_BLOCK = registerBlock("string_block",
+            () -> new WebBlock(BlockBehaviour.Properties.of().noOcclusion().mapColor(MapColor.SNOW).forceSolidOn().noCollission().instrument(NoteBlockInstrument.GUITAR).strength(0.8F).sound(SoundType.COBWEB).ignitedByLava()));
+
+
     public static final DeferredBlock<Block> MAGMA_CREAM_BLOCK = registerBlock("magma_cream_block",
             () -> new MagmaCreamBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_ORANGE).noOcclusion().instrument(NoteBlockInstrument.PLING).strength(0.8F).sound(SoundType.SLIME_BLOCK), 1f));
 
