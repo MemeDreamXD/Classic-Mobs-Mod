@@ -1,24 +1,22 @@
 package com.memedream.classicmobs.item;
 
-import com.google.common.collect.Sets;
+import net.neoforged.neoforge.common.ItemAbilities;
 import net.neoforged.neoforge.common.ItemAbility;
 
+import java.util.HashSet;
 import java.util.Set;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
-
-import static net.neoforged.neoforge.common.ItemAbilities.*;
 
 public class ModItemAbilities {
-    public static final Set<ItemAbility> DEFAULT_PICKAXE_AXE_ACTIONS;
-    public static final Set<ItemAbility> DEFAULT_MATTOCK_ACTIONS;
 
-    private static Set<ItemAbility> of(ItemAbility... actions) {
-        return Stream.of(actions).collect(Collectors.toCollection(Sets::newIdentityHashSet));
-    }
+    public static final Set<ItemAbility> DEFAULT_PICKAXE_AXE_ACTIONS = of(ItemAbilities.DEFAULT_AXE_ACTIONS, ItemAbilities.DEFAULT_PICKAXE_ACTIONS);
+    public static final Set<ItemAbility> DEFAULT_MATTOCK_ACTIONS = of(ItemAbilities.DEFAULT_HOE_ACTIONS, ItemAbilities.DEFAULT_SHOVEL_ACTIONS);
 
-    static {
-        DEFAULT_PICKAXE_AXE_ACTIONS = of(AXE_DIG, AXE_STRIP, AXE_SCRAPE, AXE_WAX_OFF, PICKAXE_DIG);
-        DEFAULT_MATTOCK_ACTIONS = of(HOE_DIG, HOE_TILL, SHOVEL_DIG, SHOVEL_FLATTEN, SHOVEL_DOUSE);
+    @SafeVarargs
+    private static Set<ItemAbility> of(Set<ItemAbility>... actionSets) {
+        Set<ItemAbility> abilities = new HashSet<>();
+        for (Set<ItemAbility> inheritedAbilities : actionSets) {
+            abilities.addAll(inheritedAbilities);
+        }
+        return abilities;
     }
 }
