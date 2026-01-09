@@ -25,11 +25,13 @@ public class ModCreativeModeTabs {
                 output.accept(ModItems.ROCKET_CREEPER_SPAWN_EGG);
                 output.accept(ModItems.SUPPORT_CREEPER_SPAWN_EGG);
                 output.accept(ModItems.FESTIVE_CREEPER_SPAWN_EGG);
+
                 output.accept(ModItems.RAW_DODO);
                 output.accept(ModItems.COOKED_DODO);
                 output.accept(ModItems.CHITIN);
                 output.accept(ModItems.HARPY_FEATHER);
                 output.accept(ModItems.LOCK_OF_HAG);
+
                 output.accept(ModItems.CHITIN_HELMET);
                 output.accept(ModItems.CHITIN_CHESTPLATE);
                 output.accept(ModItems.CHITIN_LEGGINGS);
@@ -50,8 +52,11 @@ public class ModCreativeModeTabs {
                 output.accept(ModItems.DIAMOND_MATTOCK);
                 output.accept(ModItems.NETHERITE_PICKAXE_AXE);
                 output.accept(ModItems.NETHERITE_MATTOCK);
+
+                output.accept(ModBlocks.CAVERRNACK);
                 output.accept(ModBlocks.TRICKLITH_BLOCK);
                 output.accept(ModBlocks.POINTED_TRICKLITH);
+
                 output.accept(ModBlocks.LEATHER_BLOCK);
                 output.accept(ModBlocks.SPIDER_EYE_BLOCK);
                 output.accept(ModBlocks.FERMENTED_SPIDER_EYE_BLOCK);

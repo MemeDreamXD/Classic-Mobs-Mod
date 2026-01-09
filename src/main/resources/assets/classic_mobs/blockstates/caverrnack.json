@@ -1,0 +1,25 @@
+{
+  "variants": {
+    "": {
+      "model": "classic_mobs:block/caverrnack"
+    },
+    "1": {
+      "model": "classic_mobs:block/caverrnack_1"
+    },
+    "1_layer": {
+      "model": "classic_mobs:block/caverrnack_1_layer"
+    },
+    "2": {
+      "model": "classic_mobs:block/caverrnack_2"
+    },
+    "2_layer": {
+      "model": "classic_mobs:block/caverrnack_2_layer"
+    },
+    "3": {
+      "model": "classic_mobs:block/caverrnack_3"
+    },
+    "3_layer": {
+      "model": "classic_mobs:block/caverrnack_3_layer"
+    }
+  }
+}

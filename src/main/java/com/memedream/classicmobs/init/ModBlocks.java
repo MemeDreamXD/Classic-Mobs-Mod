@@ -21,6 +21,19 @@ public class ModBlocks {
     // Initializing list of blocks that we're going to register
     public static final DeferredRegister.Blocks BLOCKS = DeferredRegister.createBlocks(ClassicMobs.MOD_ID);
 
+    public static final DeferredBlock<Block> TRICKLITH_BLOCK = registerBlock("tricklith_block",
+            () -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_BROWN).requiresCorrectToolForDrops().instrument(NoteBlockInstrument.BASEDRUM).sound(SoundType.DRIPSTONE_BLOCK).randomTicks().strength(1.5F, 3.0F)));
+
+    public static final DeferredBlock<PointedTricklithBlock> POINTED_TRICKLITH = registerBlock("pointed_tricklith",
+            () -> new PointedTricklithBlock(BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_BROWN).requiresCorrectToolForDrops().forceSolidOn().instrument(NoteBlockInstrument.BASEDRUM).noOcclusion().sound(SoundType.POINTED_DRIPSTONE).randomTicks().strength(1.5F, 3.0F).dynamicShape().offsetType(BlockBehaviour.OffsetType.XZ).pushReaction(PushReaction.DESTROY)));
+
+    //TODO: Figure out the name for this block lol
+    //public static final DeferredBlock<Block> UNDERSHALE = registerBlock("undershale",
+    //        () -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.DEEPSLATE).requiresCorrectToolForDrops().instrument(NoteBlockInstrument.BASEDRUM).strength(4.5F, 6.0F).sound(SoundType.DEEPSLATE)));
+
+    public static final DeferredBlock<Block> CAVERRNACK = registerBlock("caverrnack",
+            () -> new CaverrnackBlock(BlockBehaviour.Properties.of().mapColor(MapColor.STONE).requiresCorrectToolForDrops().instrument(NoteBlockInstrument.SNARE).strength(2.0F, 4.0F).sound(SoundType.NETHERRACK)));
+
     public static final DeferredBlock<Block> GUNPOWDER_BLOCK = registerBlock("gunpowder_block",
             () -> new GunpowderBlock(
                     BlockBehaviour.Properties.of().mapColor(MapColor.STONE).instrument(NoteBlockInstrument.SNARE).strength(0.5F).sound(SoundType.SAND)));
@@ -35,7 +48,6 @@ public class ModBlocks {
 
     public static final DeferredBlock<Block> STRING_BLOCK = registerBlock("string_block",
             () -> new WebBlock(BlockBehaviour.Properties.of().noOcclusion().mapColor(MapColor.SNOW).forceSolidOn().noCollission().instrument(NoteBlockInstrument.GUITAR).strength(0.8F).sound(SoundType.COBWEB).ignitedByLava()));
-
 
     public static final DeferredBlock<Block> MAGMA_CREAM_BLOCK = registerBlock("magma_cream_block",
             () -> new MagmaCreamBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_ORANGE).noOcclusion().instrument(NoteBlockInstrument.PLING).strength(0.8F).sound(SoundType.SLIME_BLOCK), 1f));
@@ -54,16 +66,6 @@ public class ModBlocks {
     //TODO:
     public static final DeferredBlock<EnderPearlBlock> ENDER_PEARL_BLOCK = registerBlock("ender_pearl_block",
             () -> new EnderPearlBlock(BlockBehaviour.Properties.of().instabreak().sound(SoundType.AMETHYST)));
-
-    public static final DeferredBlock<Block> TRICKLITH_BLOCK = registerBlock("tricklith_block",
-            () -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_BROWN).requiresCorrectToolForDrops().instrument(NoteBlockInstrument.BASEDRUM).sound(SoundType.DRIPSTONE_BLOCK).randomTicks().strength(1.5F, 3.0F)));
-
-
-    public static final DeferredBlock<PointedTricklithBlock> POINTED_TRICKLITH = registerBlock("pointed_tricklith",
-            () -> new PointedTricklithBlock(BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_BROWN).requiresCorrectToolForDrops().forceSolidOn().instrument(NoteBlockInstrument.BASEDRUM).noOcclusion().sound(SoundType.POINTED_DRIPSTONE).randomTicks().strength(1.5F, 3.0F).dynamicShape().offsetType(BlockBehaviour.OffsetType.XZ).pushReaction(PushReaction.DESTROY)));
-
-    //public static final DeferredBlock<Block> GHAST_TEARS = registerBlock("ghast_tears",
-    //        () -> new LiquidBlock(ModFluids.GHAST_TEARS, Properties.of().mapColor(MapColor.TERRACOTTA_GRAY).replaceable().noCollission().strength(100.0F).pushReaction(PushReaction.DESTROY).noLootTable().liquid().sound(SoundType.EMPTY)));
 
     //TODO: Push entites away from the tip like a fan block.
     public static final DeferredBlock<BreezeRodBlock> BREEZE_ROD_BLOCK = registerBlock("breeze_rod_block",
