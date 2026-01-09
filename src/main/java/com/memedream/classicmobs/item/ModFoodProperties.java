@@ -27,6 +27,5 @@ public class ModFoodProperties {
     public static final FoodProperties RAW_COD_BLOCK = new FoodProperties.Builder().nutrition(18).saturationModifier(0.9F).build();
     public static final FoodProperties COOKED_COD_BLOCK = new FoodProperties.Builder().nutrition(45).saturationModifier(5.4F).build();
     public static final FoodProperties TROPICAL_FISH_BLOCK = new FoodProperties.Builder().nutrition(9).saturationModifier(0.9F).build();
-    //TODO: Make pufferfish block instakill player with "(Player Name) was an adventurous eater" death message.
     public static final FoodProperties PUFFERFISH_BLOCK = new FoodProperties.Builder().nutrition(9).saturationModifier(0.9F).build();
 }

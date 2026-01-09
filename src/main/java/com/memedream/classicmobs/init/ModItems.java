@@ -33,7 +33,7 @@ public class ModItems {
 
     //TODO: Make actual arrow lol
     public static final DeferredItem<Item> FLIGHT_ARROW = ITEMS.register("flight_arrow",
-            () -> new Item(new Item.Properties()));
+            () -> new FlightArrowItem(new Item.Properties()));
 
     //TODO: Bola functionality
     public static final DeferredItem<Item> BOLA = ITEMS.register("bola",

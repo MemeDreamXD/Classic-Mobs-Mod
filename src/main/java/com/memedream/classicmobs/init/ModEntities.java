@@ -49,4 +49,8 @@ public class ModEntities {
             ENTITY_TYPES.register("festive_tnt", () -> EntityType.Builder.<FestiveTntEntity>of(FestiveTntEntity::new, MobCategory.MISC)
                     .sized(0.5F, 0.5F).build(ClassicMobs.prefix("festive_tnt").toString()));
 
+    public static final Supplier<EntityType<FlightArrow>> FLIGHT_ARROW =
+            ENTITY_TYPES.register("flight_arrow", () -> EntityType.Builder.<FlightArrow>of(FlightArrow::new, MobCategory.MISC)
+                    .sized(0.5f, 0.5f).eyeHeight(0.13F).clientTrackingRange(4).updateInterval(20).build(ClassicMobs.prefix("flight_arrow").toString()));
+
 }

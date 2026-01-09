@@ -31,6 +31,7 @@ public class ModBlocks {
     //public static final DeferredBlock<Block> UNDERSHALE = registerBlock("undershale",
     //        () -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.DEEPSLATE).requiresCorrectToolForDrops().instrument(NoteBlockInstrument.BASEDRUM).strength(4.5F, 6.0F).sound(SoundType.DEEPSLATE)));
 
+    //TODO: Give logic to use different textures depending on stack height of the block.
     public static final DeferredBlock<Block> CAVERRNACK = registerBlock("caverrnack",
             () -> new CaverrnackBlock(BlockBehaviour.Properties.of().mapColor(MapColor.STONE).requiresCorrectToolForDrops().instrument(NoteBlockInstrument.SNARE).strength(2.0F, 4.0F).sound(SoundType.NETHERRACK)));
 
@@ -46,6 +47,7 @@ public class ModBlocks {
     public static final DeferredBlock<Block> CHITIN_BLOCK = registerBlock("chitin_block",
             () -> new Block(BlockBehaviour.Properties.of().requiresCorrectToolForDrops().mapColor(MapColor.COLOR_BROWN).instrument(NoteBlockInstrument.DIDGERIDOO).strength(1.5F).sound(SoundType.PACKED_MUD)));
 
+    //TODO: Disallow entities from falling through
     public static final DeferredBlock<Block> STRING_BLOCK = registerBlock("string_block",
             () -> new WebBlock(BlockBehaviour.Properties.of().noOcclusion().mapColor(MapColor.SNOW).forceSolidOn().noCollission().instrument(NoteBlockInstrument.GUITAR).strength(0.8F).sound(SoundType.COBWEB).ignitedByLava()));
 
@@ -56,6 +58,7 @@ public class ModBlocks {
     public static final DeferredBlock<Block> PHANTOM_MEMBRANE_BLOCK = registerBlock("phantom_membrane_block",
             () -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_LIGHT_GRAY).instrument(NoteBlockInstrument.XYLOPHONE).strength(0.8F).sound(SoundType.SOUL_SOIL)));
 
+    //TODO: Texture needs redone BAD do not let me forget this. Also, should be a tempt item for wolves.
     public static final DeferredBlock<Block> BLOCK_OF_BONES = registerBlock("block_of_bones",
             () -> new RotatedPillarBlock(BlockBehaviour.Properties.of().mapColor(MapColor.SAND).instrument(NoteBlockInstrument.XYLOPHONE).requiresCorrectToolForDrops().strength(2.0F).noOcclusion().sound(SoundType.BONE_BLOCK)));
 
@@ -63,7 +66,6 @@ public class ModBlocks {
     public static final DeferredBlock<BlazeRodBlock> BLAZE_ROD_BLOCK = registerBlock("blaze_rod_block",
             () -> new BlazeRodBlock(BlockBehaviour.Properties.of().forceSolidOff().instabreak().lightLevel(p_187435_ -> 14).sound(SoundType.WOOD).noOcclusion()));
 
-    //TODO:
     public static final DeferredBlock<EnderPearlBlock> ENDER_PEARL_BLOCK = registerBlock("ender_pearl_block",
             () -> new EnderPearlBlock(BlockBehaviour.Properties.of().instabreak().sound(SoundType.AMETHYST)));
 
@@ -71,16 +73,17 @@ public class ModBlocks {
     public static final DeferredBlock<BreezeRodBlock> BREEZE_ROD_BLOCK = registerBlock("breeze_rod_block",
             () -> new BreezeRodBlock(BlockBehaviour.Properties.of().forceSolidOff().noOcclusion().instabreak().sound(SoundType.WOOD).noOcclusion()));
 
-    public static final DeferredBlock<Block> COOKED_BEEF_BLOCK = registerBlockEdible("cooked_beef_block",
-            () -> new MeatBlock(MeatBlock.BoneType.NORMAL, BlockBehaviour.Properties.of().mapColor(MapColor.NETHER).instrument(NoteBlockInstrument.COW_BELL).strength(2.0F).sound(SoundType.FROGSPAWN)),
-            ModFoodProperties.COOKED_BEEF_BLOCK);
-
+    //TODO: Should be able to ferment when right clicked with sugar+brown mushroom in main/offhand
     public static final DeferredBlock<Block> SPIDER_EYE_BLOCK = registerBlockEdible("spider_eye_block",
             () -> new SpiderEyeBlock(BlockBehaviour.Properties.of().noOcclusion().mapColor(MapColor.NETHER).instrument(NoteBlockInstrument.COW_BELL).strength(2.0F).sound(SoundType.FROGSPAWN)),
             ModFoodProperties.SPIDER_EYE_BLOCK);
 
     public static final DeferredBlock<Block> FERMENTED_SPIDER_EYE_BLOCK = registerBlock("fermented_spider_eye_block",
             () -> new SpiderEyeBlock(BlockBehaviour.Properties.of().noOcclusion().mapColor(MapColor.NETHER).instrument(NoteBlockInstrument.COW_BELL).strength(2.0F).sound(SoundType.FROGSPAWN)));
+
+    public static final DeferredBlock<Block> COOKED_BEEF_BLOCK = registerBlockEdible("cooked_beef_block",
+            () -> new MeatBlock(MeatBlock.BoneType.NORMAL, BlockBehaviour.Properties.of().mapColor(MapColor.NETHER).instrument(NoteBlockInstrument.COW_BELL).strength(2.0F).sound(SoundType.FROGSPAWN)),
+            ModFoodProperties.COOKED_BEEF_BLOCK);
 
     public static final DeferredBlock<Block> COOKED_MUTTON_BLOCK = registerBlockEdible("cooked_mutton_block",
             () -> new MeatBlock(MeatBlock.BoneType.NORMAL, BlockBehaviour.Properties.of().mapColor(MapColor.NETHER).instrument(NoteBlockInstrument.COW_BELL).strength(2.0F).sound(SoundType.FROGSPAWN)),
