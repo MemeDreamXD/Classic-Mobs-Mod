@@ -37,6 +37,8 @@ public class ModClientRegistrationEvents {
         event.registerEntityRenderer(ModEntities.SUPPORT_CREEPER.get(), SupportCreeperRenderer::new);
         event.registerEntityRenderer(ModEntities.FESTIVE_CREEPER.get(), FestiveCreeperRenderer::new);
         event.registerEntityRenderer(ModEntities.FESTIVE_TNT.get(), FestiveTntRenderer::new);
+        event.registerEntityRenderer(ModEntities.FLIGHT_ARROW.get(), FlightArrowRenderer::new);
+
     }
 
     private static void registerModelLayers(EntityRenderersEvent.RegisterLayerDefinitions event) {
