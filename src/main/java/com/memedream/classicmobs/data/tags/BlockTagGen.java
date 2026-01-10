@@ -109,8 +109,13 @@ public class BlockTagGen extends IntrinsicHolderTagsProvider<Block> {
 				ModBlocks.TRICKLITH_BLOCK.get(),
 				ModBlocks.POINTED_TRICKLITH.get(),
 				ModBlocks.BLOCK_OF_BONES.get(),
-				ModBlocks.CAVERRNACK.get()
+				ModBlocks.CAVERRNACK.get(),
+				ModBlocks.RUBY_ORE.get()
         );
+
+		this.tag(BlockTags.NEEDS_IRON_TOOL).add(
+				ModBlocks.RUBY_ORE.get()
+		);
 
         this.tag(BlockTags.MINEABLE_WITH_SHOVEL).add(
 				ModBlocks.GUNPOWDER_BLOCK.get(),

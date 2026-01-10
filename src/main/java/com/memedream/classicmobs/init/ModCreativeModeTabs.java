@@ -83,6 +83,8 @@ public class ModCreativeModeTabs {
                 output.accept(ModItems.NETHERITE_HAMMER);
                 output.accept(ModItems.NETHERITE_SCYTHE);
 
+                output.accept(ModItems.RUBY);
+                output.accept(ModBlocks.RUBY_ORE);
                 output.accept(ModBlocks.CAVERRNACK);
                 output.accept(ModBlocks.TRICKLITH_BLOCK);
                 output.accept(ModBlocks.POINTED_TRICKLITH);

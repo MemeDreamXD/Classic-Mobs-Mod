@@ -4,9 +4,11 @@ import com.memedream.classicmobs.ClassicMobs;
 import com.memedream.classicmobs.block.*;
 import com.memedream.classicmobs.item.MeatBlockItem;
 import com.memedream.classicmobs.item.ModFoodProperties;
+import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.Rarity;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
@@ -26,6 +28,9 @@ public class ModBlocks {
 
     public static final DeferredBlock<PointedTricklithBlock> POINTED_TRICKLITH = registerBlock("pointed_tricklith",
             () -> new PointedTricklithBlock(BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_BROWN).requiresCorrectToolForDrops().forceSolidOn().instrument(NoteBlockInstrument.BASEDRUM).noOcclusion().sound(SoundType.POINTED_DRIPSTONE).randomTicks().strength(1.5F, 3.0F).dynamicShape().offsetType(BlockBehaviour.OffsetType.XZ).pushReaction(PushReaction.DESTROY)));
+
+    public static final DeferredBlock<Block> RUBY_ORE = registerUncommonBlock("ruby_ore",
+            () -> new DropExperienceBlock(UniformInt.of(3, 7), BlockBehaviour.Properties.of().mapColor(MapColor.NETHER).instrument(NoteBlockInstrument.BASEDRUM).requiresCorrectToolForDrops().sound(SoundType.NETHER_ORE).strength(3.0F, 3.0F)));
 
     //TODO: Figure out the name for this block lol
     //public static final DeferredBlock<Block> UNDERSHALE = registerBlock("undershale",
@@ -166,9 +171,22 @@ public class ModBlocks {
         return toReturn;
     }
 
+    // Main function that registers the block & item using helper
+    private static <T extends Block> DeferredBlock<T> registerUncommonBlock(String name, Supplier<T> block) {
+        // This registers the block itself
+        DeferredBlock<T> toReturn = BLOCKS.register(name, block);
+        registerUncommonBlockItem(name, toReturn);
+        return toReturn;
+    }
+
     // Helper function to create and register a block's associated item
     private static <T extends Block> void registerBlockItem(String name, DeferredBlock<T> block) {
         ModItems.ITEMS.register(name, () -> new BlockItem(block.get(), new Item.Properties()));
+    }
+
+    // Helper function to create and register a block's associated item if that block has uncommon rarity
+    private static <T extends Block> void registerUncommonBlockItem(String name, DeferredBlock<T> block) {
+        ModItems.ITEMS.register(name, () -> new BlockItem(block.get(), new Item.Properties().rarity(Rarity.UNCOMMON)));
     }
 
     // Helper function to create and register a block's associated item IF IT IS EDIBLE
