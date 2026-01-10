@@ -110,7 +110,11 @@ public class BlockTagGen extends IntrinsicHolderTagsProvider<Block> {
 				ModBlocks.POINTED_TRICKLITH.get(),
 				ModBlocks.BLOCK_OF_BONES.get(),
 				ModBlocks.CAVERRNACK.get(),
-				ModBlocks.RUBY_ORE.get()
+				ModBlocks.RUBY_ORE.get(),
+				ModBlocks.UNDERSHALE_BRICKS.get(),
+				ModBlocks.CHISELED_UNDERSHALE.get(),
+				ModBlocks.POLISHED_UNDERSHALE.get(),
+				ModBlocks.NACRITE.get()
         );
 
 		this.tag(BlockTags.NEEDS_IRON_TOOL).add(

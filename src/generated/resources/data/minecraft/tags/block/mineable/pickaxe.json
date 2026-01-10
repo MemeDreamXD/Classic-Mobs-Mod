@@ -5,6 +5,10 @@
     "classic_mobs:pointed_tricklith",
     "classic_mobs:block_of_bones",
     "classic_mobs:caverrnack",
-    "classic_mobs:ruby_ore"
+    "classic_mobs:ruby_ore",
+    "classic_mobs:undershale_bricks",
+    "classic_mobs:chiseled_undershale",
+    "classic_mobs:polished_undershale",
+    "classic_mobs:nacrite"
   ]
 }

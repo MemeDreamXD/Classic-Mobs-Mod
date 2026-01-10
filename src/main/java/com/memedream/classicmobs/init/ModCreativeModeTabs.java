@@ -88,6 +88,10 @@ public class ModCreativeModeTabs {
                 output.accept(ModBlocks.CAVERRNACK);
                 output.accept(ModBlocks.TRICKLITH_BLOCK);
                 output.accept(ModBlocks.POINTED_TRICKLITH);
+                output.accept(ModBlocks.UNDERSHALE_BRICKS);
+                output.accept(ModBlocks.POLISHED_UNDERSHALE);
+                output.accept(ModBlocks.CHISELED_UNDERSHALE);
+                output.accept(ModBlocks.NACRITE);
 
                 output.accept(ModBlocks.LEATHER_BLOCK);
                 output.accept(ModBlocks.SPIDER_EYE_BLOCK);

@@ -31,9 +31,21 @@ public class ModBlocks {
             () -> new DropExperienceBlock(UniformInt.of(3, 7), BlockBehaviour.Properties.of().mapColor(MapColor.NETHER).instrument(NoteBlockInstrument.BASEDRUM).requiresCorrectToolForDrops().sound(SoundType.NETHER_ORE).strength(3.0F, 3.0F)),
             new Item.Properties().rarity(Rarity.UNCOMMON));
 
-    //TODO: Figure out the name for this block lol
+    //TODO: Figure out a texture for this block lol
     //public static final DeferredBlock<Block> UNDERSHALE = registerBlock("undershale",
     //        () -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.DEEPSLATE).requiresCorrectToolForDrops().instrument(NoteBlockInstrument.BASEDRUM).strength(4.5F, 6.0F).sound(SoundType.DEEPSLATE)));
+
+    public static final DeferredBlock<Block> UNDERSHALE_BRICKS = registerBlock("undershale_bricks",
+            () -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.DEEPSLATE).requiresCorrectToolForDrops().instrument(NoteBlockInstrument.BASEDRUM).strength(4.5F, 6.0F).sound(SoundType.DEEPSLATE)));
+
+    public static final DeferredBlock<Block> CHISELED_UNDERSHALE = registerBlock("chiseled_undershale",
+            () -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.DEEPSLATE).requiresCorrectToolForDrops().instrument(NoteBlockInstrument.BASEDRUM).strength(4.5F, 6.0F).sound(SoundType.DEEPSLATE)));
+
+    public static final DeferredBlock<Block> POLISHED_UNDERSHALE = registerBlock("polished_undershale",
+            () -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.DEEPSLATE).requiresCorrectToolForDrops().instrument(NoteBlockInstrument.BASEDRUM).strength(4.5F, 6.0F).sound(SoundType.DEEPSLATE)));
+
+    public static final DeferredBlock<Block> NACRITE = registerBlock("nacrite",
+            () -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_MAGENTA).requiresCorrectToolForDrops().instrument(NoteBlockInstrument.BASEDRUM).strength(2.625F, 3.375F).sound(SoundType.CALCITE)));
 
     //TODO: Give logic to use different textures depending on stack height of the block.
     public static final DeferredBlock<Block> CAVERRNACK = registerBlock("caverrnack",
@@ -62,7 +74,7 @@ public class ModBlocks {
     public static final DeferredBlock<Block> PHANTOM_MEMBRANE_BLOCK = registerBlock("phantom_membrane_block",
             () -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_LIGHT_GRAY).instrument(NoteBlockInstrument.XYLOPHONE).strength(0.8F).sound(SoundType.SOUL_SOIL)));
 
-    //TODO: Texture needs redone BAD do not let me forget this. Also, should be a tempt item for wolves.
+    //TODO: Texture/model needs redone BAD do not let me forget this. Also, should be a tempt item for wolves.
     public static final DeferredBlock<Block> BLOCK_OF_BONES = registerBlock("block_of_bones",
             () -> new RotatedPillarBlock(BlockBehaviour.Properties.of().mapColor(MapColor.SAND).instrument(NoteBlockInstrument.XYLOPHONE).requiresCorrectToolForDrops().strength(2.0F).noOcclusion().sound(SoundType.BONE_BLOCK)));
 
