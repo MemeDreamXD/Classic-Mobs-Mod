@@ -1,0 +1,33 @@
+{
+  "values": [
+    "classic_mobs:gunpowder_block",
+    "classic_mobs:rotten_flesh_block",
+    "classic_mobs:chitin_block",
+    "classic_mobs:string_block",
+    "classic_mobs:magma_cream_block",
+    "classic_mobs:phantom_membrane_block",
+    "classic_mobs:block_of_bones",
+    "classic_mobs:blaze_rod_block",
+    "classic_mobs:ender_pearl_block",
+    "classic_mobs:breeze_rod_block",
+    "classic_mobs:spider_eye_block",
+    "classic_mobs:fermented_spider_eye_block",
+    "classic_mobs:cooked_beef_block",
+    "classic_mobs:cooked_mutton_block",
+    "classic_mobs:cooked_pork_block",
+    "classic_mobs:cooked_rabbit_block",
+    "classic_mobs:cooked_chicken_block",
+    "classic_mobs:cooked_salmon_block",
+    "classic_mobs:cooked_cod_block",
+    "classic_mobs:tropical_fish_block",
+    "classic_mobs:pufferfish_block",
+    "classic_mobs:raw_beef_block",
+    "classic_mobs:raw_mutton_block",
+    "classic_mobs:raw_pork_block",
+    "classic_mobs:raw_rabbit_block",
+    "classic_mobs:raw_chicken_block",
+    "classic_mobs:raw_salmon_block",
+    "classic_mobs:raw_cod_block",
+    "classic_mobs:leather_block"
+  ]
+}

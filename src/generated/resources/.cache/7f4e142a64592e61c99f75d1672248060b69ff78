@@ -1,0 +1,12 @@
+// 1.21.1	2026-01-10T00:57:46.915123	Tags for minecraft:block mod id classic_mobs
+a2ddebe8b5009ada2c0c2a898858a6ba1662dd1a data/classic_mobs/tags/block/mineable_with_mattock.json
+f3e660e89a1134f382a8b3f42bce0dc91d88fe6d data/classic_mobs/tags/block/mineable_with_pickaxe_axe.json
+0ffba1c7acd1703382b94c8a78c2a43fdadc1264 data/c/tags/block/storage_blocks.json
+6925617d92e284caf8e34b90148a878d5d324ca1 data/c/tags/block/storage_blocks/slime.json
+ceb3ac71907a0e6ee9d8d7a6d39e3c60e3032d9a data/minecraft/tags/block/dampens_vibrations.json
+4b3d3c4e12679ec5cbcfac6e56da4c4cbe941aea data/minecraft/tags/block/mineable/hoe.json
+b035e99c10f21f90821cdedbec9e17006e5d089d data/minecraft/tags/block/mineable/pickaxe.json
+40dd6183dd204bbdd682084e5944e650b5725904 data/minecraft/tags/block/mineable/shovel.json
+ceb3ac71907a0e6ee9d8d7a6d39e3c60e3032d9a data/minecraft/tags/block/occludes_vibration_signals.json
+6925617d92e284caf8e34b90148a878d5d324ca1 data/minecraft/tags/block/strider_warm_blocks.json
+9765cdb77d2592e4b6784477672961e3b4d0492d data/minecraft/tags/block/sword_efficient.json

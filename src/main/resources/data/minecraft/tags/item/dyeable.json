@@ -1,9 +1,0 @@
-{
-  "replace": false,
-  "values": [
-    "classic_mobs:chitin_helmet",
-    "classic_mobs:chitin_chestplate",
-    "classic_mobs:chitin_leggings",
-    "classic_mobs:chitin_boots"
-  ]
-}

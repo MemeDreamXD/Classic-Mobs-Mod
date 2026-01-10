@@ -1,0 +1,4 @@
+// 1.21.1	2026-01-10T00:57:46.9185565	Tags for minecraft:entity_type mod id classic_mobs
+6665bc2dbde9771a382f525c1ef65cf33295a4f9 data/minecraft/tags/entity_type/arrows.json
+e6f1cc3623011d852de9904e98b11b29136b69dd data/minecraft/tags/entity_type/arthropod.json
+21dee653516cb7b587add36108e775e912d4c054 data/minecraft/tags/entity_type/fall_damage_immune.json

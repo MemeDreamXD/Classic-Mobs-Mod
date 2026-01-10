@@ -1,0 +1,17 @@
+{
+  "values": [
+    "classic_mobs:raw_dodo",
+    "classic_mobs:cooked_dodo",
+    "classic_mobs:rotten_flesh_block",
+    "classic_mobs:cooked_beef_block",
+    "classic_mobs:cooked_mutton_block",
+    "classic_mobs:cooked_pork_block",
+    "classic_mobs:cooked_rabbit_block",
+    "classic_mobs:cooked_chicken_block",
+    "classic_mobs:raw_beef_block",
+    "classic_mobs:raw_mutton_block",
+    "classic_mobs:raw_pork_block",
+    "classic_mobs:raw_rabbit_block",
+    "classic_mobs:raw_chicken_block"
+  ]
+}
