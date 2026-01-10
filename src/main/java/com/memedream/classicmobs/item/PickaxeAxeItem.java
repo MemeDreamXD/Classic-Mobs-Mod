@@ -1,11 +1,13 @@
 package com.memedream.classicmobs.item;
 
-import com.memedream.classicmobs.init.ModTags;
+import com.memedream.classicmobs.data.tags.BlockTagGen;
+import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
+import net.minecraft.tags.BlockTags;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.LivingEntity;
@@ -23,12 +25,15 @@ import net.neoforged.neoforge.common.ItemAbilities;
 import net.neoforged.neoforge.common.ItemAbility;
 
 import javax.annotation.Nullable;
+import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.Optional;
 
+@ParametersAreNonnullByDefault
+@MethodsReturnNonnullByDefault
 public class PickaxeAxeItem extends DiggerItem {
 
     public PickaxeAxeItem(Tier tier, Properties properties) {
-        super(tier, ModTags.Blocks.MINEABLE_WITH_PICKAXE_AXE, properties);
+        super(tier, BlockTagGen.MINEABLE_WITH_PICKAXE_AXE, properties);
     }
 
     @Override
@@ -37,19 +42,24 @@ public class PickaxeAxeItem extends DiggerItem {
     }
 
     @Override
+    public float getDestroySpeed(ItemStack stack, BlockState state) {
+        if (state.is(BlockTagGen.MINEABLE_WITH_PICKAXE_AXE) && state.is(BlockTags.MINEABLE_WITH_PICKAXE) && state.is(BlockTags.MINEABLE_WITH_AXE)) {
+            return super.getDestroySpeed(stack, state) * 2.0F;
+        } else return super.getDestroySpeed(stack, state);
+    }
+
+    @Override
     public InteractionResult useOn(UseOnContext context) {
         Level level = context.getLevel();
         BlockPos blockpos = context.getClickedPos();
         Player player = context.getPlayer();
-        if (this.playerHasShieldUseIntent(context)) {
-            return InteractionResult.PASS;
-        } else {
-            return tryUseAsAxe(level, blockpos, player, level.getBlockState(blockpos), context);
-        }
+        if (this.playerHasShieldUseIntent(context)) return InteractionResult.PASS;
+        else return tryUseAsAxe(level, blockpos, player, level.getBlockState(blockpos), context);
     }
 
     private boolean playerHasShieldUseIntent(UseOnContext context) {
         Player player = context.getPlayer();
+        if (player == null) return false;
         return context.getHand().equals(InteractionHand.MAIN_HAND) && player.getOffhandItem().canPerformAction(ItemAbilities.SHIELD_BLOCK) && !player.isSecondaryUseActive();
     }
 
