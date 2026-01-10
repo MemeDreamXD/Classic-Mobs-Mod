@@ -4,7 +4,10 @@ import com.memedream.classicmobs.client.event.ModClientRegistrationEvents;
 import com.memedream.classicmobs.event.ModRegistrationEvents;
 import com.memedream.classicmobs.init.*;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.FireBlock;
 import net.neoforged.api.distmarker.Dist;
+import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
 import org.slf4j.Logger;
 
 import com.mojang.logging.LogUtils;
@@ -35,10 +38,16 @@ public class ClassicMobs {
         ModEffects.MOB_EFFECTS.register(bus);
         ModParticles.PARTICLES.register(bus);
         ModPotions.POTIONS.register(bus);
+        bus.addListener(this::setup);
 
         // Register our mod's ModConfigSpec so that FML can create and load the config file for us
         //...we'll do this if we actually add a config file
         //container.registerConfig(ModConfig.Type.COMMON, Config.SPEC);
+    }
+
+    public void setup(FMLCommonSetupEvent evt) {
+        FireBlock fireblock = (FireBlock) Blocks.FIRE;
+        fireblock.setFlammable(ModBlocks.GUNPOWDER_BLOCK.get(), 15, 100);
     }
 
     public static ResourceLocation prefix(String name) {
