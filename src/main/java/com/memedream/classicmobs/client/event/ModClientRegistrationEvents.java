@@ -7,16 +7,12 @@ import com.memedream.classicmobs.client.renderer.*;
 import com.memedream.classicmobs.init.ModEntities;
 import com.memedream.classicmobs.init.ModItems;
 import com.memedream.classicmobs.init.ModParticles;
-import net.minecraft.client.color.item.ItemColors;
-import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Items;
+import net.minecraft.client.renderer.entity.FallingBlockRenderer;
 import net.minecraft.world.item.component.DyedItemColor;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.client.event.EntityRenderersEvent;
 import net.neoforged.neoforge.client.event.RegisterColorHandlersEvent;
 import net.neoforged.neoforge.client.event.RegisterParticleProvidersEvent;
-import net.neoforged.neoforge.client.extensions.common.IClientItemExtensions;
-import net.neoforged.neoforge.client.extensions.common.RegisterClientExtensionsEvent;
 
 public class ModClientRegistrationEvents {
 
@@ -38,7 +34,7 @@ public class ModClientRegistrationEvents {
         event.registerEntityRenderer(ModEntities.FESTIVE_CREEPER.get(), FestiveCreeperRenderer::new);
         event.registerEntityRenderer(ModEntities.FESTIVE_TNT.get(), FestiveTntRenderer::new);
         event.registerEntityRenderer(ModEntities.FLIGHT_ARROW.get(), FlightArrowRenderer::new);
-
+        event.registerEntityRenderer(ModEntities.FALLING_GUNPOWDER.get(), FallingBlockRenderer::new);
     }
 
     private static void registerModelLayers(EntityRenderersEvent.RegisterLayerDefinitions event) {
