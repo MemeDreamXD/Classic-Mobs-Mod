@@ -153,13 +153,8 @@ public class ModBlocks {
             () -> new ConfiguredDirectionalBlock(BlockBehaviour.Properties.of().mapColor(MapColor.DIRT).instrument(NoteBlockInstrument.COW_BELL).strength(0.8F).sound(SoundType.WOOL)));
 //TODO: Make rabbit hide "slab-slab" block (should be able to be stacked four times to create a full block"
 
-
-    // Main function that registers the block & item using helper
     private static <T extends Block> DeferredBlock<T> registerBlock(String name, Supplier<T> block) {
-        // This registers the block itself
-        DeferredBlock<T> toReturn = BLOCKS.register(name, block);
-        registerBlockItem(name, toReturn, new Item.Properties());
-        return toReturn;
+        return registerBlock(name, block, new Item.Properties());
     }
 
     // Main function that registers the block & item using helper
