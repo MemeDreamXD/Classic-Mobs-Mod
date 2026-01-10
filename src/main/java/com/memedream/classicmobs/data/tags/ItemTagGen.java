@@ -208,7 +208,13 @@ public class ItemTagGen extends ItemTagsProvider {
                 ModItems.IRON_PICKAXE_AXE.asItem(),
                 ModItems.GOLDEN_PICKAXE_AXE.asItem(),
                 ModItems.DIAMOND_PICKAXE_AXE.asItem(),
-                ModItems.NETHERITE_PICKAXE_AXE.asItem()
+                ModItems.NETHERITE_PICKAXE_AXE.asItem(),
+				ModItems.WOODEN_HAMMER.asItem(),
+				ModItems.STONE_HAMMER.asItem(),
+				ModItems.IRON_HAMMER.asItem(),
+				ModItems.GOLDEN_HAMMER.asItem(),
+				ModItems.DIAMOND_HAMMER.asItem(),
+				ModItems.NETHERITE_HAMMER.asItem()
         );
 
         this.tag(ItemTags.AXES).add(
@@ -217,7 +223,13 @@ public class ItemTagGen extends ItemTagsProvider {
                 ModItems.IRON_PICKAXE_AXE.asItem(),
                 ModItems.GOLDEN_PICKAXE_AXE.asItem(),
                 ModItems.DIAMOND_PICKAXE_AXE.asItem(),
-                ModItems.NETHERITE_PICKAXE_AXE.asItem()
+                ModItems.NETHERITE_PICKAXE_AXE.asItem(),
+				ModItems.WOODEN_LUMBER_AXE.asItem(),
+				ModItems.STONE_LUMBER_AXE.asItem(),
+				ModItems.IRON_LUMBER_AXE.asItem(),
+				ModItems.GOLDEN_LUMBER_AXE.asItem(),
+				ModItems.DIAMOND_LUMBER_AXE.asItem(),
+				ModItems.NETHERITE_LUMBER_AXE.asItem()
         );
 
         this.tag(ItemTags.CLUSTER_MAX_HARVESTABLES).add(
@@ -226,7 +238,13 @@ public class ItemTagGen extends ItemTagsProvider {
                 ModItems.IRON_PICKAXE_AXE.asItem(),
                 ModItems.GOLDEN_PICKAXE_AXE.asItem(),
                 ModItems.DIAMOND_PICKAXE_AXE.asItem(),
-                ModItems.NETHERITE_PICKAXE_AXE.asItem()
+                ModItems.NETHERITE_PICKAXE_AXE.asItem(),
+				ModItems.WOODEN_HAMMER.asItem(),
+				ModItems.STONE_HAMMER.asItem(),
+				ModItems.IRON_HAMMER.asItem(),
+				ModItems.GOLDEN_HAMMER.asItem(),
+				ModItems.DIAMOND_HAMMER.asItem(),
+				ModItems.NETHERITE_HAMMER.asItem()
         );
 
         this.tag(ItemTags.SHOVELS).add(
@@ -235,7 +253,13 @@ public class ItemTagGen extends ItemTagsProvider {
                 ModItems.IRON_MATTOCK.asItem(),
                 ModItems.GOLDEN_MATTOCK.asItem(),
                 ModItems.DIAMOND_MATTOCK.asItem(),
-                ModItems.NETHERITE_MATTOCK.asItem()
+                ModItems.NETHERITE_MATTOCK.asItem(),
+				ModItems.WOODEN_SPADE.asItem(),
+				ModItems.STONE_SPADE.asItem(),
+				ModItems.IRON_SPADE.asItem(),
+				ModItems.GOLDEN_SPADE.asItem(),
+				ModItems.DIAMOND_SPADE.asItem(),
+				ModItems.NETHERITE_SPADE.asItem()
         );
 
         this.tag(ItemTags.HOES).add(
@@ -244,7 +268,13 @@ public class ItemTagGen extends ItemTagsProvider {
                 ModItems.IRON_MATTOCK.asItem(),
                 ModItems.GOLDEN_MATTOCK.asItem(),
                 ModItems.DIAMOND_MATTOCK.asItem(),
-                ModItems.NETHERITE_MATTOCK.asItem()
+                ModItems.NETHERITE_MATTOCK.asItem(),
+				ModItems.WOODEN_SCYTHE.asItem(),
+				ModItems.STONE_SCYTHE.asItem(),
+				ModItems.IRON_SCYTHE.asItem(),
+				ModItems.GOLDEN_SCYTHE.asItem(),
+				ModItems.DIAMOND_SCYTHE.asItem(),
+				ModItems.NETHERITE_SCYTHE.asItem()
         );
 
         this.tag(Tags.Items.STORAGE_BLOCKS_SLIME).add(

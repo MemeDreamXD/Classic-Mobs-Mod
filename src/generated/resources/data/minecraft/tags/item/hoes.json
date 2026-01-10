@@ -5,6 +5,12 @@
     "classic_mobs:iron_mattock",
     "classic_mobs:golden_mattock",
     "classic_mobs:diamond_mattock",
-    "classic_mobs:netherite_mattock"
+    "classic_mobs:netherite_mattock",
+    "classic_mobs:wooden_scythe",
+    "classic_mobs:stone_scythe",
+    "classic_mobs:iron_scythe",
+    "classic_mobs:golden_scythe",
+    "classic_mobs:diamond_scythe",
+    "classic_mobs:netherite_scythe"
   ]
 }

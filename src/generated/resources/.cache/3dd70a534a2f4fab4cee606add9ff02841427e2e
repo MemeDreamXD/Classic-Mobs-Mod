@@ -1,4 +1,4 @@
-// 1.21.1	2026-01-10T00:57:46.916533	Tags for minecraft:item mod id classic_mobs
+// 1.21.1	2026-01-10T08:35:34.1331021	Tags for minecraft:item mod id classic_mobs
 40fc28555ba86485c2fdf3bc327bb05602bd7cb5 data/classic_mobs/tags/item/daily_dodo_food.json
 45451a476127a79f55b539f148b906c3e9c683b4 data/classic_mobs/tags/item/dodo_food.json
 e4c7e8f3ee371647115f9444825bee1cbfd398fe data/c/tags/item/feathers.json
@@ -9,9 +9,9 @@ a55486af75edda74a89034fcbed57bda34cf1718 data/c/tags/item/foods/raw_meat.json
 0ffba1c7acd1703382b94c8a78c2a43fdadc1264 data/c/tags/item/storage_blocks.json
 6925617d92e284caf8e34b90148a878d5d324ca1 data/c/tags/item/storage_blocks/slime.json
 6665bc2dbde9771a382f525c1ef65cf33295a4f9 data/minecraft/tags/item/arrows.json
-ac14cf314dc80886278bd8bc8180947ed495f472 data/minecraft/tags/item/axes.json
+768465750e7d6970d2af50d5f02650a360c380cf data/minecraft/tags/item/axes.json
 c9c945c2892e8a3da7fb037c77fb0fa9b89b7643 data/minecraft/tags/item/chest_armor.json
-ac14cf314dc80886278bd8bc8180947ed495f472 data/minecraft/tags/item/cluster_max_harvestables.json
+83ec20a366a2f99550053a53d4ce91775c0275ec data/minecraft/tags/item/cluster_max_harvestables.json
 d0e542872092d04f8315ede700c063fa4061276b data/minecraft/tags/item/dyeable.json
 c9c945c2892e8a3da7fb037c77fb0fa9b89b7643 data/minecraft/tags/item/enchantable/chest_armor.json
 1188c5863c7207634c6feac81824a9a3ccbba3b3 data/minecraft/tags/item/enchantable/foot_armor.json
@@ -20,9 +20,9 @@ ef08403547ff94989b9fc81b242428cb0ca1f4d4 data/minecraft/tags/item/enchantable/he
 1188c5863c7207634c6feac81824a9a3ccbba3b3 data/minecraft/tags/item/foot_armor.json
 d0e542872092d04f8315ede700c063fa4061276b data/minecraft/tags/item/freeze_immune_wearables.json
 ef08403547ff94989b9fc81b242428cb0ca1f4d4 data/minecraft/tags/item/head_armor.json
-f7e2196afbbfc52f4a1af82ac7bf5a2723e37a9a data/minecraft/tags/item/hoes.json
+f2d13231500cb2e946f769874f7c5480759eda22 data/minecraft/tags/item/hoes.json
 0e75f488b659aa68faa3d816bd16b2a81c90f8ef data/minecraft/tags/item/leg_armor.json
 2923ed776c11201bc3e6bbb0281c4d7b58cc022d data/minecraft/tags/item/meat.json
-ac14cf314dc80886278bd8bc8180947ed495f472 data/minecraft/tags/item/pickaxes.json
-f7e2196afbbfc52f4a1af82ac7bf5a2723e37a9a data/minecraft/tags/item/shovels.json
+83ec20a366a2f99550053a53d4ce91775c0275ec data/minecraft/tags/item/pickaxes.json
+690a6bbdb2e3b1fe0b943f0c0f917e0e03a75b38 data/minecraft/tags/item/shovels.json
 4a2eac7f3893ee338dbb04e3bba494b67bc0d09c data/minecraft/tags/item/trim_templates.json

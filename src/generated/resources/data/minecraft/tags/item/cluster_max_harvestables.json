@@ -5,6 +5,12 @@
     "classic_mobs:iron_pickaxe_axe",
     "classic_mobs:golden_pickaxe_axe",
     "classic_mobs:diamond_pickaxe_axe",
-    "classic_mobs:netherite_pickaxe_axe"
+    "classic_mobs:netherite_pickaxe_axe",
+    "classic_mobs:wooden_hammer",
+    "classic_mobs:stone_hammer",
+    "classic_mobs:iron_hammer",
+    "classic_mobs:golden_hammer",
+    "classic_mobs:diamond_hammer",
+    "classic_mobs:netherite_hammer"
   ]
 }

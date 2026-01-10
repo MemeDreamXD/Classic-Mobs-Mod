@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/handheld",
+  "textures": {
+    "layer0": "classic_mobs:item/diamond_hammer"
+  }
+}
