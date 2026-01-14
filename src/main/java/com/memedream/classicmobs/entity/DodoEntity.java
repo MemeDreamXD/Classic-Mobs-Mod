@@ -1,14 +1,15 @@
 package com.memedream.classicmobs.entity;
 
+import com.memedream.classicmobs.data.tags.ItemTagGen;
 import com.memedream.classicmobs.init.ModEntities;
-import com.memedream.classicmobs.init.ModItems;
 import com.memedream.classicmobs.init.ModSounds;
-import com.memedream.classicmobs.init.ModTags;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.util.Mth;
 import net.minecraft.world.damagesource.DamageSource;
-import net.minecraft.world.entity.*;
+import net.minecraft.world.entity.AgeableMob;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.goal.*;
@@ -37,7 +38,7 @@ public class DodoEntity extends Animal {
         this.goalSelector.addGoal(1, new PanicGoal(this, 1.4));
         this.goalSelector.addGoal(2, new BreedGoal(this, 1.0));
         //TODO: Fill DAILY_DODO_FOOD with a random item from DODO_FOOD at the start of every minecraft day and use that instead.
-        this.goalSelector.addGoal(3, new TemptGoal(this, 1.0, stack -> stack.is(ModTags.Items.DODO_FOOD), false));
+        this.goalSelector.addGoal(3, new TemptGoal(this, 1.0, stack -> stack.is(ItemTagGen.DODO_FOOD), false));
         this.goalSelector.addGoal(4, new FollowParentGoal(this, 1.1));
         this.goalSelector.addGoal(5, new WaterAvoidingRandomStrollGoal(this, 1.0));
         this.goalSelector.addGoal(6, new LookAtPlayerGoal(this, Player.class, 6.0F));
@@ -75,7 +76,7 @@ public class DodoEntity extends Animal {
 
     @Override
     public boolean isFood(ItemStack stack) {
-        return stack.is(ModTags.Items.DODO_FOOD);
+        return stack.is(ItemTagGen.DODO_FOOD);
     }
 
 
