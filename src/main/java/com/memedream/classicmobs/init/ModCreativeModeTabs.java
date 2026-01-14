@@ -91,6 +91,9 @@ public class ModCreativeModeTabs {
                 output.accept(ModBlocks.UNDERSHALE_BRICKS);
                 output.accept(ModBlocks.POLISHED_UNDERSHALE);
                 output.accept(ModBlocks.CHISELED_UNDERSHALE);
+                output.accept(ModBlocks.CARVED_UNDERSHALE_TILE);
+                output.accept(ModBlocks.CARVED_UNDERSHALE_TILE_CORNER);
+                output.accept(ModBlocks.CARVED_UNDERSHALE_TILE_STRAIGHT);
                 output.accept(ModBlocks.NACRITE);
 
                 output.accept(ModBlocks.LEATHER_BLOCK);

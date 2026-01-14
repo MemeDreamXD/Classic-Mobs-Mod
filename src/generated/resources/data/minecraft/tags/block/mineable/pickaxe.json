@@ -9,6 +9,9 @@
     "classic_mobs:undershale_bricks",
     "classic_mobs:chiseled_undershale",
     "classic_mobs:polished_undershale",
-    "classic_mobs:nacrite"
+    "classic_mobs:nacrite",
+    "classic_mobs:carved_undershale_tile",
+    "classic_mobs:carved_undershale_tile_straight",
+    "classic_mobs:carved_undershale_tile_corner"
   ]
 }

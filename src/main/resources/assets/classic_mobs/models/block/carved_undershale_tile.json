@@ -1,0 +1,30 @@
+{"render_type": "transluscent",
+	"parent": "block/block",
+	"texture_size": [16, 48],
+	"textures": {
+		"0": "classic_mobs:block/carved_undershale_tile_base",
+		"particle": "classic_mobs:block/carved_undershale_tile_base"
+	},
+	"elements": [
+		{
+			"from": [0, 0, 0],
+			"to": [16, 12, 16],
+			"faces": {
+				"north": {"uv": [0, 11.33333, 16, 16], "texture": "#0"},
+				"east": {"uv": [16, 11.33333, 0, 16], "texture": "#0"},
+				"south": {"uv": [0, 11.33333, 16, 16], "texture": "#0"},
+				"west": {"uv": [0, 11.33333, 16, 16], "texture": "#0"},
+				"up": {"uv": [16, 0, 0, 5.33333], "texture": "#0"},
+				"down": {"uv": [16, 5.33333, 0, 10.66667], "texture": "#0"}
+			}
+		}
+	],
+	"groups": [
+		{
+			"name": "group",
+			"origin": [0, 0, 0],
+			"color": 0,
+			"children": [0]
+		}
+	]
+}

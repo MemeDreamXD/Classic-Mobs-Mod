@@ -44,6 +44,15 @@ public class ModBlocks {
     public static final DeferredBlock<Block> POLISHED_UNDERSHALE = registerBlock("polished_undershale",
             () -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.DEEPSLATE).requiresCorrectToolForDrops().instrument(NoteBlockInstrument.BASEDRUM).strength(4.5F, 6.0F).sound(SoundType.DEEPSLATE)));
 
+    public static final DeferredBlock<HorizontalDirectionalBlock> CARVED_UNDERSHALE_TILE_CORNER = registerBlock("carved_undershale_tile_corner",
+            () -> new TileBlockCorner(BlockBehaviour.Properties.of().mapColor(MapColor.DEEPSLATE).requiresCorrectToolForDrops().instrument(NoteBlockInstrument.BASEDRUM).strength(4.5F, 6.0F).sound(SoundType.DEEPSLATE)));
+
+    public static final DeferredBlock<HorizontalDirectionalBlock> CARVED_UNDERSHALE_TILE_STRAIGHT = registerBlock("carved_undershale_tile_straight",
+            () -> new TileBlockStraight(BlockBehaviour.Properties.of().mapColor(MapColor.DEEPSLATE).requiresCorrectToolForDrops().instrument(NoteBlockInstrument.BASEDRUM).strength(4.5F, 6.0F).sound(SoundType.DEEPSLATE)));
+
+    public static final DeferredBlock<HorizontalDirectionalBlock> CARVED_UNDERSHALE_TILE = registerBlock("carved_undershale_tile",
+            () -> new TileBlock(BlockBehaviour.Properties.of().mapColor(MapColor.DEEPSLATE).requiresCorrectToolForDrops().instrument(NoteBlockInstrument.BASEDRUM).strength(4.5F, 6.0F).sound(SoundType.DEEPSLATE)));
+
     public static final DeferredBlock<Block> NACRITE = registerBlock("nacrite",
             () -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_MAGENTA).requiresCorrectToolForDrops().instrument(NoteBlockInstrument.BASEDRUM).strength(2.625F, 3.375F).sound(SoundType.CALCITE)));
 

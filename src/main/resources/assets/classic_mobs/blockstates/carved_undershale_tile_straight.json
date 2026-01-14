@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=north": {
+      "model" : "classic_mobs:block/carved_undershale_tile_straight"
+    },
+    "facing=south": {
+      "model" : "classic_mobs:block/carved_undershale_tile_straight",
+      "y": 180
+    },
+    "facing=east": {
+      "model" : "classic_mobs:block/carved_undershale_tile_straight",
+      "y": 90
+    },
+    "facing=west": {
+      "model" : "classic_mobs:block/carved_undershale_tile_straight",
+      "y": 270
+    }
+  }
+}
