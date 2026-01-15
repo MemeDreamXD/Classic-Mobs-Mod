@@ -20,6 +20,9 @@ public class ModRegistrationEvents {
         bus.addListener(ModRegistrationEvents::registerPlacements);
         NeoForge.EVENT_BUS.addListener(ModRegistrationEvents::onBrewingRecipeRegister);
         NeoForge.EVENT_BUS.addListener(AoeToolEvents::harvestWithMultitools);
+        NeoForge.EVENT_BUS.addListener(AoeToolEvents::modifyMultitoolMiningSpeed);
+        NeoForge.EVENT_BUS.addListener(AoeToolEvents::clearHarvestBlocksIfNeeded);
+        NeoForge.EVENT_BUS.addListener(AoeToolEvents::visuallyHarvestWithMultitools);
     }
 
     @SuppressWarnings("unchecked") //entities added this way will always extend LivingEntity
