@@ -1,6 +1,7 @@
 {
-  "parent": "minecraft:block/cube_all",
+  "parent": "minecraft:block/cube_column",
   "textures": {
-    "all": "classic_mobs:block/polished_undershale"
+    "end": "classic_mobs:block/polished_undershale_top",
+    "side": "classic_mobs:block/polished_undershale"
   }
 }

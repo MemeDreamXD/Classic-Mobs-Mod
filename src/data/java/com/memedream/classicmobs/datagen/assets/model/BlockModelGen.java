@@ -9,10 +9,15 @@ import net.minecraft.client.data.models.blockstates.BlockModelDefinitionGenerato
 import net.minecraft.client.data.models.blockstates.MultiVariantGenerator;
 import net.minecraft.client.data.models.blockstates.PropertyDispatch;
 import net.minecraft.client.data.models.model.*;
+import net.minecraft.client.renderer.block.model.Variant;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.Identifier;
+import net.minecraft.util.random.Weighted;
+import net.minecraft.util.random.WeightedList;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
 
+import java.util.Arrays;
 import java.util.function.BiConsumer;
 import java.util.function.Consumer;
 
@@ -32,7 +37,16 @@ public class BlockModelGen extends BlockModelGenerators {
         this.wrapBlockItem(ModBlocks.LEATHER_BLOCK.get(), block -> this.blockStateOutput.accept(createSimpleBlock(block, plainVariant(TexturedModel.CUBE_TOP_BOTTOM.create(block, this.modelOutput)))));
         this.wrapBlockItem(ModBlocks.NACRITE.get(), this::createTrivialCube);
         this.wrapBlockItem(ModBlocks.PHANTOM_MEMBRANE_BLOCK.get(), this::createTrivialCube);
-        this.wrapBlockItem(ModBlocks.POLISHED_UNDERSHALE.get(), this::createTrivialCube);
+        this.wrapBlockItem(ModBlocks.POLISHED_UNDERSHALE.get(), block -> {
+            Variant[] variants = new Variant[6];
+            for (int i = 0; i < 6; i++) {
+                String suffix = i == 0 ? "" : ("_" + i);
+                variants[i] = plainModel(ModelTemplates.CUBE_COLUMN.createWithSuffix(block, suffix, new TextureMapping()
+                    .put(TextureSlot.SIDE, TextureMapping.getBlockTexture(block, suffix))
+                    .put(TextureSlot.END, TextureMapping.getBlockTexture(block, "_top")), this.modelOutput));
+            }
+            this.blockStateOutput.accept(MultiVariantGenerator.dispatch(block, variants(variants)));
+        });
         this.wrapBlockItem(ModBlocks.ROTTEN_FLESH_BLOCK.get(), this::createTrivialCube);
         this.wrapBlockItem(ModBlocks.RUBY_ORE.get(), this::createTrivialCube);
         this.wrapBlockItem(ModBlocks.TRICKLITH_BLOCK.get(), this::createTrivialCube);
