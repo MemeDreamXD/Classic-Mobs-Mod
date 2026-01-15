@@ -19,6 +19,7 @@ public class ModRegistrationEvents {
         bus.addListener(ModRegistrationEvents::registerAttributes);
         bus.addListener(ModRegistrationEvents::registerPlacements);
         NeoForge.EVENT_BUS.addListener(ModRegistrationEvents::onBrewingRecipeRegister);
+        NeoForge.EVENT_BUS.addListener(AoeToolEvents::harvestWithMultitools);
     }
 
     @SuppressWarnings("unchecked") //entities added this way will always extend LivingEntity
@@ -36,7 +37,5 @@ public class ModRegistrationEvents {
 
         builder.addMix(Potions.AWKWARD, ModItems.LOCK_OF_HAG.asItem(), ModPotions.FAE_CURSE_POTION);
         builder.addMix(Potions.MUNDANE, ModItems.LOCK_OF_HAG.asItem(), ModPotions.STENCH_POTION);
-
     }
-
 }

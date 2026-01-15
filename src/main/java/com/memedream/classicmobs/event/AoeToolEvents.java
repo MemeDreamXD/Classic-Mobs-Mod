@@ -16,8 +16,7 @@ public class AoeToolEvents {
 
     // Done using https://github.com/CoFH/CoFHCore/blob/1.19.x/src/main/java/cofh/core/event/AreaEffectEvents.java
     // Don't be a jerk License - I did not write all this code and am also not a jerk.
-    @SubscribeEvent
-    public static void onSpadeUsage(BlockEvent.BreakEvent event) {
+    public static void harvestWithMultitools(BlockEvent.BreakEvent event) {
         Player player = event.getPlayer();
         ItemStack mainHandItem = player.getMainHandItem();
 
