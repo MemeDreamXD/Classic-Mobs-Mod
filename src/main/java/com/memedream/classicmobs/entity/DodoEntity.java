@@ -47,7 +47,10 @@ public class DodoEntity extends Animal {
     }
 
     public static AttributeSupplier.Builder createAttributes() {
-        return Mob.createMobAttributes().add(Attributes.MAX_HEALTH, 6.0d).add(Attributes.MOVEMENT_SPEED, 0.25d).add(Attributes.FOLLOW_RANGE, 24.0d);
+        return Animal.createAnimalAttributes()
+            .add(Attributes.MAX_HEALTH, 6.0D)
+            .add(Attributes.MOVEMENT_SPEED, 0.25D)
+            .add(Attributes.FOLLOW_RANGE, 24.0D);
     }
 
     @Override
