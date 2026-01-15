@@ -21,6 +21,10 @@ public class EntityTagGen extends EntityTypeTagsProvider {
             ModEntities.FLIGHT_ARROW.get()
         );
 
+        this.tag(EntityTypeTags.REDIRECTABLE_PROJECTILE).add(
+            ModEntities.FESTIVE_TNT.get()
+        );
+
         this.tag(EntityTypeTags.FALL_DAMAGE_IMMUNE).add(
             ModEntities.DODO.get(),
             ModEntities.HARPY.get()

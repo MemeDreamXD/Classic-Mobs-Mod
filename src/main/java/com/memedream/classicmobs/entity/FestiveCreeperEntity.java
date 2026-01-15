@@ -48,13 +48,13 @@ public class FestiveCreeperEntity extends Monster implements RangedAttackMob {
     public void performRangedAttack(LivingEntity target, float velocity) {
         FestiveTntEntity tnt = new FestiveTntEntity(this.level(), this);
         Vec3 movement = new Vec3(
-                (target.getX() - tnt.getX()) / 18D,
-                (target.getY() - tnt.getY()) / 18D + 0.5D,
-                (target.getZ() - tnt.getZ()) / 18D);
+            (target.getX() - tnt.getX()) / 18D,
+            (target.getY() - tnt.getY()) / 18D + 0.5D,
+            (target.getZ() - tnt.getZ()) / 18D);
         tnt.setDeltaMovement(movement);
         double d0 = movement.horizontalDistance();
-        tnt.setYRot((float) (Mth.atan2(movement.x, movement.z) * Mth.RAD_TO_DEG));
-        tnt.setXRot((float) (Mth.atan2(movement.y, d0) * Mth.RAD_TO_DEG) + 180);
+        tnt.setXRot((float) (Mth.atan2(movement.x, movement.z) * Mth.RAD_TO_DEG));
+        tnt.setYRot((float) (Mth.atan2(movement.y, d0) * Mth.RAD_TO_DEG));
         tnt.setOldPosAndRot();
         this.level().addFreshEntity(tnt);
     }

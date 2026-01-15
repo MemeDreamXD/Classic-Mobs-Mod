@@ -43,13 +43,13 @@ public class FestiveTntRenderer extends EntityRenderer<FestiveTntEntity, Festive
             stack.scale(s, s, s);
         }
 
-        submitNodeCollector.submitModel(this.tnt, state, stack, RenderTypes.entityCutoutNoCull(TEXTURE), state.lightCoords, getOverlay(fuse), -1, null);
+        submitNodeCollector.submitModel(this.tnt, state, stack, RenderTypes.entityCutoutNoCull(TEXTURE), state.lightCoords, getOverlay((int) fuse), state.outlineColor, null);
 
         stack.popPose();
         super.submit(state, stack, submitNodeCollector, camera);
     }
 
-    private static int getOverlay(float fuse) {
+    private static int getOverlay(int fuse) {
         int overlay;
         if (fuse / 5 % 2 == 0) {
             overlay = OverlayTexture.pack(OverlayTexture.u(1.0F), 10);
@@ -67,7 +67,7 @@ public class FestiveTntRenderer extends EntityRenderer<FestiveTntEntity, Festive
     public void extractRenderState(FestiveTntEntity entity, FestiveTNTRenderState state, float partialTicks) {
         super.extractRenderState(entity, state, partialTicks);
         state.fuseRemainingInTicks = entity.getFuse() - partialTicks + 1.0F;
-        state.yRot = Mth.lerp(partialTicks , entity.yRotO, entity.getYRot());
-        state.xRot = Mth.lerp(partialTicks , entity.xRotO, entity.getXRot());
+        state.yRot = Mth.lerp(partialTicks, entity.yRotO, entity.getYRot());
+        state.xRot = Mth.lerp(partialTicks, entity.xRotO, entity.getXRot());
     }
 }
