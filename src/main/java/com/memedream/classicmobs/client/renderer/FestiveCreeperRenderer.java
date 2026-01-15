@@ -1,24 +1,29 @@
 package com.memedream.classicmobs.client.renderer;
 
 import com.memedream.classicmobs.ClassicMobs;
-import com.memedream.classicmobs.client.ModModelLayers;
 import com.memedream.classicmobs.entity.FestiveCreeperEntity;
-import net.minecraft.client.model.CreeperModel;
 import net.minecraft.client.model.geom.ModelLayers;
+import net.minecraft.client.model.monster.creeper.CreeperModel;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.entity.MobRenderer;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.client.renderer.entity.state.CreeperRenderState;
+import net.minecraft.resources.Identifier;
 
-public class FestiveCreeperRenderer extends MobRenderer<FestiveCreeperEntity, CreeperModel<FestiveCreeperEntity>> {
+public class FestiveCreeperRenderer extends MobRenderer<FestiveCreeperEntity, CreeperRenderState, CreeperModel> {
 
-    private static final ResourceLocation TEXTURE = ClassicMobs.prefix("textures/entity/festive_creeper.png");
+    private static final Identifier TEXTURE = ClassicMobs.prefix("textures/entity/festive_creeper.png");
 
     public FestiveCreeperRenderer(EntityRendererProvider.Context context) {
-        super(context, new CreeperModel<>(context.bakeLayer(ModelLayers.CREEPER)), 0.4F);
+        super(context, new CreeperModel(context.bakeLayer(ModelLayers.CREEPER)), 0.4F);
     }
 
     @Override
-    public ResourceLocation getTextureLocation(FestiveCreeperEntity entity) {
+    public CreeperRenderState createRenderState() {
+        return new CreeperRenderState();
+    }
+
+    @Override
+    public Identifier getTextureLocation(CreeperRenderState state) {
         return TEXTURE;
     }
 }

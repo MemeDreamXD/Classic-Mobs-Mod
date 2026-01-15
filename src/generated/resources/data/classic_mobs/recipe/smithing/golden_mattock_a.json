@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": "minecraft:golden_hoe",
+  "base": "minecraft:golden_shovel",
+  "result": {
+    "id": "classic_mobs:golden_mattock"
+  },
+  "template": "classic_mobs:combination_upgrade_smithing_template"
+}

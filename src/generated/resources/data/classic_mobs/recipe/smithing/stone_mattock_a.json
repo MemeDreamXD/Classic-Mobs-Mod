@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": "minecraft:stone_hoe",
+  "base": "minecraft:stone_shovel",
+  "result": {
+    "id": "classic_mobs:stone_mattock"
+  },
+  "template": "classic_mobs:combination_upgrade_smithing_template"
+}

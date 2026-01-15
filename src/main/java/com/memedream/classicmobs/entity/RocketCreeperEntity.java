@@ -9,15 +9,13 @@ import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.goal.*;
 import net.minecraft.world.entity.ai.goal.target.HurtByTargetGoal;
 import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
-import net.minecraft.world.entity.animal.Cat;
-import net.minecraft.world.entity.animal.Ocelot;
+import net.minecraft.world.entity.animal.feline.Cat;
+import net.minecraft.world.entity.animal.feline.Ocelot;
 import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 
 public class RocketCreeperEntity extends Monster {
-
-    // Variables go here
 
     public RocketCreeperEntity(EntityType<? extends Monster> entityType, Level level) {
         super(entityType, level);
@@ -42,7 +40,7 @@ public class RocketCreeperEntity extends Monster {
     }
 
     @Override
-    protected SoundEvent getHurtSound(DamageSource p_32309_) {
+    protected SoundEvent getHurtSound(DamageSource source) {
         return SoundEvents.CREEPER_HURT;
     }
 

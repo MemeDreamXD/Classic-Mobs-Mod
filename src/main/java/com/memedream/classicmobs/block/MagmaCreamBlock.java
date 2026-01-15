@@ -1,6 +1,8 @@
 package com.memedream.classicmobs.block;
 
+import com.mojang.serialization.Codec;
 import com.mojang.serialization.MapCodec;
+import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.entity.Entity;
@@ -11,28 +13,26 @@ import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 
 public class MagmaCreamBlock extends Block {
-    private static final int SECONDS_ON_FIRE = 8;
+
+    public static final MapCodec<MagmaCreamBlock> CODEC = RecordCodecBuilder.mapCodec(instance -> instance.group(
+            Codec.FLOAT.fieldOf("fire_damage").forGetter(o -> o.fireDamage),
+            propertiesCodec())
+        .apply(instance, MagmaCreamBlock::new));
+
     private final float fireDamage;
 
-    public MagmaCreamBlock(BlockBehaviour.Properties properties, float fireDamage) {
+    public MagmaCreamBlock(float fireDamage, BlockBehaviour.Properties properties) {
         super(properties);
         this.fireDamage = fireDamage;
     }
 
-    protected MapCodec<? extends MagmaCreamBlock> codec() {
-        return null;
+    @Override
+    public MapCodec<MagmaCreamBlock> codec() {
+        return CODEC;
     }
 
-    //@Override
-    //public static final MapCodec<MagmaCreamBlock> CODEC = simpleCodec(MagmaCreamBlock::new);
-
-   // @Override
-    //public MapCodec<MagmaCreamBlock> codec() {
-    //    return CODEC;
-    //}
-
     protected boolean skipRendering(BlockState state, BlockState adjacentBlockState, Direction side) {
-        return adjacentBlockState.is(this) ? true : super.skipRendering(state, adjacentBlockState, side);
+        return adjacentBlockState.is(this) || super.skipRendering(state, adjacentBlockState, side);
     }
 
     @Override
@@ -40,11 +40,10 @@ public class MagmaCreamBlock extends Block {
         if (!entity.isSteppingCarefully() && entity instanceof LivingEntity && !entity.fireImmune()) {
             entity.hurt(level.damageSources().inFire(), this.fireDamage);
             super.stepOn(level, pos, state, entity);
-                entity.setRemainingFireTicks(entity.getRemainingFireTicks() + 1);
-                if (entity.getRemainingFireTicks() == 0) {
-                    entity.igniteForSeconds(8.0F);
-                }
-
+            entity.setRemainingFireTicks(entity.getRemainingFireTicks() + 1);
+            if (entity.getRemainingFireTicks() == 0) {
+                entity.igniteForSeconds(8.0F);
             }
+        }
     }
 }

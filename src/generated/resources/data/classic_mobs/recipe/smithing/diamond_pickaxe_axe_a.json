@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": "minecraft:diamond_axe",
+  "base": "minecraft:diamond_pickaxe",
+  "result": {
+    "id": "classic_mobs:diamond_pickaxe_axe"
+  },
+  "template": "classic_mobs:combination_upgrade_smithing_template"
+}

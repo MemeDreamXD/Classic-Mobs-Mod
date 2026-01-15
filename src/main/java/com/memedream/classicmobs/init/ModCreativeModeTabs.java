@@ -5,7 +5,6 @@ import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Items;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
 import java.util.function.Supplier;
@@ -17,14 +16,7 @@ public class ModCreativeModeTabs {
     public static final Supplier<CreativeModeTab> CLASSIC_MOBS_TAB = TABS.register("classic_mobs_tab", () -> CreativeModeTab.builder().icon(() -> new ItemStack(ModItems.RAW_DODO.get()))
             .title(Component.translatable("creativetab.classic_mobs.classic_mobs_tab"))
             .displayItems((itemDisplayParameters, output) -> {
-                output.accept(ModItems.DODO_SPAWN_EGG);
-                output.accept(ModItems.ANTLION_SPAWN_EGG);
-                output.accept(ModItems.MYRMEX_SPAWN_EGG);
-                output.accept(ModItems.HAG_SPAWN_EGG);
-                output.accept(ModItems.HARPY_SPAWN_EGG);
-                output.accept(ModItems.ROCKET_CREEPER_SPAWN_EGG);
-                output.accept(ModItems.SUPPORT_CREEPER_SPAWN_EGG);
-                output.accept(ModItems.FESTIVE_CREEPER_SPAWN_EGG);
+                ModEntities.SPAWN_EGGS.getEntries().forEach(holder -> output.accept(holder.get()));
 
                 output.accept(ModItems.RAW_DODO);
                 output.accept(ModItems.COOKED_DODO);
@@ -52,12 +44,12 @@ public class ModCreativeModeTabs {
                 output.accept(ModItems.STONE_LUMBER_AXE);
                 output.accept(ModItems.STONE_HAMMER);
                 output.accept(ModItems.STONE_SCYTHE);
-                //output.accept(ModItems.COPPER_PICKAXE_AXE);
-                //output.accept(ModItems.COPPER_MATTOCK);
-                //output.accept(ModItems.COPPER_SPADE);
-                //output.accept(ModItems.COPPER_LUMBER_AXE);
-                //output.accept(ModItems.COPPER_HAMMER);
-                //output.accept(ModItems.COPPER_SCYTHE);
+                output.accept(ModItems.COPPER_PICKAXE_AXE);
+                output.accept(ModItems.COPPER_MATTOCK);
+                output.accept(ModItems.COPPER_SPADE);
+                output.accept(ModItems.COPPER_LUMBER_AXE);
+                output.accept(ModItems.COPPER_HAMMER);
+                output.accept(ModItems.COPPER_SCYTHE);
                 output.accept(ModItems.IRON_PICKAXE_AXE);
                 output.accept(ModItems.IRON_MATTOCK);
                 output.accept(ModItems.IRON_SPADE);

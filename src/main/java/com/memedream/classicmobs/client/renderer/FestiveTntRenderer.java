@@ -2,55 +2,54 @@ package com.memedream.classicmobs.client.renderer;
 
 import com.memedream.classicmobs.ClassicMobs;
 import com.memedream.classicmobs.client.ModModelLayers;
+import com.memedream.classicmobs.client.model.FestiveTNTModel;
+import com.memedream.classicmobs.client.state.FestiveTNTRenderState;
 import com.memedream.classicmobs.entity.FestiveTntEntity;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.math.Axis;
-import net.minecraft.client.model.geom.ModelPart;
-import net.minecraft.client.model.geom.PartPose;
-import net.minecraft.client.model.geom.builders.*;
-import net.minecraft.client.renderer.MultiBufferSource;
-import net.minecraft.client.renderer.RenderType;
+import net.minecraft.client.renderer.SubmitNodeCollector;
 import net.minecraft.client.renderer.entity.EntityRenderer;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
+import net.minecraft.client.renderer.rendertype.RenderTypes;
+import net.minecraft.client.renderer.state.CameraRenderState;
 import net.minecraft.client.renderer.texture.OverlayTexture;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.util.Mth;
 
-public class FestiveTntRenderer extends EntityRenderer<FestiveTntEntity> {
+public class FestiveTntRenderer extends EntityRenderer<FestiveTntEntity, FestiveTNTRenderState> {
 
-    private static final ResourceLocation TEXTURE = ClassicMobs.prefix("textures/entity/festive_tnt.png");
-    private final ModelPart tnt;
+    private static final Identifier TEXTURE = ClassicMobs.prefix("textures/entity/festive_tnt.png");
+    private final FestiveTNTModel tnt;
 
     public FestiveTntRenderer(EntityRendererProvider.Context context) {
         super(context);
-        this.tnt = context.bakeLayer(ModModelLayers.FESTIVE_TNT);
+        this.tnt = new FestiveTNTModel(context.bakeLayer(ModModelLayers.FESTIVE_TNT));
     }
 
     @Override
-    public void render(FestiveTntEntity entity, float entityYaw, float partialTick, PoseStack stack, MultiBufferSource buffer, int light) {
+    public void submit(FestiveTNTRenderState state, PoseStack stack, SubmitNodeCollector submitNodeCollector, CameraRenderState camera) {
         stack.pushPose();
         stack.translate(0.0F, 0.25F, 0.0F);
-        stack.mulPose(Axis.YP.rotationDegrees(Mth.lerp(partialTick, entity.yRotO, entity.getYRot())));
-        stack.mulPose(Axis.XP.rotationDegrees(Mth.lerp(partialTick, entity.xRotO, entity.getXRot())));
+        stack.mulPose(Axis.YP.rotationDegrees(state.yRot));
+        stack.mulPose(Axis.XP.rotationDegrees(state.xRot));
         stack.scale(0.5F, -0.5F, -0.5F);
-
-        int fuse = entity.getFuse();
-        if (fuse > -1 && (float) fuse - partialTick + 1.0F < 10.0F) {
-            float f = 1.0F - ((float) fuse - partialTick + 1.0F) / 10.0F;
-            f = Mth.clamp(f, 0.0F, 1.0F);
-            f *= f;
-            f *= f;
-            float f1 = 1.0F + f * 0.3F;
-            stack.scale(f1, f1, f1);
+        float fuse = state.fuseRemainingInTicks;
+        if (state.fuseRemainingInTicks < 10.0F) {
+            float g = 1.0F - state.fuseRemainingInTicks / 10.0F;
+            g = Mth.clamp(g, 0.0F, 1.0F);
+            g *= g;
+            g *= g;
+            float s = 1.0F + g * 0.3F;
+            stack.scale(s, s, s);
         }
 
-        this.tnt.render(stack, buffer.getBuffer(RenderType.entityCutoutNoCull(this.getTextureLocation(entity))), light, getOverlay(fuse));
-        stack.popPose();
+        submitNodeCollector.submitModel(this.tnt, state, stack, RenderTypes.entityCutoutNoCull(TEXTURE), state.lightCoords, getOverlay(fuse), -1, null);
 
-        super.render(entity, entityYaw, partialTick, stack, buffer, light);
+        stack.popPose();
+        super.submit(state, stack, submitNodeCollector, camera);
     }
 
-    private static int getOverlay(int fuse) {
+    private static int getOverlay(float fuse) {
         int overlay;
         if (fuse / 5 % 2 == 0) {
             overlay = OverlayTexture.pack(OverlayTexture.u(1.0F), 10);
@@ -60,19 +59,15 @@ public class FestiveTntRenderer extends EntityRenderer<FestiveTntEntity> {
         return overlay;
     }
 
-    public static LayerDefinition createModel() {
-        MeshDefinition meshdefinition = new MeshDefinition();
-        PartDefinition partdefinition = meshdefinition.getRoot();
-
-        partdefinition.addOrReplaceChild("head", CubeListBuilder.create()
-                        .texOffs(0, 0).addBox(-8.0F, -8.0F, -8.0F, 16.0F, 16.0F, 16.0F),
-                PartPose.ZERO);
-
-        return LayerDefinition.create(meshdefinition, 64, 32);
+    public FestiveTNTRenderState createRenderState() {
+        return new FestiveTNTRenderState();
     }
 
     @Override
-    public ResourceLocation getTextureLocation(FestiveTntEntity entity) {
-        return TEXTURE;
+    public void extractRenderState(FestiveTntEntity entity, FestiveTNTRenderState state, float partialTicks) {
+        super.extractRenderState(entity, state, partialTicks);
+        state.fuseRemainingInTicks = entity.getFuse() - partialTicks + 1.0F;
+        state.yRot = Mth.lerp(partialTicks , entity.yRotO, entity.getYRot());
+        state.xRot = Mth.lerp(partialTicks , entity.xRotO, entity.getXRot());
     }
 }

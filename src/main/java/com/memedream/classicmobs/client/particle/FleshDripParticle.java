@@ -4,98 +4,76 @@ import com.memedream.classicmobs.init.ModParticles;
 import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.client.particle.DripParticle;
 import net.minecraft.client.particle.Particle;
-import net.minecraft.client.particle.TextureSheetParticle;
+import net.minecraft.client.particle.ParticleProvider;
+import net.minecraft.client.particle.SpriteSet;
+import net.minecraft.client.renderer.texture.TextureAtlasSprite;
 import net.minecraft.core.particles.SimpleParticleType;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.material.Fluids;
-import net.neoforged.fml.util.ObfuscationReflectionHelper;
-
-import java.lang.invoke.MethodHandle;
-import java.lang.invoke.MethodHandles;
-import java.lang.reflect.Field;
 
 @SuppressWarnings("unused") //dont care shut up
 public class FleshDripParticle extends DripParticle {
 
-    private static final MethodHandles.Lookup LOOKUP = MethodHandles.lookup();
-    private static final Field particle_Gravity = ObfuscationReflectionHelper.findField(Particle.class, "gravity");
-    private static final MethodHandle handle_particle_Gravity_set;
-    private static final MethodHandle handle_particle_Gravity_get;
+    public FleshDripParticle(ClientLevel level, double x, double y, double z, TextureAtlasSprite sprite) {
+        super(level, x, y, z, Fluids.EMPTY, sprite);
+    }
 
-    static {
-        MethodHandle tmp_handle_particle_Gravity_set = null;
-        MethodHandle tmp_handle_particle_Gravity_get = null;
-        try {
-            tmp_handle_particle_Gravity_set = LOOKUP.unreflectSetter(particle_Gravity);
-            tmp_handle_particle_Gravity_get = LOOKUP.unreflectGetter(particle_Gravity);
-        } catch (IllegalAccessException e) {
-            e.printStackTrace();
+    private static class FleshDripHangParticle extends DripHangParticle {
+
+        public FleshDripHangParticle(ClientLevel level, double x, double y, double z, TextureAtlasSprite sprite) {
+            super(level, x, y, z, Fluids.EMPTY, ModParticles.FALLING_FLESH.get(), sprite);
+            this.gravity *= 0.01F;
         }
-        handle_particle_Gravity_set = tmp_handle_particle_Gravity_set;
-        handle_particle_Gravity_get = tmp_handle_particle_Gravity_get;
     }
 
-    public FleshDripParticle(ClientLevel level, double x, double y, double z) {
-        super(level, x, y, z, Fluids.EMPTY);
-    }
+    private static class FleshDripFallParticle extends FallAndLandParticle {
 
-    public static TextureSheetParticle createFleshHangParticle(
-            SimpleParticleType type,
-            ClientLevel level,
-            double x,
-            double y,
-            double z,
-            double xd,
-            double yd,
-            double zd
-    ) {
-        DripParticle.DripHangParticle particle = new DripParticle.DripHangParticle(
-                level, x, y, z, Fluids.EMPTY, ModParticles.FALLING_FLESH.get()
-        );
-        try {
-            handle_particle_Gravity_set.invokeExact((Particle) particle, (float) handle_particle_Gravity_get.invokeExact((Particle) particle) * 0.01F);
-        } catch (Throwable throwable) {
-            throwable.printStackTrace();
+        public FleshDripFallParticle(ClientLevel level, double x, double y, double z, TextureAtlasSprite sprite) {
+            super(level, x, y, z, Fluids.EMPTY, ModParticles.LANDING_FLESH.get(), sprite);
+            this.gravity *= 0.01F;
         }
-        particle.setLifetime(100);
-        particle.setColor(106.0F / 255.0F, 93.0F / 255.0F, 24.0F / 255.0F);
-        return particle;
     }
 
-    public static TextureSheetParticle createFleshFallParticle(
-            SimpleParticleType type,
-            ClientLevel level,
-            double x,
-            double y,
-            double z,
-            double xd,
-            double yd,
-            double zd
-    ) {
-        DripParticle particle = new DripParticle.FallAndLandParticle(
-                level, x, y, z, Fluids.EMPTY, ModParticles.LANDING_FLESH.get()
-        );
-        try {
-            handle_particle_Gravity_set.invokeExact((Particle) particle, 0.01F);
-        } catch (Throwable throwable) {
-            throwable.printStackTrace();
+    public static class FleshHangProvider implements ParticleProvider<SimpleParticleType> {
+        private final SpriteSet sprite;
+
+        public FleshHangProvider(SpriteSet sprite) {
+            this.sprite = sprite;
         }
-        particle.setColor(106.0F / 255.0F, 93.0F / 255.0F, 24.0F / 255.0F);
-        return particle;
+
+        public Particle createParticle(SimpleParticleType options, ClientLevel level, double x, double y, double z, double xAux, double yAux, double zAux, RandomSource random) {
+            FleshDripFallParticle particle = new FleshDripFallParticle(level, x, y, z, this.sprite.get(random));
+            particle.setColor(106.0F / 255.0F, 93.0F / 255.0F, 24.0F / 255.0F);
+            return particle;
+        }
     }
 
-    public static TextureSheetParticle createFleshLandParticle(
-            SimpleParticleType type,
-            ClientLevel level,
-            double x,
-            double y,
-            double z,
-            double xd,
-            double yd,
-            double zd
-    ) {
-        DripParticle particle = new DripParticle.DripLandParticle(level, x, y, z, Fluids.EMPTY);
-        particle.setLifetime((int)(28.0 / (Math.random() * 0.8 + 0.2)));
-        particle.setColor(106.0F / 255.0F, 93.0F / 255.0F, 24.0F / 255.0F);
-        return particle;
+    public static class FleshFallProvider implements ParticleProvider<SimpleParticleType> {
+        private final SpriteSet sprite;
+
+        public FleshFallProvider(SpriteSet sprite) {
+            this.sprite = sprite;
+        }
+
+        public Particle createParticle(SimpleParticleType options, ClientLevel level, double x, double y, double z, double xAux, double yAux, double zAux, RandomSource random) {
+            FleshDripFallParticle particle = new FleshDripFallParticle(level, x, y, z, this.sprite.get(random));
+            particle.setColor(106.0F / 255.0F, 93.0F / 255.0F, 24.0F / 255.0F);
+            return particle;
+        }
+    }
+
+    public static class FleshLandProvider implements ParticleProvider<SimpleParticleType> {
+        private final SpriteSet sprite;
+
+        public FleshLandProvider(SpriteSet sprite) {
+            this.sprite = sprite;
+        }
+
+        public Particle createParticle(SimpleParticleType options, ClientLevel level, double x, double y, double z, double xAux, double yAux, double zAux, RandomSource random) {
+            DripLandParticle particle = new DripLandParticle(level, x, y, z, Fluids.EMPTY, this.sprite.get(random));
+            particle.setLifetime((int)(28.0 / (Math.random() * 0.8 + 0.2)));
+            particle.setColor(106.0F / 255.0F, 93.0F / 255.0F, 24.0F / 255.0F);
+            return particle;
+        }
     }
 }

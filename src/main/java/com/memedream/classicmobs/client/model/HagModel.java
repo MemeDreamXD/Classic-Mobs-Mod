@@ -1,20 +1,17 @@
 package com.memedream.classicmobs.client.model;
 
-import com.memedream.classicmobs.entity.AntlionEntity;
-import com.memedream.classicmobs.entity.HagEntity;
 import com.mojang.blaze3d.vertex.PoseStack;
-import net.minecraft.client.model.AnimationUtils;
 import net.minecraft.client.model.ArmedModel;
-import net.minecraft.client.model.HierarchicalModel;
+import net.minecraft.client.model.EntityModel;
 import net.minecraft.client.model.geom.ModelPart;
 import net.minecraft.client.model.geom.PartPose;
 import net.minecraft.client.model.geom.builders.*;
+import net.minecraft.client.renderer.entity.state.ArmedEntityRenderState;
 import net.minecraft.util.Mth;
 import net.minecraft.world.entity.HumanoidArm;
 
-public class HagModel extends HierarchicalModel<HagEntity> implements ArmedModel {
+public class HagModel extends EntityModel<ArmedEntityRenderState> implements ArmedModel<ArmedEntityRenderState> {
 
-    private final ModelPart root;
     private final ModelPart head;
     private final ModelPart arm_right;
     private final ModelPart arm_left;
@@ -22,7 +19,7 @@ public class HagModel extends HierarchicalModel<HagEntity> implements ArmedModel
     private final ModelPart leg_left;
 
     public HagModel(ModelPart root) {
-        this.root = root;
+        super(root);
         this.head = root.getChild("head");
         this.arm_right = root.getChild("arm_right");
         this.arm_left = root.getChild("arm_left");
@@ -63,30 +60,25 @@ public class HagModel extends HierarchicalModel<HagEntity> implements ArmedModel
         return LayerDefinition.create(meshdefinition, 128, 128);
     }
 
-    @Override
-    public ModelPart root() {
-        return this.root;
-    }
-
     //TODO: Needs item attack animation
     @Override
-    public void setupAnim(HagEntity entity, float limbSwing, float limbSwingAmount, float partialTick, float netHeadYaw, float headPitch) {
-        this.head.yRot = netHeadYaw * ((float)Math.PI / 180F);
-        this.head.xRot = headPitch * ((float)Math.PI / 180F);
-        this.leg_right.xRot = -1.5F * Mth.triangleWave(limbSwing, 13.0F) * limbSwingAmount;
-        this.leg_left.xRot = 1.5F * Mth.triangleWave(limbSwing, 13.0F) * limbSwingAmount;
+    public void setupAnim(ArmedEntityRenderState state) {
+        this.head.yRot = state.yRot * Mth.DEG_TO_RAD;
+        this.head.xRot = state.xRot * Mth.DEG_TO_RAD;
+        this.leg_right.xRot = -1.5F * Mth.triangleWave(state.walkAnimationPos, 13.0F) * state.walkAnimationSpeed;
+        this.leg_left.xRot = 1.5F * Mth.triangleWave(state.walkAnimationPos, 13.0F) * state.walkAnimationSpeed;
         this.leg_right.yRot = 0.0F;
         this.leg_left.yRot = 0.0F;
-        this.arm_right.xRot = -1.0F * Mth.triangleWave(limbSwing, 7.0F) * limbSwingAmount;
-        this.arm_left.xRot = 1.0F * Mth.triangleWave(limbSwing, 7.0F) * limbSwingAmount;
+        this.arm_right.xRot = -1.0F * Mth.triangleWave(state.walkAnimationPos, 7.0F) * state.walkAnimationSpeed;
+        this.arm_left.xRot = 1.0F * Mth.triangleWave(state.walkAnimationPos, 7.0F) * state.walkAnimationSpeed;
         this.arm_right.yRot = 0.0F;
         this.arm_left.yRot = 0.0F;
     }
 
     @Override
-    public void translateToHand(HumanoidArm side, PoseStack poseStack) {
-        this.getArm(side).translateAndRotate(poseStack);
-        poseStack.translate(side == HumanoidArm.LEFT ? 0.05D : -0.05D, 0.2D, 0.1D);
+    public void translateToHand(ArmedEntityRenderState state, HumanoidArm arm, PoseStack stack) {
+        this.getArm(arm).translateAndRotate(stack);
+        stack.translate(arm == HumanoidArm.LEFT ? 0.05D : -0.05D, 0.2D, 0.1D);
     }
 
     protected ModelPart getArm(HumanoidArm side) {

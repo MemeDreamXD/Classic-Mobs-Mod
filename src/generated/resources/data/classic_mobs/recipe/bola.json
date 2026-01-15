@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "key": {
+    "c": "#c:cobblestones",
+    "h": "classic_mobs:chitin",
+    "l": "#c:leathers",
+    "s": "#c:strings"
+  },
+  "pattern": [
+    " l ",
+    "s s",
+    "hch"
+  ],
+  "result": {
+    "count": 1,
+    "id": "classic_mobs:bola"
+  }
+}

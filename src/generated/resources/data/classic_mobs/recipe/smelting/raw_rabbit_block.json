@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:smelting",
+  "category": "food",
+  "cookingtime": 1800,
+  "experience": 3.15,
+  "ingredient": "classic_mobs:raw_rabbit_block",
+  "result": {
+    "count": 1,
+    "id": "classic_mobs:cooked_rabbit_block"
+  }
+}

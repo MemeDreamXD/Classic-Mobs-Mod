@@ -2,7 +2,6 @@ package com.memedream.classicmobs.entity;
 
 import com.memedream.classicmobs.block.GunpowderBlock;
 import com.memedream.classicmobs.init.ModEntities;
-import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.item.FallingBlockEntity;
@@ -11,10 +10,6 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.Vec3;
 
-import javax.annotation.ParametersAreNonnullByDefault;
-
-@ParametersAreNonnullByDefault
-@MethodsReturnNonnullByDefault
 public class FallingGunpowderEntity extends FallingBlockEntity {
     public FallingGunpowderEntity(EntityType<? extends FallingBlockEntity> entityType, Level level) {
         super(entityType, level);

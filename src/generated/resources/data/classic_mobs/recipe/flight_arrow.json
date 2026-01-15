@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "key": {
+    "f": "minecraft:flint",
+    "h": "classic_mobs:harpy_feather",
+    "s": "#c:rods/wooden"
+  },
+  "pattern": [
+    "f",
+    "s",
+    "h"
+  ],
+  "result": {
+    "count": 4,
+    "id": "classic_mobs:flight_arrow"
+  }
+}

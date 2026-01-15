@@ -1,6 +1,0 @@
-{
-  "parent": "minecraft:item/generated",
-  "textures": {
-    "layer0": "classic_mobs:item/diamond_knife"
-  }
-}

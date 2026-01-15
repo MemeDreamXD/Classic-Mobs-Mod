@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": "minecraft:copper_pickaxe",
+  "base": "minecraft:copper_axe",
+  "result": {
+    "id": "classic_mobs:copper_pickaxe_axe"
+  },
+  "template": "classic_mobs:combination_upgrade_smithing_template"
+}

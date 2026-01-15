@@ -1,17 +1,15 @@
 package com.memedream.classicmobs.client.model;
 
-import com.memedream.classicmobs.entity.MyrmexEntity;
-import net.minecraft.client.model.HierarchicalModel;
+import net.minecraft.client.model.EntityModel;
 import net.minecraft.client.model.geom.ModelPart;
 import net.minecraft.client.model.geom.PartPose;
 import net.minecraft.client.model.geom.builders.*;
+import net.minecraft.client.renderer.entity.state.LivingEntityRenderState;
 
-public class MyrmexModel extends HierarchicalModel<MyrmexEntity> {
-
-    private final ModelPart root;
+public class MyrmexModel extends EntityModel<LivingEntityRenderState> {
 
     public MyrmexModel(ModelPart root) {
-        this.root = root;
+        super(root);
     }
 
     public static LayerDefinition create() {
@@ -45,14 +43,9 @@ public class MyrmexModel extends HierarchicalModel<MyrmexEntity> {
         return LayerDefinition.create(meshdefinition, 64, 64);
     }
 
-    @Override
-    public ModelPart root() {
-        return this.root;
-    }
-
     //TODO: Needs animations. This one should be simple, it's basically a zombie with two extra legs. It'll eventually need to be able to wield genric tool items and a shield while still looking correct.
     @Override
-    public void setupAnim(MyrmexEntity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
+    public void setupAnim(LivingEntityRenderState state) {
 
     }
 }

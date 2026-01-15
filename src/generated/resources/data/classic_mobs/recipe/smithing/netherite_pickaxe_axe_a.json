@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": "minecraft:netherite_axe",
+  "base": "minecraft:netherite_pickaxe",
+  "result": {
+    "id": "classic_mobs:netherite_pickaxe_axe"
+  },
+  "template": "classic_mobs:combination_upgrade_smithing_template"
+}

@@ -7,19 +7,25 @@ import com.memedream.classicmobs.entity.HagEntity;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.entity.MobRenderer;
 import net.minecraft.client.renderer.entity.layers.ItemInHandLayer;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.client.renderer.entity.state.ArmedEntityRenderState;
+import net.minecraft.resources.Identifier;
 
-public class HagRenderer extends MobRenderer<HagEntity, HagModel> {
+public class HagRenderer extends MobRenderer<HagEntity, ArmedEntityRenderState, HagModel> {
 
-    private static final ResourceLocation TEXTURE = ClassicMobs.prefix("textures/entity/hag.png");
+    private static final Identifier TEXTURE = ClassicMobs.prefix("textures/entity/hag.png");
 
     public HagRenderer(EntityRendererProvider.Context context) {
         super(context, new HagModel(context.bakeLayer(ModModelLayers.HAG)), 0.4F);
-        this.addLayer(new ItemInHandLayer<>(this, context.getItemInHandRenderer()));
+        this.addLayer(new ItemInHandLayer<>(this));
     }
 
     @Override
-    public ResourceLocation getTextureLocation(HagEntity entity) {
+    public ArmedEntityRenderState createRenderState() {
+        return new ArmedEntityRenderState();
+    }
+
+    @Override
+    public Identifier getTextureLocation(ArmedEntityRenderState state) {
         return TEXTURE;
     }
 }

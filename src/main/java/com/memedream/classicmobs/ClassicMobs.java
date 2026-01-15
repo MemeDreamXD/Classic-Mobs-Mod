@@ -3,18 +3,13 @@ package com.memedream.classicmobs;
 import com.memedream.classicmobs.client.event.ModClientRegistrationEvents;
 import com.memedream.classicmobs.event.ModRegistrationEvents;
 import com.memedream.classicmobs.init.*;
-import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.FireBlock;
-import net.neoforged.api.distmarker.Dist;
-import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
-import org.slf4j.Logger;
-
 import com.mojang.logging.LogUtils;
-
+import net.minecraft.resources.Identifier;
+import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.IEventBus;
-import net.neoforged.fml.common.Mod;
 import net.neoforged.fml.ModContainer;
+import net.neoforged.fml.common.Mod;
+import org.slf4j.Logger;
 
 @Mod(ClassicMobs.MOD_ID)
 public class ClassicMobs {
@@ -34,23 +29,20 @@ public class ClassicMobs {
         ModSounds.SOUND_EVENTS.register(bus);
         ModCreativeModeTabs.TABS.register(bus);
         ModEntities.ENTITY_TYPES.register(bus);
-        ModArmorMaterials.MATERIALS.register(bus);
         ModEffects.MOB_EFFECTS.register(bus);
         ModParticles.PARTICLES.register(bus);
         ModPotions.POTIONS.register(bus);
-        bus.addListener(this::setup);
+        ModEntities.SPAWN_EGGS.register(bus);
+        ModConsumeEffects.CONSUME_EFFECTS.register(bus);
+        ModRecipes.RECIPE_SERIALIZERS.register(bus);
+        ModRecipes.RECIPE_TYPES.register(bus);
 
         // Register our mod's ModConfigSpec so that FML can create and load the config file for us
         //...we'll do this if we actually add a config file
         //container.registerConfig(ModConfig.Type.COMMON, Config.SPEC);
     }
 
-    public void setup(FMLCommonSetupEvent evt) {
-        FireBlock fireblock = (FireBlock) Blocks.FIRE;
-        fireblock.setFlammable(ModBlocks.GUNPOWDER_BLOCK.get(), 15, 100);
-    }
-
-    public static ResourceLocation prefix(String name) {
-        return ResourceLocation.fromNamespaceAndPath(MOD_ID, name);
+    public static Identifier prefix(String name) {
+        return Identifier.fromNamespaceAndPath(MOD_ID, name);
     }
 }

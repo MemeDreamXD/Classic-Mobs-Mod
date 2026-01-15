@@ -1,7 +1,0 @@
-{
-  "parent": "classic_mobs:block/template/half_block",
-  "textures": {
-    "end": "classic_mobs:block/raw_salmon_block_top",
-    "side": "classic_mobs:block/raw_salmon_block"
-  }
-}

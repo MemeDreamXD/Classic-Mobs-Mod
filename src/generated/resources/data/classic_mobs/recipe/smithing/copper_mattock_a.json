@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": "minecraft:copper_hoe",
+  "base": "minecraft:copper_shovel",
+  "result": {
+    "id": "classic_mobs:copper_mattock"
+  },
+  "template": "classic_mobs:combination_upgrade_smithing_template"
+}

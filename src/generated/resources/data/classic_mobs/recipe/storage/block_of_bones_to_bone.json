@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    "classic_mobs:block_of_bones"
+  ],
+  "result": {
+    "count": 9,
+    "id": "minecraft:bone"
+  }
+}

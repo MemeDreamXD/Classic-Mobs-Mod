@@ -1,20 +1,18 @@
 package com.memedream.classicmobs.item;
 
-import com.memedream.classicmobs.data.tags.BlockTagGen;
+import com.memedream.classicmobs.init.ModTags;
 import com.mojang.datafixers.util.Pair;
-import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.world.InteractionResult;
-import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.DiggerItem;
 import net.minecraft.world.item.HoeItem;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Tier;
+import net.minecraft.world.item.ToolMaterial;
 import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
@@ -23,18 +21,15 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.gameevent.GameEvent;
 import net.neoforged.neoforge.common.ItemAbilities;
 import net.neoforged.neoforge.common.ItemAbility;
+import org.jspecify.annotations.Nullable;
 
-import javax.annotation.Nullable;
-import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.function.Consumer;
 import java.util.function.Predicate;
 
-@ParametersAreNonnullByDefault
-@MethodsReturnNonnullByDefault
-public class MattockItem extends DiggerItem {
+public class MattockItem extends Item {
 
-    public MattockItem(Tier tier, Properties properties) {
-        super(tier, BlockTagGen.MINEABLE_WITH_MATTOCK, properties);
+    public MattockItem(ToolMaterial material, float attackDamageBaseline, float attackSpeedBaseline, Properties properties) {
+        super(properties.tool(material, ModTags.Blocks.MINEABLE_WITH_MATTOCK, attackDamageBaseline, attackSpeedBaseline, 0.0F));
     }
 
     @Override
@@ -44,7 +39,7 @@ public class MattockItem extends DiggerItem {
 
     @Override
     public float getDestroySpeed(ItemStack stack, BlockState state) {
-        if (state.is(BlockTagGen.MINEABLE_WITH_MATTOCK) && state.is(BlockTags.MINEABLE_WITH_SHOVEL) && state.is(BlockTags.MINEABLE_WITH_HOE)) {
+        if (state.is(ModTags.Blocks.MINEABLE_WITH_MATTOCK) && state.is(BlockTags.MINEABLE_WITH_SHOVEL) && state.is(BlockTags.MINEABLE_WITH_HOE)) {
             return super.getDestroySpeed(stack, state) * 2.0F;
         } else return super.getDestroySpeed(stack, state);
     }
@@ -90,11 +85,11 @@ public class MattockItem extends DiggerItem {
                 if (!level.isClientSide()) {
                     consumer.accept(context);
                     if (player != null) {
-                        context.getItemInHand().hurtAndBreak(1, player, LivingEntity.getSlotForHand(context.getHand()));
+                        context.getItemInHand().hurtAndBreak(1, player, context.getHand());
                     }
                 }
 
-                return InteractionResult.sidedSuccess(level.isClientSide);
+                return InteractionResult.SUCCESS;
             } else {
                 return InteractionResult.PASS;
             }
@@ -102,7 +97,7 @@ public class MattockItem extends DiggerItem {
     }
 
     //[VanillaCopy] of ShovelItem.useOn
-    private static InteractionResult tryUseAsShovel(Level level, BlockPos pos, @Nullable Player player, BlockState state, UseOnContext context) {
+    public static InteractionResult tryUseAsShovel(Level level, BlockPos pos, @Nullable Player player, BlockState state, UseOnContext context) {
         if (context.getClickedFace() != Direction.DOWN) {
             BlockState flattenedState = state.getToolModifiedState(context, ItemAbilities.SHOVEL_FLATTEN, false);
             BlockState newState;
@@ -121,10 +116,10 @@ public class MattockItem extends DiggerItem {
                     level.setBlock(pos, newState, Block.UPDATE_ALL_IMMEDIATE);
                     level.gameEvent(GameEvent.BLOCK_CHANGE, pos, GameEvent.Context.of(player, newState));
                     if (player != null) {
-                        context.getItemInHand().hurtAndBreak(1, player, LivingEntity.getSlotForHand(context.getHand()));
+                        context.getItemInHand().hurtAndBreak(1, player, context.getHand());
                     }
                 }
-                return InteractionResult.sidedSuccess(level.isClientSide());
+                return InteractionResult.SUCCESS;
             }
         }
         return InteractionResult.PASS;

@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": "classic_mobs:chitin",
+  "base": "minecraft:leather_leggings",
+  "result": {
+    "id": "classic_mobs:chitin_leggings"
+  },
+  "template": "classic_mobs:chitin_upgrade_smithing_template"
+}

@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/cube_bottom_top",
+  "textures": {
+    "bottom": "classic_mobs:block/pufferfish_block_bottom",
+    "side": "classic_mobs:block/pufferfish_block",
+    "top": "classic_mobs:block/pufferfish_block_top"
+  }
+}

@@ -6,6 +6,7 @@ import net.minecraft.client.model.geom.ModelLayerLocation;
 public class ModModelLayers {
 
     public static final ModelLayerLocation DODO = register("dodo");
+    public static final ModelLayerLocation DODO_BABY = register("dodo_baby");
     public static final ModelLayerLocation ANTLION = register("antlion");
     public static final ModelLayerLocation MYRMEX = register("myrmex");
     public static final ModelLayerLocation HAG = register("hag");

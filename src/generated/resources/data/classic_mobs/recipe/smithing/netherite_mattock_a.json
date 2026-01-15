@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": "minecraft:netherite_hoe",
+  "base": "minecraft:netherite_shovel",
+  "result": {
+    "id": "classic_mobs:netherite_mattock"
+  },
+  "template": "classic_mobs:combination_upgrade_smithing_template"
+}

@@ -1,17 +1,15 @@
 package com.memedream.classicmobs.client.model;
 
-import com.memedream.classicmobs.entity.HarpyEntity;
-import net.minecraft.client.model.HierarchicalModel;
+import net.minecraft.client.model.EntityModel;
 import net.minecraft.client.model.geom.ModelPart;
 import net.minecraft.client.model.geom.PartPose;
 import net.minecraft.client.model.geom.builders.*;
+import net.minecraft.client.renderer.entity.state.LivingEntityRenderState;
 
-public class HarpyModel extends HierarchicalModel<HarpyEntity> {
-
-    private final ModelPart root;
+public class HarpyModel extends EntityModel<LivingEntityRenderState> {
 
     public HarpyModel(ModelPart root) {
-        this.root = root;
+        super(root);
     }
 
     public static LayerDefinition create() {
@@ -39,14 +37,9 @@ public class HarpyModel extends HierarchicalModel<HarpyEntity> {
         return LayerDefinition.create(meshdefinition, 70, 64);
     }
 
-    @Override
-    public ModelPart root() {
-        return this.root;
-    }
-
     //TODO: Needs animations. Should be able to both fly like a parrot and glide like a phantom.
     @Override
-    public void setupAnim(HarpyEntity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
+    public void setupAnim(LivingEntityRenderState state) {
 
     }
 }

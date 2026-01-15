@@ -1,0 +1,108 @@
+{
+  "variants": {
+    "bites=0,facing=down": {
+      "model": "classic_mobs:block/cooked_salmon_block",
+      "x": 180
+    },
+    "bites=0,facing=east": {
+      "model": "classic_mobs:block/cooked_salmon_block",
+      "x": 90,
+      "y": 90
+    },
+    "bites=0,facing=north": {
+      "model": "classic_mobs:block/cooked_salmon_block",
+      "x": 90
+    },
+    "bites=0,facing=south": {
+      "model": "classic_mobs:block/cooked_salmon_block",
+      "x": 90,
+      "y": 180
+    },
+    "bites=0,facing=up": {
+      "model": "classic_mobs:block/cooked_salmon_block"
+    },
+    "bites=0,facing=west": {
+      "model": "classic_mobs:block/cooked_salmon_block",
+      "x": 90,
+      "y": 270
+    },
+    "bites=1,facing=down": {
+      "model": "classic_mobs:block/cooked_salmon_block_bite_1",
+      "x": 180
+    },
+    "bites=1,facing=east": {
+      "model": "classic_mobs:block/cooked_salmon_block_bite_1",
+      "x": 90,
+      "y": 90
+    },
+    "bites=1,facing=north": {
+      "model": "classic_mobs:block/cooked_salmon_block_bite_1",
+      "x": 90
+    },
+    "bites=1,facing=south": {
+      "model": "classic_mobs:block/cooked_salmon_block_bite_1",
+      "x": 90,
+      "y": 180
+    },
+    "bites=1,facing=up": {
+      "model": "classic_mobs:block/cooked_salmon_block_bite_1"
+    },
+    "bites=1,facing=west": {
+      "model": "classic_mobs:block/cooked_salmon_block_bite_1",
+      "x": 90,
+      "y": 270
+    },
+    "bites=2,facing=down": {
+      "model": "classic_mobs:block/cooked_salmon_block_bite_2",
+      "x": 180
+    },
+    "bites=2,facing=east": {
+      "model": "classic_mobs:block/cooked_salmon_block_bite_2",
+      "x": 90,
+      "y": 90
+    },
+    "bites=2,facing=north": {
+      "model": "classic_mobs:block/cooked_salmon_block_bite_2",
+      "x": 90
+    },
+    "bites=2,facing=south": {
+      "model": "classic_mobs:block/cooked_salmon_block_bite_2",
+      "x": 90,
+      "y": 180
+    },
+    "bites=2,facing=up": {
+      "model": "classic_mobs:block/cooked_salmon_block_bite_2"
+    },
+    "bites=2,facing=west": {
+      "model": "classic_mobs:block/cooked_salmon_block_bite_2",
+      "x": 90,
+      "y": 270
+    },
+    "bites=3,facing=down": {
+      "model": "classic_mobs:block/cooked_salmon_block_bite_3",
+      "x": 180
+    },
+    "bites=3,facing=east": {
+      "model": "classic_mobs:block/cooked_salmon_block_bite_3",
+      "x": 90,
+      "y": 90
+    },
+    "bites=3,facing=north": {
+      "model": "classic_mobs:block/cooked_salmon_block_bite_3",
+      "x": 90
+    },
+    "bites=3,facing=south": {
+      "model": "classic_mobs:block/cooked_salmon_block_bite_3",
+      "x": 90,
+      "y": 180
+    },
+    "bites=3,facing=up": {
+      "model": "classic_mobs:block/cooked_salmon_block_bite_3"
+    },
+    "bites=3,facing=west": {
+      "model": "classic_mobs:block/cooked_salmon_block_bite_3",
+      "x": 90,
+      "y": 270
+    }
+  }
+}

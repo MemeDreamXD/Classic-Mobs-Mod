@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": "classic_mobs:chitin",
+  "base": "minecraft:leather_chestplate",
+  "result": {
+    "id": "classic_mobs:chitin_chestplate"
+  },
+  "template": "classic_mobs:chitin_upgrade_smithing_template"
+}

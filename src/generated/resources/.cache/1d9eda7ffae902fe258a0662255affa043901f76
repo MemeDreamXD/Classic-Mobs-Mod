@@ -1,6 +1,7 @@
-// 1.21.1	2026-01-10T00:57:46.9175455	Tags for minecraft:damage_type mod id classic_mobs
+// 26.1-snapshot-1	2026-01-14T16:09:45.985442457	Tags for minecraft:damage_type mod id classic_mobs
 a023817ed373e6742ccfb1c37eb16fb299bbdc2a data/minecraft/tags/damage_type/bypasses_armor.json
 a023817ed373e6742ccfb1c37eb16fb299bbdc2a data/minecraft/tags/damage_type/bypasses_effects.json
 a023817ed373e6742ccfb1c37eb16fb299bbdc2a data/minecraft/tags/damage_type/bypasses_enchantments.json
 a023817ed373e6742ccfb1c37eb16fb299bbdc2a data/minecraft/tags/damage_type/bypasses_resistance.json
 a023817ed373e6742ccfb1c37eb16fb299bbdc2a data/minecraft/tags/damage_type/bypasses_wolf_armor.json
+a023817ed373e6742ccfb1c37eb16fb299bbdc2a data/minecraft/tags/damage_type/no_knockback.json

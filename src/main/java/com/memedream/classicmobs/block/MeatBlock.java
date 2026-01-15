@@ -4,20 +4,24 @@ import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.core.component.DataComponents;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
+import net.minecraft.util.RandomSource;
 import net.minecraft.util.StringRepresentable;
 import net.minecraft.world.InteractionResult;
-import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
-import net.minecraft.world.item.context.BlockPlaceContext;
+import net.minecraft.world.item.component.Consumable;
+import net.minecraft.world.item.component.ConsumableListener;
+import net.minecraft.world.item.consume_effects.ApplyStatusEffectsConsumeEffect;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.*;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.DirectionalBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.IntegerProperty;
@@ -64,11 +68,11 @@ public class MeatBlock extends ConfiguredDirectionalBlock {
 
     @Override
     protected InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos, Player player, BlockHitResult result) {
-        FoodProperties properties = this.asItem().getFoodProperties(this.asItem().getDefaultInstance(), player);
+        Consumable consumable = this.asItem().components().get(DataComponents.CONSUMABLE);
 
-        if (properties != null) {
+        if (consumable != null) {
             if (level.isClientSide()) {
-                if (this.eat(level, pos, state, player, properties).consumesAction()) {
+                if (this.eat(level, pos, state, player, consumable).consumesAction()) {
                     return InteractionResult.SUCCESS;
                 }
 
@@ -77,29 +81,45 @@ public class MeatBlock extends ConfiguredDirectionalBlock {
                 }
             }
 
-            return this.eat(level, pos, state, player, properties);
+            return this.eat(level, pos, state, player, consumable);
         }
         return super.useWithoutItem(state, level, pos, player, result);
     }
 
-    public InteractionResult eat(Level level, BlockPos pos, BlockState state, Player player, FoodProperties properties) {
-        if (!player.canEat(false)) {
+    public InteractionResult eat(Level level, BlockPos pos, BlockState state, Player player, Consumable consumable) {
+        ItemStack stack = this.asItem().getDefaultInstance();
+        stack.set(DataComponents.POTION_DURATION_SCALE, 0.25F);
+        if (!player.canEat(false) || !consumable.canConsume(player, stack)) {
             return InteractionResult.PASS;
         } else {
-            player.getFoodData().eat(properties.nutrition() / 4, properties.saturation() / 4);
-            for (FoodProperties.PossibleEffect possibleEffect : properties.effects()) {
-                if (player.getRandom().nextFloat() < possibleEffect.probability()) {
-                    MobEffectInstance effect = possibleEffect.effect();
-                    player.addEffect(new MobEffectInstance(effect.getEffect(), effect.mapDuration(duration -> duration / 4), effect.getAmplifier(), effect.isAmbient(), effect.isVisible()));
+            RandomSource random = player.getRandom();
+            consumable.emitParticlesAndSounds(random, player, stack, 16);
+            stack.getAllOfType(ConsumableListener.class).forEach(component -> {
+                if (component instanceof FoodProperties foodProps) {
+                    player.getFoodData().eat(foodProps.nutrition() / 4, foodProps.saturation() / 4);
+                } else {
+                    component.onConsume(level, player, stack, consumable);
                 }
+            });
+            if (!level.isClientSide()) {
+                consumable.onConsumeEffects().forEach(action -> {
+                    if (action instanceof ApplyStatusEffectsConsumeEffect(List<MobEffectInstance> effects, float probability)) {
+                        if (player.getRandom().nextFloat() < probability) {
+                            for (MobEffectInstance applyEffect : effects) {
+                                player.addEffect(new MobEffectInstance(applyEffect.getEffect(), applyEffect.getDuration() / 4, applyEffect.getAmplifier() / 4, applyEffect.isAmbient(), applyEffect.isVisible(), applyEffect.showIcon()));
+                            }
+                        }
+                    } else {
+                        action.apply(level, stack, player);
+                    }
+                });
             }
+
             int i = state.getValue(BITES);
-            level.gameEvent(player, GameEvent.EAT, pos);
             if (i < 3) {
                 level.setBlock(pos, state.setValue(BITES, i + 1), 3);
-                player.playSound(SoundEvents.GENERIC_EAT);
             } else {
-                player.playSound(SoundEvents.GENERIC_EAT);
+                //TODO control this either via the using conversion data component or a loot table
                 if (this.type != BoneType.NONE) {
                     Block.popResource(level, pos, new ItemStack(Items.BONE));
                     level.playSound(null, pos, SoundEvents.ITEM_FRAME_REMOVE_ITEM, SoundSource.BLOCKS, 1.0F, 1.0F);

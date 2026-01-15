@@ -1,9 +1,12 @@
+import groovy.json.JsonOutput
+import groovy.json.JsonSlurper
+
 plugins {
     id 'java-library'
     id 'eclipse'
     id 'idea'
     id 'maven-publish'
-    id 'net.neoforged.moddev' version '2.0.124'
+    id 'net.neoforged.moddev' version '2.0.139'
 }
 
 def secrets = new Properties()
@@ -36,16 +39,58 @@ base {
     archivesName = "${project.modid}"
 }
 
-java.toolchain.languageVersion = JavaLanguageVersion.of(21)
-compileJava.options.compilerArgs << "-Xlint:all,-classfile,-processing,-deprecation,-this-escape" << "-Werror"
+java.toolchain.languageVersion = JavaLanguageVersion.of(25)
+
+tasks.withType(JavaCompile).configureEach {
+    options.compilerArgs << "-Xlint:all,-classfile,-processing,-deprecation,-this-escape" << "-Werror"
+    options.encoding = 'UTF-8'
+}
+
+sourceSets {
+    data {
+        compileClasspath += main.compileClasspath + main.output
+
+        java {
+            srcDirs = ['src/main/java', 'src/data/java']
+        }
+        resources {
+            srcDirs = ['src/main/resources']
+        }
+    }
+}
+
+configurations {
+    dataImplementation.extendsFrom implementation
+}
 
 neoForge {
+    // we need the subprojects to evaluate first so that the sourceSets are properly constructed
+    evaluationDependsOnChildren()
+
     version = "${project.neo_version}"
     validateAccessTransformers = true
+
+    addModdingDependenciesTo sourceSets.data
+
+
+    mods {
+        "${project.modid}" {
+            it.sourceSet this.sourceSets.main
+        }
+
+        "${project.modid}-data" {
+            it.sourceSet this.sourceSets.main
+            it.sourceSet this.sourceSets.data
+        }
+    }
+
+    def mainMod = mods."${project.modid}"
+    def dataMod = mods."${project.modid}-data"
 
     runs {
         configureEach {
             logLevel = org.slf4j.event.Level.DEBUG
+            loadedMods = [mainMod]
         }
 
         client {
@@ -61,14 +106,10 @@ neoForge {
         }
 
         data {
-            data()
+            clientData()
             programArguments.addAll '--mod', modid, '--all', '--output', file('src/generated/resources/').getAbsolutePath(), '--existing', file('src/main/resources/').getAbsolutePath()
-        }
-    }
-
-    mods {
-        modid {
-            sourceSet this.sourceSets.main
+            sourceSet = this.sourceSets.data
+            loadedMods = [dataMod]
         }
     }
 }
@@ -99,12 +140,32 @@ repositories {
 
 dependencies {
     //make sure to only pick one of these when testing (switch others to compileOnly)
-    implementation "mezz.jei:jei-${project.minecraft_version}-neoforge:${project.jei_version}"
+//  implementation "mezz.jei:jei-${project.minecraft_version}-neoforge:${project.jei_version}"
 //	compileOnly "me.shedaniel:RoughlyEnoughItems-neoforge:${project.rei_version}"
 //	implementation "dev.emi:emi-neoforge:${project.emi_version}+${project.minecraft_version}"
 
-    runtimeOnly "curse.maven:just-enough-resources-jer-240630:6174588"
-	runtimeOnly "curse.maven:jade-324717:6853386"
+//  runtimeOnly "curse.maven:just-enough-resources-jer-240630:6174588"
+//	runtimeOnly "curse.maven:jade-324717:6853386"
+}
+
+processResources {
+    def ver = project.version
+    filesMatching("META-INF/neoforge.mods.toml") {
+        expand([
+                'file': [
+                        'jarVersion': ver
+                ]
+        ])
+    }
+    exclude ".cache"
+    def lazyTree = providers.provider {
+        fileTree(dir: getOutputs().getFiles().getAsPath(), includes: ["**/*.json", "**/*.mcmeta"])
+    }
+    doLast {
+        lazyTree.get().each {
+            File file -> file.setText(JsonOutput.toJson(new JsonSlurper().parse(file)))
+        }
+    }
 }
 
 tasks.named('jar', Jar).configure {
@@ -134,6 +195,26 @@ publishing {
     }
 }
 
-tasks.withType(JavaCompile).configureEach {
-    options.encoding = 'UTF-8'
+tasks.register('sourceJar', Jar) {
+    dependsOn 'classes'
+    from sourceSets.main.allSource
+    archiveClassifier = 'sources'
+}
+
+tasks.register('dataClassesForPublishing', JavaCompile) {
+    dependsOn "dataClasses"
+    source = fileTree('src/data/java')
+    classpath = sourceSets.named('data').get().compileClasspath
+    destinationDirectory = layout.buildDirectory.dir("classes/java/dataForPublishing")
+}
+
+tasks.register('dataJar', Jar) {
+    dependsOn 'dataClassesForPublishing'
+    from layout.buildDirectory.dir("classes/java/dataForPublishing")
+    archiveClassifier = 'data'
+}
+
+tasks.register('dataSourceJar', Jar) {
+    from sourceSets.data.allSource
+    archiveClassifier = 'data-sources'
 }

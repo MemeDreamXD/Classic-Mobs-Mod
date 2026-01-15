@@ -8,7 +8,7 @@ import java.util.Set;
 
 public class ModItemAbilities {
 
-    public static final Set<ItemAbility> DEFAULT_PICKAXE_AXE_ACTIONS = of(ItemAbilities.DEFAULT_AXE_ACTIONS, ItemAbilities.DEFAULT_PICKAXE_ACTIONS);
+    public static final Set<ItemAbility> DEFAULT_PICKAXE_AXE_ACTIONS = of(ItemAbilities.DEFAULT_AXE_ACTIONS);
     public static final Set<ItemAbility> DEFAULT_MATTOCK_ACTIONS = of(ItemAbilities.DEFAULT_HOE_ACTIONS, ItemAbilities.DEFAULT_SHOVEL_ACTIONS);
 
     @SafeVarargs

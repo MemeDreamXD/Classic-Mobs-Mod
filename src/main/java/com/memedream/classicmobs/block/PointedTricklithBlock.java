@@ -9,21 +9,25 @@ import net.minecraft.core.particles.ParticleOptions;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.RandomSource;
+import net.minecraft.world.attribute.EnvironmentAttributes;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.item.FallingBlockEntity;
 import net.minecraft.world.entity.projectile.Projectile;
-import net.minecraft.world.entity.projectile.ThrownTrident;
+import net.minecraft.world.entity.projectile.arrow.ThrownTrident;
 import net.minecraft.world.item.context.BlockPlaceContext;
-import net.minecraft.world.level.BlockGetter;
-import net.minecraft.world.level.Level;
-import net.minecraft.world.level.LevelAccessor;
-import net.minecraft.world.level.LevelReader;
-import net.minecraft.world.level.block.*;
+import net.minecraft.world.level.*;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.Fallable;
+import net.minecraft.world.level.block.SimpleWaterloggedBlock;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
-import net.minecraft.world.level.block.state.properties.*;
+import net.minecraft.world.level.block.state.properties.BlockStateProperties;
+import net.minecraft.world.level.block.state.properties.BooleanProperty;
+import net.minecraft.world.level.block.state.properties.DripstoneThickness;
+import net.minecraft.world.level.block.state.properties.EnumProperty;
 import net.minecraft.world.level.gameevent.GameEvent;
 import net.minecraft.world.level.material.Fluid;
 import net.minecraft.world.level.material.FluidState;
@@ -36,42 +40,24 @@ import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import net.neoforged.neoforge.fluids.FluidType;
+import org.jspecify.annotations.Nullable;
 
-import javax.annotation.Nullable;
 import java.util.Optional;
 import java.util.function.BiPredicate;
 import java.util.function.Predicate;
 
+//TODO Gizmo: clean this class up
 public class PointedTricklithBlock extends Block implements Fallable, SimpleWaterloggedBlock {
     public static final MapCodec<PointedTricklithBlock> CODEC = simpleCodec(PointedTricklithBlock::new);
-    public static final DirectionProperty TIP_DIRECTION = BlockStateProperties.VERTICAL_DIRECTION;
+    public static final EnumProperty<Direction> TIP_DIRECTION = BlockStateProperties.VERTICAL_DIRECTION;
     public static final EnumProperty<DripstoneThickness> THICKNESS = BlockStateProperties.DRIPSTONE_THICKNESS;
     public static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
-    private static final int MAX_SEARCH_LENGTH_WHEN_CHECKING_DRIP_TYPE = 11;
-    private static final int DELAY_BEFORE_FALLING = 2;
-    private static final float DRIP_PROBABILITY_PER_ANIMATE_TICK = 0.02F;
-    private static final float DRIP_PROBABILITY_PER_ANIMATE_TICK_IF_UNDER_LIQUID_SOURCE = 0.12F;
-    private static final int MAX_SEARCH_LENGTH_BETWEEN_STALACTITE_TIP_AND_CAULDRON = 11;
-    public static final float WATER_TRANSFER_PROBABILITY_PER_RANDOM_TICK = 0.17578125F;
-    public static final float LAVA_TRANSFER_PROBABILITY_PER_RANDOM_TICK = 0.05859375F;
-    private static final double MIN_TRIDENT_VELOCITY_TO_BREAK_TRICKLITH = 0.6;
-    private static final float STALACTITE_DAMAGE_PER_FALL_DISTANCE_AND_SIZE = 1.0F;
-    private static final int STALACTITE_MAX_DAMAGE = 40;
-    private static final int MAX_STALACTITE_HEIGHT_FOR_DAMAGE_CALCULATION = 6;
-    private static final float STALAGMITE_FALL_DISTANCE_OFFSET = 2.0F;
-    private static final int STALAGMITE_FALL_DAMAGE_MODIFIER = 2;
-    private static final float AVERAGE_DAYS_PER_GROWTH = 5.0F;
-    private static final float GROWTH_PROBABILITY_PER_RANDOM_TICK = 0.011377778F;
-    private static final int MAX_GROWTH_LENGTH = 7;
-    private static final int MAX_STALAGMITE_SEARCH_RANGE_WHEN_GROWING = 10;
-    private static final float STALACTITE_DRIP_START_PIXEL = 0.6875F;
     private static final VoxelShape TIP_MERGE_SHAPE = Block.box(5.0, 0.0, 5.0, 11.0, 16.0, 11.0);
     private static final VoxelShape TIP_SHAPE_UP = Block.box(5.0, 0.0, 5.0, 11.0, 11.0, 11.0);
     private static final VoxelShape TIP_SHAPE_DOWN = Block.box(5.0, 5.0, 5.0, 11.0, 16.0, 11.0);
     private static final VoxelShape FRUSTUM_SHAPE = Block.box(4.0, 0.0, 4.0, 12.0, 16.0, 12.0);
     private static final VoxelShape MIDDLE_SHAPE = Block.box(3.0, 0.0, 3.0, 13.0, 16.0, 13.0);
     private static final VoxelShape BASE_SHAPE = Block.box(2.0, 0.0, 2.0, 14.0, 16.0, 14.0);
-    private static final float MAX_HORIZONTAL_OFFSET = 0.125F;
     private static final VoxelShape REQUIRED_SPACE_TO_DRIP_THROUGH_NON_SOLID_BLOCK = Block.box(6.0, 0.0, 6.0, 10.0, 16.0, 10.0);
 
     @Override
@@ -82,11 +68,11 @@ public class PointedTricklithBlock extends Block implements Fallable, SimpleWate
     public PointedTricklithBlock(BlockBehaviour.Properties properties) {
         super(properties);
         this.registerDefaultState(
-                this.stateDefinition
-                        .any()
-                        .setValue(TIP_DIRECTION, Direction.UP)
-                        .setValue(THICKNESS, DripstoneThickness.TIP)
-                        .setValue(WATERLOGGED, Boolean.valueOf(false))
+            this.stateDefinition
+                .any()
+                .setValue(TIP_DIRECTION, Direction.UP)
+                .setValue(THICKNESS, DripstoneThickness.TIP)
+                .setValue(WATERLOGGED, false)
         );
     }
 
@@ -100,30 +86,23 @@ public class PointedTricklithBlock extends Block implements Fallable, SimpleWate
         return isValidPointedTricklithPlacement(level, pos, state.getValue(TIP_DIRECTION));
     }
 
-    /**
-     * Update the provided state given the provided neighbor direction and neighbor state, returning a new state.
-     * For example, fences make their connections to the passed in state if possible, and wet concrete powder immediately returns its solidified counterpart.
-     * Note that this method should ideally consider only the specific direction passed in.
-     */
     @Override
-    protected BlockState updateShape(
-            BlockState state, Direction p_direction, BlockState neighborState, LevelAccessor level, BlockPos pos, BlockPos neighborPos
-    ) {
+    protected BlockState updateShape(BlockState state, LevelReader level, ScheduledTickAccess ticks, BlockPos pos, Direction directionToNeighbour, BlockPos neighbourPos, BlockState neighbourState, RandomSource random) {
         if (state.getValue(WATERLOGGED)) {
-            level.scheduleTick(pos, Fluids.WATER, Fluids.WATER.getTickDelay(level));
+            ticks.scheduleTick(pos, Fluids.WATER, Fluids.WATER.getTickDelay(level));
         }
 
-        if (p_direction != Direction.UP && p_direction != Direction.DOWN) {
+        if (directionToNeighbour.getAxis() != Direction.Axis.Y) {
             return state;
         } else {
             Direction direction = state.getValue(TIP_DIRECTION);
-            if (direction == Direction.DOWN && level.getBlockTicks().hasScheduledTick(pos, this)) {
+            if (direction == Direction.DOWN && ticks.getBlockTicks().hasScheduledTick(pos, this)) {
                 return state;
-            } else if (p_direction == direction.getOpposite() && !this.canSurvive(state, level, pos)) {
+            } else if (direction == direction.getOpposite() && !this.canSurvive(state, level, pos)) {
                 if (direction == Direction.DOWN) {
-                    level.scheduleTick(pos, this, 2);
+                    ticks.scheduleTick(pos, this, 2);
                 } else {
-                    level.scheduleTick(pos, this, 1);
+                    ticks.scheduleTick(pos, this, 1);
                 }
 
                 return state;
@@ -137,19 +116,19 @@ public class PointedTricklithBlock extends Block implements Fallable, SimpleWate
 
     @Override
     protected void onProjectileHit(Level level, BlockState state, BlockHitResult hit, Projectile projectile) {
-        if (!level.isClientSide) {
+        if (level instanceof ServerLevel serverLevel) {
             BlockPos blockpos = hit.getBlockPos();
-            if (projectile.mayInteract(level, blockpos)
-                    && projectile.mayBreak(level)
-                    && projectile instanceof ThrownTrident
-                    && projectile.getDeltaMovement().length() > 0.6) {
+            if (projectile.mayInteract(serverLevel, blockpos)
+                && projectile.mayBreak(serverLevel)
+                && projectile instanceof ThrownTrident
+                && projectile.getDeltaMovement().length() > 0.6) {
                 level.destroyBlock(blockpos, true);
             }
         }
     }
 
     @Override
-    public void fallOn(Level level, BlockState state, BlockPos pos, Entity entity, float fallDistance) {
+    public void fallOn(Level level, BlockState state, BlockPos pos, Entity entity, double fallDistance) {
         if (state.getValue(TIP_DIRECTION) == Direction.UP && state.getValue(THICKNESS) == DripstoneThickness.TIP) {
             entity.causeFallDamage(fallDistance + 2.0F, 2.0F, level.damageSources().stalagmite());
         } else {
@@ -157,17 +136,14 @@ public class PointedTricklithBlock extends Block implements Fallable, SimpleWate
         }
     }
 
-    /**
-     * Called periodically clientside on blocks near the player to show effects (like furnace fire particles).
-     */
     @Override
     public void animateTick(BlockState state, Level level, BlockPos pos, RandomSource random) {
         if (canDrip(state)) {
-            float f = random.nextFloat();
-            if (!(f > 0.12F)) {
+            float randomValue = random.nextFloat();
+            if (!(randomValue > 0.12F)) {
                 getFluidAboveStalactite(level, pos, state)
-                        .filter(p_221848_ -> f < 0.02F || canFillCauldron(p_221848_.fluid))
-                        .ifPresent(p_221881_ -> spawnDripParticle(level, pos, state, p_221881_.fluid));
+                    .filter(fluidAbove -> randomValue < 0.02F || canFillCauldron(fluidAbove.fluid))
+                    .ifPresent(fluidAbove -> spawnDripParticle(level, pos, state, fluidAbove.fluid, fluidAbove.pos));
             }
         }
     }
@@ -194,38 +170,29 @@ public class PointedTricklithBlock extends Block implements Fallable, SimpleWate
 
     @VisibleForTesting
     public static void maybeTransferFluid(BlockState state, ServerLevel level, BlockPos pos, float randChance) {
-        if (true) { //Neo: remove the water and lava drip chance checks to allow modded fluids to drip into cauldrons
-            if (isStalactiteStartPos(state, level, pos)) {
-                Optional<PointedTricklithBlock.FluidInfo> optional = getFluidAboveStalactite(level, pos, state);
-                if (!optional.isEmpty()) {
-                    Fluid fluid = optional.get().fluid;
-                    float f;
-                    if (fluid == Fluids.WATER) {
-                        f = 0.17578125F;
-                    } else {
-
-                        f = 0.05859375F;
-                    }
-
-                    FluidType.DripstoneDripInfo dripInfo = fluid.getFluidType().getDripInfo();
-                    if (dripInfo != null && !(randChance >= dripInfo.chance())) {
-                        BlockPos blockpos = findTip(state, level, pos, 11, false);
-                        if (blockpos != null) {
-                            if (optional.get().sourceState.is(Blocks.MUD) && fluid == Fluids.WATER) {
-                                BlockState blockstate1 = Blocks.CLAY.defaultBlockState();
-                                level.setBlockAndUpdate(optional.get().pos, blockstate1);
-                                Block.pushEntitiesUp(optional.get().sourceState, blockstate1, level, optional.get().pos);
-                                level.gameEvent(GameEvent.BLOCK_CHANGE, optional.get().pos, GameEvent.Context.of(blockstate1));
+        //Neo: remove the water and lava drip chance checks to allow modded fluids to drip into cauldrons
+        if (isStalactiteStartPos(state, level, pos)) {
+            Optional<FluidInfo> optional = getFluidAboveStalactite(level, pos, state);
+            if (optional.isPresent()) {
+                Fluid fluid = optional.get().fluid;
+                FluidType.DripstoneDripInfo dripInfo = fluid.getFluidType().getDripInfo();
+                if (dripInfo != null && !(randChance >= dripInfo.chance())) {
+                    BlockPos blockpos = findTip(state, level, pos, 11, false);
+                    if (blockpos != null) {
+                        if (optional.get().sourceState.is(Blocks.MUD) && fluid == Fluids.WATER) {
+                            BlockState blockstate1 = Blocks.CLAY.defaultBlockState();
+                            level.setBlockAndUpdate(optional.get().pos, blockstate1);
+                            Block.pushEntitiesUp(optional.get().sourceState, blockstate1, level, optional.get().pos);
+                            level.gameEvent(GameEvent.BLOCK_CHANGE, optional.get().pos, GameEvent.Context.of(blockstate1));
+                            level.levelEvent(1504, blockpos, 0);
+                        } else {
+                            BlockPos blockpos1 = findFillableCauldronBelowStalactiteTip(level, blockpos, fluid);
+                            if (blockpos1 != null) {
                                 level.levelEvent(1504, blockpos, 0);
-                            } else {
-                                BlockPos blockpos1 = findFillableCauldronBelowStalactiteTip(level, blockpos, fluid);
-                                if (blockpos1 != null) {
-                                    level.levelEvent(1504, blockpos, 0);
-                                    int i = blockpos.getY() - blockpos1.getY();
-                                    int j = 50 + i;
-                                    BlockState blockstate = level.getBlockState(blockpos1);
-                                    level.scheduleTick(blockpos1, blockstate.getBlock(), j);
-                                }
+                                int i = blockpos.getY() - blockpos1.getY();
+                                int j = 50 + i;
+                                BlockState blockstate = level.getBlockState(blockpos1);
+                                level.scheduleTick(blockpos1, blockstate.getBlock(), j);
                             }
                         }
                     }
@@ -246,12 +213,10 @@ public class PointedTricklithBlock extends Block implements Fallable, SimpleWate
         } else {
             boolean flag = !context.isSecondaryUseActive();
             DripstoneThickness dripstoneThickness = calculateDripstoneThickness(levelaccessor, blockpos, direction1, flag);
-            return dripstoneThickness == null
-                    ? null
-                    : this.defaultBlockState()
-                    .setValue(TIP_DIRECTION, direction1)
-                    .setValue(THICKNESS, dripstoneThickness)
-                    .setValue(WATERLOGGED, Boolean.valueOf(levelaccessor.getFluidState(blockpos).getType() == Fluids.WATER));
+            return this.defaultBlockState()
+                .setValue(TIP_DIRECTION, direction1)
+                .setValue(THICKNESS, dripstoneThickness)
+                .setValue(WATERLOGGED, levelaccessor.getFluidState(blockpos).getType() == Fluids.WATER);
         }
     }
 
@@ -261,7 +226,7 @@ public class PointedTricklithBlock extends Block implements Fallable, SimpleWate
     }
 
     @Override
-    protected VoxelShape getOcclusionShape(BlockState state, BlockGetter level, BlockPos pos) {
+    protected VoxelShape getOcclusionShape(BlockState state) {
         return Shapes.empty();
     }
 
@@ -285,7 +250,7 @@ public class PointedTricklithBlock extends Block implements Fallable, SimpleWate
             voxelshape = BASE_SHAPE;
         }
 
-        Vec3 vec3 = state.getOffset(level, pos);
+        Vec3 vec3 = state.getOffset(pos);
         return voxelshape.move(vec3.x, 0.0, vec3.z);
     }
 
@@ -319,8 +284,7 @@ public class PointedTricklithBlock extends Block implements Fallable, SimpleWate
             FallingBlockEntity fallingblockentity = FallingBlockEntity.fall(level, blockpos$mutableblockpos, blockstate);
             if (isTip(blockstate, true)) {
                 int i = Math.max(1 + pos.getY() - blockpos$mutableblockpos.getY(), 6);
-                float f = 1.0F * (float)i;
-                fallingblockentity.setHurtsEntities(f, 40);
+                fallingblockentity.setHurtsEntities(i, 40);
                 break;
             }
 
@@ -386,10 +350,10 @@ public class PointedTricklithBlock extends Block implements Fallable, SimpleWate
 
     private static void createTricklith(LevelAccessor level, BlockPos pos, Direction direction, DripstoneThickness thickness) {
         BlockState blockstate = ModBlocks.POINTED_TRICKLITH
-                .get().defaultBlockState()
-                .setValue(TIP_DIRECTION, direction)
-                .setValue(THICKNESS, thickness)
-                .setValue(WATERLOGGED, Boolean.valueOf(level.getFluidState(pos).getType() == Fluids.WATER));
+            .get().defaultBlockState()
+            .setValue(TIP_DIRECTION, direction)
+            .setValue(THICKNESS, thickness)
+            .setValue(WATERLOGGED, level.getFluidState(pos).getType() == Fluids.WATER);
         level.setBlock(pos, blockstate, 3);
     }
 
@@ -408,20 +372,18 @@ public class PointedTricklithBlock extends Block implements Fallable, SimpleWate
         createTricklith(level, blockpos1, Direction.UP, DripstoneThickness.TIP_MERGE);
     }
 
-    public static void spawnDripParticle(Level level, BlockPos pos, BlockState state) {
-        getFluidAboveStalactite(level, pos, state).ifPresent(p_221856_ -> spawnDripParticle(level, pos, state, p_221856_.fluid));
+    public static void spawnDripParticle(Level level, BlockPos stalactiteTipPos, BlockState stalactiteTipState) {
+        getFluidAboveStalactite(level, stalactiteTipPos, stalactiteTipState)
+            .ifPresent(fluidAbove -> spawnDripParticle(level, stalactiteTipPos, stalactiteTipState, fluidAbove.fluid, fluidAbove.pos));
     }
 
-    private static void spawnDripParticle(Level level, BlockPos pos, BlockState state, Fluid p_fluid) {
-        Vec3 vec3 = state.getOffset(level, pos);
-        double d0 = 0.0625;
-        double d1 = (double)pos.getX() + 0.5 + vec3.x;
-        double d2 = (double)((float)(pos.getY() + 1) - 0.6875F) - 0.0625;
-        double d3 = (double)pos.getZ() + 0.5 + vec3.z;
-        Fluid fluid = getDripFluid(level, p_fluid);
-        ParticleOptions particleoptions = fluid.getFluidType().getDripInfo() != null ? fluid.getFluidType().getDripInfo().dripParticle() : ParticleTypes.DRIPPING_DRIPSTONE_WATER;
-        if (particleoptions != null)
-            level.addParticle(particleoptions, d1, d2, d3, 0.0, 0.0, 0.0);
+    private static void spawnDripParticle(Level level, BlockPos pos, BlockState state, Fluid fluidAbove, BlockPos posAbove) {
+        Vec3 vec3 = state.getOffset(pos);
+        double x = (double) pos.getX() + 0.5 + vec3.x;
+        double y = (double) ((float) (pos.getY() + 1) - 0.6875F) - 0.0625;
+        double z = (double) pos.getZ() + 0.5 + vec3.z;
+        ParticleOptions dripParticle = getDripParticle(level, fluidAbove, posAbove);
+        level.addParticle(dripParticle, x, y, z, 0.0, 0.0, 0.0);
     }
 
     @Nullable
@@ -431,9 +393,9 @@ public class PointedTricklithBlock extends Block implements Fallable, SimpleWate
         } else {
             Direction direction = state.getValue(TIP_DIRECTION);
             BiPredicate<BlockPos, BlockState> bipredicate = (p_202023_, p_202024_) -> p_202024_.is(ModBlocks.POINTED_TRICKLITH)
-                    && p_202024_.getValue(TIP_DIRECTION) == direction;
+                && p_202024_.getValue(TIP_DIRECTION) == direction;
             return findBlockVertical(level, pos, direction.getAxisDirection(), bipredicate, p_154168_ -> isTip(p_154168_, isTipMerge), maxIterations)
-                    .orElse(null);
+                .orElse(null);
         }
     }
 
@@ -482,16 +444,16 @@ public class PointedTricklithBlock extends Block implements Fallable, SimpleWate
         if (!blockstate.getFluidState().isEmpty()) {
             return false;
         } else {
-            return blockstate.isAir() ? true : isUnmergedTipWithDirection(blockstate, direction.getOpposite());
+            return blockstate.isAir() || isUnmergedTipWithDirection(blockstate, direction.getOpposite());
         }
     }
 
     private static Optional<BlockPos> findRootBlock(Level level, BlockPos pos, BlockState state, int maxIterations) {
         Direction direction = state.getValue(TIP_DIRECTION);
         BiPredicate<BlockPos, BlockState> bipredicate = (p_202015_, p_202016_) -> p_202016_.is(ModBlocks.POINTED_TRICKLITH)
-                && p_202016_.getValue(TIP_DIRECTION) == direction;
+            && p_202016_.getValue(TIP_DIRECTION) == direction;
         return findBlockVertical(
-                level, pos, direction.getOpposite().getAxisDirection(), bipredicate, p_154245_ -> !p_154245_.is(ModBlocks.POINTED_TRICKLITH), maxIterations
+            level, pos, direction.getOpposite().getAxisDirection(), bipredicate, p_154245_ -> !p_154245_.is(ModBlocks.POINTED_TRICKLITH), maxIterations
         );
     }
 
@@ -552,17 +514,17 @@ public class PointedTricklithBlock extends Block implements Fallable, SimpleWate
 
     public static Fluid getCauldronFillFluidType(ServerLevel level, BlockPos pos) {
         return getFluidAboveStalactite(level, pos, level.getBlockState(pos))
-                .map(p_221858_ -> p_221858_.fluid)
-                .filter(PointedTricklithBlock::canFillCauldron)
-                .orElse(Fluids.EMPTY);
+            .map(p_221858_ -> p_221858_.fluid)
+            .filter(PointedTricklithBlock::canFillCauldron)
+            .orElse(Fluids.EMPTY);
     }
 
     private static Optional<PointedTricklithBlock.FluidInfo> getFluidAboveStalactite(Level level, BlockPos pos, BlockState state) {
-        return !isStalactite(state) ? Optional.empty() : findRootBlock(level, pos, state, 11).map(p_221876_ -> {
-            BlockPos blockpos = p_221876_.above();
+        return !isStalactite(state) ? Optional.empty() : findRootBlock(level, pos, state, 11).map(rootPos -> {
+            BlockPos blockpos = rootPos.above();
             BlockState blockstate = level.getBlockState(blockpos);
             Fluid fluid;
-            if (blockstate.is(Blocks.MUD) && !level.dimensionType().ultraWarm()) {
+            if (blockstate.is(Blocks.MUD) && !level.environmentAttributes().getValue(EnvironmentAttributes.WATER_EVAPORATES, blockpos)) {
                 fluid = Fluids.WATER;
             } else {
                 fluid = level.getFluidState(blockpos).getType();
@@ -580,21 +542,23 @@ public class PointedTricklithBlock extends Block implements Fallable, SimpleWate
         return tricklithState.is(ModBlocks.TRICKLITH_BLOCK) && state.is(Blocks.WATER) && state.getFluidState().isSource();
     }
 
-    private static Fluid getDripFluid(Level level, Fluid fluid) {
-        if (fluid.isSame(Fluids.EMPTY)) {
-            return level.dimensionType().ultraWarm() ? Fluids.LAVA : Fluids.WATER;
+    private static ParticleOptions getDripParticle(Level level, Fluid fluidAbove, BlockPos posAbove) {
+        if (fluidAbove.isSame(Fluids.EMPTY)) {
+            return level.environmentAttributes().getValue(EnvironmentAttributes.DEFAULT_DRIPSTONE_PARTICLE, posAbove);
         } else {
-            return fluid;
+            ParticleOptions options = fluidAbove.getFluidType().getDripInfo() != null ? fluidAbove.getFluidType().getDripInfo().dripParticle() : ParticleTypes.DRIPPING_DRIPSTONE_WATER;
+            if (options == null) options = level.environmentAttributes().getValue(EnvironmentAttributes.DEFAULT_DRIPSTONE_PARTICLE, posAbove);
+            return options;
         }
     }
 
     private static Optional<BlockPos> findBlockVertical(
-            LevelAccessor level,
-            BlockPos pos,
-            Direction.AxisDirection axis,
-            BiPredicate<BlockPos, BlockState> positionalStatePredicate,
-            Predicate<BlockState> statePredicate,
-            int maxIterations
+        LevelAccessor level,
+        BlockPos pos,
+        Direction.AxisDirection axis,
+        BiPredicate<BlockPos, BlockState> positionalStatePredicate,
+        Predicate<BlockState> statePredicate,
+        int maxIterations
     ) {
         Direction direction = Direction.get(axis, Direction.Axis.Y);
         BlockPos.MutableBlockPos blockpos$mutableblockpos = pos.mutable();
@@ -617,7 +581,7 @@ public class PointedTricklithBlock extends Block implements Fallable, SimpleWate
     private static boolean canDripThrough(BlockGetter level, BlockPos pos, BlockState state) {
         if (state.isAir()) {
             return true;
-        } else if (state.isSolidRender(level, pos)) {
+        } else if (state.isSolidRender()) {
             return false;
         } else if (!state.getFluidState().isEmpty()) {
             return false;
@@ -627,6 +591,6 @@ public class PointedTricklithBlock extends Block implements Fallable, SimpleWate
         }
     }
 
-    static record FluidInfo(BlockPos pos, Fluid fluid, BlockState sourceState) {
+    record FluidInfo(BlockPos pos, Fluid fluid, BlockState sourceState) {
     }
 }

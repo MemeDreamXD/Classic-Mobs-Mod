@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/cube_bottom_top",
-  "textures": {
-    "top": "classic_mobs:block/caverrnack_2",
-    "side": "classic_mobs:block/caverrnack_2_side",
-    "bottom": "classic_mobs:block/caverrnack_1"
-  }
-}

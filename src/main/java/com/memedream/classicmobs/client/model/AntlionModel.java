@@ -1,15 +1,14 @@
 package com.memedream.classicmobs.client.model;
 
-import com.memedream.classicmobs.entity.AntlionEntity;
-import net.minecraft.client.model.HierarchicalModel;
+import net.minecraft.client.model.EntityModel;
 import net.minecraft.client.model.geom.ModelPart;
 import net.minecraft.client.model.geom.PartPose;
 import net.minecraft.client.model.geom.builders.*;
+import net.minecraft.client.renderer.entity.state.LivingEntityRenderState;
 import net.minecraft.util.Mth;
 
-public class AntlionModel extends HierarchicalModel<AntlionEntity> {
+public class AntlionModel extends EntityModel<LivingEntityRenderState> {
 
-    private final ModelPart root;
     private final ModelPart head;
     private final ModelPart jaw1;
     private final ModelPart jaw2;
@@ -21,7 +20,7 @@ public class AntlionModel extends HierarchicalModel<AntlionEntity> {
     private final ModelPart leg6;
 
     public AntlionModel(ModelPart root) {
-        this.root = root;
+        super(root);
         this.head = root.getChild("head");
         this.jaw1 = this.head.getChild("jaw1");
         this.jaw2 = this.head.getChild("jaw2");
@@ -76,47 +75,42 @@ public class AntlionModel extends HierarchicalModel<AntlionEntity> {
         return LayerDefinition.create(meshdefinition, 128, 128);
     }
 
-    @Override
-    public ModelPart root() {
-        return this.root;
-    }
-
     //TODO: Finish WIP Animations. Not sure what kind of math it would need to fix the jaws, they're placeholders for now. Leg animations use spider math but look fine since the model is so different, idm it.
     @Override
-    public void setupAnim(AntlionEntity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
-        this.head.yRot = netHeadYaw * (float) (Math.PI / 180.0);
-        this.head.xRot = headPitch * (float) (Math.PI / 180.0);
-        this.jaw1.yRot = -0.7F * Mth.triangleWave(limbSwing, 14.0F) * limbSwingAmount;
-        this.jaw2.yRot = 0.7F * Mth.triangleWave(limbSwing, 14.0F) * limbSwingAmount;
-        this.leg1.zRot = (float) (-Math.PI / 4);
-        this.leg2.zRot = (float) (Math.PI / 4);
+    public void setupAnim(LivingEntityRenderState state) {
+        this.head.yRot = state.yRot * Mth.DEG_TO_RAD;
+        this.head.xRot = state.xRot * Mth.DEG_TO_RAD;
+        this.jaw1.yRot = -0.7F * Mth.triangleWave(state.walkAnimationPos, 14.0F) * state.walkAnimationSpeed;
+        this.jaw2.yRot = 0.7F * Mth.triangleWave(state.walkAnimationPos, 14.0F) * state.walkAnimationSpeed;
+        this.leg1.zRot = -Mth.PI / 4;
+        this.leg2.zRot = Mth.PI / 4;
         this.leg3.zRot = -0.58119464F;
         this.leg4.zRot = 0.58119464F;
         this.leg5.zRot = -0.58119464F;
         this.leg6.zRot = 0.58119464F;
-        this.leg1.yRot = (float) (Math.PI / 4);
-        this.leg2.yRot = (float) (-Math.PI / 4);
-        this.leg3.yRot = (float) (Math.PI / 8);
-        this.leg4.yRot = (float) (-Math.PI / 8);
-        this.leg5.yRot = (float) (-Math.PI / 8);
-        this.leg6.yRot = (float) (Math.PI / 8);
-        float f1 = -(Mth.cos(limbSwing * 0.6662F * 2.0F + 0.0F) * 0.4F) * limbSwingAmount;
-        float f2 = -(Mth.cos(limbSwing * 0.6662F * 2.0F + (float) Math.PI) * 0.4F) * limbSwingAmount;
-        float f3 = -(Mth.cos(limbSwing * 0.6662F * 2.0F + (float) (Math.PI / 2)) * 0.4F) * limbSwingAmount;
-        float f4 = -(Mth.cos(limbSwing * 0.6662F * 2.0F + (float) (Math.PI * 3.0 / 2.0)) * 0.4F) * limbSwingAmount;
-        float f5 = Math.abs(Mth.sin(limbSwing * 0.6662F + 0.0F) * 0.4F) * limbSwingAmount;
-        float f6 = Math.abs(Mth.sin(limbSwing * 0.6662F + (float) Math.PI) * 0.4F) * limbSwingAmount;
+        this.leg1.yRot = Mth.PI / 4;
+        this.leg2.yRot = -Mth.PI / 4;
+        this.leg3.yRot = Mth.PI / 8;
+        this.leg4.yRot = -Mth.PI / 8;
+        this.leg5.yRot = -Mth.PI / 8;
+        this.leg6.yRot = Mth.PI / 8;
+        float f1 = -(Mth.cos(state.walkAnimationPos * 0.6662F * 2.0F + 0.0F) * 0.4F) * state.walkAnimationSpeed;
+        float f2 = -(Mth.cos(state.walkAnimationPos * 0.6662F * 2.0F + Mth.PI) * 0.4F) * state.walkAnimationSpeed;
+        float f3 = -(Mth.cos(state.walkAnimationPos * 0.6662F * 2.0F + (Mth.PI / 2)) * 0.4F) * state.walkAnimationSpeed;
+        float f4 = -(Mth.cos(state.walkAnimationPos * 0.6662F * 2.0F + (Mth.PI * 3.0F / 2.0F)) * 0.4F) * state.walkAnimationSpeed;
+        float f5 = Mth.abs(Mth.sin(state.walkAnimationPos * 0.6662F + 0.0F) * 0.4F) * state.walkAnimationSpeed;
+        float f6 = Mth.abs(Mth.sin(state.walkAnimationPos * 0.6662F + Mth.PI) * 0.4F) * state.walkAnimationSpeed;
         this.leg1.yRot += f1;
-        this.leg2.yRot += -f1;
+        this.leg2.yRot -= f1;
         this.leg3.yRot += f2;
-        this.leg4.yRot += -f2;
+        this.leg4.yRot -= f2;
         this.leg5.yRot += f3;
-        this.leg6.yRot += -f3;
+        this.leg6.yRot -= f3;
         this.leg1.zRot += f4;
-        this.leg2.zRot += -f4;
+        this.leg2.zRot -= f4;
         this.leg3.zRot += f5;
-        this.leg4.zRot += -f5;
+        this.leg4.zRot -= f5;
         this.leg5.zRot += f6;
-        this.leg6.zRot += -f6;
+        this.leg6.zRot -= f6;
     }
 }

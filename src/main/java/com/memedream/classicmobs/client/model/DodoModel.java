@@ -1,28 +1,30 @@
 package com.memedream.classicmobs.client.model;
 
-import com.google.common.collect.ImmutableList;
-import com.memedream.classicmobs.entity.DodoEntity;
-import net.minecraft.client.model.AgeableListModel;
+import net.minecraft.client.model.BabyModelTransform;
+import net.minecraft.client.model.EntityModel;
 import net.minecraft.client.model.geom.ModelPart;
 import net.minecraft.client.model.geom.PartPose;
 import net.minecraft.client.model.geom.builders.*;
+import net.minecraft.client.renderer.entity.state.ChickenRenderState;
 import net.minecraft.util.Mth;
 
-public class DodoModel extends AgeableListModel<DodoEntity> {
+import java.util.Set;
 
-	private final ModelPart head;
-    private final ModelPart body;
-	private final ModelPart rightWing;
+public class DodoModel extends EntityModel<ChickenRenderState> {
+
+    public static final MeshTransformer BABY_TRANSFORMER = new BabyModelTransform(true,  9.0F, 2.0F, 1.95F, 2.0F, 24.0F, Set.of("head", "bill"));
+    private final ModelPart head;
+    private final ModelPart rightWing;
 	private final ModelPart leftWing;
 	private final ModelPart rightLeg;
 	private final ModelPart leftLeg;
 
     public DodoModel(ModelPart root) {
-        super(true, 9.0F, 2.0F, 1.95F, 2.0F, 24.0F);
+        super(root);
 		this.head = root.getChild("head");
-        this.body = root.getChild("body");
-		this.rightWing = this.body.getChild("right_wing");
-		this.leftWing = this.body.getChild("left_wing");
+        ModelPart body = root.getChild("body");
+		this.rightWing = body.getChild("right_wing");
+		this.leftWing = body.getChild("left_wing");
 		this.rightLeg = root.getChild("right_leg");
 		this.leftLeg = root.getChild("left_leg");
     }
@@ -77,22 +79,13 @@ public class DodoModel extends AgeableListModel<DodoEntity> {
 
 	//TODO currently uses same animations chickens do. Might want to add some more fun stuff later
     @Override
-    public void setupAnim(DodoEntity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
-		this.head.xRot = headPitch * Mth.DEG_TO_RAD;
-		this.head.yRot = netHeadYaw * Mth.DEG_TO_RAD;
-		this.rightLeg.xRot = Mth.cos(limbSwing * 0.6662F) * 1.4F * limbSwingAmount;
-		this.leftLeg.xRot = Mth.cos(limbSwing * 0.6662F + (float) Math.PI) * 1.4F * limbSwingAmount;
-		this.rightWing.zRot = ageInTicks;
-		this.leftWing.zRot = -ageInTicks;
-    }
-
-    @Override
-    protected Iterable<ModelPart> headParts() {
-        return ImmutableList.of(this.head);
-    }
-
-    @Override
-    protected Iterable<ModelPart> bodyParts() {
-        return ImmutableList.of(this.body, this.rightLeg, this.leftLeg);
+    public void setupAnim(ChickenRenderState state) {
+        float flapAngle = (Mth.sin(state.flap) + 1.0F) * state.flapSpeed;
+        this.head.xRot = state.xRot * Mth.DEG_TO_RAD;
+        this.head.yRot = state.yRot * Mth.DEG_TO_RAD;
+        this.rightLeg.xRot = Mth.cos(state.walkAnimationPos * 0.6662F) * 1.4F * state.walkAnimationSpeed;
+        this.leftLeg.xRot = Mth.cos(state.walkAnimationPos * 0.6662F + Mth.PI) * 1.4F * state.walkAnimationSpeed;
+        this.rightWing.zRot = flapAngle;
+        this.leftWing.zRot = -flapAngle;
     }
 }

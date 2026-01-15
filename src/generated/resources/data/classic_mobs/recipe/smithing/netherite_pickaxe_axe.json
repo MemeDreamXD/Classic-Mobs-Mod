@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": "#minecraft:netherite_tool_materials",
+  "base": "classic_mobs:diamond_pickaxe_axe",
+  "result": {
+    "id": "classic_mobs:netherite_pickaxe_axe"
+  },
+  "template": "minecraft:netherite_upgrade_smithing_template"
+}

@@ -1,0 +1,40 @@
+{
+  "entity.classicmobs.dodo.death": {
+    "sounds": [
+      "classic_mobs:mob/dodo/death"
+    ],
+    "subtitle": "subtitles.classicmobs.entity.dodo.death"
+  },
+  "entity.classicmobs.dodo.hurt": {
+    "sounds": [
+      "classic_mobs:mob/dodo/hurt"
+    ],
+    "subtitle": "subtitles.classicmobs.entity.dodo.hurt"
+  },
+  "entity.classicmobs.dodo.idle": {
+    "sounds": [
+      "classic_mobs:mob/dodo/idle1",
+      "classic_mobs:mob/dodo/idle2",
+      "classic_mobs:mob/dodo/idle3"
+    ],
+    "subtitle": "subtitles.classicmobs.entity.dodo.idle"
+  },
+  "entity.classicmobs.harpy.death": {
+    "sounds": [
+      "classic_mobs:mob/harpy/death"
+    ],
+    "subtitle": "subtitles.classicmobs.entity.harpy.death"
+  },
+  "entity.classicmobs.harpy.hurt": {
+    "sounds": [
+      "classic_mobs:mob/harpy/hurt"
+    ],
+    "subtitle": "subtitles.classicmobs.entity.harpy.hurt"
+  },
+  "entity.classicmobs.harpy.idle": {
+    "sounds": [
+      "classic_mobs:mob/harpy/idle"
+    ],
+    "subtitle": "subtitles.classicmobs.entity.harpy.idle"
+  }
+}

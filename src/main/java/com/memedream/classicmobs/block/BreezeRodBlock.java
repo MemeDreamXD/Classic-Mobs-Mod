@@ -38,7 +38,7 @@ public class BreezeRodBlock extends RodBlock {
         double d0 = (double)p_221109_.getX() + 0.55 - (double)(p_221110_.nextFloat() * 0.1F);
         double d1 = (double)p_221109_.getY() + 0.55 - (double)(p_221110_.nextFloat() * 0.1F);
         double d2 = (double)p_221109_.getZ() + 0.55 - (double)(p_221110_.nextFloat() * 0.1F);
-        double d3 = (double)(0.4F - (p_221110_.nextFloat() + p_221110_.nextFloat()) * 0.4F);
+        double d3 = 0.4F - (p_221110_.nextFloat() + p_221110_.nextFloat()) * 0.4F;
         if (p_221110_.nextInt(5) == 0) {
             p_221108_.addParticle(
                     ParticleTypes.CLOUD,

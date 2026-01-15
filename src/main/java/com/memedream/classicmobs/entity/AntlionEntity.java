@@ -5,7 +5,6 @@ import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.goal.*;
@@ -18,8 +17,6 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
 
 public class AntlionEntity extends Monster {
-
-    // Variables go here
 
     public AntlionEntity(EntityType<? extends Monster> entityType, Level level) {
         super(entityType, level);
@@ -44,9 +41,7 @@ public class AntlionEntity extends Monster {
         this.goalSelector.addGoal(6, new LookAtPlayerGoal(this, Player.class, 8.0F));
         this.goalSelector.addGoal(6, new RandomLookAroundGoal(this));
         this.targetSelector.addGoal(1, new HurtByTargetGoal(this));
-        this.targetSelector.addGoal(2, new AntlionEntity.AntlionEntityTargetGoal<>(this, Player.class));
-
-
+        this.targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, Player.class, true));
     }
 
     public static AttributeSupplier.Builder createAttributes() {
@@ -71,11 +66,5 @@ public class AntlionEntity extends Monster {
     @Override
     protected void playStepSound(BlockPos p_33804_, BlockState p_33805_) {
         this.playSound(SoundEvents.SPIDER_STEP, 0.15F, 1.0F);
-    }
-
-    static class AntlionEntityTargetGoal<T extends LivingEntity> extends NearestAttackableTargetGoal<T> {
-        public AntlionEntityTargetGoal(AntlionEntity antlion, Class<T> entityTypeToTarget) {
-            super(antlion, entityTypeToTarget, true);
-        }
     }
 }

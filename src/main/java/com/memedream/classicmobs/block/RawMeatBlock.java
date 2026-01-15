@@ -10,6 +10,7 @@ import net.minecraft.sounds.SoundSource;
 import net.minecraft.util.ParticleUtils;
 import net.minecraft.util.RandomSource;
 import net.minecraft.util.valueproviders.UniformInt;
+import net.minecraft.world.attribute.EnvironmentAttributes;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
@@ -27,7 +28,7 @@ public class RawMeatBlock extends MeatBlock {
     @Override
     protected void onPlace(BlockState state, Level level, BlockPos pos, BlockState newState, boolean moving) {
         if (!newState.is(state.getBlock())) {
-            if (level.dimensionType().ultraWarm()) {
+            if (level.environmentAttributes().getValue(EnvironmentAttributes.WATER_EVAPORATES, pos)) {
                 level.scheduleTick(pos, this, 100);
             }
         }
@@ -51,7 +52,7 @@ public class RawMeatBlock extends MeatBlock {
 
     @Override
     public void animateTick(BlockState state, Level level, BlockPos pos, RandomSource random) {
-        if (level.dimensionType().ultraWarm()) {
+        if (level.environmentAttributes().getValue(EnvironmentAttributes.WATER_EVAPORATES, pos)) {
             ParticleUtils.spawnParticlesOnBlockFace(level, pos, ParticleTypes.LARGE_SMOKE, UniformInt.of(2, 4), Direction.UP, () -> Vec3.ZERO, 0.05);
         }
     }

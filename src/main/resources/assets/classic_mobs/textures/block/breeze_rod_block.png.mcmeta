@@ -1,12 +1,6 @@
 {
   "animation": {
-    "width": 16,
-    "height": 32,
-	"frames": [
-      0,
-      1,
-      2,
-      3
-    ]
+    "frametime": 4,
+    "height": 32
   }
 }

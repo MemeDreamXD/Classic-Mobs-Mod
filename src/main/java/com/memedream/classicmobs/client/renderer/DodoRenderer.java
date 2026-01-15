@@ -4,28 +4,34 @@ import com.memedream.classicmobs.ClassicMobs;
 import com.memedream.classicmobs.client.ModModelLayers;
 import com.memedream.classicmobs.client.model.DodoModel;
 import com.memedream.classicmobs.entity.DodoEntity;
+import net.minecraft.client.renderer.entity.AgeableMobRenderer;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
-import net.minecraft.client.renderer.entity.MobRenderer;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.client.renderer.entity.state.ChickenRenderState;
+import net.minecraft.resources.Identifier;
 import net.minecraft.util.Mth;
 
-public class DodoRenderer extends MobRenderer<DodoEntity, DodoModel> {
+public class DodoRenderer extends AgeableMobRenderer<DodoEntity, ChickenRenderState, DodoModel> {
 
-    private static final ResourceLocation TEXTURE = ClassicMobs.prefix("textures/entity/dodo.png");
+    private static final Identifier TEXTURE = ClassicMobs.prefix("textures/entity/dodo.png");
 
     public DodoRenderer(EntityRendererProvider.Context context) {
-        super(context, new DodoModel(context.bakeLayer(ModModelLayers.DODO)), 0.4F);
+        super(context, new DodoModel(context.bakeLayer(ModModelLayers.DODO)), new DodoModel(context.bakeLayer(ModModelLayers.DODO_BABY)), 0.4F);
     }
 
     @Override
-    protected float getBob(DodoEntity entity, float partialTick) {
-        float f = Mth.lerp(partialTick, entity.oFlap, entity.flap);
-        float f1 = Mth.lerp(partialTick, entity.oFlapSpeed, entity.flapSpeed);
-        return (Mth.sin(f) + 1.0F) * f1;
+    public ChickenRenderState createRenderState() {
+        return new ChickenRenderState();
     }
 
     @Override
-    public ResourceLocation getTextureLocation(DodoEntity entity) {
+    public void extractRenderState(DodoEntity entity, ChickenRenderState state, float partialTicks) {
+        super.extractRenderState(entity, state, partialTicks);
+        state.flap = Mth.lerp(partialTicks, entity.oFlap, entity.flap);
+        state.flapSpeed = Mth.lerp(partialTicks, entity.oFlapSpeed, entity.flapSpeed);
+    }
+
+    @Override
+    public Identifier getTextureLocation(ChickenRenderState state) {
         return TEXTURE;
     }
 }

@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": "minecraft:golden_pickaxe",
+  "base": "minecraft:golden_axe",
+  "result": {
+    "id": "classic_mobs:golden_pickaxe_axe"
+  },
+  "template": "classic_mobs:combination_upgrade_smithing_template"
+}
