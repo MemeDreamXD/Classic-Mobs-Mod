@@ -1,10 +1,9 @@
-// 26.1-snapshot-1	2026-01-14T16:09:45.987566353	Loot Tables
+// 26.1-snapshot-1	2026-01-15T11:11:18.717366349	Loot Tables
 ac79f04ddbc4f6bf43c873c24a03198b5baf2d00 data/classic_mobs/loot_table/blocks/blaze_rod_block.json
 d279d5655e86f1482da23f95a3f5e05f08cd90ac data/classic_mobs/loot_table/blocks/block_of_bones.json
 0c5749fdf3466f34f48f24df2839fe008408cb7b data/classic_mobs/loot_table/blocks/breeze_rod_block.json
 dbe0bbffee0c8b0290c8a4548d1d4be5c708215c data/classic_mobs/loot_table/blocks/carved_undershale_tile.json
-b7fa1ea104f6628a5a6b1c1795d7a09939ec3162 data/classic_mobs/loot_table/blocks/carved_undershale_tile_corner.json
-33bbfd5419d23a406906821ea264add5c3c586bb data/classic_mobs/loot_table/blocks/carved_undershale_tile_straight.json
+b3e37e048e1c744aef672f07d36b083773b3bf6b data/classic_mobs/loot_table/blocks/carved_undershale_tile_edge.json
 6ad305574bc619180974087f2ab28163889a7869 data/classic_mobs/loot_table/blocks/caverrnack.json
 cfeaee2ce9e602b9189c6d2112487f271a210dc9 data/classic_mobs/loot_table/blocks/chiseled_undershale.json
 292893687137a399d1c35c9758089b2df2211d21 data/classic_mobs/loot_table/blocks/chitin_block.json

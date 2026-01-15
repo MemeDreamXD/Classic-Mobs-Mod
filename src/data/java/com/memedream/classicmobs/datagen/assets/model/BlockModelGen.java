@@ -10,14 +10,13 @@ import net.minecraft.client.data.models.blockstates.MultiVariantGenerator;
 import net.minecraft.client.data.models.blockstates.PropertyDispatch;
 import net.minecraft.client.data.models.model.*;
 import net.minecraft.client.renderer.block.model.Variant;
+import net.minecraft.core.Direction;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.Identifier;
-import net.minecraft.util.random.Weighted;
-import net.minecraft.util.random.WeightedList;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.state.properties.BlockStateProperties;
+import net.minecraft.world.level.block.state.properties.StairsShape;
 
-import java.util.Arrays;
 import java.util.function.BiConsumer;
 import java.util.function.Consumer;
 
@@ -71,9 +70,33 @@ public class BlockModelGen extends BlockModelGenerators {
         this.wrapBlockItem(ModBlocks.PUFFERFISH_BLOCK.get(), block -> this.blockStateOutput.accept(MultiVariantGenerator.dispatch(block, plainVariant(ModelTemplates.CUBE_BOTTOM_TOP.create(block, new TextureMapping().put(TextureSlot.SIDE, TextureMapping.getBlockTexture(block)).put(TextureSlot.TOP, TextureMapping.getBlockTexture(block, "_top")).put(TextureSlot.BOTTOM, TextureMapping.getBlockTexture(block, "_bottom")), this.modelOutput))).with(ROTATIONS_COLUMN_WITH_FACING)));
 
         this.generateBlockItem(ModBlocks.MAGMA_CREAM_BLOCK.get());
-        this.generateBlockItem(ModBlocks.CARVED_UNDERSHALE_TILE_STRAIGHT.get());
-        this.generateBlockItem(ModBlocks.CARVED_UNDERSHALE_TILE_CORNER.get());
-        this.generateBlockItem(ModBlocks.CARVED_UNDERSHALE_TILE.get());
+        this.wrapBlockItem(ModBlocks.CARVED_UNDERSHALE_TILE.get(), block -> this.blockStateOutput.accept(createSimpleBlock(block, plainVariant(ModelLocationUtils.getModelLocation(block)))));
+        this.wrapBlockItem(ModBlocks.CARVED_UNDERSHALE_TILE_EDGE.get(), block -> {
+            MultiVariant inner = BlockModelGenerators.plainVariant(ModelLocationUtils.getModelLocation(block, "_inner"));
+            MultiVariant straight = BlockModelGenerators.plainVariant(ModelLocationUtils.getModelLocation(block));
+            MultiVariant outer = BlockModelGenerators.plainVariant(ModelLocationUtils.getModelLocation(block, "_outer"));
+            this.blockStateOutput.accept(MultiVariantGenerator.dispatch(block).with(PropertyDispatch.initial(BlockStateProperties.HORIZONTAL_FACING, BlockStateProperties.STAIRS_SHAPE)
+                .select(Direction.EAST, StairsShape.STRAIGHT, straight)
+                .select(Direction.WEST, StairsShape.STRAIGHT, straight.with(Y_ROT_180).with(UV_LOCK))
+                .select(Direction.SOUTH, StairsShape.STRAIGHT, straight.with(Y_ROT_90).with(UV_LOCK))
+                .select(Direction.NORTH, StairsShape.STRAIGHT, straight.with(Y_ROT_270).with(UV_LOCK))
+                .select(Direction.EAST, StairsShape.OUTER_RIGHT, outer)
+                .select(Direction.WEST, StairsShape.OUTER_RIGHT, outer.with(Y_ROT_180).with(UV_LOCK))
+                .select(Direction.SOUTH, StairsShape.OUTER_RIGHT, outer.with(Y_ROT_90).with(UV_LOCK))
+                .select(Direction.NORTH, StairsShape.OUTER_RIGHT, outer.with(Y_ROT_270).with(UV_LOCK))
+                .select(Direction.EAST, StairsShape.OUTER_LEFT, outer.with(Y_ROT_270).with(UV_LOCK))
+                .select(Direction.WEST, StairsShape.OUTER_LEFT, outer.with(Y_ROT_90).with(UV_LOCK))
+                .select(Direction.SOUTH, StairsShape.OUTER_LEFT, outer)
+                .select(Direction.NORTH, StairsShape.OUTER_LEFT, outer.with(Y_ROT_180).with(UV_LOCK))
+                .select(Direction.EAST, StairsShape.INNER_RIGHT, inner)
+                .select(Direction.WEST, StairsShape.INNER_RIGHT, inner.with(Y_ROT_180).with(UV_LOCK))
+                .select(Direction.SOUTH, StairsShape.INNER_RIGHT, inner.with(Y_ROT_90).with(UV_LOCK))
+                .select(Direction.NORTH, StairsShape.INNER_RIGHT, inner.with(Y_ROT_270).with(UV_LOCK))
+                .select(Direction.EAST, StairsShape.INNER_LEFT, inner.with(Y_ROT_270).with(UV_LOCK))
+                .select(Direction.WEST, StairsShape.INNER_LEFT, inner.with(Y_ROT_90).with(UV_LOCK))
+                .select(Direction.SOUTH, StairsShape.INNER_LEFT, inner)
+                .select(Direction.NORTH, StairsShape.INNER_LEFT, inner.with(Y_ROT_180).with(UV_LOCK))));
+        });
         this.generateBlockItem(ModBlocks.STRING_BLOCK.get());
         this.generateBlockItem(ModBlocks.BLOCK_OF_BONES.get());
         this.generateBlockItem(ModBlocks.BLAZE_ROD_BLOCK.get());
@@ -90,7 +113,7 @@ public class BlockModelGen extends BlockModelGenerators {
 
         this.blockStateOutput.accept(MultiVariantGenerator.dispatch(block)
             .with(PropertyDispatch.initial(MeatBlock.BITES).generate(bites ->
-                bites == 0 ? fullBlock : plainVariant(ModelTemplates.create("classicmobs:template/" + prefix + "meat_block_bite_" + bites, TextureSlot.SIDE, TextureSlot.END).createWithSuffix(block, "_bite_" + bites, mapping, this.modelOutput))))
+                bites == 0 ? fullBlock : plainVariant(ModelTemplates.create("classic_mobs:template/" + prefix + "meat_block_bite_" + bites, TextureSlot.SIDE, TextureSlot.END).createWithSuffix(block, "_bite_" + bites, mapping, this.modelOutput))))
             .with(ROTATIONS_COLUMN_WITH_FACING));
         this.generateBlockItem(block);
     }

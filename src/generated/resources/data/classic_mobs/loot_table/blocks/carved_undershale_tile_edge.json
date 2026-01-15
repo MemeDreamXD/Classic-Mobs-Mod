@@ -11,11 +11,11 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "classic_mobs:carved_undershale_tile_corner"
+          "name": "classic_mobs:carved_undershale_tile_edge"
         }
       ],
       "rolls": 1.0
     }
   ],
-  "random_sequence": "classic_mobs:blocks/carved_undershale_tile_corner"
+  "random_sequence": "classic_mobs:blocks/carved_undershale_tile_edge"
 }

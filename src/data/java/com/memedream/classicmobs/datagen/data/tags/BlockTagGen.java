@@ -110,8 +110,7 @@ public class BlockTagGen extends BlockTagsProvider {
             ModBlocks.POLISHED_UNDERSHALE.get(),
             ModBlocks.NACRITE.get(),
             ModBlocks.CARVED_UNDERSHALE_TILE.get(),
-            ModBlocks.CARVED_UNDERSHALE_TILE_STRAIGHT.get(),
-            ModBlocks.CARVED_UNDERSHALE_TILE_CORNER.get()
+            ModBlocks.CARVED_UNDERSHALE_TILE_EDGE.get()
         );
 
         this.tag(BlockTags.NEEDS_IRON_TOOL).add(

@@ -46,8 +46,7 @@ public class LangGen extends LanguageProvider {
         this.addBlock(ModBlocks.UNDERSHALE_BRICKS, "Undershale Bricks");
         this.addBlock(ModBlocks.CHISELED_UNDERSHALE, "Chiseled Undershale");
         this.addBlock(ModBlocks.POLISHED_UNDERSHALE, "Polished Undershale");
-        this.addBlock(ModBlocks.CARVED_UNDERSHALE_TILE_STRAIGHT, "Carved Undershale Tile");
-        this.addBlock(ModBlocks.CARVED_UNDERSHALE_TILE_CORNER, "Carved Undershale Tile");
+        this.addBlock(ModBlocks.CARVED_UNDERSHALE_TILE_EDGE, "Carved Undershale Tile Edge");
         this.addBlock(ModBlocks.CARVED_UNDERSHALE_TILE, "Carved Undershale Tile");
         this.addBlock(ModBlocks.NACRITE, "Nacrite");
         this.addBlock(ModBlocks.CAVERRNACK, "Caverrnack");
