@@ -45,7 +45,7 @@ public class TileBlock extends HorizontalDirectionalBlock implements SimpleWater
     @Override
     public BlockState getStateForPlacement(BlockPlaceContext context) {
         FluidState fluidstate = context.getLevel().getFluidState(context.getClickedPos());
-        return super.getStateForPlacement(context).setValue(WATERLOGGED, fluidstate.getType() == Fluids.WATER);
+        return this.defaultBlockState().setValue(FACING, context.getHorizontalDirection()).setValue(WATERLOGGED, fluidstate.getType() == Fluids.WATER);
     }
 
     @Override
@@ -64,6 +64,6 @@ public class TileBlock extends HorizontalDirectionalBlock implements SimpleWater
 
     @Override
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
-        super.createBlockStateDefinition(builder.add(WATERLOGGED));
+        builder.add(WATERLOGGED, FACING);
     }
 }

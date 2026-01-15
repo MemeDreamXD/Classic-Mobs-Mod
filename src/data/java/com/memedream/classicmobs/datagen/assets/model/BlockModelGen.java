@@ -70,7 +70,7 @@ public class BlockModelGen extends BlockModelGenerators {
         this.wrapBlockItem(ModBlocks.PUFFERFISH_BLOCK.get(), block -> this.blockStateOutput.accept(MultiVariantGenerator.dispatch(block, plainVariant(ModelTemplates.CUBE_BOTTOM_TOP.create(block, new TextureMapping().put(TextureSlot.SIDE, TextureMapping.getBlockTexture(block)).put(TextureSlot.TOP, TextureMapping.getBlockTexture(block, "_top")).put(TextureSlot.BOTTOM, TextureMapping.getBlockTexture(block, "_bottom")), this.modelOutput))).with(ROTATIONS_COLUMN_WITH_FACING)));
 
         this.generateBlockItem(ModBlocks.MAGMA_CREAM_BLOCK.get());
-        this.wrapBlockItem(ModBlocks.CARVED_UNDERSHALE_TILE.get(), block -> this.blockStateOutput.accept(createSimpleBlock(block, plainVariant(ModelLocationUtils.getModelLocation(block)))));
+        this.wrapBlockItem(ModBlocks.CARVED_UNDERSHALE_TILE.get(), block -> this.blockStateOutput.accept(MultiVariantGenerator.dispatch(block, plainVariant(ModelLocationUtils.getModelLocation(block))).with(ROTATION_HORIZONTAL_FACING)));
         this.wrapBlockItem(ModBlocks.CARVED_UNDERSHALE_TILE_EDGE.get(), block -> {
             MultiVariant inner = BlockModelGenerators.plainVariant(ModelLocationUtils.getModelLocation(block, "_inner"));
             MultiVariant straight = BlockModelGenerators.plainVariant(ModelLocationUtils.getModelLocation(block));
