@@ -25,8 +25,12 @@ public class ModItems {
     public static final DeferredItem<Item> CHITIN = register("chitin", Item::new, Item.Properties::new);
     public static final DeferredItem<Item> HARPY_FEATHER = register("harpy_feather", Item::new, Item.Properties::new);
     public static final DeferredItem<Item> LOCK_OF_HAG = register("lock_of_hag", Item::new, Item.Properties::new);
+    public static final DeferredItem<Item> POP_POWDER = register("pop_powder", Item::new, Item.Properties::new);
+    public static final DeferredItem<Item> BLAST_POWDER = register("blast_powder", Item::new, Item.Properties::new);
+    public static final DeferredItem<Item> CHEM_POWDER = register("chem_powder", Item::new, Item.Properties::new);
     public static final DeferredItem<Item> RUBY = register("ruby", Item::new, () -> new Item.Properties().rarity(Rarity.UNCOMMON));
     public static final DeferredItem<Item> FLIGHT_ARROW = register("flight_arrow", FlightArrowItem::new, Item.Properties::new);
+
     //TODO: Bola functionality
     public static final DeferredItem<Item> BOLA = register("bola", Item::new, () -> new Item.Properties().stacksTo(16));
 

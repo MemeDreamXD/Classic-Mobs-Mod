@@ -87,6 +87,9 @@ public class LangGen extends LanguageProvider {
         this.addItem(ModItems.RUBY, "Ruby");
         this.addItem(ModItems.LOCK_OF_HAG, "Lock of Hag");
         this.addItem(ModItems.HARPY_FEATHER, "Harpy Feather");
+        this.addItem(ModItems.POP_POWDER, "Pop Powder");
+        this.addItem(ModItems.BLAST_POWDER, "Blast Powder");
+        this.addItem(ModItems.CHEM_POWDER, "Chem Powder");
         this.addItem(ModItems.FLIGHT_ARROW, "Flight Arrow");
         this.addItem(ModItems.BOLA, "Bola");
         this.addItem(ModItems.CHITIN, "Chitin");

@@ -23,6 +23,9 @@ public class ModCreativeModeTabs {
                 output.accept(ModItems.CHITIN);
                 output.accept(ModItems.HARPY_FEATHER);
                 output.accept(ModItems.LOCK_OF_HAG);
+                output.accept(ModItems.POP_POWDER);
+                output.accept(ModItems.BLAST_POWDER);
+                output.accept(ModItems.CHEM_POWDER);
 
                 output.accept(ModItems.CHITIN_HELMET);
                 output.accept(ModItems.CHITIN_CHESTPLATE);

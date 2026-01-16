@@ -35,6 +35,9 @@ public class ItemModelGen extends ItemModelGenerators {
         this.generateFlatItem(ModItems.BOLA.get(), ModelTemplates.FLAT_ITEM);
         this.generateFlatItem(ModItems.LOCK_OF_HAG.get(), ModelTemplates.FLAT_ITEM);
         this.generateFlatItem(ModItems.HARPY_FEATHER.get(), ModelTemplates.FLAT_ITEM);
+        this.generateFlatItem(ModItems.POP_POWDER.get(), ModelTemplates.FLAT_ITEM);
+        this.generateFlatItem(ModItems.BLAST_POWDER.get(), ModelTemplates.FLAT_ITEM);
+        this.generateFlatItem(ModItems.CHEM_POWDER.get(), ModelTemplates.FLAT_ITEM);
         this.generateFlatItem(ModItems.RUBY.get(), ModelTemplates.FLAT_ITEM);
         this.generateFlatItem(ModItems.CHITIN.get(), ModelTemplates.FLAT_ITEM);
         this.itemModelOutput.accept(ModItems.CHITIN_HELMET.get(), ItemModelUtils.tintedModel(this.generateLayeredItem(ModItems.CHITIN_HELMET.get(), TextureMapping.getItemTexture(Items.LEATHER_HELMET), TextureMapping.getItemTexture(ModItems.CHITIN_HELMET.get(), "_overlay")), new Dye(DyedItemColor.LEATHER_COLOR)));
