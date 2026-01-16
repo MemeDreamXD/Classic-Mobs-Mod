@@ -12,6 +12,8 @@
     "classic_mobs:raw_mutton_block",
     "classic_mobs:raw_pork_block",
     "classic_mobs:raw_rabbit_block",
-    "classic_mobs:raw_chicken_block"
+    "classic_mobs:raw_chicken_block",
+    "classic_mobs:raw_dodo_block",
+    "classic_mobs:cooked_dodo_block"
   ]
 }

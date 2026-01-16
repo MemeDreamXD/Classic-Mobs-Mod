@@ -54,6 +54,7 @@ public class BlockTagGen extends BlockTagsProvider {
             ModBlocks.COOKED_CHICKEN_BLOCK.get(),
             ModBlocks.COOKED_SALMON_BLOCK.get(),
             ModBlocks.COOKED_COD_BLOCK.get(),
+            ModBlocks.COOKED_DODO_BLOCK.get(),
             ModBlocks.TROPICAL_FISH_BLOCK.get(),
             ModBlocks.PUFFERFISH_BLOCK.get(),
             ModBlocks.RAW_BEEF_BLOCK.get(),
@@ -63,6 +64,7 @@ public class BlockTagGen extends BlockTagsProvider {
             ModBlocks.RAW_CHICKEN_BLOCK.get(),
             ModBlocks.RAW_SALMON_BLOCK.get(),
             ModBlocks.RAW_COD_BLOCK.get(),
+            ModBlocks.RAW_DODO_BLOCK.get(),
             ModBlocks.LEATHER_BLOCK.get()
         );
 
@@ -78,6 +80,8 @@ public class BlockTagGen extends BlockTagsProvider {
 
         this.tag(BlockTags.MINEABLE_WITH_HOE).add(
             ModBlocks.ROTTEN_FLESH_BLOCK.get(),
+            ModBlocks.RAW_DODO_BLOCK.get(),
+            ModBlocks.COOKED_DODO_BLOCK.get(),
             ModBlocks.RAW_BEEF_BLOCK.get(),
             ModBlocks.COOKED_BEEF_BLOCK.get(),
             ModBlocks.RAW_MUTTON_BLOCK.get(),

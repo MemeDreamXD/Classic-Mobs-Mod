@@ -62,6 +62,8 @@ public class BlockLootGen extends BlockLootSubProvider {
         this.dropSelf(ModBlocks.COOKED_SALMON_BLOCK.get());
         this.dropSelf(ModBlocks.TROPICAL_FISH_BLOCK.get());
         this.dropSelf(ModBlocks.PUFFERFISH_BLOCK.get());
+        this.dropSelf(ModBlocks.RAW_DODO_BLOCK.get());
+        this.dropSelf(ModBlocks.COOKED_DODO_BLOCK.get());
     }
 
     @Override

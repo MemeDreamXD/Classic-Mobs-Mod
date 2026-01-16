@@ -52,7 +52,7 @@ public class LangGen extends LanguageProvider {
         this.addBlock(ModBlocks.CAVERRNACK, "Caverrnack");
 
         this.addBlock(ModBlocks.GUNPOWDER_BLOCK, "Block of Gunpowder");
-        this.addBlock(ModBlocks.STRING_BLOCK, "Block of Gunpowder");
+        this.addBlock(ModBlocks.STRING_BLOCK, "Block of String");
         this.addBlock(ModBlocks.ENDER_PEARL_BLOCK, "Ender Pearl Block");
         this.addBlock(ModBlocks.SPIDER_EYE_BLOCK, "Spider Eye Block");
         this.addBlock(ModBlocks.FERMENTED_SPIDER_EYE_BLOCK, "Fermented Spider Eye Block");
@@ -71,6 +71,7 @@ public class LangGen extends LanguageProvider {
         this.addBlock(ModBlocks.RAW_RABBIT_BLOCK, "Raw Rabbit Block");
         this.addBlock(ModBlocks.RAW_CHICKEN_BLOCK, "Raw Chicken Block");
         this.addBlock(ModBlocks.RAW_COD_BLOCK, "Raw Cod Block");
+        this.addBlock(ModBlocks.RAW_DODO_BLOCK, "Raw Dodo Block");
         this.addBlock(ModBlocks.RAW_SALMON_BLOCK, "Raw Salmon Block");
         this.addBlock(ModBlocks.COOKED_BEEF_BLOCK, "Steak Block");
         this.addBlock(ModBlocks.COOKED_MUTTON_BLOCK, "Cooked Mutton Block");
@@ -78,6 +79,7 @@ public class LangGen extends LanguageProvider {
         this.addBlock(ModBlocks.COOKED_RABBIT_BLOCK, "Cooked Rabbit Block");
         this.addBlock(ModBlocks.COOKED_CHICKEN_BLOCK, "Cooked Chicken Block");
         this.addBlock(ModBlocks.COOKED_COD_BLOCK, "Cooked Cod Block");
+        this.addBlock(ModBlocks.COOKED_DODO_BLOCK, "Cooked Dodo Block");
         this.addBlock(ModBlocks.COOKED_SALMON_BLOCK, "Cooked Salmon Block");
         this.addBlock(ModBlocks.TROPICAL_FISH_BLOCK, "Tropical Fish Block");
         this.addBlock(ModBlocks.PUFFERFISH_BLOCK, "Pufferfish Block");

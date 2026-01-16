@@ -29,6 +29,7 @@ public class CookingGen {
         allCookingRecipesFor(getter, output, ModBlocks.RAW_CHICKEN_BLOCK, ModBlocks.COOKED_CHICKEN_BLOCK, 3.15F, 1800);
         allCookingRecipesFor(getter, output, ModBlocks.RAW_COD_BLOCK, ModBlocks.COOKED_COD_BLOCK, 3.15F, 1800);
         allCookingRecipesFor(getter, output, ModBlocks.RAW_SALMON_BLOCK, ModBlocks.COOKED_SALMON_BLOCK, 3.15F, 1800);
+        allCookingRecipesFor(getter, output, ModBlocks.RAW_DODO_BLOCK, ModBlocks.COOKED_DODO_BLOCK, 3.15F, 1800);
     }
 
     private static void allCookingRecipesFor(HolderGetter<Item> getter, RecipeOutput recipeOutput, ItemLike input, ItemLike output, float experience, int baseCookTime) {

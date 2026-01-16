@@ -117,6 +117,8 @@ public class ModCreativeModeTabs {
                 output.accept(ModBlocks.COOKED_SALMON_BLOCK);
                 output.accept(ModBlocks.RAW_COD_BLOCK);
                 output.accept(ModBlocks.COOKED_COD_BLOCK);
+                output.accept(ModBlocks.RAW_DODO_BLOCK);
+                output.accept(ModBlocks.COOKED_DODO_BLOCK);
                 output.accept(ModBlocks.TROPICAL_FISH_BLOCK);
                 output.accept(ModBlocks.PUFFERFISH_BLOCK);
 

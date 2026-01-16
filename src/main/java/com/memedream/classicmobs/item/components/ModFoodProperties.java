@@ -17,6 +17,10 @@ public class ModFoodProperties {
     public static final FoodProperties SPIDER_EYE_BLOCK = new FoodProperties.Builder().nutrition(18).saturationModifier(0.8f).build();
     public static final FoodProperties RAW_BEEF_BLOCK = new FoodProperties.Builder().nutrition(27).saturationModifier(1.62f).build();
     public static final FoodProperties COOKED_BEEF_BLOCK = new FoodProperties.Builder().nutrition(64).saturationModifier(7.2f).build();
+
+    public static final FoodProperties RAW_DODO_BLOCK = new FoodProperties.Builder().nutrition(36).saturationModifier(2.16f).build();
+    public static final FoodProperties COOKED_DODO_BLOCK = new FoodProperties.Builder().nutrition(90).saturationModifier(7.65f).build();
+
     public static final FoodProperties RAW_MUTTON_BLOCK = new FoodProperties.Builder().nutrition(18).saturationModifier(2.7F).build();
     public static final FoodProperties COOKED_MUTTON_BLOCK = new FoodProperties.Builder().nutrition(54).saturationModifier(7.2F).build();
     public static final FoodProperties RAW_PORK_BLOCK = new FoodProperties.Builder().nutrition(27).saturationModifier(2.7F).build();

@@ -1,10 +1,10 @@
-// 26.1-snapshot-1	2026-01-15T11:11:18.713130723	Tags for minecraft:block mod id classic_mobs
-0ffba1c7acd1703382b94c8a78c2a43fdadc1264 data/c/tags/block/storage_blocks.json
-6925617d92e284caf8e34b90148a878d5d324ca1 data/c/tags/block/storage_blocks/slime.json
+// 26.1-snapshot-1	2026-01-16T13:28:33.2144576	Tags for minecraft:block mod id classic_mobs
 a2ddebe8b5009ada2c0c2a898858a6ba1662dd1a data/classic_mobs/tags/block/mineable/mattock.json
 f3e660e89a1134f382a8b3f42bce0dc91d88fe6d data/classic_mobs/tags/block/mineable/pickaxe_axe.json
+0a0217abf612f14c2954ab7c73b0d0cdc59b4fa2 data/c/tags/block/storage_blocks.json
+6925617d92e284caf8e34b90148a878d5d324ca1 data/c/tags/block/storage_blocks/slime.json
 ceb3ac71907a0e6ee9d8d7a6d39e3c60e3032d9a data/minecraft/tags/block/dampens_vibrations.json
-4b3d3c4e12679ec5cbcfac6e56da4c4cbe941aea data/minecraft/tags/block/mineable/hoe.json
+c35372e29c2de260afd2f65dc8d6cf6c2e879c7a data/minecraft/tags/block/mineable/hoe.json
 ac25571d15996583aedf633a3ff9833d3a757a9a data/minecraft/tags/block/mineable/pickaxe.json
 40dd6183dd204bbdd682084e5944e650b5725904 data/minecraft/tags/block/mineable/shovel.json
 0be0d774964bf35f5e8aeba85b16dd46e8661c7e data/minecraft/tags/block/needs_iron_tool.json

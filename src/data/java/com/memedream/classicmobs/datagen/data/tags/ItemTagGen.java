@@ -52,7 +52,9 @@ public class ItemTagGen extends ItemTagsProvider {
             ModBlocks.RAW_MUTTON_BLOCK.asItem(),
             ModBlocks.RAW_PORK_BLOCK.asItem(),
             ModBlocks.RAW_RABBIT_BLOCK.asItem(),
-            ModBlocks.RAW_CHICKEN_BLOCK.asItem()
+            ModBlocks.RAW_CHICKEN_BLOCK.asItem(),
+            ModBlocks.RAW_DODO_BLOCK.asItem(),
+            ModBlocks.COOKED_DODO_BLOCK.asItem()
         );
 
         this.tag(Tags.Items.FOODS_RAW_MEAT).add(
@@ -61,7 +63,8 @@ public class ItemTagGen extends ItemTagsProvider {
             ModBlocks.RAW_MUTTON_BLOCK.asItem(),
             ModBlocks.RAW_PORK_BLOCK.asItem(),
             ModBlocks.RAW_RABBIT_BLOCK.asItem(),
-            ModBlocks.RAW_CHICKEN_BLOCK.asItem()
+            ModBlocks.RAW_CHICKEN_BLOCK.asItem(),
+            ModBlocks.RAW_DODO_BLOCK.asItem()
         );
 
         this.tag(Tags.Items.FOODS_COOKED_MEAT).add(
@@ -70,7 +73,8 @@ public class ItemTagGen extends ItemTagsProvider {
             ModBlocks.COOKED_MUTTON_BLOCK.asItem(),
             ModBlocks.COOKED_PORK_BLOCK.asItem(),
             ModBlocks.COOKED_RABBIT_BLOCK.asItem(),
-            ModBlocks.COOKED_CHICKEN_BLOCK.asItem()
+            ModBlocks.COOKED_CHICKEN_BLOCK.asItem(),
+            ModBlocks.COOKED_DODO_BLOCK.asItem()
         );
 
         this.tag(Tags.Items.FOODS_RAW_FISH).add(
@@ -100,7 +104,9 @@ public class ItemTagGen extends ItemTagsProvider {
             ModBlocks.RAW_RABBIT_BLOCK.asItem(),
             ModBlocks.RAW_CHICKEN_BLOCK.asItem(),
             ModBlocks.RAW_SALMON_BLOCK.asItem(),
-            ModBlocks.RAW_COD_BLOCK.asItem()
+            ModBlocks.RAW_COD_BLOCK.asItem(),
+            ModBlocks.RAW_DODO_BLOCK.asItem(),
+            ModBlocks.COOKED_DODO_BLOCK.asItem()
         );
 
         this.tag(Tags.Items.STORAGE_BLOCKS).add(
@@ -123,6 +129,7 @@ public class ItemTagGen extends ItemTagsProvider {
             ModBlocks.COOKED_CHICKEN_BLOCK.asItem(),
             ModBlocks.COOKED_SALMON_BLOCK.asItem(),
             ModBlocks.COOKED_COD_BLOCK.asItem(),
+            ModBlocks.COOKED_DODO_BLOCK.asItem(),
             ModBlocks.TROPICAL_FISH_BLOCK.asItem(),
             ModBlocks.PUFFERFISH_BLOCK.asItem(),
             ModBlocks.RAW_BEEF_BLOCK.asItem(),
@@ -132,6 +139,7 @@ public class ItemTagGen extends ItemTagsProvider {
             ModBlocks.RAW_CHICKEN_BLOCK.asItem(),
             ModBlocks.RAW_SALMON_BLOCK.asItem(),
             ModBlocks.RAW_COD_BLOCK.asItem(),
+            ModBlocks.RAW_DODO_BLOCK.asItem(),
             ModBlocks.LEATHER_BLOCK.asItem()
         );
 

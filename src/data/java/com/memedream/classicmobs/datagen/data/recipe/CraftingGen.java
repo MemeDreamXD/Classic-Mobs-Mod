@@ -46,6 +46,8 @@ public class CraftingGen extends RecipeProvider {
 
         createStorageBlock(getter, this.output, RecipeCategory.FOOD, ModBlocks.RAW_BEEF_BLOCK, Items.BEEF);
         createStorageBlock(getter, this.output, RecipeCategory.FOOD, ModBlocks.COOKED_BEEF_BLOCK, Items.COOKED_BEEF);
+        createStorageBlock(getter, this.output, RecipeCategory.FOOD, ModBlocks.RAW_DODO_BLOCK, ModItems.RAW_DODO);
+        createStorageBlock(getter, this.output, RecipeCategory.FOOD, ModBlocks.COOKED_DODO_BLOCK, ModItems.COOKED_DODO);
         createStorageBlock(getter, this.output, RecipeCategory.FOOD, ModBlocks.RAW_MUTTON_BLOCK, Items.MUTTON);
         createStorageBlock(getter, this.output, RecipeCategory.FOOD, ModBlocks.COOKED_MUTTON_BLOCK, Items.COOKED_MUTTON);
         createStorageBlock(getter, this.output, RecipeCategory.FOOD, ModBlocks.RAW_PORK_BLOCK, Items.PORKCHOP);

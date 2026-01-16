@@ -19,6 +19,7 @@
     "classic_mobs:cooked_chicken_block",
     "classic_mobs:cooked_salmon_block",
     "classic_mobs:cooked_cod_block",
+    "classic_mobs:cooked_dodo_block",
     "classic_mobs:tropical_fish_block",
     "classic_mobs:pufferfish_block",
     "classic_mobs:raw_beef_block",
@@ -28,6 +29,7 @@
     "classic_mobs:raw_chicken_block",
     "classic_mobs:raw_salmon_block",
     "classic_mobs:raw_cod_block",
+    "classic_mobs:raw_dodo_block",
     "classic_mobs:leather_block"
   ]
 }

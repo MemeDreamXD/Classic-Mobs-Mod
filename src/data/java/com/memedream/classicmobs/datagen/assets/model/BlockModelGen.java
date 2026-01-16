@@ -57,6 +57,8 @@ public class BlockModelGen extends BlockModelGenerators {
         this.generateMeatBlock(ModBlocks.COOKED_MUTTON_BLOCK.get(), "");
         this.generateMeatBlock(ModBlocks.RAW_PORK_BLOCK.get(), "");
         this.generateMeatBlock(ModBlocks.COOKED_PORK_BLOCK.get(), "");
+        this.generateMeatBlock(ModBlocks.RAW_DODO_BLOCK.get(), "");
+        this.generateMeatBlock(ModBlocks.COOKED_DODO_BLOCK.get(), "");
         this.generateMeatBlock(ModBlocks.RAW_RABBIT_BLOCK.get(), "thin_");
         this.generateMeatBlock(ModBlocks.COOKED_RABBIT_BLOCK.get(), "thin_");
         this.generateMeatBlock(ModBlocks.RAW_CHICKEN_BLOCK.get(), "thin_");

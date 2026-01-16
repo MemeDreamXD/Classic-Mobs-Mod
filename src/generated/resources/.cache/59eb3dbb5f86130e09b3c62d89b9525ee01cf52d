@@ -1,4 +1,4 @@
-// 26.1-snapshot-1	2026-01-15T11:11:18.717366349	Loot Tables
+// 26.1-snapshot-1	2026-01-16T13:28:33.2234059	Loot Tables
 ac79f04ddbc4f6bf43c873c24a03198b5baf2d00 data/classic_mobs/loot_table/blocks/blaze_rod_block.json
 d279d5655e86f1482da23f95a3f5e05f08cd90ac data/classic_mobs/loot_table/blocks/block_of_bones.json
 0c5749fdf3466f34f48f24df2839fe008408cb7b data/classic_mobs/loot_table/blocks/breeze_rod_block.json
@@ -10,6 +10,7 @@ cfeaee2ce9e602b9189c6d2112487f271a210dc9 data/classic_mobs/loot_table/blocks/chi
 df95cdf7c74c3b7428d4b68ee3d152648c1ddc6a data/classic_mobs/loot_table/blocks/cooked_beef_block.json
 7fc1c0de6cc3d3e1a1b1a78adfdda9092b426660 data/classic_mobs/loot_table/blocks/cooked_chicken_block.json
 3b93785221f121426351fbb43afcd9d20c8b914f data/classic_mobs/loot_table/blocks/cooked_cod_block.json
+1498d460ac3313171a76622e7bde98351f11ae3f data/classic_mobs/loot_table/blocks/cooked_dodo_block.json
 da2752183e118c465aac94dd7d18252ee3b1c795 data/classic_mobs/loot_table/blocks/cooked_mutton_block.json
 d8ce8cf028d85e4756949d5296f4191bf344b7f4 data/classic_mobs/loot_table/blocks/cooked_pork_block.json
 c0de80310d2a064bba3b607b84437dad490860ae data/classic_mobs/loot_table/blocks/cooked_rabbit_block.json
@@ -27,6 +28,7 @@ a62f0a245458bf9af808cb15db5ee26fd9fcc660 data/classic_mobs/loot_table/blocks/pol
 85f3bd2453f9c5ee477065e486f3fdce2ac87c73 data/classic_mobs/loot_table/blocks/raw_beef_block.json
 07f84339cd7af10c2218d4e87eff1dcabb3d7ed4 data/classic_mobs/loot_table/blocks/raw_chicken_block.json
 18b8bd39aebecc529e3b46dd388534fcc9dc40f4 data/classic_mobs/loot_table/blocks/raw_cod_block.json
+b4fdc7a6d265a6dc28e8449522348f3d35530bf9 data/classic_mobs/loot_table/blocks/raw_dodo_block.json
 01e9c911b2d9e52319db205f219570eea2597f59 data/classic_mobs/loot_table/blocks/raw_mutton_block.json
 b397d68413d2889c134efaf3495ba642aab30cf9 data/classic_mobs/loot_table/blocks/raw_pork_block.json
 eab5dd972ad56ab43ae077eef8957aec63e72fcd data/classic_mobs/loot_table/blocks/raw_rabbit_block.json
