@@ -32,6 +32,7 @@ public class ModClientRegistrationEvents {
         bus.addListener(ModClientRegistrationEvents::registerModelLayers);
         bus.addListener(ModClientRegistrationEvents::registerParticles);
         NeoForge.EVENT_BUS.addListener(ModClientRegistrationEvents::displayAOEHitboxes);
+        NeoForge.EVENT_BUS.addListener(ElevatorHandler::handleElevatorTeleport);
     }
 
     private static void registerRenderers(EntityRenderersEvent.RegisterRenderers event) {

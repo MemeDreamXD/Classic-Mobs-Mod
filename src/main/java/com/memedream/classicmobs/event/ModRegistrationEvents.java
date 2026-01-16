@@ -3,6 +3,7 @@ package com.memedream.classicmobs.event;
 import com.memedream.classicmobs.init.ModEntities;
 import com.memedream.classicmobs.init.ModItems;
 import com.memedream.classicmobs.init.ModPotions;
+import com.memedream.classicmobs.network.ElevatorTeleportPacket;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.item.alchemy.PotionBrewing;
 import net.minecraft.world.item.alchemy.Potions;
@@ -12,10 +13,13 @@ import net.neoforged.neoforge.common.NeoForge;
 import net.neoforged.neoforge.event.brewing.RegisterBrewingRecipesEvent;
 import net.neoforged.neoforge.event.entity.EntityAttributeCreationEvent;
 import net.neoforged.neoforge.event.entity.RegisterSpawnPlacementsEvent;
+import net.neoforged.neoforge.network.event.RegisterPayloadHandlersEvent;
+import net.neoforged.neoforge.network.registration.PayloadRegistrar;
 
 public class ModRegistrationEvents {
 
     public static void init(IEventBus bus) {
+        bus.addListener(ModRegistrationEvents::registerPackets);
         bus.addListener(ModRegistrationEvents::registerAttributes);
         bus.addListener(ModRegistrationEvents::registerPlacements);
         NeoForge.EVENT_BUS.addListener(ModRegistrationEvents::onBrewingRecipeRegister);
@@ -24,6 +28,11 @@ public class ModRegistrationEvents {
         NeoForge.EVENT_BUS.addListener(AoeToolEvents::clearHarvestBlocksIfNeeded);
         NeoForge.EVENT_BUS.addListener(AoeToolEvents::visuallyHarvestWithMultitools);
         NeoForge.EVENT_BUS.addListener(ModEvents::chitinProjectileParrying);
+    }
+
+    public static void registerPackets(RegisterPayloadHandlersEvent event) {
+        PayloadRegistrar registrar = event.registrar("1.0.0");
+        registrar.playToServer(ElevatorTeleportPacket.TYPE, ElevatorTeleportPacket.STREAM_CODEC, ElevatorTeleportPacket::handle);
     }
 
     @SuppressWarnings("unchecked") //entities added this way will always extend LivingEntity
