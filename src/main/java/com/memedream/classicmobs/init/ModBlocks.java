@@ -44,7 +44,6 @@ public class ModBlocks {
 
     public static final DeferredBlock<Block> GUNPOWDER_BLOCK = registerWithItem("gunpowder_block", GunpowderBlock::new, () -> BlockBehaviour.Properties.of().mapColor(MapColor.STONE).instrument(NoteBlockInstrument.SNARE).strength(0.5F).sound(SoundType.SAND).ignitedByLava());
     public static final DeferredBlock<Block> ROTTEN_FLESH_BLOCK = registerWithItem("rotten_flesh_block", RottenFleshBlock::new, () -> BlockBehaviour.Properties.of().mapColor(MapColor.NETHER).instrument(NoteBlockInstrument.ZOMBIE).strength(2.0F).sound(SoundType.FROGSPAWN), () -> new Item.Properties().useBlockDescriptionPrefix().food(ModFoodProperties.ROTTEN_FLESH_BLOCK, ModFoodProperties.MEAT_EFFECT_CONSUMABLE.apply(new MobEffectInstance(MobEffects.HUNGER, 600, 9), 0.8f)));
-    //TODO: Should reflect projectiles
     public static final DeferredBlock<Block> CHITIN_BLOCK = registerWithItem("chitin_block", Block::new, () -> BlockBehaviour.Properties.of().requiresCorrectToolForDrops().mapColor(MapColor.COLOR_BROWN).instrument(NoteBlockInstrument.DIDGERIDOO).strength(1.5F).sound(SoundType.PACKED_MUD));
     //TODO: Disallow entities from falling through
     public static final DeferredBlock<Block> STRING_BLOCK = registerWithItem("string_block", WebBlock::new, () -> BlockBehaviour.Properties.of().noOcclusion().mapColor(MapColor.SNOW).forceSolidOn().noCollision().instrument(NoteBlockInstrument.GUITAR).strength(0.8F).sound(SoundType.COBWEB).ignitedByLava());

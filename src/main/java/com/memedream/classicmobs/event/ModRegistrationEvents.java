@@ -23,6 +23,7 @@ public class ModRegistrationEvents {
         NeoForge.EVENT_BUS.addListener(AoeToolEvents::modifyMultitoolMiningSpeed);
         NeoForge.EVENT_BUS.addListener(AoeToolEvents::clearHarvestBlocksIfNeeded);
         NeoForge.EVENT_BUS.addListener(AoeToolEvents::visuallyHarvestWithMultitools);
+        NeoForge.EVENT_BUS.addListener(ModEvents::chitinProjectileParrying);
     }
 
     @SuppressWarnings("unchecked") //entities added this way will always extend LivingEntity
