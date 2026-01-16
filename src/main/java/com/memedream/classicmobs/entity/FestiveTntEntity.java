@@ -17,6 +17,7 @@ import net.minecraft.world.level.storage.ValueInput;
 import net.minecraft.world.level.storage.ValueOutput;
 import net.minecraft.world.phys.EntityHitResult;
 import net.minecraft.world.phys.HitResult;
+import net.neoforged.neoforge.event.EventHooks;
 
 public class FestiveTntEntity extends ThrowableProjectile {
 
@@ -40,13 +41,8 @@ public class FestiveTntEntity extends ThrowableProjectile {
 
     @Override
     public void tick() {
-        HitResult result = ProjectileUtil.getHitResultOnMoveVector(this, this::canHitEntity);
-
-        if (result.getType() != HitResult.Type.MISS && this.isAlive()) {
-            this.hitTargetOrDeflectSelf(result);
-        }
-
         this.applyGravity();
+        this.applyEffectsFromBlocks();
         this.move(MoverType.SELF, this.getDeltaMovement());
         this.setDeltaMovement(this.getDeltaMovement().scale(0.98));
         if (this.onGround()) {
@@ -68,6 +64,13 @@ public class FestiveTntEntity extends ThrowableProjectile {
             if (this.level().isClientSide()) {
                 this.level().addParticle(ParticleTypes.SMOKE, this.getX(), this.getY() + 0.25D, this.getZ(), 0.0, 0.0, 0.0);
             }
+        }
+
+        HitResult result = ProjectileUtil.getHitResultOnMoveVector(this, this::canHitEntity);
+
+        if (result.getType() != HitResult.Type.MISS && this.isAlive() && !EventHooks.onProjectileImpact(this, result)) {
+            this.hitTargetOrDeflectSelf(result);
+            this.needsSync = true;
         }
     }
 
