@@ -29,7 +29,7 @@ public class FestiveCreeperAttackGoal extends Goal {
 
     @Override
     public boolean canUse() {
-        return this.entity.getTarget() != null;
+        return this.entity.getTarget() != null && this.entity.getSwellDir() != 1;
     }
 
     @Override
@@ -114,7 +114,7 @@ public class FestiveCreeperAttackGoal extends Goal {
             if (this.attackTime <= 0) {
                 if (flag) {
                     this.entity.performRangedAttack(livingentity, 1.0F);
-                    this.attackTime = this.attackIntervalMin;
+                    this.attackTime = this.attackIntervalMin / (this.entity.isPowered() ? 2 : 1);
                 }
             } else {
                 this.attackTime--;

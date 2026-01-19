@@ -1,10 +1,12 @@
 package com.memedream.classicmobs.entity;
 
 import com.memedream.classicmobs.entity.ai.goals.FestiveCreeperAttackGoal;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.util.Mth;
 import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
@@ -14,6 +16,7 @@ import net.minecraft.world.entity.ai.goal.target.HurtByTargetGoal;
 import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
 import net.minecraft.world.entity.animal.feline.Cat;
 import net.minecraft.world.entity.animal.feline.Ocelot;
+import net.minecraft.world.entity.monster.Creeper;
 import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.monster.RangedAttackMob;
 import net.minecraft.world.entity.player.Player;
@@ -21,9 +24,9 @@ import net.minecraft.world.level.Explosion;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.Vec3;
 
-public class FestiveCreeperEntity extends Monster implements RangedAttackMob {
+public class FestiveCreeperEntity extends Creeper implements RangedAttackMob {
 
-    public FestiveCreeperEntity(EntityType<? extends Monster> entityType, Level level) {
+    public FestiveCreeperEntity(EntityType<? extends Creeper> entityType, Level level) {
         super(entityType, level);
     }
 
@@ -40,8 +43,17 @@ public class FestiveCreeperEntity extends Monster implements RangedAttackMob {
         this.targetSelector.addGoal(2, new HurtByTargetGoal(this));
     }
 
-    public static AttributeSupplier.Builder createAttributes() {
-        return Monster.createMonsterAttributes().add(Attributes.MOVEMENT_SPEED, 0.25);
+    @Override
+    protected boolean isImmobile() {
+        return super.isImmobile() || this.getSwellDir() == 1;
+    }
+
+    @Override
+    public boolean causeFallDamage(double fallDistance, float damageModifier, DamageSource damageSource) {
+        boolean damaged = super.causeFallDamage(fallDistance, damageModifier, damageSource);
+        //cancel falling swell vanilla creepers have
+        this.swell = 0;
+        return damaged;
     }
 
     @Override
@@ -60,13 +72,21 @@ public class FestiveCreeperEntity extends Monster implements RangedAttackMob {
     }
 
     @Override
-    protected SoundEvent getHurtSound(DamageSource source) {
-        return SoundEvents.CREEPER_HURT;
-    }
-
-    @Override
-    protected SoundEvent getDeathSound() {
-        return SoundEvents.CREEPER_DEATH;
+    public void explodeCreeper() {
+        if (this.level() instanceof ServerLevel level) {
+            for (int i = 0; i < 10; i++) {
+                FestiveTntEntity tnt = new FestiveTntEntity(level, this);
+                Vec3 movement = new Vec3(this.getRandom().nextDouble() * 0.75D - 0.325D, 0.35D, this.getRandom().nextDouble() * 0.75D - 0.325D);
+                tnt.setDeltaMovement(movement);
+                double d0 = movement.horizontalDistance();
+                tnt.setXRot((float) (Mth.atan2(movement.x, movement.z) * Mth.RAD_TO_DEG));
+                tnt.setYRot((float) (Mth.atan2(movement.y, d0) * Mth.RAD_TO_DEG));
+                tnt.setOldPosAndRot();
+                tnt.maxOnGroundTime = 0;
+                this.level().addFreshEntity(tnt);
+            }
+        }
+        super.explodeCreeper();
     }
 
     @Override

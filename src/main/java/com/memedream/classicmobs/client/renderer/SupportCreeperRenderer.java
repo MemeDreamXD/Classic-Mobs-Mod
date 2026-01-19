@@ -9,12 +9,12 @@ import net.minecraft.client.renderer.entity.MobRenderer;
 import net.minecraft.client.renderer.entity.state.CreeperRenderState;
 import net.minecraft.resources.Identifier;
 
-public class SupportCreeperRenderer extends MobRenderer<SupportCreeperEntity, CreeperRenderState, CreeperModel> {
+public class SupportCreeperRenderer extends BasicCreeperRenderer<SupportCreeperEntity, CreeperRenderState> {
 
     private static final Identifier TEXTURE = ClassicMobs.prefix("textures/entity/support_creeper.png");
 
     public SupportCreeperRenderer(EntityRendererProvider.Context context) {
-        super(context, new CreeperModel(context.bakeLayer(ModelLayers.CREEPER)), 0.4F);
+        super(context);
     }
 
     @Override

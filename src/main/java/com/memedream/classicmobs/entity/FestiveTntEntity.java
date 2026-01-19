@@ -23,6 +23,7 @@ public class FestiveTntEntity extends ThrowableProjectile {
 
     private static final EntityDataAccessor<Integer> FUSE_TIME = SynchedEntityData.defineId(FestiveTntEntity.class, EntityDataSerializers.INT);
     private int timeOnGround;
+    protected int maxOnGroundTime = 10;
     private static final float ROTATION_FACTOR = 10.0F;
 
     public FestiveTntEntity(EntityType<? extends ThrowableProjectile> type, Level level) {
@@ -57,7 +58,7 @@ public class FestiveTntEntity extends ThrowableProjectile {
 
         int i = this.getFuse() - 1;
         this.setFuse(i);
-        if (i <= 0 || this.timeOnGround > 10) {
+        if (i <= 0 || this.timeOnGround > this.maxOnGroundTime) {
             this.explode();
         } else {
             this.updateInWaterStateAndDoFluidPushing();
@@ -79,6 +80,11 @@ public class FestiveTntEntity extends ThrowableProjectile {
     @Override
     public void setXRot(float xRot) {
         this.xRot = xRot;
+    }
+
+    @Override
+    protected boolean canHitEntity(Entity entity) {
+        return !(entity instanceof FestiveTntEntity) && super.canHitEntity(entity);
     }
 
     @Override
