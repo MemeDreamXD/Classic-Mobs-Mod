@@ -68,7 +68,7 @@ public class ElevatorHandler {
             }
 
             var toElevator = ElevatorTeleportPacket.ensureElevatorBlock(level.getBlockState(toPos));
-            if (toElevator != null && ElevatorTeleportPacket.isValidPos(level, toPos)) {
+            if (toElevator != null && ElevatorTeleportPacket.isValidPos(level, toPos, player)) {
                 ClientPacketDistributor.sendToServer(new ElevatorTeleportPacket(fromPos, toPos));
                 break;
             }
@@ -81,7 +81,7 @@ public class ElevatorHandler {
 
         for (int i = 0; i < 6; i++) {
             if (ElevatorTeleportPacket.ensureElevatorBlock(player.level().getBlockState(pos)) != null) {
-                if (!ElevatorTeleportPacket.isValidPos(player.level(), pos)) {
+                if (!ElevatorTeleportPacket.isValidPos(player.level(), pos, player)) {
                     return null;
                 }
                 return pos;
