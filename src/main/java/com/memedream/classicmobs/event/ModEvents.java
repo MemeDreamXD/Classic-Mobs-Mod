@@ -1,10 +1,15 @@
 package com.memedream.classicmobs.event;
 
 import com.memedream.classicmobs.init.ModBlocks;
+import com.memedream.classicmobs.init.ModEffects;
 import net.minecraft.core.Direction;
+import net.minecraft.world.effect.MobEffectInstance;
+import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.Vec3;
+import net.neoforged.neoforge.common.Tags;
 import net.neoforged.neoforge.event.entity.ProjectileImpactEvent;
+import net.neoforged.neoforge.event.entity.player.PlayerEvent;
 
 public class ModEvents {
 
@@ -25,6 +30,12 @@ public class ModEvents {
                 event.getProjectile().getPersistentData().putBoolean("deflected", true);
                 event.setCanceled(true);
             }
+        }
+    }
+
+    public static void faeCurseWeakness(PlayerEvent.BreakSpeed event) {
+        if (event.getEntity().hasEffect(ModEffects.FAE_CURSE) && event.getState().is(Tags.Blocks.ORES)) {
+            event.getEntity().addEffect(new MobEffectInstance(MobEffects.MINING_FATIGUE, 5, 2, false, false, false));
         }
     }
 }

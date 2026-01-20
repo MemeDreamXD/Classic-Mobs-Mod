@@ -28,6 +28,7 @@ public class ModRegistrationEvents {
         NeoForge.EVENT_BUS.addListener(AoeToolEvents::clearHarvestBlocksIfNeeded);
         NeoForge.EVENT_BUS.addListener(AoeToolEvents::visuallyHarvestWithMultitools);
         NeoForge.EVENT_BUS.addListener(ModEvents::chitinProjectileParrying);
+        NeoForge.EVENT_BUS.addListener(ModEvents::faeCurseWeakness);
     }
 
     public static void registerPackets(RegisterPayloadHandlersEvent event) {
