@@ -4,6 +4,7 @@ import com.memedream.classicmobs.client.ModModelLayers;
 import com.memedream.classicmobs.client.model.*;
 import com.memedream.classicmobs.client.particle.FleshDripParticle;
 import com.memedream.classicmobs.client.renderer.*;
+import com.memedream.classicmobs.client.shader.ModRenderPipelines;
 import com.memedream.classicmobs.init.ModEntities;
 import com.memedream.classicmobs.init.ModParticles;
 import com.memedream.classicmobs.item.AOEItem;
@@ -20,6 +21,7 @@ import net.neoforged.neoforge.client.ClientHooks;
 import net.neoforged.neoforge.client.event.EntityRenderersEvent;
 import net.neoforged.neoforge.client.event.ExtractBlockOutlineRenderStateEvent;
 import net.neoforged.neoforge.client.event.RegisterParticleProvidersEvent;
+import net.neoforged.neoforge.client.event.RegisterRenderPipelinesEvent;
 import net.neoforged.neoforge.common.NeoForge;
 
 import java.util.ArrayList;
@@ -31,8 +33,12 @@ public class ModClientRegistrationEvents {
         bus.addListener(ModClientRegistrationEvents::registerRenderers);
         bus.addListener(ModClientRegistrationEvents::registerModelLayers);
         bus.addListener(ModClientRegistrationEvents::registerParticles);
+        bus.addListener(ModClientRegistrationEvents::registerPipelines);
         NeoForge.EVENT_BUS.addListener(ModClientRegistrationEvents::displayAOEHitboxes);
         NeoForge.EVENT_BUS.addListener(ElevatorHandler::handleElevatorTeleport);
+
+        NeoForge.EVENT_BUS.addListener(FaeCurseHandler::tickFaeEffect);
+        NeoForge.EVENT_BUS.addListener(FaeCurseHandler::renderOutlinedBlocks);
     }
 
     private static void registerRenderers(EntityRenderersEvent.RegisterRenderers event) {
@@ -84,5 +90,9 @@ public class ModClientRegistrationEvents {
                 event.addCustomRenderer(new AOEOutlineRenderer(states));
             }
         }
+    }
+
+    private static void registerPipelines(RegisterRenderPipelinesEvent event) {
+        event.registerPipeline(ModRenderPipelines.FAE_OUTLINE);
     }
 }
