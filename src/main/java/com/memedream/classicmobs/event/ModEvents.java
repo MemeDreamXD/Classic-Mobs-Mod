@@ -9,6 +9,7 @@ import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.Vec3;
 import net.neoforged.neoforge.common.Tags;
 import net.neoforged.neoforge.event.entity.ProjectileImpactEvent;
+import net.neoforged.neoforge.event.entity.living.MobEffectEvent;
 import net.neoforged.neoforge.event.entity.player.PlayerEvent;
 
 public class ModEvents {
@@ -36,6 +37,12 @@ public class ModEvents {
     public static void faeCurseWeakness(PlayerEvent.BreakSpeed event) {
         if (event.getEntity().hasEffect(ModEffects.FAE_CURSE) && event.getState().is(Tags.Blocks.ORES)) {
             event.getEntity().addEffect(new MobEffectInstance(MobEffects.MINING_FATIGUE, 5, 2, false, false, false));
+        }
+    }
+
+    public static void sorryBossCantRemoveTheCurse(MobEffectEvent.Remove event) {
+        if (event.getEffect().is(ModEffects.FAE_CURSE)) {
+           event.setCanceled(true);
         }
     }
 }
