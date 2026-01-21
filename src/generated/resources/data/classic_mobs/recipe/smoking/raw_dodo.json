@@ -5,7 +5,6 @@
   "experience": 0.35,
   "ingredient": "classic_mobs:raw_dodo",
   "result": {
-    "count": 1,
     "id": "classic_mobs:cooked_dodo"
   }
 }

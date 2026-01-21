@@ -1,5 +1,5 @@
 {
-  "type": "minecraft:smithing_transform",
+  "type": "classic_mobs:multitool",
   "addition": "minecraft:wooden_axe",
   "base": "minecraft:wooden_pickaxe",
   "result": {

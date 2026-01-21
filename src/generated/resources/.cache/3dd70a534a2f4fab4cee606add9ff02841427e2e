@@ -1,6 +1,4 @@
-// 26.1-snapshot-1	2026-01-16T13:28:33.2154543	Tags for minecraft:item mod id classic_mobs
-45451a476127a79f55b539f148b906c3e9c683b4 data/classic_mobs/tags/item/dodo_food.json
-9118575d2e073648f348b069920e74c057d5c410 data/classic_mobs/tags/item/repairs_chitin_armor.json
+// 26.1-snapshot-3	2026-01-20T17:32:45.023529999	Tags for minecraft:item mod id classic_mobs
 e4c7e8f3ee371647115f9444825bee1cbfd398fe data/c/tags/item/feathers.json
 56568b18b70625f3c72c89aa0ee2660448860834 data/c/tags/item/foods/cooked_fish.json
 0dd7295dd50f92ad7eba734a6c16414e253c9f1a data/c/tags/item/foods/cooked_meat.json
@@ -8,6 +6,8 @@ eac552c37c38021fc8c5db8ff4952e1168272b01 data/c/tags/item/foods/edible_when_plac
 1454ea02a05d929b28a61048ed1ac673f7f05d91 data/c/tags/item/foods/raw_fish.json
 044480fd7f6e368a2557f1f1548449d317b3bc9a data/c/tags/item/foods/raw_meat.json
 0a0217abf612f14c2954ab7c73b0d0cdc59b4fa2 data/c/tags/item/storage_blocks.json
+45451a476127a79f55b539f148b906c3e9c683b4 data/classic_mobs/tags/item/dodo_food.json
+9118575d2e073648f348b069920e74c057d5c410 data/classic_mobs/tags/item/repairs_chitin_armor.json
 6665bc2dbde9771a382f525c1ef65cf33295a4f9 data/minecraft/tags/item/arrows.json
 768465750e7d6970d2af50d5f02650a360c380cf data/minecraft/tags/item/axes.json
 c9c945c2892e8a3da7fb037c77fb0fa9b89b7643 data/minecraft/tags/item/chest_armor.json

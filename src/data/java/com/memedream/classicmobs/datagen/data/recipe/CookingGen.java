@@ -12,6 +12,7 @@ import net.minecraft.data.recipes.RecipeCategory;
 import net.minecraft.data.recipes.RecipeOutput;
 import net.minecraft.data.recipes.SimpleCookingRecipeBuilder;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.crafting.CookingBookCategory;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.ItemLike;
 
@@ -34,7 +35,7 @@ public class CookingGen {
 
     private static void allCookingRecipesFor(HolderGetter<Item> getter, RecipeOutput recipeOutput, ItemLike input, ItemLike output, float experience, int baseCookTime) {
         String smeltName = BuiltInRegistries.ITEM.getKey(input.asItem()).getPath();
-        SimpleCookingRecipeBuilder.smelting(Ingredient.of(input), RecipeCategory.FOOD, output, experience, baseCookTime).unlockedBy("has_meat", inventoryTrigger(ItemPredicate.Builder.item().of(getter, input))).save(recipeOutput, CraftingGen.createKey("smelting/" + smeltName));
+        SimpleCookingRecipeBuilder.smelting(Ingredient.of(input), RecipeCategory.FOOD, CookingBookCategory.FOOD, output, experience, baseCookTime).unlockedBy("has_meat", inventoryTrigger(ItemPredicate.Builder.item().of(getter, input))).save(recipeOutput, CraftingGen.createKey("smelting/" + smeltName));
         SimpleCookingRecipeBuilder.smoking(Ingredient.of(input), RecipeCategory.FOOD, output, experience, baseCookTime / 2).unlockedBy("has_meat", inventoryTrigger(ItemPredicate.Builder.item().of(getter, input))).save(recipeOutput, CraftingGen.createKey("smoking/" + smeltName));
         SimpleCookingRecipeBuilder.campfireCooking(Ingredient.of(input), RecipeCategory.FOOD, output, experience, baseCookTime * 3).unlockedBy("has_meat", inventoryTrigger(ItemPredicate.Builder.item().of(getter, input))).save(recipeOutput, CraftingGen.createKey("campfiring/" + smeltName));
     }

@@ -1,23 +1,18 @@
 package com.memedream.classicmobs.datagen.builder;
 
+import com.memedream.classicmobs.item.recipe.MultitoolCombinationRecipe;
 import net.minecraft.advancements.Advancement;
 import net.minecraft.advancements.AdvancementRequirements;
 import net.minecraft.advancements.AdvancementRewards;
-import net.minecraft.advancements.Criterion;
 import net.minecraft.advancements.criterion.RecipeUnlockedTrigger;
-import net.minecraft.core.registries.Registries;
 import net.minecraft.data.recipes.RecipeCategory;
 import net.minecraft.data.recipes.RecipeOutput;
-import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStackTemplate;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.crafting.Recipe;
-import net.minecraft.world.item.crafting.SmithingTransformRecipe;
-import net.minecraft.world.item.crafting.TransmuteResult;
 
-import java.util.LinkedHashMap;
-import java.util.Map;
 import java.util.Optional;
 
 public class SmithingMultitoolRecipeBuilder {
@@ -45,9 +40,7 @@ public class SmithingMultitoolRecipeBuilder {
             .addCriterion("has_the_recipe", RecipeUnlockedTrigger.unlocked(id))
             .rewards(AdvancementRewards.Builder.recipe(id))
             .requirements(AdvancementRequirements.Strategy.OR);
-        SmithingTransformRecipe recipe = new SmithingTransformRecipe(
-            Optional.of(this.template), this.base, Optional.of(this.addition), new TransmuteResult(this.result)
-        );
+        MultitoolCombinationRecipe recipe = new MultitoolCombinationRecipe(Optional.of(this.template), this.base, this.addition, new ItemStackTemplate(this.result));
         output.accept(id, recipe, advancement.build(id.identifier().withPrefix("recipes/" + this.category.getFolderName() + "/")));
     }
 }

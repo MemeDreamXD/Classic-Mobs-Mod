@@ -4,14 +4,17 @@ import com.memedream.classicmobs.init.ModRecipes;
 import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.core.HolderLookup;
+import net.minecraft.core.component.DataComponents;
 import net.minecraft.network.RegistryFriendlyByteBuf;
 import net.minecraft.network.codec.StreamCodec;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.ItemStackTemplate;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.*;
 import net.minecraft.world.item.crafting.display.RecipeDisplay;
 import net.minecraft.world.item.crafting.display.SlotDisplay;
 import net.minecraft.world.item.crafting.display.SmithingRecipeDisplay;
+import net.minecraft.world.item.enchantment.ItemEnchantments;
 import org.jspecify.annotations.Nullable;
 
 import java.util.List;
@@ -22,20 +25,31 @@ public class MultitoolCombinationRecipe implements SmithingRecipe {
     private final Optional<Ingredient> template;
     private final Ingredient base;
     private final Ingredient addition;
-    private final TransmuteResult result;
+    private final ItemStackTemplate result;
     private @Nullable PlacementInfo placementInfo;
 
-    public MultitoolCombinationRecipe(Optional<Ingredient> template, Ingredient base, Ingredient addition, TransmuteResult result) {
+    public MultitoolCombinationRecipe(Optional<Ingredient> template, Ingredient base, Ingredient addition, ItemStackTemplate result) {
         this.template = template;
         this.base = base;
         this.addition = addition;
         this.result = result;
     }
 
-    public ItemStack assemble(SmithingRecipeInput input, HolderLookup.Provider registries) {
+    @Override
+    public ItemStack assemble(SmithingRecipeInput input) {
         ItemStack copy = input.base().copy();
-        copy.applyComponentsAndValidate(input.addition().getComponentsPatch());
-        return this.result.apply(copy);
+        ItemEnchantments.Mutable enchants = new ItemEnchantments.Mutable(copy.getOrDefault(DataComponents.ENCHANTMENTS, ItemEnchantments.EMPTY));
+        if (input.addition().has(DataComponents.ENCHANTMENTS)) {
+            input.addition().get(DataComponents.ENCHANTMENTS).entrySet().forEach(enchantment -> {
+                if (enchants.getLevel(enchantment.getKey()) < enchantment.getIntValue()) {
+                    enchants.set(enchantment.getKey(), enchantment.getIntValue());
+                }
+            });
+        }
+        enchants.removeIf(holder -> !input.addition().supportsEnchantment(holder));
+        copy.set(DataComponents.ENCHANTMENTS, enchants.toImmutable());
+
+        return TransmuteRecipe.createWithOriginalComponents(this.result, copy);
     }
 
     @Override
@@ -74,7 +88,7 @@ public class MultitoolCombinationRecipe implements SmithingRecipe {
                 Ingredient.optionalIngredientToDisplay(this.template),
                 this.base.display(),
                 this.addition.display(),
-                this.result.display(),
+                new SlotDisplay.ItemStackSlotDisplay(this.result),
                 new SlotDisplay.ItemSlotDisplay(Items.SMITHING_TABLE)
             )
         );
@@ -86,7 +100,7 @@ public class MultitoolCombinationRecipe implements SmithingRecipe {
                     Ingredient.CODEC.optionalFieldOf("template").forGetter(o -> o.template),
                     Ingredient.CODEC.fieldOf("base").forGetter(o -> o.base),
                     Ingredient.CODEC.fieldOf("addition").forGetter(o -> o.addition),
-                    TransmuteResult.CODEC.fieldOf("result").forGetter(o -> o.result)
+                    ItemStackTemplate.CODEC.fieldOf("result").forGetter(o -> o.result)
                 )
                 .apply(r, MultitoolCombinationRecipe::new)
         );
@@ -97,7 +111,7 @@ public class MultitoolCombinationRecipe implements SmithingRecipe {
             r -> r.base,
             Ingredient.CONTENTS_STREAM_CODEC,
             r -> r.addition,
-            TransmuteResult.STREAM_CODEC,
+            ItemStackTemplate.STREAM_CODEC,
             r -> r.result,
             MultitoolCombinationRecipe::new
         );
