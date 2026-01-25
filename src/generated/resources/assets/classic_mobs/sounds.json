@@ -1,4 +1,22 @@
 {
+  "entity.classicmobs.antlion.death": {
+    "sounds": [
+      "classic_mobs:mob/antlion/death"
+    ],
+    "subtitle": "subtitles.classicmobs.entity.antlion.death"
+  },
+  "entity.classicmobs.antlion.hurt": {
+    "sounds": [
+      "classic_mobs:mob/antlion/hurt"
+    ],
+    "subtitle": "subtitles.classicmobs.entity.antlion.hurt"
+  },
+  "entity.classicmobs.antlion.idle": {
+    "sounds": [
+      "classic_mobs:mob/antlion/idle"
+    ],
+    "subtitle": "subtitles.classicmobs.entity.antlion.idle"
+  },
   "entity.classicmobs.dodo.death": {
     "sounds": [
       "classic_mobs:mob/dodo/death"

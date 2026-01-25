@@ -24,6 +24,9 @@ public class SoundGen extends SoundDefinitionsProvider {
         this.generateNewSoundWithSubtitle(ModSounds.HARPY_IDLE, "mob/harpy/idle", 1, "Harpy chirps");
         this.generateNewSoundWithSubtitle(ModSounds.HARPY_DEATH, "mob/harpy/death", 1, "Harpy dies");
         this.generateNewSoundWithSubtitle(ModSounds.HARPY_HURT, "mob/harpy/hurt", 1, "Harpy hurts");
+        this.generateNewSoundWithSubtitle(ModSounds.ANTLION_IDLE, "mob/antlion/idle", 1, "Antlion skitters");
+        this.generateNewSoundWithSubtitle(ModSounds.ANTLION_DEATH, "mob/antlion/death", 1, "Antlion dies");
+        this.generateNewSoundWithSubtitle(ModSounds.ANTLION_HURT, "mob/antlion/hurt", 1, "Antlion hurts");
     }
 
     public void generateNewSoundWithSubtitle(DeferredHolder<SoundEvent, SoundEvent> event, String baseSoundDirectory, int numberOfSounds, String subtitle, float volume, float pitch) {

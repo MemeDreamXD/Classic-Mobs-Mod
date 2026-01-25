@@ -19,6 +19,9 @@ public class ModSounds {
     public static final DeferredHolder<SoundEvent, SoundEvent> HARPY_IDLE = registerSoundEvent("entity.classicmobs.harpy.idle");
     public static final DeferredHolder<SoundEvent, SoundEvent> HARPY_HURT = registerSoundEvent("entity.classicmobs.harpy.hurt");
     public static final DeferredHolder<SoundEvent, SoundEvent> HARPY_DEATH = registerSoundEvent("entity.classicmobs.harpy.death");
+    public static final DeferredHolder<SoundEvent, SoundEvent> ANTLION_IDLE = registerSoundEvent("entity.classicmobs.antlion.idle");
+    public static final DeferredHolder<SoundEvent, SoundEvent> ANTLION_HURT = registerSoundEvent("entity.classicmobs.antlion.hurt");
+    public static final DeferredHolder<SoundEvent, SoundEvent> ANTLION_DEATH = registerSoundEvent("entity.classicmobs.antlion.death");
 
     private static DeferredHolder<SoundEvent, SoundEvent> registerSoundEvent(String name) {
         Identifier id = Identifier.fromNamespaceAndPath(ClassicMobs.MOD_ID, name);

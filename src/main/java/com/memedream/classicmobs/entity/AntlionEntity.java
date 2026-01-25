@@ -1,5 +1,6 @@
 package com.memedream.classicmobs.entity;
 
+import com.memedream.classicmobs.init.ModSounds;
 import net.minecraft.core.BlockPos;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
@@ -50,21 +51,21 @@ public class AntlionEntity extends Monster {
 
     @Override
     protected SoundEvent getAmbientSound() {
-        return SoundEvents.SPIDER_AMBIENT;
+        return ModSounds.ANTLION_IDLE.get();
     }
 
     @Override
     protected SoundEvent getHurtSound(DamageSource source) {
-        return SoundEvents.SPIDER_HURT;
+        return ModSounds.ANTLION_HURT.get();
     }
 
     @Override
     protected SoundEvent getDeathSound() {
-        return SoundEvents.SPIDER_DEATH;
+        return ModSounds.ANTLION_DEATH.get();
     }
 
     @Override
     protected void playStepSound(BlockPos p_33804_, BlockState p_33805_) {
-        this.playSound(SoundEvents.SPIDER_STEP, 0.15F, 1.0F);
+        this.playSound(SoundEvents.SPIDER_STEP, 0.075F, 0.8F);
     }
 }
