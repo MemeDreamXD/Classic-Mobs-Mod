@@ -75,7 +75,7 @@ public class DodoModel extends EntityModel<DodoRenderState> {
                 .texOffs(28, 8).addBox(-1.0F, 0.0F, -2.0F, 3.0F, 5.0F, 3.0F),
             PartPose.offset(-2.0F, 19.0F, 1.0F));
 
-        return LayerDefinition.create(meshdefinition, 64, 64);
+        return LayerDefinition.create(meshdefinition, 48, 48);
     }
 
     @Override
