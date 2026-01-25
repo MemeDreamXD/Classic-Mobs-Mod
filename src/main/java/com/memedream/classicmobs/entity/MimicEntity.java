@@ -11,6 +11,7 @@ import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.tags.DamageTypeTags;
+import net.minecraft.tags.ItemTags;
 import net.minecraft.world.Difficulty;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.Entity;
@@ -151,6 +152,8 @@ public class MimicEntity extends Mob implements Enemy {
             this.setTarget(player);
         }
 
+        if (this.ticksInAir <= 0 && (source.getWeaponItem() == null || !source.getWeaponItem().is(ItemTags.AXES))) amount = amount / 2;
+
         if (this.onGround() && this.getRandom().nextBoolean()) {
             this.getMoveControl().setDirection(this.getRandom().nextInt(4) * 90, true);
         }
@@ -174,6 +177,11 @@ public class MimicEntity extends Mob implements Enemy {
                 }
             }
         }
+    }
+
+    @Override
+    public float getSecondsToDisableBlocking() {
+        return 5.0F;
     }
 
     @Nullable
