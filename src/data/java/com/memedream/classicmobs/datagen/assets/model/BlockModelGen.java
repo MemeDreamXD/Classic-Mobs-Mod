@@ -1,5 +1,7 @@
 package com.memedream.classicmobs.datagen.assets.model;
 
+import com.memedream.classicmobs.ClassicMobs;
+import com.memedream.classicmobs.block.CaverrnackBlock;
 import com.memedream.classicmobs.block.MeatBlock;
 import com.memedream.classicmobs.init.ModBlocks;
 import net.minecraft.client.data.models.BlockModelGenerators;
@@ -29,7 +31,17 @@ public class BlockModelGen extends BlockModelGenerators {
 
     @Override
     public void run() {
-        this.wrapBlockItem(ModBlocks.CAVERRNACK.get(), this::createTrivialCube);
+        this.blockStateOutput.accept(MultiVariantGenerator.dispatch(ModBlocks.CAVERRNACK.get()).with(PropertyDispatch.initial(CaverrnackBlock.LAYER).generate(layer -> {
+            if (layer == 3) {
+                return plainVariant(ModelTemplates.CUBE_ALL.createWithSuffix(ModBlocks.CAVERRNACK.get(), "_3", TextureMapping.cube(ClassicMobs.prefix("block/caverrnack_3")), this.modelOutput));
+            } else {
+                return plainVariant(ModelTemplates.CUBE_BOTTOM_TOP.createWithSuffix(ModBlocks.CAVERRNACK.get(), "_" + layer, new TextureMapping()
+                    .put(TextureSlot.SIDE, ClassicMobs.prefix("block/caverrnack_" + layer + "_side"))
+                    .put(TextureSlot.TOP, ClassicMobs.prefix("block/caverrnack_" + layer))
+                    .put(TextureSlot.BOTTOM, ClassicMobs.prefix("block/caverrnack_" + (layer + 1))), this.modelOutput));
+            }
+        })));
+        this.registerSimpleItemModel(ModBlocks.CAVERRNACK.get(), ClassicMobs.prefix("block/caverrnack_3"));
         this.wrapBlockItem(ModBlocks.CHISELED_UNDERSHALE.get(), this::createTrivialCube);
         this.wrapBlockItem(ModBlocks.CHITIN_BLOCK.get(), this::createTrivialCube);
         this.wrapBlockItem(ModBlocks.GUNPOWDER_BLOCK.get(), this::createTrivialCube);
