@@ -1,5 +1,5 @@
 {
-  "render_type": "cutout",
+  "render_type": "translucent",
 	"parent": "block/block",
 	"display": {
 		"head": {
