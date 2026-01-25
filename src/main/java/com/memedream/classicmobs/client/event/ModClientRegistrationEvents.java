@@ -53,6 +53,7 @@ public class ModClientRegistrationEvents {
         event.registerEntityRenderer(ModEntities.FESTIVE_TNT.get(), FestiveTntRenderer::new);
         event.registerEntityRenderer(ModEntities.FLIGHT_ARROW.get(), FlightArrowRenderer::new);
         event.registerEntityRenderer(ModEntities.FALLING_GUNPOWDER.get(), FallingBlockRenderer::new);
+        event.registerEntityRenderer(ModEntities.MIMIC.get(), MimicRenderer::new);
     }
 
     private static void registerModelLayers(EntityRenderersEvent.RegisterLayerDefinitions event) {
@@ -63,6 +64,7 @@ public class ModClientRegistrationEvents {
         event.registerLayerDefinition(ModModelLayers.HAG, HagModel::create);
         event.registerLayerDefinition(ModModelLayers.HARPY, HarpyModel::create);
         event.registerLayerDefinition(ModModelLayers.FESTIVE_TNT, FestiveTNTModel::create);
+        event.registerLayerDefinition(ModModelLayers.MIMIC, MimicModel::create);
     }
 
     private static void registerParticles(RegisterParticleProvidersEvent event) {

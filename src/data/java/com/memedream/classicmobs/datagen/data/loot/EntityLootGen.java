@@ -74,6 +74,7 @@ public class EntityLootGen extends EntityLootSubProvider {
         this.add(ModEntities.FESTIVE_CREEPER.get(), this.fromEntityLootTable(EntityType.CREEPER));
         this.add(ModEntities.ROCKET_CREEPER.get(), this.fromEntityLootTable(EntityType.CREEPER));
         this.add(ModEntities.SUPPORT_CREEPER.get(), this.fromEntityLootTable(EntityType.CREEPER));
+        this.add(ModEntities.MIMIC.get(), this.emptyLootTable());
     }
 
     public LootTable.Builder emptyLootTable() {

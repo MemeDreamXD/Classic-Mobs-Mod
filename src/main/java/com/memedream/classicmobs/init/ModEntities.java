@@ -33,6 +33,7 @@ public class ModEntities {
     public static final DeferredHolder<EntityType<?>, EntityType<RocketCreeperEntity>> ROCKET_CREEPER = registerWithEgg("rocket_creeper", EntityType.Builder.of(RocketCreeperEntity::new, MobCategory.MONSTER).notInPeaceful().sized(0.6F, 1.7F), RocketCreeperEntity::createAttributes, null);
     public static final DeferredHolder<EntityType<?>, EntityType<SupportCreeperEntity>> SUPPORT_CREEPER = registerWithEgg("support_creeper", EntityType.Builder.of(SupportCreeperEntity::new, MobCategory.MONSTER).notInPeaceful().sized(0.6F, 1.7F), SupportCreeperEntity::createAttributes, null);
     public static final DeferredHolder<EntityType<?>, EntityType<FestiveCreeperEntity>> FESTIVE_CREEPER = registerWithEgg("festive_creeper", EntityType.Builder.of(FestiveCreeperEntity::new, MobCategory.MONSTER).notInPeaceful().sized(0.6F, 1.7F), FestiveCreeperEntity::createAttributes, null);
+    public static final DeferredHolder<EntityType<?>, EntityType<MimicEntity>> MIMIC = registerWithAttributes("mimic", EntityType.Builder.of(MimicEntity::new, MobCategory.MISC).sized(0.875F, 0.875F), MimicEntity::createAttributes);
 
     //misc.
     public static final DeferredHolder<EntityType<?>, EntityType<FestiveTntEntity>> FESTIVE_TNT = registerMisc("festive_tnt", EntityType.Builder.<FestiveTntEntity>of(FestiveTntEntity::new, MobCategory.MISC).sized(0.5F, 0.5F));

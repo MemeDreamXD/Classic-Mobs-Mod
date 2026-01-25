@@ -172,6 +172,7 @@ public class LangGen extends LanguageProvider {
         this.addEntityType(ModEntities.FESTIVE_TNT, "Festive TNT");
         this.addEntityType(ModEntities.FALLING_GUNPOWDER, "Falling Gunpowder");
         this.addEntityType(ModEntities.FLIGHT_ARROW, "Flight Arrow");
+        this.addEntityType(ModEntities.MIMIC, "Mimic");
 
         this.addEffect(ModEffects.FAE_CURSE, "Fae Curse");
         this.addEffect(ModEffects.STENCH, "Stench");
