@@ -47,20 +47,25 @@ public class PickaxeAxeItem extends Item {
         Level level = context.getLevel();
         BlockPos blockpos = context.getClickedPos();
         Player player = context.getPlayer();
+        return tryUseAsAxe(level, blockpos, player, level.getBlockState(blockpos), context);
+    }
+
+    //[VanillaCopy] AxeItem.useOn
+    public static InteractionResult tryUseAsAxe(Level level, BlockPos pos, @Nullable Player player, BlockState state, UseOnContext context) {
         if (AOEItem.playerHasBlockingItemUseIntent(context)) {
             return InteractionResult.PASS;
         } else {
-            Optional<BlockState> optional = evaluateNewBlockState(level, blockpos, player, level.getBlockState(blockpos), context);
+            Optional<BlockState> optional = evaluateNewBlockState(level, pos, player, state, context);
             if (optional.isEmpty()) {
                 return InteractionResult.PASS;
             } else {
                 ItemStack itemstack = context.getItemInHand();
-                if (player instanceof ServerPlayer) {
-                    CriteriaTriggers.ITEM_USED_ON_BLOCK.trigger((ServerPlayer)player, blockpos, itemstack);
+                if (player instanceof ServerPlayer sp) {
+                    CriteriaTriggers.ITEM_USED_ON_BLOCK.trigger(sp, pos, itemstack);
                 }
 
-                level.setBlock(blockpos, optional.get(), 11);
-                level.gameEvent(GameEvent.BLOCK_CHANGE, blockpos, GameEvent.Context.of(player, optional.get()));
+                level.setBlock(pos, optional.get(), 11);
+                level.gameEvent(GameEvent.BLOCK_CHANGE, pos, GameEvent.Context.of(player, optional.get()));
                 if (player != null) {
                     itemstack.hurtAndBreak(1, player, context.getHand().asEquipmentSlot());
                 }

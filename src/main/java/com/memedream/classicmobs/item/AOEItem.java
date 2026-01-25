@@ -3,6 +3,7 @@ package com.memedream.classicmobs.item;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.component.DataComponents;
+import net.minecraft.tags.BlockTags;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
@@ -55,8 +56,22 @@ public interface AOEItem {
         return positions;
     }
 
+    static boolean isValidForOutline(Level level, BlockPos pos, BlockPos origin, ItemStack stack) {
+        if (pos != origin && level.getWorldBorder().isWithinBounds(pos)) {
+            if (stack.getItem() instanceof ScytheItem && level.getBlockState(pos).is(BlockTags.DIRT)) {
+                return true;
+            }
+            return canBeBroken(level, pos, stack);
+        }
+        return false;
+    }
+
     static boolean isValidBlockToBreak(Level level, BlockPos pos, BlockPos origin, ItemStack stack) {
-        return pos != origin && level.getWorldBorder().isWithinBounds(pos) && (stack.isCorrectToolForDrops(level.getBlockState(pos)) || level.getBlockState(pos).getDestroySpeed(level, pos) == 0.0F);
+        return pos != origin && level.getWorldBorder().isWithinBounds(pos) && canBeBroken(level, pos, stack);
+    }
+
+    static boolean canBeBroken(Level level, BlockPos pos, ItemStack stack) {
+        return (stack.isCorrectToolForDrops(level.getBlockState(pos)) || level.getBlockState(pos).getDestroySpeed(level, pos) == 0.0F);
     }
 
     static boolean playerHasBlockingItemUseIntent(UseOnContext context) {

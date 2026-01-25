@@ -5,6 +5,7 @@ import com.memedream.classicmobs.init.ModEffects;
 import net.minecraft.core.Direction;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.Vec3;
 import net.neoforged.neoforge.common.Tags;
@@ -41,7 +42,7 @@ public class ModEvents {
     }
 
     public static void sorryBossCantRemoveTheCurse(MobEffectEvent.Remove event) {
-        if (event.getEffect().is(ModEffects.FAE_CURSE)) {
+        if (event.getEffect().is(ModEffects.FAE_CURSE) && (!(event.getEntity() instanceof Player player) || !player.isCreative())) {
            event.setCanceled(true);
         }
     }
