@@ -178,6 +178,7 @@ public class LangGen extends LanguageProvider {
         this.addEffect(ModEffects.EMPOWER, "Empower");
         this.addEffect(ModEffects.FORTIFY, "Fortify");
         this.addEffect(ModEffects.VELOCITY, "Velocity");
+        this.addEffect(ModEffects.BOUND, "bound");
 
         this.addDeathMessage("adventurous_eater", "%1$s was an adventurous eater");
 
