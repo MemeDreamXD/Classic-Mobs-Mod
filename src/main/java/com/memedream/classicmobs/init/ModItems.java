@@ -30,8 +30,6 @@ public class ModItems {
     public static final DeferredItem<Item> CHEM_POWDER = register("chem_powder", Item::new, Item.Properties::new);
     public static final DeferredItem<Item> RUBY = register("ruby", Item::new, () -> new Item.Properties().rarity(Rarity.UNCOMMON));
     public static final DeferredItem<Item> FLIGHT_ARROW = register("flight_arrow", FlightArrowItem::new, Item.Properties::new);
-
-    //TODO: Bola functionality
     public static final DeferredItem<Item> BOLA = register("bola", BolaItem::new, () -> new Item.Properties().stacksTo(16));
 
     public static final DeferredItem<PickaxeAxeItem> WOODEN_PICKAXE_AXE = register("wooden_pickaxe_axe", properties -> new PickaxeAxeItem(ToolMaterial.WOOD, 6.0f, -3.2f, properties), Item.Properties::new);

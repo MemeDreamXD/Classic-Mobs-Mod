@@ -15,6 +15,7 @@ import net.minecraft.world.item.ItemUseAnimation;
 import net.minecraft.world.level.Level;
 
 public class BolaItem extends Item {
+
     public BolaItem(Properties properties) {
         super(properties);
     }
