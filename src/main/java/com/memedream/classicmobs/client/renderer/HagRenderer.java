@@ -25,6 +25,12 @@ public class HagRenderer extends MobRenderer<HagEntity, ArmedEntityRenderState, 
     }
 
     @Override
+    public void extractRenderState(HagEntity entity, ArmedEntityRenderState state, float partialTicks) {
+        super.extractRenderState(entity, state, partialTicks);
+        ArmedEntityRenderState.extractArmedEntityRenderState(entity, state, this.itemModelResolver, partialTicks);
+    }
+
+    @Override
     public Identifier getTextureLocation(ArmedEntityRenderState state) {
         return TEXTURE;
     }
