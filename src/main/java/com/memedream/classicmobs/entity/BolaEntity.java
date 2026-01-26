@@ -4,6 +4,7 @@ import com.memedream.classicmobs.client.ClassicMobsClient;
 import com.memedream.classicmobs.init.*;
 import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
@@ -12,6 +13,7 @@ import net.minecraft.world.entity.projectile.ThrowableProjectile;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.EntityHitResult;
+import net.neoforged.neoforge.common.CommonHooks;
 
 public class BolaEntity extends ThrowableProjectile {
 
@@ -51,9 +53,12 @@ public class BolaEntity extends ThrowableProjectile {
     @Override
     protected void onHitEntity(EntityHitResult result) {
         if (result.getEntity() instanceof LivingEntity entity && !entity.hasEffect(ModEffects.BOUND)) {
-            entity.addEffect(new MobEffectInstance(ModEffects.BOUND, 120));
-            this.playSound(ModSounds.BOLA_SNAG.get(), 5.0F, 1.0F);
-            this.discard();
+            MobEffectInstance instance = new MobEffectInstance(ModEffects.BOUND, 120);
+            if (CommonHooks.canMobEffectBeApplied(entity, instance, this)) {
+                entity.addEffect(instance);
+                this.playSound(ModSounds.BOLA_SNAG.get(), 5.0F, 1.0F);
+                this.discard();
+            }
         }
     }
 
