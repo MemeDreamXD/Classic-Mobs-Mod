@@ -1,5 +1,5 @@
 {
-  "parent": "minecraft:item/generated",
+  "parent": "classic_mobs:item/bola_swinging",
   "textures": {
     "layer0": "classic_mobs:item/bola_4"
   }

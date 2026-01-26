@@ -2,17 +2,23 @@ package com.memedream.classicmobs.item;
 
 import com.memedream.classicmobs.entity.BolaEntity;
 import com.memedream.classicmobs.init.ModSounds;
+import com.mojang.blaze3d.vertex.PoseStack;
+import net.minecraft.client.model.HumanoidModel;
+import net.minecraft.client.player.LocalPlayer;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.stats.Stats;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
+import net.minecraft.world.entity.HumanoidArm;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.ItemUseAnimation;
 import net.minecraft.world.level.Level;
+import net.neoforged.neoforge.client.extensions.common.IClientItemExtensions;
+import org.jspecify.annotations.Nullable;
 
 public class BolaItem extends Item {
 
@@ -39,9 +45,9 @@ public class BolaItem extends Item {
     @Override
     public void onUseTick(Level level, LivingEntity entity, ItemStack stack, int ticksRemaining) {
         if (!level.isClientSide()) {
-            float tickPercent = (stack.getUseDuration(entity) - ticksRemaining) / 40.0F;
-            if (ticksRemaining - stack.getUseDuration(entity) % 5 == 0) {
-                level.playSound(null, entity.blockPosition(), ModSounds.BOLA_WINDUP.get(), SoundSource.PLAYERS, 1.0F, 1.0F + tickPercent);
+            float tickPercent = Math.min(1.0F, (stack.getUseDuration(entity) - ticksRemaining) / 40.0F);
+            if ((ticksRemaining - stack.getUseDuration(entity)) % 5 == 0) {
+                level.playSound(null, entity.blockPosition(), ModSounds.BOLA_WINDUP.get(), SoundSource.PLAYERS, 1.0F, tickPercent * 2.0F);
             }
         }
     }
@@ -72,5 +78,15 @@ public class BolaItem extends Item {
         }
 
         return pow;
+    }
+
+    public static class BolaAnimation implements IClientItemExtensions {
+        @Override
+        public HumanoidModel.@Nullable ArmPose getArmPose(LivingEntity entity, InteractionHand hand, ItemStack stack) {
+            if (entity.getUsedItemHand() == hand && entity.getUseItemRemainingTicks() > 0) {
+                return HumanoidModel.ArmPose.valueOf("CLASSIC_MOBS_BOLA_SWING");
+            }
+            return IClientItemExtensions.super.getArmPose(entity, hand, stack);
+        }
     }
 }

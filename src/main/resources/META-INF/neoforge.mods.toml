@@ -12,6 +12,7 @@ displayName="Classic Mobs"
 #credits=""
 authors="Meme Dream"
 description='''More than just mobs! Classic Mobs adds features that would be considered vanilla+ in 2011, and some features that wouldn't!'''
+enumExtensions = "META-INF/enumextensions.json"
 
 [[dependencies.classic_mobs]]
     modId="neoforge"

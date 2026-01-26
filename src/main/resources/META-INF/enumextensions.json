@@ -1,0 +1,13 @@
+{
+  "entries": [
+    {
+      "enum": "net/minecraft/client/model/HumanoidModel$ArmPose",
+      "name": "CLASSIC_MOBS_BOLA_SWING",
+      "constructor": "(ZZLnet/neoforged/neoforge/client/IArmPoseTransformer;)V",
+      "parameters": {
+        "class": "com/memedream/classicmobs/ClassicMobsEnumExtensions",
+        "field": "CLASSIC_MOBS_BOLA_SWING"
+      }
+    }
+  ]
+}

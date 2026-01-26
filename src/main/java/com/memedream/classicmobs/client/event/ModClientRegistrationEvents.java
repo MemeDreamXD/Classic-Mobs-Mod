@@ -13,8 +13,10 @@ import com.memedream.classicmobs.client.shader.ModRenderPipelines;
 import com.memedream.classicmobs.entity.BolaEntity;
 import com.memedream.classicmobs.init.ModEffects;
 import com.memedream.classicmobs.init.ModEntities;
+import com.memedream.classicmobs.init.ModItems;
 import com.memedream.classicmobs.init.ModParticles;
 import com.memedream.classicmobs.item.AOEItem;
+import com.memedream.classicmobs.item.BolaItem;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.model.EntityModel;
 import net.minecraft.client.renderer.entity.EntityRenderer;
@@ -36,6 +38,7 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.client.ClientHooks;
 import net.neoforged.neoforge.client.event.*;
+import net.neoforged.neoforge.client.extensions.common.RegisterClientExtensionsEvent;
 import net.neoforged.neoforge.client.renderstate.RegisterRenderStateModifiersEvent;
 import net.neoforged.neoforge.common.NeoForge;
 import net.neoforged.neoforge.event.entity.EntityJoinLevelEvent;
@@ -55,6 +58,7 @@ public class ModClientRegistrationEvents {
         bus.addListener(ModClientRegistrationEvents::registerProperties);
         bus.addListener(EntityRenderersEvent.AddLayers.class, ModClientRegistrationEvents::addAdditionalLayers);
         bus.addListener(ModClientRegistrationEvents::registerCustomRenderData);
+        bus.addListener(ModClientRegistrationEvents::registerExtensions);
         NeoForge.EVENT_BUS.addListener(ModClientRegistrationEvents::displayAOEHitboxes);
         NeoForge.EVENT_BUS.addListener(ElevatorHandler::handleElevatorTeleport);
 
@@ -135,7 +139,7 @@ public class ModClientRegistrationEvents {
         event.getEntityTypes().forEach(type -> {
             EntityRenderer<?, ?> renderer = event.getRenderer(type);
             if (renderer instanceof LivingEntityRenderer<?, ?, ?> entityRenderer) {
-                attachRenderLayers((LivingEntityRenderer<T, S, M>)entityRenderer);
+                attachRenderLayers((LivingEntityRenderer<T, S, M>) entityRenderer);
             }
         });
     }
@@ -146,5 +150,9 @@ public class ModClientRegistrationEvents {
 
     private static void registerCustomRenderData(RegisterRenderStateModifiersEvent event) {
         event.registerEntityModifier(new TypeToken<LivingEntityRenderer<?, ?, ?>>() {}, (living, state) -> state.setRenderData(BOLA_BOUND, living.getAttribute(Attributes.MOVEMENT_SPEED).hasModifier(ClassicMobs.prefix("bound"))));
+    }
+
+    private static void registerExtensions(RegisterClientExtensionsEvent event) {
+        event.registerItem(new BolaItem.BolaAnimation(), ModItems.BOLA);
     }
 }

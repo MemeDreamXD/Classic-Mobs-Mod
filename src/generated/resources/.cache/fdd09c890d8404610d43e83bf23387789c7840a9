@@ -1,4 +1,4 @@
-// 26.1-snapshot-3	2026-01-25T13:51:25.894998688	Model Definitions - classic_mobs
+// 26.1-snapshot-3	2026-01-26T07:57:00.81212309	Model Definitions - classic_mobs
 89c3265295e81afbbdc9b831ad5b433799f963b9 assets/classic_mobs/blockstates/carved_undershale_tile.json
 249233d04d0c9a8e094e65e2bae4348dd21b38dc assets/classic_mobs/blockstates/carved_undershale_tile_edge.json
 14c377c3c731a2e17049dd3b26ebac0f89f3f87f assets/classic_mobs/blockstates/caverrnack.json
@@ -231,10 +231,10 @@ a808d5ae2b1418094bcd8abe13a230f60ec4bc96 assets/classic_mobs/models/block/tropic
 c364d23c84c5ce1b08a864a26bd2ca6b24d29089 assets/classic_mobs/models/item/antlion_spawn_egg.json
 652c83ae78d0cab24007a96a4cac126e6b96c2b2 assets/classic_mobs/models/item/blast_powder.json
 73361ca39d39f968a354b5251250d9bdf68bb481 assets/classic_mobs/models/item/bola.json
-2b30850d6fa2be567b572080a69d96c483b9c8c4 assets/classic_mobs/models/item/bola_1.json
-699728ca55171f15423bc76ce7374ff970f8a8ab assets/classic_mobs/models/item/bola_2.json
-5879e40359c831f83cec841fb23ae515eca27e8b assets/classic_mobs/models/item/bola_3.json
-fb0eaa1743c58f132e9f4fefd5e01c08e7756011 assets/classic_mobs/models/item/bola_4.json
+f22d6775f7a8c42be51f5c1d623940e9c452942f assets/classic_mobs/models/item/bola_1.json
+6169994a5292d369fc8a09f1fd2c8f5cb8fdbb69 assets/classic_mobs/models/item/bola_2.json
+f4f333ceaf840856a8560b590adaa2a0f25a2320 assets/classic_mobs/models/item/bola_3.json
+364385ad96ec610d23d0fa53e0b714144142122b assets/classic_mobs/models/item/bola_4.json
 1a32a7452ceeb57312b6f8870d11ef7557fd8f13 assets/classic_mobs/models/item/chem_powder.json
 6d1490019b239c261e1cd3c8ff5bfa0a494a0082 assets/classic_mobs/models/item/chitin.json
 894e260625fc4039038aee9990c3cfd3d1427f04 assets/classic_mobs/models/item/chitin_boots.json

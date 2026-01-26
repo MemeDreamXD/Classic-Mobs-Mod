@@ -6,10 +6,7 @@ import com.memedream.classicmobs.init.ModItems;
 import net.minecraft.client.color.item.Dye;
 import net.minecraft.client.data.models.ItemModelGenerators;
 import net.minecraft.client.data.models.ItemModelOutput;
-import net.minecraft.client.data.models.model.ItemModelUtils;
-import net.minecraft.client.data.models.model.ModelInstance;
-import net.minecraft.client.data.models.model.ModelTemplates;
-import net.minecraft.client.data.models.model.TextureMapping;
+import net.minecraft.client.data.models.model.*;
 import net.minecraft.client.renderer.item.properties.conditional.IsUsingItem;
 import net.minecraft.resources.Identifier;
 import net.minecraft.world.item.Item;
@@ -34,11 +31,13 @@ public class ItemModelGen extends ItemModelGenerators {
         this.generateFlatItem(ModItems.RAW_DODO.get(), ModelTemplates.FLAT_ITEM);
         this.generateFlatItem(ModItems.COOKED_DODO.get(), ModelTemplates.FLAT_ITEM);
         this.generateFlatItem(ModItems.FLIGHT_ARROW.get(), ModelTemplates.FLAT_ITEM);
+
+        ModelTemplate bolaSwing = ModelTemplates.createItem("classic_mobs:bola_swinging", TextureSlot.LAYER0);
         this.itemModelOutput.accept(ModItems.BOLA.get(), ItemModelUtils.conditional(new IsUsingItem(), ItemModelUtils.rangeSelect(new BolaSwing(),
-            ItemModelUtils.plainModel(this.createFlatItemModel(ModItems.BOLA.get(), "_1", ModelTemplates.FLAT_ITEM)),
-            ItemModelUtils.override(ItemModelUtils.plainModel(this.createFlatItemModel(ModItems.BOLA.get(), "_2", ModelTemplates.FLAT_ITEM)), 0.25F),
-            ItemModelUtils.override(ItemModelUtils.plainModel(this.createFlatItemModel(ModItems.BOLA.get(), "_3", ModelTemplates.FLAT_ITEM)), 0.5F),
-            ItemModelUtils.override(ItemModelUtils.plainModel(this.createFlatItemModel(ModItems.BOLA.get(), "_4", ModelTemplates.FLAT_ITEM)), 0.75F)),
+            ItemModelUtils.plainModel(this.createFlatItemModel(ModItems.BOLA.get(), "_1", bolaSwing)),
+            ItemModelUtils.override(ItemModelUtils.plainModel(this.createFlatItemModel(ModItems.BOLA.get(), "_2", bolaSwing)), 0.25F),
+            ItemModelUtils.override(ItemModelUtils.plainModel(this.createFlatItemModel(ModItems.BOLA.get(), "_3", bolaSwing)), 0.5F),
+            ItemModelUtils.override(ItemModelUtils.plainModel(this.createFlatItemModel(ModItems.BOLA.get(), "_4", bolaSwing)), 0.75F)),
             ItemModelUtils.plainModel(this.createFlatItemModel(ModItems.BOLA.get(), ModelTemplates.FLAT_ITEM))));
         this.generateFlatItem(ModItems.LOCK_OF_HAG.get(), ModelTemplates.FLAT_ITEM);
         this.generateFlatItem(ModItems.HARPY_FEATHER.get(), ModelTemplates.FLAT_ITEM);
