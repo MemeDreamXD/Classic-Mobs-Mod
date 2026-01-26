@@ -143,5 +143,9 @@
   "subtitles.classicmobs.entity.dodo.idle": "sʞʍɐnbs opoᗡ",
   "subtitles.classicmobs.entity.harpy.death": "sǝᴉp ʎdɹɐH",
   "subtitles.classicmobs.entity.harpy.hurt": "sʇɹnɥ ʎdɹɐH",
-  "subtitles.classicmobs.entity.harpy.idle": "sdɹᴉɥɔ ʎdɹɐH"
+  "subtitles.classicmobs.entity.harpy.idle": "sdɹᴉɥɔ ʎdɹɐH",
+  "subtitles.classicmobs.item.bola.fly": "sǝᴉꞁɟ ɐꞁoᗺ",
+  "subtitles.classicmobs.item.bola.snag": "sǝꞁᵷuɐʇ ɐꞁoᗺ",
+  "subtitles.classicmobs.item.bola.throw": "sʇooɥs ɐꞁoᗺ",
+  "subtitles.classicmobs.item.bola.windup": "sᵷuᴉʍs ɐꞁoᗺ"
 }

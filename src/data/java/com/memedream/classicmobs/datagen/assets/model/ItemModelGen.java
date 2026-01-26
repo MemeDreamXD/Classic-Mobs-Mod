@@ -1,5 +1,6 @@
 package com.memedream.classicmobs.datagen.assets.model;
 
+import com.memedream.classicmobs.client.item.BolaSwing;
 import com.memedream.classicmobs.init.ModEntities;
 import com.memedream.classicmobs.init.ModItems;
 import net.minecraft.client.color.item.Dye;
@@ -9,6 +10,7 @@ import net.minecraft.client.data.models.model.ItemModelUtils;
 import net.minecraft.client.data.models.model.ModelInstance;
 import net.minecraft.client.data.models.model.ModelTemplates;
 import net.minecraft.client.data.models.model.TextureMapping;
+import net.minecraft.client.renderer.item.properties.conditional.IsUsingItem;
 import net.minecraft.resources.Identifier;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
@@ -32,7 +34,12 @@ public class ItemModelGen extends ItemModelGenerators {
         this.generateFlatItem(ModItems.RAW_DODO.get(), ModelTemplates.FLAT_ITEM);
         this.generateFlatItem(ModItems.COOKED_DODO.get(), ModelTemplates.FLAT_ITEM);
         this.generateFlatItem(ModItems.FLIGHT_ARROW.get(), ModelTemplates.FLAT_ITEM);
-        this.generateFlatItem(ModItems.BOLA.get(), ModelTemplates.FLAT_ITEM);
+        this.itemModelOutput.accept(ModItems.BOLA.get(), ItemModelUtils.conditional(new IsUsingItem(), ItemModelUtils.rangeSelect(new BolaSwing(),
+            ItemModelUtils.plainModel(this.createFlatItemModel(ModItems.BOLA.get(), "_1", ModelTemplates.FLAT_ITEM)),
+            ItemModelUtils.override(ItemModelUtils.plainModel(this.createFlatItemModel(ModItems.BOLA.get(), "_2", ModelTemplates.FLAT_ITEM)), 0.25F),
+            ItemModelUtils.override(ItemModelUtils.plainModel(this.createFlatItemModel(ModItems.BOLA.get(), "_3", ModelTemplates.FLAT_ITEM)), 0.5F),
+            ItemModelUtils.override(ItemModelUtils.plainModel(this.createFlatItemModel(ModItems.BOLA.get(), "_4", ModelTemplates.FLAT_ITEM)), 0.75F)),
+            ItemModelUtils.plainModel(this.createFlatItemModel(ModItems.BOLA.get(), ModelTemplates.FLAT_ITEM))));
         this.generateFlatItem(ModItems.LOCK_OF_HAG.get(), ModelTemplates.FLAT_ITEM);
         this.generateFlatItem(ModItems.HARPY_FEATHER.get(), ModelTemplates.FLAT_ITEM);
         this.generateFlatItem(ModItems.POP_POWDER.get(), ModelTemplates.FLAT_ITEM);

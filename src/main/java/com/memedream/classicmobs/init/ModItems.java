@@ -32,7 +32,7 @@ public class ModItems {
     public static final DeferredItem<Item> FLIGHT_ARROW = register("flight_arrow", FlightArrowItem::new, Item.Properties::new);
 
     //TODO: Bola functionality
-    public static final DeferredItem<Item> BOLA = register("bola", Item::new, () -> new Item.Properties().stacksTo(16));
+    public static final DeferredItem<Item> BOLA = register("bola", BolaItem::new, () -> new Item.Properties().stacksTo(16));
 
     public static final DeferredItem<PickaxeAxeItem> WOODEN_PICKAXE_AXE = register("wooden_pickaxe_axe", properties -> new PickaxeAxeItem(ToolMaterial.WOOD, 6.0f, -3.2f, properties), Item.Properties::new);
     public static final DeferredItem<MattockItem> WOODEN_MATTOCK = register("wooden_mattock", properties -> new MattockItem(ToolMaterial.WOOD, 1.5f, -3.0f, properties), Item.Properties::new);

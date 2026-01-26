@@ -39,6 +39,7 @@ public class ModEntities {
     public static final DeferredHolder<EntityType<?>, EntityType<FestiveTntEntity>> FESTIVE_TNT = registerMisc("festive_tnt", EntityType.Builder.<FestiveTntEntity>of(FestiveTntEntity::new, MobCategory.MISC).sized(0.5F, 0.5F));
     public static final DeferredHolder<EntityType<?>, EntityType<FallingGunpowderEntity>> FALLING_GUNPOWDER = registerMisc("falling_gunpowder", EntityType.Builder.of(FallingGunpowderEntity::new, MobCategory.MISC).sized(0.98F, 0.98F).clientTrackingRange(10).updateInterval(20));
     public static final DeferredHolder<EntityType<?>, EntityType<FlightArrow>> FLIGHT_ARROW = registerMisc("flight_arrow", EntityType.Builder.<FlightArrow>of(FlightArrow::new, MobCategory.MISC).sized(0.5f, 0.5f).eyeHeight(0.13F).clientTrackingRange(4).updateInterval(20));
+    public static final DeferredHolder<EntityType<?>, EntityType<BolaEntity>> BOLA = registerMisc("bola", EntityType.Builder.<BolaEntity>of(BolaEntity::new, MobCategory.MISC).sized(0.8F, 0.2F).clientTrackingRange(4).updateInterval(20));
 
     public static <E extends Entity> DeferredHolder<EntityType<?>, EntityType<E>> registerMisc(String name, EntityType.Builder<E> builder) {
         return ENTITY_TYPES.register(name, () -> builder.noLootTable().build(createIDFor(name)));

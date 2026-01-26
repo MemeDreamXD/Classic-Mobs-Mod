@@ -54,5 +54,33 @@
       "classic_mobs:mob/harpy/idle"
     ],
     "subtitle": "subtitles.classicmobs.entity.harpy.idle"
+  },
+  "item.classicmobs.bola.fly": {
+    "sounds": [
+      "classic_mobs:item/bola/air_travel"
+    ],
+    "subtitle": "subtitles.classicmobs.item.bola.fly"
+  },
+  "item.classicmobs.bola.snag": {
+    "sounds": [
+      "classic_mobs:item/bola/snag"
+    ],
+    "subtitle": "subtitles.classicmobs.item.bola.snag"
+  },
+  "item.classicmobs.bola.throw": {
+    "sounds": [
+      {
+        "type": "event",
+        "name": "entity.arrow.shoot",
+        "volume": 0.5
+      }
+    ],
+    "subtitle": "subtitles.classicmobs.item.bola.throw"
+  },
+  "item.classicmobs.bola.windup": {
+    "sounds": [
+      "classic_mobs:item/bola/windup"
+    ],
+    "subtitle": "subtitles.classicmobs.item.bola.windup"
   }
 }

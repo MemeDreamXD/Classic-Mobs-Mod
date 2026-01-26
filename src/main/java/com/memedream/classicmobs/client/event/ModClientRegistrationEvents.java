@@ -1,39 +1,60 @@
 package com.memedream.classicmobs.client.event;
 
+import com.google.common.reflect.TypeToken;
+import com.memedream.classicmobs.ClassicMobs;
 import com.memedream.classicmobs.client.ModModelLayers;
+import com.memedream.classicmobs.client.audio.BolaSoundInstance;
+import com.memedream.classicmobs.client.item.BolaSwing;
 import com.memedream.classicmobs.client.model.*;
 import com.memedream.classicmobs.client.particle.FleshDripParticle;
 import com.memedream.classicmobs.client.renderer.*;
+import com.memedream.classicmobs.client.renderer.layer.BolaLayer;
 import com.memedream.classicmobs.client.shader.ModRenderPipelines;
+import com.memedream.classicmobs.entity.BolaEntity;
+import com.memedream.classicmobs.init.ModEffects;
 import com.memedream.classicmobs.init.ModEntities;
 import com.memedream.classicmobs.init.ModParticles;
 import com.memedream.classicmobs.item.AOEItem;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.model.EntityModel;
+import net.minecraft.client.renderer.entity.EntityRenderer;
 import net.minecraft.client.renderer.entity.FallingBlockRenderer;
+import net.minecraft.client.renderer.entity.LivingEntityRenderer;
+import net.minecraft.client.renderer.entity.state.EntityRenderState;
+import net.minecraft.client.renderer.entity.state.LivingEntityRenderState;
 import net.minecraft.client.renderer.state.BlockOutlineRenderState;
 import net.minecraft.core.BlockPos;
+import net.minecraft.util.context.ContextKey;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.EntityEvent;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.client.ClientHooks;
-import net.neoforged.neoforge.client.event.EntityRenderersEvent;
-import net.neoforged.neoforge.client.event.ExtractBlockOutlineRenderStateEvent;
-import net.neoforged.neoforge.client.event.RegisterParticleProvidersEvent;
-import net.neoforged.neoforge.client.event.RegisterRenderPipelinesEvent;
+import net.neoforged.neoforge.client.event.*;
+import net.neoforged.neoforge.client.renderstate.RegisterRenderStateModifiersEvent;
 import net.neoforged.neoforge.common.NeoForge;
+import net.neoforged.neoforge.event.entity.EntityJoinLevelEvent;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class ModClientRegistrationEvents {
 
+    public static final ContextKey<Boolean> BOLA_BOUND = new ContextKey<>(ClassicMobs.prefix("bola_bound"));
+
     public static void init(IEventBus bus) {
         bus.addListener(ModClientRegistrationEvents::registerRenderers);
         bus.addListener(ModClientRegistrationEvents::registerModelLayers);
         bus.addListener(ModClientRegistrationEvents::registerParticles);
         bus.addListener(ModClientRegistrationEvents::registerPipelines);
+        bus.addListener(ModClientRegistrationEvents::registerProperties);
+        bus.addListener(EntityRenderersEvent.AddLayers.class, ModClientRegistrationEvents::addAdditionalLayers);
+        bus.addListener(ModClientRegistrationEvents::registerCustomRenderData);
         NeoForge.EVENT_BUS.addListener(ModClientRegistrationEvents::displayAOEHitboxes);
         NeoForge.EVENT_BUS.addListener(ElevatorHandler::handleElevatorTeleport);
 
@@ -54,6 +75,7 @@ public class ModClientRegistrationEvents {
         event.registerEntityRenderer(ModEntities.FLIGHT_ARROW.get(), FlightArrowRenderer::new);
         event.registerEntityRenderer(ModEntities.FALLING_GUNPOWDER.get(), FallingBlockRenderer::new);
         event.registerEntityRenderer(ModEntities.MIMIC.get(), MimicRenderer::new);
+        event.registerEntityRenderer(ModEntities.BOLA.get(), BolaRenderer::new);
     }
 
     private static void registerModelLayers(EntityRenderersEvent.RegisterLayerDefinitions event) {
@@ -65,6 +87,8 @@ public class ModClientRegistrationEvents {
         event.registerLayerDefinition(ModModelLayers.HARPY, HarpyModel::create);
         event.registerLayerDefinition(ModModelLayers.FESTIVE_TNT, FestiveTNTModel::create);
         event.registerLayerDefinition(ModModelLayers.MIMIC, MimicModel::create);
+        event.registerLayerDefinition(ModModelLayers.FLYING_BOLA, FlyingBolaModel::create);
+        event.registerLayerDefinition(ModModelLayers.BOUND_BOLA, BoundBolaModel::create);
     }
 
     private static void registerParticles(RegisterParticleProvidersEvent event) {
@@ -96,5 +120,31 @@ public class ModClientRegistrationEvents {
 
     private static void registerPipelines(RegisterRenderPipelinesEvent event) {
         event.registerPipeline(ModRenderPipelines.FAE_OUTLINE);
+    }
+
+    private static void registerProperties(RegisterRangeSelectItemModelPropertyEvent event) {
+        event.register(ClassicMobs.prefix("bola_swing"), BolaSwing.MAP_CODEC);
+    }
+
+    //Adam, I need you to read this carefully.
+    //I know what I am doing.
+    //Do not perform casts like this without talking to me first.
+    //please please please please please
+    @SuppressWarnings("unchecked")
+    private static <T extends LivingEntity, S extends LivingEntityRenderState, M extends EntityModel<S>> void addAdditionalLayers(EntityRenderersEvent.AddLayers event) {
+        event.getEntityTypes().forEach(type -> {
+            EntityRenderer<?, ?> renderer = event.getRenderer(type);
+            if (renderer instanceof LivingEntityRenderer<?, ?, ?> entityRenderer) {
+                attachRenderLayers((LivingEntityRenderer<T, S, M>)entityRenderer);
+            }
+        });
+    }
+
+    private static <T extends LivingEntity, S extends LivingEntityRenderState, M extends EntityModel<S>> void attachRenderLayers(LivingEntityRenderer<T, S, M> renderer) {
+        renderer.addLayer(new BolaLayer<>(renderer));
+    }
+
+    private static void registerCustomRenderData(RegisterRenderStateModifiersEvent event) {
+        event.registerEntityModifier(new TypeToken<LivingEntityRenderer<?, ?, ?>>() {}, (living, state) -> state.setRenderData(BOLA_BOUND, living.getAttribute(Attributes.MOVEMENT_SPEED).hasModifier(ClassicMobs.prefix("bound"))));
     }
 }

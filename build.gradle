@@ -96,7 +96,14 @@ neoForge {
         client {
             client()
             systemProperty 'neoforge.enabledGameTestNamespaces', modid
-            programArguments.addAll '--username', secrets.getProperty("username") ?: 'Dev', secrets.getProperty("uuid") ? '--uuid' : '', secrets.getProperty("uuid") ?: ''
+            if (secrets.getProperty("uuid")) {
+                programArguments.addAll(
+                    '--username', secrets.getProperty("username"),
+                    '--uuid', secrets.getProperty("uuid"),
+                    '--accessToken', "",
+                    '--xuid', ""
+                )
+            }
         }
 
         server {

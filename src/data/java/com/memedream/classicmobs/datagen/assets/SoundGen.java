@@ -5,6 +5,7 @@ import com.memedream.classicmobs.init.ModSounds;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.Identifier;
 import net.minecraft.sounds.SoundEvent;
+import net.minecraft.sounds.SoundEvents;
 import net.neoforged.neoforge.common.data.SoundDefinition;
 import net.neoforged.neoforge.common.data.SoundDefinitionsProvider;
 import net.neoforged.neoforge.registries.DeferredHolder;
@@ -27,6 +28,11 @@ public class SoundGen extends SoundDefinitionsProvider {
         this.generateNewSoundWithSubtitle(ModSounds.ANTLION_IDLE, "mob/antlion/idle", 1, "Antlion skitters");
         this.generateNewSoundWithSubtitle(ModSounds.ANTLION_DEATH, "mob/antlion/death", 1, "Antlion dies");
         this.generateNewSoundWithSubtitle(ModSounds.ANTLION_HURT, "mob/antlion/hurt", 1, "Antlion hurts");
+
+        this.generateExistingSoundWithSubtitle(ModSounds.BOLA_THROW, SoundEvents.ARROW_SHOOT, "Bola shoots", 0.5F, 1.0F);
+        this.generateNewSoundWithSubtitle(ModSounds.BOLA_WINDUP, "item/bola/windup", 1, "Bola swings");
+        this.generateNewSoundWithSubtitle(ModSounds.BOLA_FLY, "item/bola/air_travel", 1, "Bola flies");
+        this.generateNewSoundWithSubtitle(ModSounds.BOLA_SNAG, "item/bola/snag", 1, "Bola tangles");
     }
 
     public void generateNewSoundWithSubtitle(DeferredHolder<SoundEvent, SoundEvent> event, String baseSoundDirectory, int numberOfSounds, String subtitle, float volume, float pitch) {

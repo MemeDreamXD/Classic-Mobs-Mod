@@ -143,5 +143,9 @@
   "subtitles.classicmobs.entity.dodo.idle": "Dodo squawks",
   "subtitles.classicmobs.entity.harpy.death": "Harpy dies",
   "subtitles.classicmobs.entity.harpy.hurt": "Harpy hurts",
-  "subtitles.classicmobs.entity.harpy.idle": "Harpy chirps"
+  "subtitles.classicmobs.entity.harpy.idle": "Harpy chirps",
+  "subtitles.classicmobs.item.bola.fly": "Bola flies",
+  "subtitles.classicmobs.item.bola.snag": "Bola tangles",
+  "subtitles.classicmobs.item.bola.throw": "Bola shoots",
+  "subtitles.classicmobs.item.bola.windup": "Bola swings"
 }

@@ -1,9 +1,12 @@
 package com.memedream.classicmobs.init;
 
 import com.memedream.classicmobs.ClassicMobs;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.tags.BlockTags;
+import net.minecraft.tags.EntityTypeTags;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.tags.TagKey;
+import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 
@@ -22,9 +25,17 @@ public class ModTags {
         public static final TagKey<Item> DODO_FOOD = create("dodo_food");
         public static final TagKey<Item> REPAIRS_CHITIN_ARMOR = create("repairs_chitin_armor");
 
-
         private static TagKey<Item> create(String tagName) {
             return ItemTags.create(ClassicMobs.prefix(tagName));
+        }
+    }
+
+    public static class Entities {
+
+        public static final TagKey<EntityType<?>> BOLA_IMMUNE = create("bola_immune");
+
+        private static TagKey<EntityType<?>> create(String tagName) {
+            return TagKey.create(Registries.ENTITY_TYPE, ClassicMobs.prefix(tagName));
         }
     }
 }

@@ -1,4 +1,4 @@
-// 26.1-snapshot-3	2026-01-24T16:51:32.678777057	Model Definitions - classic_mobs
+// 26.1-snapshot-3	2026-01-25T13:51:25.894998688	Model Definitions - classic_mobs
 89c3265295e81afbbdc9b831ad5b433799f963b9 assets/classic_mobs/blockstates/carved_undershale_tile.json
 249233d04d0c9a8e094e65e2bae4348dd21b38dc assets/classic_mobs/blockstates/carved_undershale_tile_edge.json
 14c377c3c731a2e17049dd3b26ebac0f89f3f87f assets/classic_mobs/blockstates/caverrnack.json
@@ -35,7 +35,7 @@ a43f763a72f770da6c731f01beaa18dda8b4cc27 assets/classic_mobs/items/antlion_spawn
 90d7f47f2a71db9f29e43cc269f2cb211b4f08f3 assets/classic_mobs/items/blast_powder.json
 5a2968255ff98ed0931c70b17d8a64c228bb0426 assets/classic_mobs/items/blaze_rod_block.json
 3f3830f22f3cf7d66850f2feee9879cf00f3507f assets/classic_mobs/items/block_of_bones.json
-4ff1317ad2fe100e68acedfb00bef3b304679297 assets/classic_mobs/items/bola.json
+70c3390b30d2648b2349ce149324f3bea4b8ce65 assets/classic_mobs/items/bola.json
 53eaa97663f06a6c64ab656465b60d408063eab1 assets/classic_mobs/items/breeze_rod_block.json
 2bdddde31bc1b9403b0d3d9bed180b1385bc6b85 assets/classic_mobs/items/carved_undershale_tile.json
 f6d57d42959427af3b1cf528a0e7fc11a29c63f3 assets/classic_mobs/items/carved_undershale_tile_edge.json
@@ -231,6 +231,10 @@ a808d5ae2b1418094bcd8abe13a230f60ec4bc96 assets/classic_mobs/models/block/tropic
 c364d23c84c5ce1b08a864a26bd2ca6b24d29089 assets/classic_mobs/models/item/antlion_spawn_egg.json
 652c83ae78d0cab24007a96a4cac126e6b96c2b2 assets/classic_mobs/models/item/blast_powder.json
 73361ca39d39f968a354b5251250d9bdf68bb481 assets/classic_mobs/models/item/bola.json
+2b30850d6fa2be567b572080a69d96c483b9c8c4 assets/classic_mobs/models/item/bola_1.json
+699728ca55171f15423bc76ce7374ff970f8a8ab assets/classic_mobs/models/item/bola_2.json
+5879e40359c831f83cec841fb23ae515eca27e8b assets/classic_mobs/models/item/bola_3.json
+fb0eaa1743c58f132e9f4fefd5e01c08e7756011 assets/classic_mobs/models/item/bola_4.json
 1a32a7452ceeb57312b6f8870d11ef7557fd8f13 assets/classic_mobs/models/item/chem_powder.json
 6d1490019b239c261e1cd3c8ff5bfa0a494a0082 assets/classic_mobs/models/item/chitin.json
 894e260625fc4039038aee9990c3cfd3d1427f04 assets/classic_mobs/models/item/chitin_boots.json
