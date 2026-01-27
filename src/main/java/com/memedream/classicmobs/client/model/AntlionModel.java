@@ -1,13 +1,13 @@
 package com.memedream.classicmobs.client.model;
 
+import com.memedream.classicmobs.client.state.AntlionRenderState;
 import net.minecraft.client.model.EntityModel;
 import net.minecraft.client.model.geom.ModelPart;
 import net.minecraft.client.model.geom.PartPose;
 import net.minecraft.client.model.geom.builders.*;
-import net.minecraft.client.renderer.entity.state.LivingEntityRenderState;
 import net.minecraft.util.Mth;
 
-public class AntlionModel extends EntityModel<LivingEntityRenderState> {
+public class AntlionModel extends EntityModel<AntlionRenderState> {
 
     private final ModelPart head;
     private final ModelPart jaw1;
@@ -18,6 +18,7 @@ public class AntlionModel extends EntityModel<LivingEntityRenderState> {
     private final ModelPart leg4;
     private final ModelPart leg5;
     private final ModelPart leg6;
+    private final ModelPart[] legs;
 
     public AntlionModel(ModelPart root) {
         super(root);
@@ -30,6 +31,7 @@ public class AntlionModel extends EntityModel<LivingEntityRenderState> {
         this.leg4 = root.getChild("leg4");
         this.leg5 = root.getChild("leg5");
         this.leg6 = root.getChild("leg6");
+        this.legs = new ModelPart[]{this.leg1, this.leg2, this.leg3, this.leg4, this.leg5, this.leg6};
     }
 
     public static LayerDefinition create() {
@@ -39,10 +41,10 @@ public class AntlionModel extends EntityModel<LivingEntityRenderState> {
         PartDefinition head = partdefinition.addOrReplaceChild("head", CubeListBuilder.create().texOffs(50, 0).addBox(-4.0F, -3.0F, -7.0F, 8.0F, 6.0F, 7.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, 21.0F, 1.0F));
 
         PartDefinition jaw2 = head.addOrReplaceChild("jaw2", CubeListBuilder.create().texOffs(32, 24).addBox(0.0F, -4.0F, -12.0F, 4.0F, 4.0F, 12.0F, new CubeDeformation(0.0F))
-                .texOffs(28, 40).addBox(4.0F, -4.0F, -12.0F, 2.0F, 4.0F, 12.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(-4.0F, 3.0F, -6.0F, 0.0F, 0.6109F, 0.0F));
+            .texOffs(28, 40).addBox(4.0F, -4.0F, -12.0F, 2.0F, 4.0F, 12.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(-4.0F, 3.0F, -6.0F, 0.0F, 0.6109F, 0.0F));
 
         PartDefinition jaw1 = head.addOrReplaceChild("jaw1", CubeListBuilder.create().texOffs(0, 24).addBox(-4.0F, -4.0F, -12.0F, 4.0F, 4.0F, 12.0F, new CubeDeformation(0.0F))
-                .texOffs(0, 40).addBox(-6.0F, -4.0F, -12.0F, 2.0F, 4.0F, 12.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(4.0F, 3.0F, -6.0F, 0.0F, -0.6109F, 0.0F));
+            .texOffs(0, 40).addBox(-6.0F, -4.0F, -12.0F, 2.0F, 4.0F, 12.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(4.0F, 3.0F, -6.0F, 0.0F, -0.6109F, 0.0F));
 
         PartDefinition body = partdefinition.addOrReplaceChild("body", CubeListBuilder.create(), PartPose.offset(0.0F, 24.0F, 8.0F));
 
@@ -75,13 +77,30 @@ public class AntlionModel extends EntityModel<LivingEntityRenderState> {
         return LayerDefinition.create(meshdefinition, 128, 128);
     }
 
-    //TODO: Finish WIP Animations. Not sure what kind of math it would need to fix the jaws, they're placeholders for now. Leg animations use spider math but look fine since the model is so different, idm it.
     @Override
-    public void setupAnim(LivingEntityRenderState state) {
+    public void setupAnim(AntlionRenderState state) {
         this.head.yRot = state.yRot * Mth.DEG_TO_RAD;
         this.head.xRot = state.xRot * Mth.DEG_TO_RAD;
-        this.jaw1.yRot = -0.7F * Mth.triangleWave(state.walkAnimationPos, 14.0F) * state.walkAnimationSpeed;
-        this.jaw2.yRot = 0.7F * Mth.triangleWave(state.walkAnimationPos, 14.0F) * state.walkAnimationSpeed;
+        if (!state.underground) {
+            if (state.walkAnimationSpeed <= 0.1F && state.ageInTicks % 100 > 0 && state.ageInTicks % 100 < 14) {
+                this.jaw1.yRot = Math.min(0.0F, Mth.triangleWave(state.ageInTicks % 100, 7.0F));
+                this.jaw2.yRot = Math.max(0.0F, -Mth.triangleWave(state.ageInTicks % 100, 7.0F));
+            } else {
+                this.jaw1.yRot = Math.min(0.0F, (Mth.cos(state.walkAnimationPos) * 0.6F) * state.walkAnimationSpeed);
+                this.jaw2.yRot = Math.max(0.0F, -(Mth.cos(state.walkAnimationPos) * 0.6F) * state.walkAnimationSpeed);
+            }
+        }  else if (state.attackTimer > 0) {
+            this.jaw1.yRot = Math.min(0.0F, Mth.triangleWave(state.attackTimer % 100, 7.0F));
+            this.jaw2.yRot = Math.max(0.0F, -Mth.triangleWave(state.attackTimer % 100, 7.0F));
+        } else {
+            this.jaw1.yRot = 0.2F * Mth.sin(state.ageInTicks / 10) / 2 - 0.4F;
+            this.jaw2.yRot = -0.2F * Mth.sin(state.ageInTicks / 10) / 2 + 0.4F;
+        }
+
+        for (ModelPart leg : this.legs) {
+            leg.visible = !state.underground;
+        }
+
         this.leg1.zRot = -Mth.PI / 4;
         this.leg2.zRot = Mth.PI / 4;
         this.leg3.zRot = -0.58119464F;

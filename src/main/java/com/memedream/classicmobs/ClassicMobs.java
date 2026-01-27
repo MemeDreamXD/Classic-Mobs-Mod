@@ -36,6 +36,7 @@ public class ClassicMobs {
         ModConsumeEffects.CONSUME_EFFECTS.register(bus);
         ModRecipes.RECIPE_SERIALIZERS.register(bus);
         ModRecipes.RECIPE_TYPES.register(bus);
+        ModEntityDataSerializers.SERIALIZERS.register(bus);
 
         // Register our mod's ModConfigSpec so that FML can create and load the config file for us
         //...we'll do this if we actually add a config file
