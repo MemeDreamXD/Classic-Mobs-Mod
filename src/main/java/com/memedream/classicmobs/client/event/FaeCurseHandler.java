@@ -40,7 +40,7 @@ public class FaeCurseHandler {
                 Level level = event.getEntity().level();
                 ORE_POSITIONS.clear();
                 for (BlockPos pos : BlockPos.withinManhattan(event.getEntity().blockPosition(), 30, 40, 30)) {
-                    if (!level.isOutsideBuildHeight(pos) && level.getBlockState(pos).is(Tags.Blocks.ORES)) {
+                    if (level.isLoaded(pos) && !level.isOutsideBuildHeight(pos) && level.getBlockState(pos).is(Tags.Blocks.ORES)) {
                         int dist = pos.distManhattan(event.getEntity().blockPosition());
                         ORE_POSITIONS.add(new BlockInfo(pos.immutable(), Mth.clamp(1.0F - (dist / 25.0F), 0.0F, 1.0F)));
                     }
@@ -78,10 +78,12 @@ public class FaeCurseHandler {
         } else {
             int color = 0XFFFFFFFF;
             try {
-                ItemStack drop = state.getDrops(new LootParams.Builder(ServerLifecycleHooks.getCurrentServer().overworld())
+                List<ItemStack> drops = state.getDrops(new LootParams.Builder(ServerLifecycleHooks.getCurrentServer().overworld())
                     .withParameter(LootContextParams.TOOL, new ItemStack(Items.NETHERITE_PICKAXE))
-                    .withParameter(LootContextParams.ORIGIN, pos.getCenter())).getFirst();
-                color = getAverageColor(getSprite(drop));
+                    .withParameter(LootContextParams.ORIGIN, pos.getCenter()));
+                if (!drops.isEmpty()) {
+                    color = getAverageColor(getSprite(drops.getFirst()));
+                }
             } catch (NullPointerException e) {
                 ClassicMobs.LOGGER.warn("Could not fetch average ore color for resource {}, defaulting to white.", oreName);
             }
