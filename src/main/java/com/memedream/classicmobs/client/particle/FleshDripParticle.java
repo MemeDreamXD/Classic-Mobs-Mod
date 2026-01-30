@@ -30,7 +30,7 @@ public class FleshDripParticle extends DripParticle {
 
         public FleshDripFallParticle(ClientLevel level, double x, double y, double z, TextureAtlasSprite sprite) {
             super(level, x, y, z, Fluids.EMPTY, ModParticles.LANDING_FLESH.get(), sprite);
-            this.gravity *= 0.01F;
+            this.gravity = 0.0075F;
         }
     }
 
