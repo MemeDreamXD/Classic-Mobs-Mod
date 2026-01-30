@@ -4,7 +4,6 @@ import com.memedream.classicmobs.client.ClassicMobsClient;
 import com.memedream.classicmobs.init.*;
 import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.server.level.ServerLevel;
-import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
@@ -29,11 +28,6 @@ public class BolaEntity extends ThrowableProjectile {
     @Override
     protected void defineSynchedData(SynchedEntityData.Builder entityData) {
 
-    }
-
-    @Override
-    public void tick() {
-        super.tick();
     }
 
     @Override

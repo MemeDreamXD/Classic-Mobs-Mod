@@ -22,24 +22,24 @@ public class AntlionRenderer extends MobRenderer<AntlionEntity, AntlionRenderSta
 
     @Override
     protected void scale(AntlionRenderState state, PoseStack stack) {
-        if (state.digTimer > 0) {
+        if (state.digTimer >= 0) {
             state.walkAnimationPos = state.ageInTicks;
             state.walkAnimationSpeed = 0.5F;
             float progress = state.digTimer / 30.0F;
             stack.translate(0.0D, 1.5D * progress, -1.0D * progress);
             stack.mulPose(Axis.XP.rotationDegrees(60.0F * progress));
-        } else if (state.huntEmergeTimer > 0) {
+        } else if (state.huntEmergeTimer >= 0) {
             state.xRot = 0.0F;
             float progress = state.huntEmergeTimer / 40.0F;
             stack.translate(0.0D, 1.5D - 0.8D * progress, 0.0D);
             stack.mulPose(Axis.XP.rotationDegrees(-90.0F));
-        } else if (state.emergeTimer > 0) {
+        } else if (state.emergeTimer >= 0) {
             state.walkAnimationPos = state.ageInTicks;
             state.walkAnimationSpeed = 0.5F;
             float progress = state.emergeTimer / 30.0F;
             stack.translate(0.0D, 0.75D - 0.75D * progress, 0.0D);
             stack.mulPose(Axis.XP.rotationDegrees(-90.0F + 90.0F * progress));
-        } else if (state.attackTimer > 0) {
+        } else if (state.attackTimer >= 0) {
             state.yRot = Mth.sin(state.attackTimer) * 2;
             state.xRot = Mth.cos(state.attackTimer) * 2;
             stack.mulPose(Axis.XP.rotationDegrees(-90.0F));

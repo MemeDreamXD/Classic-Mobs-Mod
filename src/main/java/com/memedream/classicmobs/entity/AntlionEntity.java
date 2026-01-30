@@ -18,6 +18,7 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
+import net.minecraft.sounds.SoundSource;
 import net.minecraft.util.ByIdMap;
 import net.minecraft.util.Mth;
 import net.minecraft.util.RandomSource;
@@ -31,14 +32,17 @@ import net.minecraft.world.entity.ai.goal.*;
 import net.minecraft.world.entity.ai.goal.target.HurtByTargetGoal;
 import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
 import net.minecraft.world.entity.animal.armadillo.Armadillo;
+import net.minecraft.world.entity.monster.Enemy;
 import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.RenderShape;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.material.PushReaction;
 import net.minecraft.world.level.storage.ValueInput;
 import net.minecraft.world.level.storage.ValueOutput;
 import net.minecraft.world.phys.Vec3;
+import net.neoforged.neoforge.fluids.FluidType;
 
 import java.util.Locale;
 import java.util.function.IntFunction;
@@ -174,17 +178,24 @@ public class AntlionEntity extends Monster {
     @Override
     public void tick() {
         super.tick();
+        if (this.isInFluidType() && !this.canMove()) {
+            this.setStateTo(AntlionState.EMERGING);
+        }
+
         if (this.isPanicDigging() || this.isDigging()) {
             this.digTimer++;
             if (this.level().isClientSide()) {
-                this.spawnSandDiggingParticles(0.7F);
+                this.spawnSandDiggingParticles(0.8F);
             } else {
+                if (this.digTimer % 5 == 0) {
+                    this.level().playSound(null, this.blockPosition(), this.getBlockStateOn().getSoundType().getBreakSound(), SoundSource.BLOCKS, 2.0F, this.getVoicePitch());
+                }
                 if (this.digTimer >= 30) {
                     if (this.isPanicDigging()) {
                         this.discard();
                     } else {
                         this.setStateTo(AntlionState.HUNTING);
-                        this.idleTimeInSand = 600 + this.getRandom().nextInt(300);
+                        this.idleTimeInSand = 1200 + this.getRandom().nextInt(1200);
                         this.goalSelector.getAvailableGoals().forEach(WrappedGoal::stop);
                     }
                 }
@@ -193,6 +204,9 @@ public class AntlionEntity extends Monster {
             if (this.level().isClientSide()) {
                 if (this.huntTimer < 40) {
                     this.huntTimer++;
+                    if (this.huntTimer % 5 == 0) {
+                        this.level().playLocalSound(this.blockPosition(), this.getBlockStateOn().getSoundType().getBreakSound(), SoundSource.BLOCKS, 2.0F, this.getVoicePitch(), false);
+                    }
                     if (this.huntTimer > 15) {
                         this.spawnSandDiggingParticles(0.5F);
                     }
@@ -225,8 +239,11 @@ public class AntlionEntity extends Monster {
         } else if (this.isEmerging()) {
             this.emergeTimer++;
             if (this.level().isClientSide()) {
-                this.spawnSandDiggingParticles(0.7F);
+                this.spawnSandDiggingParticles(0.8F);
             } else {
+                if (this.emergeTimer % 5 == 0) {
+                    this.level().playSound(null, this.blockPosition(), this.getBlockStateOn().getSoundType().getBreakSound(), SoundSource.BLOCKS, 2.0F, this.getVoicePitch());
+                }
                 this.buryCooldown = 1000;
                 if (this.emergeTimer >= 30) {
                     this.setStateTo(AntlionState.NONE);
@@ -259,7 +276,7 @@ public class AntlionEntity extends Monster {
 
     @Override
     protected void doPush(Entity entity) {
-        if (entity instanceof LivingEntity living && EntitySelector.NO_CREATIVE_OR_SPECTATOR.test(living) && !(entity instanceof AntlionEntity) && this.isHunting()) {
+        if (entity instanceof LivingEntity living && EntitySelector.NO_CREATIVE_OR_SPECTATOR.test(living) && !(entity instanceof Enemy) && this.isHunting()) {
             living.startRiding(this, true, true);
             this.setStateTo(AntlionState.ATTACKING);
         }
@@ -269,11 +286,6 @@ public class AntlionEntity extends Monster {
     @Override
     public boolean canRiderInteract() {
         return true;
-    }
-
-    @Override
-    public Vec3 getDismountLocationForPassenger(LivingEntity passenger) {
-        return super.getDismountLocationForPassenger(passenger);
     }
 
     @Override
@@ -291,11 +303,26 @@ public class AntlionEntity extends Monster {
         return this.canMove() && super.isPushable();
     }
 
+    @Override
+    public boolean isPushedByFluid(FluidType type) {
+        return this.canMove() && super.isPushedByFluid(type);
+    }
+
+    @Override
+    public boolean canDrownInFluidType(FluidType type) {
+        return this.canMove() && super.canDrownInFluidType(type);
+    }
+
+    @Override
+    public PushReaction getPistonPushReaction() {
+        return !this.canMove() ? PushReaction.IGNORE : super.getPistonPushReaction();
+    }
+
     private void spawnSandDiggingParticles(float range) {
         RandomSource random = this.getRandom();
         BlockState stateBelow = this.getBlockStateOn();
         if (stateBelow.getRenderShape() != RenderShape.INVISIBLE) {
-            for (int i = 0; i < 30; i++) {
+            for (int i = 0; i < 60 * range; i++) {
                 double xx = this.getX() + Mth.randomBetween(random, -range, range);
                 double yy = this.getY();
                 double zz = this.getZ() + Mth.randomBetween(random, -range, range);
