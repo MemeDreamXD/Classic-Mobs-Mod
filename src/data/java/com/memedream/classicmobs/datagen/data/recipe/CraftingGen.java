@@ -126,6 +126,11 @@ public class CraftingGen extends RecipeProvider {
         SmithingTransformRecipeBuilder.smithing(Ingredient.of(ModItems.CHITIN_UPGRADE_SMITHING_TEMPLATE), Ingredient.of(Items.LEATHER_BOOTS), Ingredient.of(ModItems.CHITIN), RecipeCategory.COMBAT, ModItems.CHITIN_BOOTS.get())
             .unlocks("has_chitin", this.has(ModItems.CHITIN))
             .save(this.output, createKey("smithing/chitin_boots"));
+
+        this.dyedItem(ModItems.CHITIN_HELMET.get(), "dyed_armor");
+        this.dyedItem(ModItems.CHITIN_CHESTPLATE.get(), "dyed_armor");
+        this.dyedItem(ModItems.CHITIN_LEGGINGS.get(), "dyed_armor");
+        this.dyedItem(ModItems.CHITIN_BOOTS.get(), "dyed_armor");
     }
 
     private static void createMultitools(RecipeOutput output, ItemLike multitool, ItemLike tool1, ItemLike tool2) {

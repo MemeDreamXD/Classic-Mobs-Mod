@@ -20,7 +20,31 @@ import org.jspecify.annotations.Nullable;
 import java.util.List;
 import java.util.Optional;
 
-public class MultitoolCombinationRecipe implements SmithingRecipe {
+public class MultitoolCombinationRecipe extends SimpleSmithingRecipe {
+
+    public static final MapCodec<MultitoolCombinationRecipe> CODEC = RecordCodecBuilder.mapCodec(
+        r -> r.group(
+                CommonInfo.MAP_CODEC.forGetter(o -> o.commonInfo),
+                Ingredient.CODEC.optionalFieldOf("template").forGetter(o -> o.template),
+                Ingredient.CODEC.fieldOf("base").forGetter(o -> o.base),
+                Ingredient.CODEC.fieldOf("addition").forGetter(o -> o.addition),
+                ItemStackTemplate.CODEC.fieldOf("result").forGetter(o -> o.result)
+            )
+            .apply(r, MultitoolCombinationRecipe::new)
+    );
+    public static final StreamCodec<RegistryFriendlyByteBuf, MultitoolCombinationRecipe> STREAM_CODEC = StreamCodec.composite(
+        CommonInfo.STREAM_CODEC,
+        r -> r.commonInfo,
+        Ingredient.OPTIONAL_CONTENTS_STREAM_CODEC,
+        r -> r.template,
+        Ingredient.CONTENTS_STREAM_CODEC,
+        r -> r.base,
+        Ingredient.CONTENTS_STREAM_CODEC,
+        r -> r.addition,
+        ItemStackTemplate.STREAM_CODEC,
+        r -> r.result,
+        MultitoolCombinationRecipe::new
+    );
 
     private final Optional<Ingredient> template;
     private final Ingredient base;
@@ -28,7 +52,8 @@ public class MultitoolCombinationRecipe implements SmithingRecipe {
     private final ItemStackTemplate result;
     private @Nullable PlacementInfo placementInfo;
 
-    public MultitoolCombinationRecipe(Optional<Ingredient> template, Ingredient base, Ingredient addition, ItemStackTemplate result) {
+    public MultitoolCombinationRecipe(Recipe.CommonInfo commonInfo, Optional<Ingredient> template, Ingredient base, Ingredient addition, ItemStackTemplate result) {
+        super(commonInfo);
         this.template = template;
         this.base = base;
         this.addition = addition;
@@ -73,12 +98,8 @@ public class MultitoolCombinationRecipe implements SmithingRecipe {
     }
 
     @Override
-    public PlacementInfo placementInfo() {
-        if (this.placementInfo == null) {
-            this.placementInfo = PlacementInfo.createFromOptionals(List.of(this.template, Optional.of(this.base), Optional.of(this.addition)));
-        }
-
-        return this.placementInfo;
+    protected PlacementInfo createPlacementInfo() {
+        return PlacementInfo.createFromOptionals(List.of(this.template, Optional.of(this.base), Optional.of(this.addition)));
     }
 
     @Override
@@ -92,38 +113,5 @@ public class MultitoolCombinationRecipe implements SmithingRecipe {
                 new SlotDisplay.ItemSlotDisplay(Items.SMITHING_TABLE)
             )
         );
-    }
-
-    public static class Serializer implements RecipeSerializer<MultitoolCombinationRecipe> {
-        private static final MapCodec<MultitoolCombinationRecipe> CODEC = RecordCodecBuilder.mapCodec(
-            r -> r.group(
-                    Ingredient.CODEC.optionalFieldOf("template").forGetter(o -> o.template),
-                    Ingredient.CODEC.fieldOf("base").forGetter(o -> o.base),
-                    Ingredient.CODEC.fieldOf("addition").forGetter(o -> o.addition),
-                    ItemStackTemplate.CODEC.fieldOf("result").forGetter(o -> o.result)
-                )
-                .apply(r, MultitoolCombinationRecipe::new)
-        );
-        public static final StreamCodec<RegistryFriendlyByteBuf, MultitoolCombinationRecipe> STREAM_CODEC = StreamCodec.composite(
-            Ingredient.OPTIONAL_CONTENTS_STREAM_CODEC,
-            r -> r.template,
-            Ingredient.CONTENTS_STREAM_CODEC,
-            r -> r.base,
-            Ingredient.CONTENTS_STREAM_CODEC,
-            r -> r.addition,
-            ItemStackTemplate.STREAM_CODEC,
-            r -> r.result,
-            MultitoolCombinationRecipe::new
-        );
-
-        @Override
-        public MapCodec<MultitoolCombinationRecipe> codec() {
-            return CODEC;
-        }
-
-        @Override
-        public StreamCodec<RegistryFriendlyByteBuf, MultitoolCombinationRecipe> streamCodec() {
-            return STREAM_CODEC;
-        }
     }
 }

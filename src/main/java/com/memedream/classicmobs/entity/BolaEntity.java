@@ -25,6 +25,10 @@ public class BolaEntity extends ThrowableProjectile {
         this.setOwner(shooter);
     }
 
+    public BolaEntity(Level level, double x, double y, double z) {
+        super(ModEntities.BOLA.get(), x, y, z, level);
+    }
+
     @Override
     protected void defineSynchedData(SynchedEntityData.Builder entityData) {
 

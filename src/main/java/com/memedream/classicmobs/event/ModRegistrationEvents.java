@@ -4,11 +4,14 @@ import com.memedream.classicmobs.init.ModEntities;
 import com.memedream.classicmobs.init.ModItems;
 import com.memedream.classicmobs.init.ModPotions;
 import com.memedream.classicmobs.network.ElevatorTeleportPacket;
+import net.minecraft.core.cauldron.CauldronInteraction;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.item.alchemy.PotionBrewing;
 import net.minecraft.world.item.alchemy.Potions;
+import net.minecraft.world.level.block.DispenserBlock;
 import net.minecraft.world.level.levelgen.Heightmap;
 import net.neoforged.bus.api.IEventBus;
+import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.neoforged.neoforge.common.NeoForge;
 import net.neoforged.neoforge.event.brewing.RegisterBrewingRecipesEvent;
 import net.neoforged.neoforge.event.entity.EntityAttributeCreationEvent;
@@ -19,6 +22,7 @@ import net.neoforged.neoforge.network.registration.PayloadRegistrar;
 public class ModRegistrationEvents {
 
     public static void init(IEventBus bus) {
+        bus.addListener(ModRegistrationEvents::registerStartupStuff);
         bus.addListener(ModRegistrationEvents::registerPackets);
         bus.addListener(ModRegistrationEvents::registerAttributes);
         bus.addListener(ModRegistrationEvents::registerPlacements);
@@ -30,6 +34,18 @@ public class ModRegistrationEvents {
         NeoForge.EVENT_BUS.addListener(ModEvents::chitinProjectileParrying);
         NeoForge.EVENT_BUS.addListener(ModEvents::faeCurseWeakness);
         NeoForge.EVENT_BUS.addListener(ModEvents::sorryBossCantRemoveTheCurse);
+    }
+
+    public static void registerStartupStuff(FMLCommonSetupEvent event) {
+        event.enqueueWork(() -> {
+            CauldronInteraction.WATER.map().put(ModItems.CHITIN_HELMET.get(), CauldronInteraction::dyedItemIteration);
+            CauldronInteraction.WATER.map().put(ModItems.CHITIN_CHESTPLATE.get(), CauldronInteraction::dyedItemIteration);
+            CauldronInteraction.WATER.map().put(ModItems.CHITIN_LEGGINGS.get(), CauldronInteraction::dyedItemIteration);
+            CauldronInteraction.WATER.map().put(ModItems.CHITIN_BOOTS.get(), CauldronInteraction::dyedItemIteration);
+
+            DispenserBlock.registerProjectileBehavior(ModItems.FLIGHT_ARROW);
+            DispenserBlock.registerProjectileBehavior(ModItems.BOLA);
+        });
     }
 
     public static void registerPackets(RegisterPayloadHandlersEvent event) {

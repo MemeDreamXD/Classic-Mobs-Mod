@@ -40,7 +40,7 @@ public class SmithingMultitoolRecipeBuilder {
             .addCriterion("has_the_recipe", RecipeUnlockedTrigger.unlocked(id))
             .rewards(AdvancementRewards.Builder.recipe(id))
             .requirements(AdvancementRequirements.Strategy.OR);
-        MultitoolCombinationRecipe recipe = new MultitoolCombinationRecipe(Optional.of(this.template), this.base, this.addition, new ItemStackTemplate(this.result));
+        MultitoolCombinationRecipe recipe = new MultitoolCombinationRecipe(new Recipe.CommonInfo(true), Optional.of(this.template), this.base, this.addition, new ItemStackTemplate(this.result));
         output.accept(id, recipe, advancement.build(id.identifier().withPrefix("recipes/" + this.category.getFolderName() + "/")));
     }
 }

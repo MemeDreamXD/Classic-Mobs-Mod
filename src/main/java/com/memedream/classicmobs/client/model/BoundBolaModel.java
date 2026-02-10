@@ -10,7 +10,7 @@ import net.minecraft.util.Unit;
 public class BoundBolaModel extends Model<Unit> {
 
     public BoundBolaModel(ModelPart root) {
-        super(root, RenderTypes::entityCutoutNoCull);
+        super(root, RenderTypes::entityCutout);
     }
 
     public static LayerDefinition create() {

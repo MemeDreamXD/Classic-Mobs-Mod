@@ -11,6 +11,7 @@ import net.minecraft.tags.BlockTags;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemInstance;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.ToolMaterial;
 import net.minecraft.world.item.context.UseOnContext;
@@ -31,8 +32,8 @@ public class PickaxeAxeItem extends Item {
     }
 
     @Override
-    public boolean canPerformAction(ItemStack stack, ItemAbility itemAbility) {
-        return ModItemAbilities.DEFAULT_PICKAXE_AXE_ACTIONS.contains(itemAbility);
+    public boolean canPerformAction(ItemInstance instance, ItemAbility ability) {
+        return ModItemAbilities.DEFAULT_PICKAXE_AXE_ACTIONS.contains(ability);
     }
 
     @Override

@@ -1,4 +1,4 @@
-// 26.1-snapshot-3	2026-01-20T17:32:45.023529999	Tags for minecraft:item mod id classic_mobs
+// 26.1-snapshot-6	2026-02-10T07:21:30.427144016	Tags for minecraft:item mod id classic_mobs
 e4c7e8f3ee371647115f9444825bee1cbfd398fe data/c/tags/item/feathers.json
 56568b18b70625f3c72c89aa0ee2660448860834 data/c/tags/item/foods/cooked_fish.json
 0dd7295dd50f92ad7eba734a6c16414e253c9f1a data/c/tags/item/foods/cooked_meat.json
@@ -10,9 +10,9 @@ eac552c37c38021fc8c5db8ff4952e1168272b01 data/c/tags/item/foods/edible_when_plac
 9118575d2e073648f348b069920e74c057d5c410 data/classic_mobs/tags/item/repairs_chitin_armor.json
 6665bc2dbde9771a382f525c1ef65cf33295a4f9 data/minecraft/tags/item/arrows.json
 768465750e7d6970d2af50d5f02650a360c380cf data/minecraft/tags/item/axes.json
+d0e542872092d04f8315ede700c063fa4061276b data/minecraft/tags/item/cauldron_can_remove_dye.json
 c9c945c2892e8a3da7fb037c77fb0fa9b89b7643 data/minecraft/tags/item/chest_armor.json
 83ec20a366a2f99550053a53d4ce91775c0275ec data/minecraft/tags/item/cluster_max_harvestables.json
-d0e542872092d04f8315ede700c063fa4061276b data/minecraft/tags/item/dyeable.json
 1188c5863c7207634c6feac81824a9a3ccbba3b3 data/minecraft/tags/item/foot_armor.json
 d0e542872092d04f8315ede700c063fa4061276b data/minecraft/tags/item/freeze_immune_wearables.json
 ef08403547ff94989b9fc81b242428cb0ca1f4d4 data/minecraft/tags/item/head_armor.json

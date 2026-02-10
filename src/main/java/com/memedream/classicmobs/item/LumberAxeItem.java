@@ -3,6 +3,7 @@ package com.memedream.classicmobs.item;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.item.AxeItem;
+import net.minecraft.world.item.ItemInstance;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.ToolMaterial;
 import net.minecraft.world.item.context.UseOnContext;
@@ -27,7 +28,7 @@ public class LumberAxeItem extends BasicAOEItem {
     }
 
     @Override
-    public boolean canPerformAction(ItemStack stack, ItemAbility itemAbility) {
-        return ItemAbilities.DEFAULT_AXE_ACTIONS.contains(itemAbility);
+    public boolean canPerformAction(ItemInstance instance, ItemAbility ability) {
+        return ItemAbilities.DEFAULT_AXE_ACTIONS.contains(ability);
     }
 }

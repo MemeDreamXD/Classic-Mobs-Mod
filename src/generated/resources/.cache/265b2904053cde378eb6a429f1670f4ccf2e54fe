@@ -1,4 +1,4 @@
-// 26.1-snapshot-3	2026-01-20T17:39:22.84308028	Classic Mobs: Recipes
+// 26.1-snapshot-6	2026-02-10T07:21:30.429010166	Classic Mobs: Recipes
 742b7e87cfa0e30b33aa1b6c4c5e0e8bb9220711 data/classic_mobs/advancement/recipes/building_blocks/bola.json
 ed7161993ad977c5be5c6079a26de2e9e35ebf09 data/classic_mobs/advancement/recipes/building_blocks/flight_arrow.json
 b9c31918807d7c5d56343158fb6cbc053c927534 data/classic_mobs/advancement/recipes/building_blocks/storage/blaze_rod_block_to_blaze_rod.json
@@ -251,3 +251,11 @@ f92d2972a77126e031dbd5046888be445730f34b data/classic_mobs/recipe/storage/string
 232310ee0e45fc0dd625fd77f006d74cbac0da6b data/classic_mobs/recipe/storage/tropical_fish_block_to_tropical_fish.json
 a5ccdab6336d4d62942fa113fb5ba876c12b8ee1 data/classic_mobs/recipe/storage/tropical_fish_to_tropical_fish_block.json
 c925527001f86fad71d2004fd4c9ba1c2608bffa data/classic_mobs/recipe/tricklith_block.json
+3107984b2d834277e80c1cb06a26a0d577dd9ec9 data/minecraft/advancement/recipes/misc/chitin_boots_dyed.json
+f6b858c8bcbb915ff4cc0cb7182106fbafba35d8 data/minecraft/advancement/recipes/misc/chitin_chestplate_dyed.json
+be03bc8c949cb0640db343c5a48f68e891624deb data/minecraft/advancement/recipes/misc/chitin_helmet_dyed.json
+78cfd73d36a1632d06e6e1be10e42392eec241e9 data/minecraft/advancement/recipes/misc/chitin_leggings_dyed.json
+6fdfb7931fa00fb470b55dc0ea0cb3b3a9a2ab71 data/minecraft/recipe/chitin_boots_dyed.json
+0ef7488e32445d41175874edb7ff7892e5cbc499 data/minecraft/recipe/chitin_chestplate_dyed.json
+b69c6fb65048b3a00d0f938021625e5c8c4e7558 data/minecraft/recipe/chitin_helmet_dyed.json
+f38229cc59cead623650f3ed84f7bf66c9f85a3b data/minecraft/recipe/chitin_leggings_dyed.json

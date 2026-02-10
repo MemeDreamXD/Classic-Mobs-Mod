@@ -9,10 +9,7 @@ import net.minecraft.sounds.SoundSource;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.HoeItem;
-import net.minecraft.world.item.Item;
-import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.ToolMaterial;
+import net.minecraft.world.item.*;
 import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
@@ -33,8 +30,8 @@ public class MattockItem extends Item {
     }
 
     @Override
-    public boolean canPerformAction(ItemStack stack, ItemAbility itemAbility) {
-        return ModItemAbilities.DEFAULT_MATTOCK_ACTIONS.contains(itemAbility);
+    public boolean canPerformAction(ItemInstance instance, ItemAbility ability) {
+        return ModItemAbilities.DEFAULT_MATTOCK_ACTIONS.contains(ability);
     }
 
     @Override

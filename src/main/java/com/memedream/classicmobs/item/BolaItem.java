@@ -5,6 +5,8 @@ import com.memedream.classicmobs.init.ModSounds;
 import com.mojang.blaze3d.vertex.PoseStack;
 import net.minecraft.client.model.HumanoidModel;
 import net.minecraft.client.player.LocalPlayer;
+import net.minecraft.core.Direction;
+import net.minecraft.core.Position;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.stats.Stats;
@@ -13,14 +15,16 @@ import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.HumanoidArm;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.entity.projectile.Projectile;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.ItemUseAnimation;
+import net.minecraft.world.item.ProjectileItem;
 import net.minecraft.world.level.Level;
 import net.neoforged.neoforge.client.extensions.common.IClientItemExtensions;
 import org.jspecify.annotations.Nullable;
 
-public class BolaItem extends Item {
+public class BolaItem extends Item implements ProjectileItem {
 
     public BolaItem(Properties properties) {
         super(properties);
@@ -78,6 +82,18 @@ public class BolaItem extends Item {
         }
 
         return pow;
+    }
+
+    @Override
+    public Projectile asProjectile(Level level, Position position, ItemStack itemStack, Direction direction) {
+        return new BolaEntity(level, position.x(), position.y(), position.z());
+    }
+
+    @Override
+    public ProjectileItem.DispenseConfig createDispenseConfig() {
+        return ProjectileItem.DispenseConfig.builder()
+            .uncertainty(2.0F)
+            .build();
     }
 
     public static class BolaAnimation implements IClientItemExtensions {

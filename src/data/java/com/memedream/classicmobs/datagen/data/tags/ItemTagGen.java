@@ -147,7 +147,7 @@ public class ItemTagGen extends ItemTagsProvider {
             ModItems.HARPY_FEATHER.get()
         );
 
-        this.tag(ItemTags.DYEABLE).add(
+        this.tag(ItemTags.CAULDRON_CAN_REMOVE_DYE).add(
             ModItems.CHITIN_HELMET.get(),
             ModItems.CHITIN_CHESTPLATE.get(),
             ModItems.CHITIN_LEGGINGS.get(),

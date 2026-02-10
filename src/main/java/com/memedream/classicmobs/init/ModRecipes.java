@@ -13,6 +13,6 @@ public class ModRecipes {
     public static final DeferredRegister<RecipeSerializer<?>> RECIPE_SERIALIZERS = DeferredRegister.create(Registries.RECIPE_SERIALIZER, ClassicMobs.MOD_ID);
     public static final DeferredRegister<RecipeType<?>> RECIPE_TYPES = DeferredRegister.create(Registries.RECIPE_TYPE, ClassicMobs.MOD_ID);
 
-    public static final DeferredHolder<RecipeSerializer<?>, RecipeSerializer<MultitoolCombinationRecipe>> MULTITOOL_COMBINATION = RECIPE_SERIALIZERS.register("multitool", MultitoolCombinationRecipe.Serializer::new);
+    public static final DeferredHolder<RecipeSerializer<?>, RecipeSerializer<MultitoolCombinationRecipe>> MULTITOOL_COMBINATION = RECIPE_SERIALIZERS.register("multitool", () -> new RecipeSerializer<>(MultitoolCombinationRecipe.CODEC, MultitoolCombinationRecipe.STREAM_CODEC));
 
 }

@@ -12,7 +12,7 @@ import net.minecraft.client.renderer.rendertype.RenderTypes;
 
 public class FestiveTNTModel extends Model<FestiveTNTRenderState> {
     public FestiveTNTModel(ModelPart root) {
-        super(root, RenderTypes::entityCutoutNoCull);
+        super(root, RenderTypes::entityCutout);
     }
 
     public static LayerDefinition create() {

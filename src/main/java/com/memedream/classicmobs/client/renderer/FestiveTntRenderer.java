@@ -43,7 +43,7 @@ public class FestiveTntRenderer extends EntityRenderer<FestiveTntEntity, Festive
             stack.scale(s, s, s);
         }
 
-        submitNodeCollector.submitModel(this.tnt, state, stack, RenderTypes.entityCutoutNoCull(TEXTURE), state.lightCoords, getOverlay((int) fuse), state.outlineColor, null);
+        submitNodeCollector.submitModel(this.tnt, state, stack, RenderTypes.entityCutout(TEXTURE), state.lightCoords, getOverlay((int) fuse), state.outlineColor, null);
 
         stack.popPose();
         super.submit(state, stack, submitNodeCollector, camera);
