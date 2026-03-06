@@ -39,17 +39,7 @@ public class LangGen extends LanguageProvider {
 
     @Override
     protected void addTranslations() {
-        this.addBlock(ModBlocks.POINTED_TRICKLITH, "Pointed Tricklith");
-        this.addBlock(ModBlocks.TRICKLITH_BLOCK, "Tricklith Block");
         this.addBlock(ModBlocks.RUBY_ORE, "Ruby Ore");
-
-        this.addBlock(ModBlocks.UNDERSHALE_BRICKS, "Undershale Bricks");
-        this.addBlock(ModBlocks.CHISELED_UNDERSHALE, "Chiseled Undershale");
-        this.addBlock(ModBlocks.POLISHED_UNDERSHALE, "Polished Undershale");
-        this.addBlock(ModBlocks.CARVED_UNDERSHALE_TILE_EDGE, "Carved Undershale Tile Edge");
-        this.addBlock(ModBlocks.CARVED_UNDERSHALE_TILE, "Carved Undershale Tile");
-        this.addBlock(ModBlocks.NACRITE, "Nacrite");
-        this.addBlock(ModBlocks.CAVERRNACK, "Caverrnack");
 
         this.addBlock(ModBlocks.GUNPOWDER_BLOCK, "Block of Gunpowder");
         this.addBlock(ModBlocks.STRING_BLOCK, "Block of String");

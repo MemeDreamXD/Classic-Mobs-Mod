@@ -64,13 +64,6 @@ public class CraftingGen extends RecipeProvider {
         createStorageBlock(getter, this.output, RecipeCategory.FOOD, ModBlocks.PUFFERFISH_BLOCK, Items.PUFFERFISH);
         createStorageBlock(getter, this.output, RecipeCategory.FOOD, ModBlocks.ROTTEN_FLESH_BLOCK, Items.ROTTEN_FLESH);
 
-        ShapedRecipeBuilder.shaped(getter, RecipeCategory.BUILDING_BLOCKS, ModBlocks.TRICKLITH_BLOCK)
-            .pattern("pp")
-            .pattern("pp")
-            .define('p', ModBlocks.POINTED_TRICKLITH)
-            .unlockedBy("has_tricklith", this.has(ModBlocks.POINTED_TRICKLITH))
-            .save(this.output);
-
         ShapedRecipeBuilder.shaped(getter, RecipeCategory.BUILDING_BLOCKS, ModItems.BOLA)
             .pattern(" l ")
             .pattern("s s")

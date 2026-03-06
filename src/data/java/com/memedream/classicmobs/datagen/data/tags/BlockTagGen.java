@@ -104,17 +104,8 @@ public class BlockTagGen extends BlockTagsProvider {
 
         this.tag(BlockTags.MINEABLE_WITH_PICKAXE).add(
             ModBlocks.CHITIN_BLOCK.get(),
-            ModBlocks.TRICKLITH_BLOCK.get(),
-            ModBlocks.POINTED_TRICKLITH.get(),
             ModBlocks.BLOCK_OF_BONES.get(),
-            ModBlocks.CAVERRNACK.get(),
-            ModBlocks.RUBY_ORE.get(),
-            ModBlocks.UNDERSHALE_BRICKS.get(),
-            ModBlocks.CHISELED_UNDERSHALE.get(),
-            ModBlocks.POLISHED_UNDERSHALE.get(),
-            ModBlocks.NACRITE.get(),
-            ModBlocks.CARVED_UNDERSHALE_TILE.get(),
-            ModBlocks.CARVED_UNDERSHALE_TILE_EDGE.get()
+            ModBlocks.RUBY_ORE.get()
         );
 
         this.tag(BlockTags.NEEDS_IRON_TOOL).add(
@@ -122,8 +113,7 @@ public class BlockTagGen extends BlockTagsProvider {
         );
 
         this.tag(BlockTags.MINEABLE_WITH_SHOVEL).add(
-            ModBlocks.GUNPOWDER_BLOCK.get(),
-            ModBlocks.CAVERRNACK.get()
+            ModBlocks.GUNPOWDER_BLOCK.get()
         );
 
         this.tag(BlockTags.SWORD_EFFICIENT).add(

@@ -19,15 +19,6 @@ public class BlockLootGen extends BlockLootSubProvider {
 
     @Override
     protected void generate() {
-        this.dropSelf(ModBlocks.TRICKLITH_BLOCK.get());
-        this.dropSelf(ModBlocks.POINTED_TRICKLITH.get());
-        this.dropSelf(ModBlocks.UNDERSHALE_BRICKS.get());
-        this.dropSelf(ModBlocks.CHISELED_UNDERSHALE.get());
-        this.dropSelf(ModBlocks.POLISHED_UNDERSHALE.get());
-        this.dropSelf(ModBlocks.CARVED_UNDERSHALE_TILE.get());
-        this.dropSelf(ModBlocks.CARVED_UNDERSHALE_TILE_EDGE.get());
-        this.dropSelf(ModBlocks.NACRITE.get());
-        this.dropSelf(ModBlocks.CAVERRNACK.get());
         this.add(ModBlocks.RUBY_ORE.get(), block -> this.createOreDrop(block, ModItems.RUBY.get()));
 
         //storage blocks
