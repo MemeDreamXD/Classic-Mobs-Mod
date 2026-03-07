@@ -1,5 +1,7 @@
 package com.memedream.classicmobs.block;
 
+import com.memedream.classicmobs.block.entity.BreezeRodBlockEntity;
+import com.memedream.classicmobs.init.ModBlockEntities;
 import com.mojang.serialization.MapCodec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -7,12 +9,18 @@ import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.BaseEntityBlock;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.EntityBlock;
 import net.minecraft.world.level.block.RodBlock;
+import net.minecraft.world.level.block.entity.BlockEntity;
+import net.minecraft.world.level.block.entity.BlockEntityTicker;
+import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
+import org.jspecify.annotations.Nullable;
 
-public class BreezeRodBlock extends RodBlock {
+public class BreezeRodBlock extends RodBlock implements EntityBlock {
 
     public static final MapCodec<BreezeRodBlock> CODEC = simpleCodec(BreezeRodBlock::new);
 
@@ -23,36 +31,48 @@ public class BreezeRodBlock extends RodBlock {
 
     public BreezeRodBlock(Properties properties) {
         super(properties);
-        this.registerDefaultState(this.stateDefinition.any().setValue(FACING, Direction.UP));
+        this.registerDefaultState(this.getStateDefinition().any().setValue(FACING, Direction.UP));
     }
 
-    public BlockState getStateForPlacement(BlockPlaceContext p_53087_) {
-        Direction direction = p_53087_.getClickedFace();
-        BlockState blockstate = p_53087_.getLevel().getBlockState(p_53087_.getClickedPos().relative(direction.getOpposite()));
+    @Override
+    public BlockState getStateForPlacement(BlockPlaceContext context) {
+        Direction direction = context.getClickedFace();
+        BlockState blockstate = context.getLevel().getBlockState(context.getClickedPos().relative(direction.getOpposite()));
         return blockstate.is(this) && blockstate.getValue(FACING) == direction ? this.defaultBlockState().setValue(FACING, direction.getOpposite()) : this.defaultBlockState().setValue(FACING, direction);
     }
 
     @Override
-    public void animateTick(BlockState p_221107_, Level p_221108_, BlockPos p_221109_, RandomSource p_221110_) {
-        Direction direction = p_221107_.getValue(FACING);
-        double d0 = (double)p_221109_.getX() + 0.55 - (double)(p_221110_.nextFloat() * 0.1F);
-        double d1 = (double)p_221109_.getY() + 0.55 - (double)(p_221110_.nextFloat() * 0.1F);
-        double d2 = (double)p_221109_.getZ() + 0.55 - (double)(p_221110_.nextFloat() * 0.1F);
-        double d3 = 0.4F - (p_221110_.nextFloat() + p_221110_.nextFloat()) * 0.4F;
-        if (p_221110_.nextInt(5) == 0) {
-            p_221108_.addParticle(
+    public void animateTick(BlockState state, Level level, BlockPos pos, RandomSource random) {
+        Direction direction = state.getValue(FACING);
+        double x = pos.getX() + 0.55D - random.nextFloat() * 0.1F;
+        double y = pos.getY() + 0.55D - random.nextFloat() * 0.1F;
+        double z = pos.getZ() + 0.55D - random.nextFloat() * 0.1F;
+        double r = 0.4F - (random.nextFloat() + random.nextFloat()) * 0.4F;
+        if (random.nextInt(5) == 0) {
+            level.addParticle(
                     ParticleTypes.CLOUD,
-                    d0 + (double)direction.getStepX() * d3,
-                    d1 + (double)direction.getStepY() * d3,
-                    d2 + (double)direction.getStepZ() * d3,
-                    p_221110_.nextGaussian() * 0.005,
-                    p_221110_.nextGaussian() * 0.005,
-                    p_221110_.nextGaussian() * 0.005
+                    x + (double)direction.getStepX() * r,
+                    y + (double)direction.getStepY() * r,
+                    z + (double)direction.getStepZ() * r,
+                    random.nextGaussian() * 0.005D,
+                    random.nextGaussian() * 0.005D,
+                    random.nextGaussian() * 0.005D
             );
         }
     }
+
     @Override
-    protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> p_53105_) {
-        p_53105_.add(FACING);
+    protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
+        builder.add(FACING);
+    }
+
+    @Override
+    public @Nullable BlockEntity newBlockEntity(BlockPos pos, BlockState state) {
+        return new BreezeRodBlockEntity(pos, state);
+    }
+
+    @Override
+    public @Nullable <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level level, BlockState blockState, BlockEntityType<T> type) {
+        return !level.isClientSide() ? BaseEntityBlock.createTickerHelper(type, ModBlockEntities.BREEZE_ROD.get(), BreezeRodBlockEntity::tick) : null;
     }
 }
