@@ -178,7 +178,7 @@ public class AntlionEntity extends Monster {
     @Override
     public void tick() {
         super.tick();
-        if (this.isInFluidType() && !this.canMove()) {
+        if (this.isInWater() && !this.canMove()) {
             this.setStateTo(AntlionState.EMERGING);
         }
 

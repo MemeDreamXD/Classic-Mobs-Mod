@@ -109,7 +109,7 @@ public class ModClientRegistrationEvents {
                 for (BlockPos pos : AOEItem.getBlocksToBeDestroyed(1, event.getBlockPos(), player)) {
                     BlockState state = event.getLevel().getBlockState(pos);
                     if (!AOEItem.isValidForOutline(event.getLevel(), pos, event.getBlockPos(), player.getMainHandItem())) continue;
-                    boolean isBlockTranslucent = ClientHooks.isInTranslucentBlockOutlinePass(event.getLevel(), pos, state);
+                    boolean isBlockTranslucent = Minecraft.getInstance().getBlockRenderer().getBlockModel(state).hasTranslucency(event.getLevel(), pos, state);
                     boolean highContrast = Minecraft.getInstance().options.highContrastBlockOutline().get();
                     CollisionContext context = CollisionContext.of(player);
                     VoxelShape shape = state.getShape(event.getLevel(), pos, context);

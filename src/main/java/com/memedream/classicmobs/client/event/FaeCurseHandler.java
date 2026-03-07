@@ -8,6 +8,7 @@ import net.minecraft.client.Camera;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.ShapeRenderer;
+import net.minecraft.client.renderer.block.model.Material;
 import net.minecraft.client.renderer.item.ItemStackRenderState;
 import net.minecraft.client.renderer.texture.TextureAtlasSprite;
 import net.minecraft.core.BlockPos;
@@ -27,6 +28,7 @@ import net.neoforged.neoforge.client.event.RenderLevelStageEvent;
 import net.neoforged.neoforge.common.Tags;
 import net.neoforged.neoforge.event.tick.PlayerTickEvent;
 import net.neoforged.neoforge.server.ServerLifecycleHooks;
+import org.jspecify.annotations.Nullable;
 
 import java.util.*;
 
@@ -51,7 +53,7 @@ public class FaeCurseHandler {
         }
     }
 
-    public static void renderOutlinedBlocks(RenderLevelStageEvent.AfterWeather event) {
+    public static void renderOutlinedBlocks(RenderLevelStageEvent.AfterTranslucentBlocks event) {
         if (!ORE_POSITIONS.isEmpty() && Minecraft.getInstance().level != null) {
             Camera camera = Minecraft.getInstance().gameRenderer.getMainCamera();
             MultiBufferSource.BufferSource source = Minecraft.getInstance().renderBuffers().bufferSource();
@@ -59,7 +61,7 @@ public class FaeCurseHandler {
             for (BlockInfo info : ORE_POSITIONS) {
                 BlockPos pos = info.pos();
                 BlockState state = Minecraft.getInstance().level.getBlockState(pos);
-                ShapeRenderer.renderShape(event.getPoseStack(), consumer, Shapes.block(), pos.getX() - camera.position().x(), pos.getY() - camera.position().y(), pos.getZ() - camera.position().z(), ARGB.color(info.alpha(), getOreColor(pos, state)), 2.0F);
+                ShapeRenderer.renderShape(event.getPoseStack(), consumer, Shapes.block(), pos.getX() - camera.position().x(), pos.getY() - camera.position().y(), pos.getZ() - camera.position().z(), ARGB.color(info.alpha(), getOreColor(pos, state)), Minecraft.getInstance().getWindow().getAppropriateLineWidth());
             }
             source.endBatch(ModRenderTypes.faeOutline());
         }
@@ -117,8 +119,8 @@ public class FaeCurseHandler {
 
     private static TextureAtlasSprite getSprite(ItemStack itemStack) {
         Minecraft.getInstance().getItemModelResolver().updateForTopItem(scratchRenderState, itemStack, ItemDisplayContext.NONE, null, null, 0);
-        TextureAtlasSprite icon = scratchRenderState.pickParticleIcon(RandomSource.create());
-        return icon != null ? icon : Minecraft.getInstance().getAtlasManager().getAtlasOrThrow(AtlasIds.ITEMS).missingSprite();
+        Material.@Nullable Baked icon = scratchRenderState.pickParticleMaterial(RandomSource.create());
+        return icon != null ? icon.sprite() : Minecraft.getInstance().getAtlasManager().getAtlasOrThrow(AtlasIds.ITEMS).missingSprite();
     }
 
     private record BlockInfo(BlockPos pos, float alpha) {

@@ -4,7 +4,6 @@ import com.memedream.classicmobs.init.ModEntities;
 import com.memedream.classicmobs.init.ModItems;
 import com.memedream.classicmobs.init.ModPotions;
 import com.memedream.classicmobs.network.ElevatorTeleportPacket;
-import net.minecraft.core.cauldron.CauldronInteraction;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.item.alchemy.PotionBrewing;
 import net.minecraft.world.item.alchemy.Potions;
@@ -38,11 +37,6 @@ public class ModRegistrationEvents {
 
     public static void registerStartupStuff(FMLCommonSetupEvent event) {
         event.enqueueWork(() -> {
-            CauldronInteraction.WATER.map().put(ModItems.CHITIN_HELMET.get(), CauldronInteraction::dyedItemIteration);
-            CauldronInteraction.WATER.map().put(ModItems.CHITIN_CHESTPLATE.get(), CauldronInteraction::dyedItemIteration);
-            CauldronInteraction.WATER.map().put(ModItems.CHITIN_LEGGINGS.get(), CauldronInteraction::dyedItemIteration);
-            CauldronInteraction.WATER.map().put(ModItems.CHITIN_BOOTS.get(), CauldronInteraction::dyedItemIteration);
-
             DispenserBlock.registerProjectileBehavior(ModItems.FLIGHT_ARROW);
             DispenserBlock.registerProjectileBehavior(ModItems.BOLA);
         });

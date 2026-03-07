@@ -61,7 +61,7 @@ public class FestiveTntEntity extends ThrowableProjectile {
         if (i <= 0 || this.timeOnGround > this.maxOnGroundTime) {
             this.explode();
         } else {
-            this.updateInWaterStateAndDoFluidPushing();
+            this.updateFluidInteraction();
             if (this.level().isClientSide()) {
                 this.level().addParticle(ParticleTypes.SMOKE, this.getX(), this.getY() + 0.25D, this.getZ(), 0.0, 0.0, 0.0);
             }

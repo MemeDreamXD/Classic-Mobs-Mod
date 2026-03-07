@@ -11,6 +11,17 @@
         "texture": "classic_mobs:chitin_overlay"
       }
     ],
+    "humanoid_baby": [
+      {
+        "dyeable": {
+          "color_when_undyed": -6265536
+        },
+        "texture": "classic_mobs:chitin"
+      },
+      {
+        "texture": "classic_mobs:chitin_overlay"
+      }
+    ],
     "humanoid_leggings": [
       {
         "dyeable": {
