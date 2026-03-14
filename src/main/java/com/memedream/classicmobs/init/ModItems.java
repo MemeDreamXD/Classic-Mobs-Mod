@@ -13,6 +13,7 @@ import net.minecraft.world.item.equipment.ArmorType;
 import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
+import javax.tools.Tool;
 import java.util.function.Function;
 import java.util.function.Supplier;
 
@@ -25,6 +26,7 @@ public class ModItems {
     public static final DeferredItem<Item> CHITIN = register("chitin", Item::new, Item.Properties::new);
     public static final DeferredItem<Item> HARPY_FEATHER = register("harpy_feather", Item::new, Item.Properties::new);
     public static final DeferredItem<Item> LOCK_OF_HAG = register("lock_of_hag", Item::new, Item.Properties::new);
+    public static final DeferredItem<Item> GAZING_PEARL = register("gazing_pearl", Item::new, Item.Properties::new);
     public static final DeferredItem<Item> POP_POWDER = register("pop_powder", Item::new, Item.Properties::new);
     public static final DeferredItem<Item> BLAST_POWDER = register("blast_powder", Item::new, Item.Properties::new);
     public static final DeferredItem<Item> CHEM_POWDER = register("chem_powder", Item::new, Item.Properties::new);
@@ -38,6 +40,8 @@ public class ModItems {
     public static final DeferredItem<LumberAxeItem> WOODEN_LUMBER_AXE = register("wooden_lumber_axe", properties -> new LumberAxeItem(ToolMaterial.WOOD, 1.5f, -3.0f, properties), Item.Properties::new);
     public static final DeferredItem<HammerItem> WOODEN_HAMMER = register("wooden_hammer", properties -> new HammerItem(ToolMaterial.WOOD, 1.0f, -2.8f, properties), Item.Properties::new);
     public static final DeferredItem<ScytheItem> WOODEN_SCYTHE = register("wooden_scythe", properties -> new ScytheItem(ToolMaterial.WOOD, 0.0f, -3.0f, properties), Item.Properties::new);
+    //public static final DeferredItem<KnifeItem> WOODEN_KNIFE = register("wooden_knife", properties -> new KnifeItem(ToolMaterial.WOOD, 3.0f, -1.8f, properties), Item.Properties::new);
+    // TODO: Create Knife Item Class. Item above is a dummy item I made using what was basically just a generic sword item. Key difference is that they need to be stackable and have no durability, instead occasionally breaking depending on tool tier. Also need 1 block less interaction range.
 
     public static final DeferredItem<PickaxeAxeItem> STONE_PICKAXE_AXE = register("stone_pickaxe_axe", properties -> new PickaxeAxeItem(ToolMaterial.STONE, 7.0f, -3.2f, properties), Item.Properties::new);
     public static final DeferredItem<MattockItem> STONE_MATTOCK = register("stone_mattock", properties -> new MattockItem(ToolMaterial.STONE, 1.5f, -3.0f, properties), Item.Properties::new);

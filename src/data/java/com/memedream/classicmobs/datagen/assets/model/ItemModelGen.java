@@ -41,6 +41,7 @@ public class ItemModelGen extends ItemModelGenerators {
             ItemModelUtils.plainModel(this.createFlatItemModel(ModItems.BOLA.get(), ModelTemplates.FLAT_ITEM))));
         this.generateFlatItem(ModItems.LOCK_OF_HAG.get(), ModelTemplates.FLAT_ITEM);
         this.generateFlatItem(ModItems.HARPY_FEATHER.get(), ModelTemplates.FLAT_ITEM);
+        this.generateFlatItem(ModItems.GAZING_PEARL.get(), ModelTemplates.FLAT_ITEM);
         this.generateFlatItem(ModItems.POP_POWDER.get(), ModelTemplates.FLAT_ITEM);
         this.generateFlatItem(ModItems.BLAST_POWDER.get(), ModelTemplates.FLAT_ITEM);
         this.generateFlatItem(ModItems.CHEM_POWDER.get(), ModelTemplates.FLAT_ITEM);

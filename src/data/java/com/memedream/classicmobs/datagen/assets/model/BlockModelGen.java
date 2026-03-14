@@ -36,6 +36,10 @@ public class BlockModelGen extends BlockModelGenerators {
         this.wrapBlockItem(ModBlocks.PHANTOM_MEMBRANE_BLOCK.get(), this::createTrivialCube);
         this.wrapBlockItem(ModBlocks.ROTTEN_FLESH_BLOCK.get(), this::createTrivialCube);
         this.wrapBlockItem(ModBlocks.RUBY_ORE.get(), this::createTrivialCube);
+        this.wrapBlockItem(ModBlocks.PALM_PLANKS.get(), this::createTrivialCube);
+        this.wrapBlockItem(ModBlocks.PALM_LOG.get(), block -> this.blockStateOutput.accept(MultiVariantGenerator.dispatch(block, plainVariant(ModelTemplates.CUBE_COLUMN.create(block, new TextureMapping().put(TextureSlot.SIDE, TextureMapping.getBlockTexture(block)).put(TextureSlot.END, TextureMapping.getBlockTexture(block, "_top")), this.modelOutput)))));
+        this.wrapBlockItem(ModBlocks.STRIPPED_PALM_LOG.get(), block -> this.blockStateOutput.accept(MultiVariantGenerator.dispatch(block, plainVariant(ModelTemplates.CUBE_COLUMN.create(block, new TextureMapping().put(TextureSlot.SIDE, TextureMapping.getBlockTexture(block)).put(TextureSlot.END, TextureMapping.getBlockTexture(block, "_top")), this.modelOutput)))));
+
 
         this.generateMeatBlock(ModBlocks.RAW_BEEF_BLOCK.get(), "");
         this.generateMeatBlock(ModBlocks.COOKED_BEEF_BLOCK.get(), "");

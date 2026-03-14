@@ -40,6 +40,9 @@ public class LangGen extends LanguageProvider {
     @Override
     protected void addTranslations() {
         this.addBlock(ModBlocks.RUBY_ORE, "Ruby Ore");
+        this.addBlock(ModBlocks.PALM_LOG, "Palm Log");
+        this.addBlock(ModBlocks.STRIPPED_PALM_LOG, "Stripped Palm Log");
+        this.addBlock(ModBlocks.PALM_PLANKS, "Palm Planks");
 
         this.addBlock(ModBlocks.GUNPOWDER_BLOCK, "Block of Gunpowder");
         this.addBlock(ModBlocks.STRING_BLOCK, "Block of String");
@@ -79,6 +82,7 @@ public class LangGen extends LanguageProvider {
         this.addItem(ModItems.RUBY, "Ruby");
         this.addItem(ModItems.LOCK_OF_HAG, "Lock of Hag");
         this.addItem(ModItems.HARPY_FEATHER, "Harpy Feather");
+        this.addItem(ModItems.GAZING_PEARL, "Gazing Pearl");
         this.addItem(ModItems.POP_POWDER, "Pop Powder");
         this.addItem(ModItems.BLAST_POWDER, "Blast Powder");
         this.addItem(ModItems.CHEM_POWDER, "Chem Powder");

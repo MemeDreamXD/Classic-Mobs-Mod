@@ -108,6 +108,11 @@ public class BlockTagGen extends BlockTagsProvider {
             ModBlocks.RUBY_ORE.get()
         );
 
+        this.tag(BlockTags.MINEABLE_WITH_AXE).add(
+            ModBlocks.PALM_LOG.get(),
+            ModBlocks.STRIPPED_PALM_LOG.get()
+        );
+
         this.tag(BlockTags.NEEDS_IRON_TOOL).add(
             ModBlocks.RUBY_ORE.get()
         );

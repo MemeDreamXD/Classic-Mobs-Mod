@@ -26,6 +26,7 @@ public class ModCreativeModeTabs {
                 output.accept(ModItems.POP_POWDER);
                 output.accept(ModItems.BLAST_POWDER);
                 output.accept(ModItems.CHEM_POWDER);
+                output.accept(ModItems.GAZING_PEARL);
 
                 output.accept(ModItems.CHITIN_HELMET);
                 output.accept(ModItems.CHITIN_CHESTPLATE);
@@ -41,6 +42,7 @@ public class ModCreativeModeTabs {
                 output.accept(ModItems.WOODEN_LUMBER_AXE);
                 output.accept(ModItems.WOODEN_HAMMER);
                 output.accept(ModItems.WOODEN_SCYTHE);
+                //output.accept(ModItems.WOODEN_KNIFE);
                 output.accept(ModItems.STONE_PICKAXE_AXE);
                 output.accept(ModItems.STONE_MATTOCK);
                 output.accept(ModItems.STONE_SPADE);
@@ -80,6 +82,9 @@ public class ModCreativeModeTabs {
 
                 output.accept(ModItems.RUBY);
                 output.accept(ModBlocks.RUBY_ORE);
+                output.accept(ModBlocks.PALM_LOG);
+                output.accept(ModBlocks.STRIPPED_PALM_LOG);
+                output.accept(ModBlocks.PALM_PLANKS);
 
                 output.accept(ModBlocks.LEATHER_BLOCK);
                 output.accept(ModBlocks.SPIDER_EYE_BLOCK);

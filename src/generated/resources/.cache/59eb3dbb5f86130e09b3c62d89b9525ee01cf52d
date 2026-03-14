@@ -1,4 +1,4 @@
-// 26.1-snapshot-10	2026-03-06T12:58:25.043884376	Loot Tables
+// 26.1-snapshot-10	2026-03-14T11:14:16.1428786	Loot Tables
 ac79f04ddbc4f6bf43c873c24a03198b5baf2d00 data/classic_mobs/loot_table/blocks/blaze_rod_block.json
 d279d5655e86f1482da23f95a3f5e05f08cd90ac data/classic_mobs/loot_table/blocks/block_of_bones.json
 0c5749fdf3466f34f48f24df2839fe008408cb7b data/classic_mobs/loot_table/blocks/breeze_rod_block.json
@@ -16,6 +16,8 @@ c0de80310d2a064bba3b607b84437dad490860ae data/classic_mobs/loot_table/blocks/coo
 5673932d1793744c65c6ff9cb7e4c5fb23c91779 data/classic_mobs/loot_table/blocks/gunpowder_block.json
 324eb176f0f69826abc1bdb2e5308508f9600899 data/classic_mobs/loot_table/blocks/leather_block.json
 96bc5d1784a08ceb4c79b28d45f1dc7af40bc96d data/classic_mobs/loot_table/blocks/magma_cream_block.json
+bd1f13dcb505571aa853a65cf9b35a6e94fda214 data/classic_mobs/loot_table/blocks/palm_log.json
+063416354cf0186df6080e93dd198cf130391254 data/classic_mobs/loot_table/blocks/palm_planks.json
 15ba6b0dcd30c1602259ab6c1abdbc06c5b2b450 data/classic_mobs/loot_table/blocks/phantom_membrane_block.json
 7d8419939fa0b6e8d9838c3212be3f83c896dd59 data/classic_mobs/loot_table/blocks/pufferfish_block.json
 85f3bd2453f9c5ee477065e486f3fdce2ac87c73 data/classic_mobs/loot_table/blocks/raw_beef_block.json
@@ -30,6 +32,7 @@ eab5dd972ad56ab43ae077eef8957aec63e72fcd data/classic_mobs/loot_table/blocks/raw
 5a1551e1bef438ff02214bdfcdf8b600c03fc389 data/classic_mobs/loot_table/blocks/ruby_ore.json
 28b462424fe4a4fa2be6c6e5672979cde7d5ab45 data/classic_mobs/loot_table/blocks/spider_eye_block.json
 8298c0239487a5a20bb50230c8894a9dd96d3d4e data/classic_mobs/loot_table/blocks/string_block.json
+1750ed5088e14351d46fcdfcba3030f4ff5231a0 data/classic_mobs/loot_table/blocks/stripped_palm_log.json
 a7d925a9d44abcb02553ac16a39488513735bb38 data/classic_mobs/loot_table/blocks/tropical_fish_block.json
 4c5245ee6a3bacb7803852d793e6dceca36f249a data/classic_mobs/loot_table/entities/antlion.json
 7fb63e19d901a2095e4de14a44a030d3e8077dc6 data/classic_mobs/loot_table/entities/dodo.json

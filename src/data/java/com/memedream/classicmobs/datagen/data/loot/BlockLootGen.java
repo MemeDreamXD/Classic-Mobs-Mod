@@ -21,6 +21,11 @@ public class BlockLootGen extends BlockLootSubProvider {
     protected void generate() {
         this.add(ModBlocks.RUBY_ORE.get(), block -> this.createOreDrop(block, ModItems.RUBY.get()));
 
+        //natural blocks
+        this.dropSelf(ModBlocks.PALM_LOG.get());
+        this.dropSelf(ModBlocks.STRIPPED_PALM_LOG.get());
+        this.dropSelf(ModBlocks.PALM_PLANKS.get());
+
         //storage blocks
         this.dropSelf(ModBlocks.GUNPOWDER_BLOCK.get());
         this.dropSelf(ModBlocks.ROTTEN_FLESH_BLOCK.get());
