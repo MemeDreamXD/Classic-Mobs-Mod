@@ -3,45 +3,37 @@ package com.memedream.classicmobs.client.event;
 import com.google.common.reflect.TypeToken;
 import com.memedream.classicmobs.ClassicMobs;
 import com.memedream.classicmobs.client.ModModelLayers;
-import com.memedream.classicmobs.client.audio.BolaSoundInstance;
 import com.memedream.classicmobs.client.item.BolaSwing;
 import com.memedream.classicmobs.client.model.*;
 import com.memedream.classicmobs.client.particle.FleshDripParticle;
 import com.memedream.classicmobs.client.renderer.*;
 import com.memedream.classicmobs.client.renderer.layer.BolaLayer;
 import com.memedream.classicmobs.client.shader.ModRenderPipelines;
-import com.memedream.classicmobs.entity.BolaEntity;
-import com.memedream.classicmobs.init.ModEffects;
-import com.memedream.classicmobs.init.ModEntities;
-import com.memedream.classicmobs.init.ModItems;
-import com.memedream.classicmobs.init.ModParticles;
+import com.memedream.classicmobs.init.*;
 import com.memedream.classicmobs.item.AOEItem;
 import com.memedream.classicmobs.item.BolaItem;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.model.EntityModel;
+import net.minecraft.client.renderer.BiomeColors;
 import net.minecraft.client.renderer.entity.EntityRenderer;
 import net.minecraft.client.renderer.entity.FallingBlockRenderer;
 import net.minecraft.client.renderer.entity.LivingEntityRenderer;
-import net.minecraft.client.renderer.entity.state.EntityRenderState;
 import net.minecraft.client.renderer.entity.state.LivingEntityRenderState;
 import net.minecraft.client.renderer.state.BlockOutlineRenderState;
 import net.minecraft.core.BlockPos;
 import net.minecraft.util.context.ContextKey;
-import net.minecraft.world.entity.Entity;
-import net.minecraft.world.entity.EntityEvent;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.level.FoliageColor;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import net.neoforged.bus.api.IEventBus;
-import net.neoforged.neoforge.client.ClientHooks;
 import net.neoforged.neoforge.client.event.*;
 import net.neoforged.neoforge.client.extensions.common.RegisterClientExtensionsEvent;
 import net.neoforged.neoforge.client.renderstate.RegisterRenderStateModifiersEvent;
 import net.neoforged.neoforge.common.NeoForge;
-import net.neoforged.neoforge.event.entity.EntityJoinLevelEvent;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -59,6 +51,7 @@ public class ModClientRegistrationEvents {
         bus.addListener(EntityRenderersEvent.AddLayers.class, ModClientRegistrationEvents::addAdditionalLayers);
         bus.addListener(ModClientRegistrationEvents::registerCustomRenderData);
         bus.addListener(ModClientRegistrationEvents::registerExtensions);
+        bus.addListener(ModClientRegistrationEvents::registerBlockColors);
         NeoForge.EVENT_BUS.addListener(ModClientRegistrationEvents::displayAOEHitboxes);
         NeoForge.EVENT_BUS.addListener(ElevatorHandler::handleElevatorTeleport);
 
@@ -154,5 +147,14 @@ public class ModClientRegistrationEvents {
 
     private static void registerExtensions(RegisterClientExtensionsEvent event) {
         event.registerItem(new BolaItem.BolaAnimation(), ModItems.BOLA);
+    }
+
+    private static void registerBlockColors(RegisterColorHandlersEvent.Block event) {
+        event.register((state, level, pos, tintIndex) -> {
+            if (tintIndex != 1) {
+                return level != null && pos != null ? BiomeColors.getAverageFoliageColor(level, pos) : FoliageColor.FOLIAGE_DEFAULT;
+            }
+            return -1;
+        }, ModBlocks.PALM_LEAVES.get());
     }
 }

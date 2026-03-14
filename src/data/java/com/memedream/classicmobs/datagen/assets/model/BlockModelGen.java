@@ -10,11 +10,14 @@ import net.minecraft.client.data.models.blockstates.BlockModelDefinitionGenerato
 import net.minecraft.client.data.models.blockstates.MultiVariantGenerator;
 import net.minecraft.client.data.models.blockstates.PropertyDispatch;
 import net.minecraft.client.data.models.model.*;
+import net.minecraft.client.renderer.block.model.TextureSlots;
 import net.minecraft.client.renderer.block.model.Variant;
 import net.minecraft.core.Direction;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.Identifier;
+import net.minecraft.world.level.FoliageColor;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.StairsShape;
 
@@ -37,9 +40,18 @@ public class BlockModelGen extends BlockModelGenerators {
         this.wrapBlockItem(ModBlocks.ROTTEN_FLESH_BLOCK.get(), this::createTrivialCube);
         this.wrapBlockItem(ModBlocks.RUBY_ORE.get(), this::createTrivialCube);
         this.wrapBlockItem(ModBlocks.PALM_PLANKS.get(), this::createTrivialCube);
-        this.wrapBlockItem(ModBlocks.PALM_LOG.get(), block -> this.blockStateOutput.accept(MultiVariantGenerator.dispatch(block, plainVariant(ModelTemplates.CUBE_COLUMN.create(block, new TextureMapping().put(TextureSlot.SIDE, TextureMapping.getBlockTexture(block)).put(TextureSlot.END, TextureMapping.getBlockTexture(block, "_top")), this.modelOutput)))));
-        this.wrapBlockItem(ModBlocks.STRIPPED_PALM_LOG.get(), block -> this.blockStateOutput.accept(MultiVariantGenerator.dispatch(block, plainVariant(ModelTemplates.CUBE_COLUMN.create(block, new TextureMapping().put(TextureSlot.SIDE, TextureMapping.getBlockTexture(block)).put(TextureSlot.END, TextureMapping.getBlockTexture(block, "_top")), this.modelOutput)))));
-
+        this.woodProvider(ModBlocks.PALM_LOG.get()).logWithHorizontal(ModBlocks.PALM_LOG.get()).wood(ModBlocks.PALM_WOOD.get());
+        this.woodProvider(ModBlocks.STRIPPED_PALM_LOG.get()).logWithHorizontal(ModBlocks.STRIPPED_PALM_LOG.get()).wood(ModBlocks.STRIPPED_PALM_WOOD.get());
+        TextureSlot overlay = TextureSlot.create("overlay");
+        Identifier blockModel = ModelTemplates.create("palm_leaves", TextureSlot.PARTICLE, TextureSlot.ALL, overlay).extend().parent(Identifier.withDefaultNamespace("block/block"))
+            .element(builder -> builder.allFaces((direction, faceBuilder) -> faceBuilder.texture(TextureSlot.ALL).tintindex(0).uvs(0, 0, 16, 16).cullface(direction)))
+            .element(builder -> builder.allFaces((direction, faceBuilder) -> faceBuilder.texture(overlay).tintindex(1).uvs(0, 0, 16, 16).cullface(direction))).build()
+            .create(ModBlocks.PALM_LEAVES.get(), TextureMapping.cube(ModBlocks.PALM_LEAVES.get())
+                .put(overlay, TextureMapping.getBlockTexture(ModBlocks.PALM_LEAVES.get(), "_overlay"))
+                .put(TextureSlot.PARTICLE, TextureMapping.getBlockTexture(ModBlocks.PALM_LEAVES.get())), this.modelOutput);
+        this.blockStateOutput.accept(createSimpleBlock(ModBlocks.PALM_LEAVES.get(), plainVariant(blockModel)));
+        this.registerSimpleTintedItemModel(ModBlocks.PALM_LEAVES.get(), blockModel, ItemModelUtils.constantTint(FoliageColor.FOLIAGE_DEFAULT));
+        this.createPlantWithDefaultItem(ModBlocks.PALM_SAPLING.get(), ModBlocks.POTTED_PALM_SAPLING.get(), BlockModelGenerators.PlantType.NOT_TINTED);
 
         this.generateMeatBlock(ModBlocks.RAW_BEEF_BLOCK.get(), "");
         this.generateMeatBlock(ModBlocks.COOKED_BEEF_BLOCK.get(), "");

@@ -1,0 +1,10 @@
+{
+  "values": {
+    "classic_mobs:palm_log": {
+      "stripped_block": "classic_mobs:stripped_palm_log"
+    },
+    "classic_mobs:palm_wood": {
+      "stripped_block": "classic_mobs:stripped_palm_wood"
+    }
+  }
+}

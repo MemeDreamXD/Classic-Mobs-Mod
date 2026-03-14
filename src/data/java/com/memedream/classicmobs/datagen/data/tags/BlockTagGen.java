@@ -108,11 +108,6 @@ public class BlockTagGen extends BlockTagsProvider {
             ModBlocks.RUBY_ORE.get()
         );
 
-        this.tag(BlockTags.MINEABLE_WITH_AXE).add(
-            ModBlocks.PALM_LOG.get(),
-            ModBlocks.STRIPPED_PALM_LOG.get()
-        );
-
         this.tag(BlockTags.NEEDS_IRON_TOOL).add(
             ModBlocks.RUBY_ORE.get()
         );
@@ -127,6 +122,29 @@ public class BlockTagGen extends BlockTagsProvider {
 
         this.tag(Tags.Blocks.STORAGE_BLOCKS_SLIME).add(
             ModBlocks.MAGMA_CREAM_BLOCK.get()
+        );
+
+        this.tag(BlockTags.LOGS_THAT_BURN).add(
+            ModBlocks.PALM_LOG.get(),
+            ModBlocks.PALM_WOOD.get(),
+            ModBlocks.STRIPPED_PALM_LOG.get(),
+            ModBlocks.STRIPPED_PALM_WOOD.get()
+        );
+
+        this.tag(BlockTags.LEAVES).add(
+            ModBlocks.PALM_LEAVES.get()
+        );
+
+        this.tag(BlockTags.SAPLINGS).add(
+            ModBlocks.PALM_SAPLING.get()
+        );
+
+        this.tag(BlockTags.FLOWER_POTS).add(
+            ModBlocks.POTTED_PALM_SAPLING.get()
+        );
+
+        this.tag(BlockTags.PLANKS).add(
+            ModBlocks.PALM_PLANKS.get()
         );
     }
 }

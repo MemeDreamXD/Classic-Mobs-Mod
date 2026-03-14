@@ -1,5 +1,6 @@
 package com.memedream.classicmobs.event;
 
+import com.memedream.classicmobs.init.ModBlocks;
 import com.memedream.classicmobs.init.ModEntities;
 import com.memedream.classicmobs.init.ModItems;
 import com.memedream.classicmobs.init.ModPotions;
@@ -7,7 +8,10 @@ import com.memedream.classicmobs.network.ElevatorTeleportPacket;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.item.alchemy.PotionBrewing;
 import net.minecraft.world.item.alchemy.Potions;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.DispenserBlock;
+import net.minecraft.world.level.block.FireBlock;
+import net.minecraft.world.level.block.FlowerPotBlock;
 import net.minecraft.world.level.levelgen.Heightmap;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
@@ -39,6 +43,16 @@ public class ModRegistrationEvents {
         event.enqueueWork(() -> {
             DispenserBlock.registerProjectileBehavior(ModItems.FLIGHT_ARROW);
             DispenserBlock.registerProjectileBehavior(ModItems.BOLA);
+
+            FlowerPotBlock pot = (FlowerPotBlock) Blocks.FLOWER_POT;
+            pot.addPlant(ModBlocks.PALM_SAPLING.getId(), ModBlocks.POTTED_PALM_SAPLING);
+
+            FireBlock fireblock = (FireBlock) Blocks.FIRE;
+            fireblock.setFlammable(ModBlocks.PALM_LOG.get(), 5, 5);
+            fireblock.setFlammable(ModBlocks.PALM_WOOD.get(), 5, 5);
+            fireblock.setFlammable(ModBlocks.STRIPPED_PALM_LOG.get(), 5, 5);
+            fireblock.setFlammable(ModBlocks.STRIPPED_PALM_WOOD.get(), 5, 5);
+            fireblock.setFlammable(ModBlocks.PALM_PLANKS.get(), 5, 20);
         });
     }
 

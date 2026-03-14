@@ -1,0 +1,98 @@
+{
+  "parent": "minecraft:block/block",
+  "elements": [
+    {
+      "faces": {
+        "down": {
+          "cullface": "down",
+          "texture": "#all",
+          "tintindex": 0
+        },
+        "east": {
+          "cullface": "east",
+          "texture": "#all",
+          "tintindex": 0
+        },
+        "north": {
+          "cullface": "north",
+          "texture": "#all",
+          "tintindex": 0
+        },
+        "south": {
+          "cullface": "south",
+          "texture": "#all",
+          "tintindex": 0
+        },
+        "up": {
+          "cullface": "up",
+          "texture": "#all",
+          "tintindex": 0
+        },
+        "west": {
+          "cullface": "west",
+          "texture": "#all",
+          "tintindex": 0
+        }
+      },
+      "from": [
+        0,
+        0,
+        0
+      ],
+      "to": [
+        16,
+        16,
+        16
+      ]
+    },
+    {
+      "faces": {
+        "down": {
+          "cullface": "down",
+          "texture": "#overlay",
+          "tintindex": 1
+        },
+        "east": {
+          "cullface": "east",
+          "texture": "#overlay",
+          "tintindex": 1
+        },
+        "north": {
+          "cullface": "north",
+          "texture": "#overlay",
+          "tintindex": 1
+        },
+        "south": {
+          "cullface": "south",
+          "texture": "#overlay",
+          "tintindex": 1
+        },
+        "up": {
+          "cullface": "up",
+          "texture": "#overlay",
+          "tintindex": 1
+        },
+        "west": {
+          "cullface": "west",
+          "texture": "#overlay",
+          "tintindex": 1
+        }
+      },
+      "from": [
+        0,
+        0,
+        0
+      ],
+      "to": [
+        16,
+        16,
+        16
+      ]
+    }
+  ],
+  "textures": {
+    "all": "classic_mobs:block/palm_leaves",
+    "overlay": "classic_mobs:block/palm_leaves_overlay",
+    "particle": "classic_mobs:block/palm_leaves"
+  }
+}

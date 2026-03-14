@@ -5,7 +5,9 @@ import com.memedream.classicmobs.init.ModItems;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.loot.BlockLootSubProvider;
 import net.minecraft.world.flag.FeatureFlags;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
 import net.neoforged.neoforge.registries.DeferredHolder;
 
 import java.util.Set;
@@ -23,8 +25,13 @@ public class BlockLootGen extends BlockLootSubProvider {
 
         //natural blocks
         this.dropSelf(ModBlocks.PALM_LOG.get());
+        this.dropSelf(ModBlocks.PALM_WOOD.get());
         this.dropSelf(ModBlocks.STRIPPED_PALM_LOG.get());
+        this.dropSelf(ModBlocks.STRIPPED_PALM_WOOD.get());
         this.dropSelf(ModBlocks.PALM_PLANKS.get());
+        this.dropSelf(ModBlocks.PALM_SAPLING.get());
+        this.dropPottedContents(ModBlocks.POTTED_PALM_SAPLING.get());
+        this.add(ModBlocks.PALM_LEAVES.get(), block -> this.createLeavesDrops(block, ModBlocks.PALM_SAPLING.get(), NORMAL_LEAVES_SAPLING_CHANCES));
 
         //storage blocks
         this.dropSelf(ModBlocks.GUNPOWDER_BLOCK.get());
