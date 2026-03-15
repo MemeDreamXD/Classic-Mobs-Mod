@@ -1,0 +1,6 @@
+{
+  "type": "neoforge:add_features",
+  "biomes": "#classic_mobs:spawns_rare_palm_trees",
+  "features": "classic_mobs:rare_palm_tree",
+  "step": "vegetal_decoration"
+}

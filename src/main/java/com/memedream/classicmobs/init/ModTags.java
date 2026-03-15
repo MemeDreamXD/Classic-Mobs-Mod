@@ -2,15 +2,22 @@ package com.memedream.classicmobs.init;
 
 import com.memedream.classicmobs.ClassicMobs;
 import net.minecraft.core.registries.Registries;
-import net.minecraft.tags.BlockTags;
-import net.minecraft.tags.EntityTypeTags;
-import net.minecraft.tags.ItemTags;
-import net.minecraft.tags.TagKey;
+import net.minecraft.tags.*;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.block.Block;
 
 public class ModTags {
+
+    public static class Biomes {
+        public static final TagKey<Biome> SPAWNS_PALM_TREES = create("spawns_palm_trees");
+        public static final TagKey<Biome> SPAWNS_RARE_PALM_TREES = create("spawns_rare_palm_trees");
+
+        private static TagKey<Biome> create(String tagName) {
+            return TagKey.create(Registries.BIOME, ClassicMobs.prefix(tagName));
+        }
+    }
 
     public static class Blocks {
         public static final TagKey<Block> MINEABLE_WITH_MATTOCK = create("mineable/mattock");

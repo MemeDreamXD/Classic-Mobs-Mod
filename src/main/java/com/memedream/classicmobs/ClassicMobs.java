@@ -38,6 +38,9 @@ public class ClassicMobs {
         ModRecipes.RECIPE_TYPES.register(bus);
         ModEntityDataSerializers.SERIALIZERS.register(bus);
         ModBlockEntities.BLOCK_ENTITIES.register(bus);
+        ModFeatures.FEATURES.register(bus);
+        ModTreeFeatures.FOLIAGE_PLACERS.register(bus);
+        ModTreeFeatures.TRUNK_PLACERS.register(bus);
 
         // Register our mod's ModConfigSpec so that FML can create and load the config file for us
         //...we'll do this if we actually add a config file

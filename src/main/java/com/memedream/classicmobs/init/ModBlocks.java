@@ -3,6 +3,7 @@ package com.memedream.classicmobs.init;
 import com.memedream.classicmobs.ClassicMobs;
 import com.memedream.classicmobs.block.*;
 import com.memedream.classicmobs.item.components.ModFoodProperties;
+import com.memedream.classicmobs.world.tree.ModTreeGrowers;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.util.valueproviders.UniformInt;
@@ -33,7 +34,7 @@ public class ModBlocks {
     public static final DeferredBlock<RotatedPillarBlock> STRIPPED_PALM_LOG = registerWithItem("stripped_palm_log", RotatedPillarBlock::new, () -> BlockBehaviour.Properties.of().mapColor(MapColor.PODZOL).instrument(NoteBlockInstrument.BASS).strength(2.0F).sound(SoundType.WOOD).ignitedByLava());
     public static final DeferredBlock<RotatedPillarBlock> STRIPPED_PALM_WOOD = registerWithItem("stripped_palm_wood", RotatedPillarBlock::new, () -> BlockBehaviour.Properties.of().mapColor(MapColor.PODZOL).instrument(NoteBlockInstrument.BASS).strength(2.0F).sound(SoundType.WOOD).ignitedByLava());
     public static final DeferredBlock<Block> PALM_PLANKS = registerWithItem("palm_planks", Block::new, () -> BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_ORANGE).instrument(NoteBlockInstrument.BASS).strength(2.0F).sound(SoundType.WOOD).ignitedByLava());
-    public static final DeferredBlock<Block> PALM_SAPLING = registerWithItem("palm_sapling", Block::new, () -> BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_ORANGE).noCollision().randomTicks().instabreak().sound(SoundType.GRASS).pushReaction(PushReaction.DESTROY));
+    public static final DeferredBlock<Block> PALM_SAPLING = registerWithItem("palm_sapling", properties -> new PalmTreeSaplingBlock(ModTreeGrowers.PALM, properties), () -> BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_ORANGE).noCollision().randomTicks().instabreak().sound(SoundType.GRASS).pushReaction(PushReaction.DESTROY));
     public static final DeferredBlock<Block> POTTED_PALM_SAPLING = register("potted_palm_sapling", properties -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, PALM_SAPLING, properties), () -> BlockBehaviour.Properties.of().instabreak().noOcclusion().pushReaction(PushReaction.DESTROY));
 
     public static final DeferredBlock<Block> GUNPOWDER_BLOCK = registerWithItem("gunpowder_block", GunpowderBlock::new, () -> BlockBehaviour.Properties.of().mapColor(MapColor.STONE).instrument(NoteBlockInstrument.SNARE).strength(0.5F).sound(SoundType.SAND).ignitedByLava());

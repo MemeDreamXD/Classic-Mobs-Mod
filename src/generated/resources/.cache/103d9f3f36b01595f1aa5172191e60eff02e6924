@@ -1,2 +1,7 @@
-// 26.1-snapshot-10	2026-03-06T12:58:25.044618269	Registries
+// 26.1-snapshot-10	2026-03-15T15:26:52.533744462	Registries
 5c04e478ce5d22c92a401dcfb5da5360a59e0338 data/classic_mobs/damage_type/adventurous_eater.json
+e290a2b5d1857eb42b90d1dc85dea78f3d6927c3 data/classic_mobs/neoforge/biome_modifier/palm_trees.json
+bee0c8b6067be06617bd55097176ad2a0fcc20ee data/classic_mobs/neoforge/biome_modifier/rare_palm_trees.json
+12b9acb1b86a4618da4842c2d8cf806f77e0a83b data/classic_mobs/worldgen/configured_feature/palm_tree.json
+09fecd4265d1e2cb53fa9537f79c5bf0d7db6248 data/classic_mobs/worldgen/placed_feature/palm_tree.json
+0bce4d57a17df9858b5e66064420af0f1c0f5b63 data/classic_mobs/worldgen/placed_feature/rare_palm_tree.json
