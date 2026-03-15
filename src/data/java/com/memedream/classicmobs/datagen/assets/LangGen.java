@@ -46,6 +46,7 @@ public class LangGen extends LanguageProvider {
         this.addBlock(ModBlocks.PALM_LEAVES, "Palm Leaves");
         this.addBlock(ModBlocks.PALM_SAPLING, "Palm Sapling");
         this.addBlock(ModBlocks.POTTED_PALM_SAPLING, "Palm Sapling");
+        this.addBlock(ModBlocks.KETTLE, "Tea Kettle");
 
         this.addBlock(ModBlocks.GUNPOWDER_BLOCK, "Block of Gunpowder");
         this.addBlock(ModBlocks.STRING_BLOCK, "Block of String");

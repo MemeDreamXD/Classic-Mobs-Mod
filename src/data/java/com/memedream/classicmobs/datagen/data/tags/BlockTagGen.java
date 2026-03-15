@@ -6,6 +6,7 @@ import com.memedream.classicmobs.init.ModTags;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.tags.BlockTags;
+import net.minecraft.world.level.block.Blocks;
 import net.neoforged.neoforge.common.Tags;
 import net.neoforged.neoforge.common.data.BlockTagsProvider;
 
@@ -105,7 +106,8 @@ public class BlockTagGen extends BlockTagsProvider {
         this.tag(BlockTags.MINEABLE_WITH_PICKAXE).add(
             ModBlocks.CHITIN_BLOCK.get(),
             ModBlocks.BLOCK_OF_BONES.get(),
-            ModBlocks.RUBY_ORE.get()
+            ModBlocks.RUBY_ORE.get(),
+            ModBlocks.KETTLE.get()
         );
 
         this.tag(BlockTags.NEEDS_IRON_TOOL).add(
@@ -145,6 +147,14 @@ public class BlockTagGen extends BlockTagsProvider {
 
         this.tag(BlockTags.PLANKS).add(
             ModBlocks.PALM_PLANKS.get()
+        );
+
+        this.tag(ModTags.Blocks.KETTLE_HEATER).addTags(
+            BlockTags.FIRE,
+            BlockTags.CAMPFIRES,
+            BlockTags.STRIDER_WARM_BLOCKS).add(
+            Blocks.MAGMA_BLOCK,
+            Blocks.LAVA_CAULDRON
         );
     }
 }

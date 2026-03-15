@@ -122,5 +122,6 @@ public class ModCreativeModeTabs {
             output.accept(ModBlocks.TROPICAL_FISH_BLOCK);
             output.accept(ModBlocks.PUFFERFISH_BLOCK);
 
+            output.accept(ModBlocks.KETTLE);
         }).build());
 }

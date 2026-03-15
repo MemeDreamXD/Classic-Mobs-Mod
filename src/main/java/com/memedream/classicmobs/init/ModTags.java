@@ -22,6 +22,7 @@ public class ModTags {
     public static class Blocks {
         public static final TagKey<Block> MINEABLE_WITH_MATTOCK = create("mineable/mattock");
         public static final TagKey<Block> MINEABLE_WITH_PICKAXE_AXE = create("mineable/pickaxe_axe");
+        public static final TagKey<Block> KETTLE_HEATER = create("kettle_heater");
 
         private static TagKey<Block> create(String tagName) {
             return BlockTags.create(ClassicMobs.prefix(tagName));

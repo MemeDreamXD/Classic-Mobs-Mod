@@ -1,4 +1,4 @@
-// 26.1-snapshot-10	2026-03-14T11:09:52.433102588	Model Definitions - classic_mobs
+// 26.1-snapshot-10	2026-03-15T16:57:00.786843932	Model Definitions - classic_mobs
 e7fac52b34d2d13206e904abb50c6fdd810e0616 assets/classic_mobs/blockstates/chitin_block.json
 f024fc4e2b3331b4502302eddacc64ec6d1cf7a2 assets/classic_mobs/blockstates/cooked_beef_block.json
 19b1e68153e7ff9340d5fdc5d153f2234807c185 assets/classic_mobs/blockstates/cooked_chicken_block.json
@@ -9,6 +9,7 @@ e0b0f88997833d603998ada49ddc477e4e4cb9f8 assets/classic_mobs/blockstates/cooked_
 c1f9031aa521515133921dd254cd7e462c5c1b8d assets/classic_mobs/blockstates/cooked_rabbit_block.json
 8457576152f6fd4be9f44dbe4cbe7eb23478df94 assets/classic_mobs/blockstates/cooked_salmon_block.json
 f92aeb48de772a0836f39e6ee7e755172a0118f9 assets/classic_mobs/blockstates/gunpowder_block.json
+4e1e5db8c8afeaa646c1b392029ca523c0f20190 assets/classic_mobs/blockstates/kettle.json
 1580e32b2d3ad43257e35840cf32a42a9521ed37 assets/classic_mobs/blockstates/leather_block.json
 f7cc93a1964e2655246a08f752a223d0ff8eecc1 assets/classic_mobs/blockstates/palm_leaves.json
 81106570e29466d0a6c62155cbbab7520c30960b assets/classic_mobs/blockstates/palm_log.json
@@ -89,6 +90,7 @@ ec8255c982a434c8dad8e71601661270dd308602 assets/classic_mobs/items/iron_lumber_a
 bda2d960965cf8596600382d95fd4c52458b10eb assets/classic_mobs/items/iron_pickaxe_axe.json
 cabc101461301aaace2a301ccae45bb623177a3e assets/classic_mobs/items/iron_scythe.json
 27d6bcc798ef58c00aa56d4e8eed4674138d8029 assets/classic_mobs/items/iron_spade.json
+70a822581f79add4858d27372f6393473ec1259b assets/classic_mobs/items/kettle.json
 9545b5c216ca77e1b3dc9d2ca807c0c7a5a65db6 assets/classic_mobs/items/leather_block.json
 b884e74fa36bc177ae875958fa773978bda84c9b assets/classic_mobs/items/lock_of_hag.json
 b076513d60eb0d73323a72b4aa43a2eb17bddeb2 assets/classic_mobs/items/magma_cream_block.json

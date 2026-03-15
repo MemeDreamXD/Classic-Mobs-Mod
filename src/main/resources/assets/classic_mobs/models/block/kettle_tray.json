@@ -1,0 +1,152 @@
+{
+  "texture_size": [32, 32],
+  "parent": "block/block",
+  "textures": {
+    "kettle": "classic_mobs:block/kettle",
+    "particle": "block/cauldron_inner"
+  },
+  "elements": [
+    {
+      "name": "base",
+      "from": [4.5, 0, 4.5],
+      "to": [11.5, 1, 11.5],
+      "faces": {
+        "north": {"uv": [4, 7.5, 7.5, 8], "texture": "#kettle"},
+        "east": {"uv": [4, 7.5, 7.5, 8], "texture": "#kettle"},
+        "south": {"uv": [4, 7.5, 7.5, 8], "texture": "#kettle"},
+        "west": {"uv": [4, 7.5, 7.5, 8], "texture": "#kettle"},
+        "down": {"uv": [7.5, 3.5, 4, 7], "texture": "#kettle"}
+      }
+    },
+    {
+      "name": "body",
+      "from": [4, 1, 4],
+      "to": [12, 6, 12],
+      "faces": {
+        "north": {"uv": [7.5, 0, 11.5, 2.5], "texture": "#kettle"},
+        "east": {"uv": [7.5, 0, 11.5, 2.5], "texture": "#kettle"},
+        "south": {"uv": [7.5, 0, 11.5, 2.5], "texture": "#kettle"},
+        "west": {"uv": [7.5, 0, 11.5, 2.5], "texture": "#kettle"},
+        "up": {"uv": [4, 4, 0, 0], "texture": "#kettle"},
+        "down": {"uv": [4, 4, 0, 8], "texture": "#kettle"}
+      }
+    },
+    {
+      "name": "cap",
+      "from": [6, 6, 6],
+      "to": [10, 7, 10],
+      "faces": {
+        "north": {"uv": [7.5, 4, 9.5, 4.5], "texture": "#kettle"},
+        "east": {"uv": [7.5, 4, 9.5, 4.5], "texture": "#kettle"},
+        "south": {"uv": [7.5, 4, 9.5, 4.5], "texture": "#kettle"},
+        "west": {"uv": [7.5, 4, 9.5, 4.5], "texture": "#kettle"},
+        "up": {"uv": [9.5, 6, 7.5, 4], "texture": "#kettle"}
+      }
+    },
+    {
+      "name": "cap2",
+      "from": [7, 5.5, 7],
+      "to": [9, 7.5, 9],
+      "faces": {
+        "north": {"uv": [9, 7.5, 9.5, 8], "texture": "#kettle"},
+        "east": {"uv": [9, 7.5, 9.5, 8], "texture": "#kettle"},
+        "south": {"uv": [9, 7.5, 9.5, 8], "texture": "#kettle"},
+        "west": {"uv": [9, 7.5, 9.5, 8], "texture": "#kettle"},
+        "up": {"uv": [9.5, 8, 9, 7.5], "texture": "#kettle"}
+      }
+    },
+    {
+      "name": "handle",
+      "from": [5, 6, 8],
+      "to": [11, 9, 8],
+      "rotation": {"angle": 27.5, "axis": "x", "origin": [7, 6, 8]},
+      "faces": {
+        "north": {"uv": [7.5, 2.5, 10.5, 4], "texture": "#kettle"},
+        "south": {"uv": [7.5, 2.5, 10.5, 4], "texture": "#kettle"}
+      }
+    },
+    {
+      "name": "spout",
+      "from": [7, 2, 3],
+      "to": [9, 4, 5],
+      "rotation": {"angle": -20, "axis": "x", "origin": [7, 2, 3]},
+      "faces": {
+        "north": {"uv": [10.5, 2.5, 11.5, 3.5], "texture": "#kettle"},
+        "east": {"uv": [7.5, 6, 8.5, 7], "texture": "#kettle"},
+        "west": {"uv": [9.5, 4, 10.5, 5], "texture": "#kettle"},
+        "up": {"uv": [11.5, 5, 10.5, 4], "texture": "#kettle"},
+        "down": {"uv": [10.5, 5, 9.5, 6], "texture": "#kettle"}
+      }
+    },
+    {
+      "name": "spout2",
+      "from": [8, 3, 1],
+      "to": [8, 5, 4],
+      "faces": {
+        "east": {"uv": [7.5, 7, 9, 8], "texture": "#kettle"},
+        "west": {"uv": [7.5, 7, 9, 8], "texture": "#kettle"}
+      }
+    },
+    {
+      "name": "grate",
+      "from": [0, -1, 0],
+      "to": [16, 0, 16],
+      "faces": {
+        "north": {"uv": [0, 8, 8, 8.5], "texture": "#kettle"},
+        "east": {"uv": [0, 8, 8, 8.5], "texture": "#kettle"},
+        "south": {"uv": [0, 8, 8, 8.5], "texture": "#kettle"},
+        "west": {"uv": [0, 8, 8, 8.5], "texture": "#kettle"},
+        "up": {"uv": [8, 8, 16, 16], "texture": "#kettle"},
+        "down": {"uv": [8, 8, 16, 16], "texture": "#kettle"}
+      }
+    },
+    {
+      "name": "leg1",
+      "from": [0, -16, 0],
+      "to": [1, -1, 1],
+      "faces": {
+        "north": {"uv": [7.5, 8.5, 8, 16], "texture": "#kettle"},
+        "east": {"uv": [7.5, 8.5, 8, 16], "texture": "#kettle"},
+        "south": {"uv": [0, 8.5, 0.5, 16], "texture": "#kettle"},
+        "west": {"uv": [0, 8.5, 0.5, 16], "texture": "#kettle"},
+        "down": {"uv": [0, 8, 0.5, 8.5], "texture": "#kettle"}
+      }
+    },
+    {
+      "name": "leg2",
+      "from": [15, -16, 0],
+      "to": [16, -1, 1],
+      "faces": {
+        "north": {"uv": [0, 8.5, 0.5, 16], "texture": "#kettle"},
+        "east": {"uv": [7.5, 8.5, 8, 16], "texture": "#kettle"},
+        "south": {"uv": [7.5, 8.5, 8, 16], "texture": "#kettle"},
+        "west": {"uv": [0, 8.5, 0.5, 16], "texture": "#kettle"},
+        "down": {"uv": [0, 8, 0.5, 8.5], "texture": "#kettle"}
+      }
+    },
+    {
+      "name": "leg3",
+      "from": [0, -16, 15],
+      "to": [1, -1, 16],
+      "faces": {
+        "north": {"uv": [7.5, 8.5, 8, 16], "texture": "#kettle"},
+        "east": {"uv": [0, 8.5, 0.5, 16], "texture": "#kettle"},
+        "south": {"uv": [0, 8.5, 0.5, 16], "texture": "#kettle"},
+        "west": {"uv": [7.5, 8.5, 8, 16], "texture": "#kettle"},
+        "down": {"uv": [0, 8, 0.5, 8.5], "texture": "#kettle"}
+      }
+    },
+    {
+      "name": "leg4",
+      "from": [15, -16, 15],
+      "to": [16, -1, 16],
+      "faces": {
+        "north": {"uv": [0, 8.5, 0.5, 16], "texture": "#kettle"},
+        "east": {"uv": [0, 8.5, 0.5, 16], "texture": "#kettle"},
+        "south": {"uv": [7.5, 8.5, 8, 16], "texture": "#kettle"},
+        "west": {"uv": [7.5, 8.5, 8, 16], "texture": "#kettle"},
+        "down": {"uv": [0, 8, 0.5, 8.5], "texture": "#kettle"}
+      }
+    }
+  ]
+}

@@ -1,6 +1,7 @@
 package com.memedream.classicmobs.datagen.assets.model;
 
 import com.memedream.classicmobs.ClassicMobs;
+import com.memedream.classicmobs.block.KettleBlock;
 import com.memedream.classicmobs.block.MeatBlock;
 import com.memedream.classicmobs.init.ModBlocks;
 import net.minecraft.client.data.models.BlockModelGenerators;
@@ -10,6 +11,7 @@ import net.minecraft.client.data.models.blockstates.BlockModelDefinitionGenerato
 import net.minecraft.client.data.models.blockstates.MultiVariantGenerator;
 import net.minecraft.client.data.models.blockstates.PropertyDispatch;
 import net.minecraft.client.data.models.model.*;
+import net.minecraft.client.renderer.block.model.Material;
 import net.minecraft.client.renderer.block.model.TextureSlots;
 import net.minecraft.client.renderer.block.model.Variant;
 import net.minecraft.core.Direction;
@@ -81,6 +83,8 @@ public class BlockModelGen extends BlockModelGenerators {
         this.generateBlockItem(ModBlocks.BREEZE_ROD_BLOCK.get());
         this.generateBlockItem(ModBlocks.SPIDER_EYE_BLOCK.get());
         this.generateBlockItem(ModBlocks.FERMENTED_SPIDER_EYE_BLOCK.get());
+
+        this.wrapBlockItem(ModBlocks.KETTLE.get(), block -> this.blockStateOutput.accept(MultiVariantGenerator.dispatch(block).with(createBooleanModelDispatch(KettleBlock.TRAY, plainVariant(ModelLocationUtils.getModelLocation(block, "_tray")), plainVariant(ModelLocationUtils.getModelLocation(block)))).with(ROTATION_HORIZONTAL_FACING)));
     }
 
     private void generateMeatBlock(Block block, String prefix) {
