@@ -30,6 +30,21 @@ public class ClassicMobsEnumExtensions {
         }
     });
 
+    /**
+     * {@link net.minecraft.client.model.HumanoidModel.ArmPose}<p/>
+     */
+    public static final EnumProxy<HumanoidModel.ArmPose> CLASSIC_MOBS_KNIFE_STABBY = new EnumProxy<>(HumanoidModel.ArmPose.class, false, false, (IArmPoseTransformer) (model, state, arm) -> {
+        float initialXRot = (float) Math.toRadians(165.0D);
+        float initialZRot = (float) Math.toRadians(30.0D);
+
+        float ticksUsed = state.attackTime;
+        if (arm == HumanoidArm.RIGHT) {
+            model.rightArm.xRot = -Mth.PI + Mth.sin(ticksUsed);
+        } else {
+            model.leftArm.yRot = -Mth.PI + Mth.sin(ticksUsed);
+        }
+    });
+
     private static Vec2 calculateCirclePoint(float progress) {
         double rads = Math.toRadians(progress % 360);
         return new Vec2(Mth.sin(rads * 70) / 5, Mth.cos(rads * 70) / 5);

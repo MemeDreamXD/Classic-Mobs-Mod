@@ -116,6 +116,7 @@ public class LangGen extends LanguageProvider {
         this.addItem(ModItems.WOODEN_LUMBER_AXE, "Wooden Lumber");
         this.addItem(ModItems.WOODEN_SCYTHE, "Wooden Scythe");
         this.addItem(ModItems.WOODEN_HAMMER, "Wooden Hammer");
+        this.addItem(ModItems.WOODEN_KNIFE, "Wooden Knife");
 
         this.addItem(ModItems.STONE_PICKAXE_AXE, "Stone Pickaxe-Axe");
         this.addItem(ModItems.STONE_MATTOCK, "Stone Mattock");
@@ -123,6 +124,7 @@ public class LangGen extends LanguageProvider {
         this.addItem(ModItems.STONE_LUMBER_AXE, "Stone Lumber");
         this.addItem(ModItems.STONE_SCYTHE, "Stone Scythe");
         this.addItem(ModItems.STONE_HAMMER, "Stone Hammer");
+        this.addItem(ModItems.STONE_KNIFE, "Stone Knife");
 
         this.addItem(ModItems.COPPER_PICKAXE_AXE, "Copper Pickaxe-Axe");
         this.addItem(ModItems.COPPER_MATTOCK, "Copper Mattock");
@@ -130,6 +132,7 @@ public class LangGen extends LanguageProvider {
         this.addItem(ModItems.COPPER_LUMBER_AXE, "Copper Lumber");
         this.addItem(ModItems.COPPER_SCYTHE, "Copper Scythe");
         this.addItem(ModItems.COPPER_HAMMER, "Copper Hammer");
+        this.addItem(ModItems.COPPER_KNIFE, "Copper Knife");
 
         this.addItem(ModItems.GOLDEN_PICKAXE_AXE, "Golden Pickaxe-Axe");
         this.addItem(ModItems.GOLDEN_MATTOCK, "Golden Mattock");
@@ -137,6 +140,7 @@ public class LangGen extends LanguageProvider {
         this.addItem(ModItems.GOLDEN_LUMBER_AXE, "Golden Lumber");
         this.addItem(ModItems.GOLDEN_SCYTHE, "Golden Scythe");
         this.addItem(ModItems.GOLDEN_HAMMER, "Golden Hammer");
+        this.addItem(ModItems.GOLDEN_KNIFE, "Golden Knife");
 
         this.addItem(ModItems.IRON_PICKAXE_AXE, "Iron Pickaxe-Axe");
         this.addItem(ModItems.IRON_MATTOCK, "Iron Mattock");
@@ -144,6 +148,7 @@ public class LangGen extends LanguageProvider {
         this.addItem(ModItems.IRON_LUMBER_AXE, "Iron Lumber");
         this.addItem(ModItems.IRON_SCYTHE, "Iron Scythe");
         this.addItem(ModItems.IRON_HAMMER, "Iron Hammer");
+        this.addItem(ModItems.IRON_KNIFE, "Iron Knife");
 
         this.addItem(ModItems.DIAMOND_PICKAXE_AXE, "Diamond Pickaxe-Axe");
         this.addItem(ModItems.DIAMOND_MATTOCK, "Diamond Mattock");
@@ -151,6 +156,7 @@ public class LangGen extends LanguageProvider {
         this.addItem(ModItems.DIAMOND_LUMBER_AXE, "Diamond Lumber");
         this.addItem(ModItems.DIAMOND_SCYTHE, "Diamond Scythe");
         this.addItem(ModItems.DIAMOND_HAMMER, "Diamond Hammer");
+        this.addItem(ModItems.DIAMOND_KNIFE, "Diamond Knife");
 
         this.addItem(ModItems.NETHERITE_PICKAXE_AXE, "Netherite Pickaxe-Axe");
         this.addItem(ModItems.NETHERITE_MATTOCK, "Netherite Mattock");
@@ -158,6 +164,7 @@ public class LangGen extends LanguageProvider {
         this.addItem(ModItems.NETHERITE_LUMBER_AXE, "Netherite Lumber");
         this.addItem(ModItems.NETHERITE_SCYTHE, "Netherite Scythe");
         this.addItem(ModItems.NETHERITE_HAMMER, "Netherite Hammer");
+        this.addItem(ModItems.NETHERITE_KNIFE, "Netherite Knife");
 
         this.addEntityAndEgg(ModEntities.ANTLION, "Antlion");
         this.addEntityAndEgg(ModEntities.DODO, "Dodo");

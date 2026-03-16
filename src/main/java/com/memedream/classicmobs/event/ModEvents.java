@@ -1,15 +1,24 @@
 package com.memedream.classicmobs.event;
 
+import com.memedream.classicmobs.entity.ThrownKnifeEntity;
 import com.memedream.classicmobs.init.ModBlocks;
+import com.memedream.classicmobs.init.ModDataAttachments;
 import com.memedream.classicmobs.init.ModEffects;
 import net.minecraft.core.Direction;
+import net.minecraft.core.component.DataComponents;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.entity.projectile.Projectile;
+import net.minecraft.world.entity.projectile.arrow.AbstractArrow;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.Vec3;
 import net.neoforged.neoforge.common.Tags;
 import net.neoforged.neoforge.event.entity.ProjectileImpactEvent;
+import net.neoforged.neoforge.event.entity.living.LivingDeathEvent;
 import net.neoforged.neoforge.event.entity.living.MobEffectEvent;
 import net.neoforged.neoforge.event.entity.player.PlayerEvent;
 
@@ -44,6 +53,22 @@ public class ModEvents {
     public static void sorryBossCantRemoveTheCurse(MobEffectEvent.Remove event) {
         if (event.getEffect().is(ModEffects.FAE_CURSE) && (!(event.getEntity() instanceof Player player) || !player.isCreative())) {
            event.setCanceled(true);
+        }
+    }
+
+    public static void dropKnivesOnDeath(LivingDeathEvent event) {
+        if (!event.getEntity().getData(ModDataAttachments.STUCK_KNIVES).getStuckKnives().isEmpty() && event.getEntity().level() instanceof ServerLevel level) {
+            LivingEntity victim = event.getEntity();
+            for (ItemStack item : victim.getData(ModDataAttachments.STUCK_KNIVES).getStuckKnives()) {
+                ThrownKnifeEntity knife = Projectile.spawnProjectileUsingShoot(ThrownKnifeEntity::new, level, item, victim,
+                    victim.getRandom().nextFloat() * 360.0F * victim.getRandom().nextIntBetweenInclusive(-1, 1),
+                    victim.getRandom().nextFloat(),
+                    victim.getRandom().nextFloat() * 360.0F * victim.getRandom().nextIntBetweenInclusive(-1, 1),
+                    0.15F,
+                    1.0F);
+                knife.setNoDamage();
+                knife.pickup = item.has(DataComponents.INTANGIBLE_PROJECTILE) ? AbstractArrow.Pickup.CREATIVE_ONLY : AbstractArrow.Pickup.ALLOWED;
+            }
         }
     }
 }

@@ -5,6 +5,7 @@ import com.memedream.classicmobs.init.ModEntities;
 import com.memedream.classicmobs.init.ModItems;
 import com.memedream.classicmobs.init.ModPotions;
 import com.memedream.classicmobs.network.ElevatorTeleportPacket;
+import com.memedream.classicmobs.network.UpdateStuckKnivesPacket;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.item.alchemy.PotionBrewing;
 import net.minecraft.world.item.alchemy.Potions;
@@ -37,6 +38,7 @@ public class ModRegistrationEvents {
         NeoForge.EVENT_BUS.addListener(ModEvents::chitinProjectileParrying);
         NeoForge.EVENT_BUS.addListener(ModEvents::faeCurseWeakness);
         NeoForge.EVENT_BUS.addListener(ModEvents::sorryBossCantRemoveTheCurse);
+        NeoForge.EVENT_BUS.addListener(ModEvents::dropKnivesOnDeath);
     }
 
     public static void registerStartupStuff(FMLCommonSetupEvent event) {
@@ -58,6 +60,9 @@ public class ModRegistrationEvents {
 
     public static void registerPackets(RegisterPayloadHandlersEvent event) {
         PayloadRegistrar registrar = event.registrar("1.0.0");
+
+        registrar.playToClient(UpdateStuckKnivesPacket.TYPE, UpdateStuckKnivesPacket.STREAM_CODEC, UpdateStuckKnivesPacket::handle);
+
         registrar.playToServer(ElevatorTeleportPacket.TYPE, ElevatorTeleportPacket.STREAM_CODEC, ElevatorTeleportPacket::handle);
     }
 

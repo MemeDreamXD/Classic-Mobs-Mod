@@ -1,0 +1,14 @@
+{
+  "model": {
+    "type": "minecraft:condition",
+    "on_false": {
+      "type": "minecraft:model",
+      "model": "classic_mobs:item/iron_knife"
+    },
+    "on_true": {
+      "type": "minecraft:model",
+      "model": "classic_mobs:item/iron_knife_stab"
+    },
+    "property": "classic_mobs:knife_stab"
+  }
+}

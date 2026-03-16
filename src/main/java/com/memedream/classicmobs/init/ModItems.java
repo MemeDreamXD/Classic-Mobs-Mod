@@ -7,13 +7,11 @@ import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Rarity;
-import net.minecraft.world.item.SpawnEggItem;
 import net.minecraft.world.item.ToolMaterial;
 import net.minecraft.world.item.equipment.ArmorType;
 import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
-import javax.tools.Tool;
 import java.util.function.Function;
 import java.util.function.Supplier;
 
@@ -40,8 +38,7 @@ public class ModItems {
     public static final DeferredItem<LumberAxeItem> WOODEN_LUMBER_AXE = register("wooden_lumber_axe", properties -> new LumberAxeItem(ToolMaterial.WOOD, 1.5f, -3.0f, properties), Item.Properties::new);
     public static final DeferredItem<HammerItem> WOODEN_HAMMER = register("wooden_hammer", properties -> new HammerItem(ToolMaterial.WOOD, 1.0f, -2.8f, properties), Item.Properties::new);
     public static final DeferredItem<ScytheItem> WOODEN_SCYTHE = register("wooden_scythe", properties -> new ScytheItem(ToolMaterial.WOOD, 0.0f, -3.0f, properties), Item.Properties::new);
-    //public static final DeferredItem<KnifeItem> WOODEN_KNIFE = register("wooden_knife", properties -> new KnifeItem(ToolMaterial.WOOD, 3.0f, -1.8f, properties), Item.Properties::new);
-    // TODO: Create Knife Item Class. Item above is a dummy item I made using what was basically just a generic sword item. Key difference is that they need to be stackable and have no durability, instead occasionally breaking depending on tool tier. Also need 1 block less interaction range.
+    public static final DeferredItem<KnifeItem> WOODEN_KNIFE = register("wooden_knife", properties -> new KnifeItem(ToolMaterial.WOOD, 2.0F, -1.8F, properties), Item.Properties::new);
 
     public static final DeferredItem<PickaxeAxeItem> STONE_PICKAXE_AXE = register("stone_pickaxe_axe", properties -> new PickaxeAxeItem(ToolMaterial.STONE, 7.0f, -3.2f, properties), Item.Properties::new);
     public static final DeferredItem<MattockItem> STONE_MATTOCK = register("stone_mattock", properties -> new MattockItem(ToolMaterial.STONE, 1.5f, -3.0f, properties), Item.Properties::new);
@@ -49,6 +46,7 @@ public class ModItems {
     public static final DeferredItem<LumberAxeItem> STONE_LUMBER_AXE = register("stone_lumber_axe", properties -> new LumberAxeItem(ToolMaterial.STONE, 7.0f, -3.2f, properties), Item.Properties::new);
     public static final DeferredItem<HammerItem> STONE_HAMMER = register("stone_hammer", properties -> new HammerItem(ToolMaterial.STONE, 1.0f, -2.8f, properties), Item.Properties::new);
     public static final DeferredItem<ScytheItem> STONE_SCYTHE = register("stone_scythe", properties -> new ScytheItem(ToolMaterial.STONE, -1.0f, -2.0f, properties), Item.Properties::new);
+    public static final DeferredItem<KnifeItem> STONE_KNIFE = register("stone_knife", properties -> new KnifeItem(ToolMaterial.STONE, 2.0F, -1.8F, properties), Item.Properties::new);
 
     public static final DeferredItem<PickaxeAxeItem> COPPER_PICKAXE_AXE = register("copper_pickaxe_axe", properties -> new PickaxeAxeItem(ToolMaterial.COPPER, 7.0f, -3.2f, properties), Item.Properties::new);
     public static final DeferredItem<MattockItem> COPPER_MATTOCK = register("copper_mattock", properties -> new MattockItem(ToolMaterial.COPPER, 1.5f, -3.0f, properties), Item.Properties::new);
@@ -56,6 +54,7 @@ public class ModItems {
     public static final DeferredItem<LumberAxeItem> COPPER_LUMBER_AXE = register("copper_lumber_axe", properties -> new LumberAxeItem(ToolMaterial.COPPER, 7.0f, -3.2f, properties), Item.Properties::new);
     public static final DeferredItem<HammerItem> COPPER_HAMMER = register("copper_hammer", properties -> new HammerItem(ToolMaterial.COPPER, 1.0f, -2.8f, properties), Item.Properties::new);
     public static final DeferredItem<ScytheItem> COPPER_SCYTHE = register("copper_scythe", properties -> new ScytheItem(ToolMaterial.COPPER, -1.0f, -2.0f, properties), Item.Properties::new);
+    public static final DeferredItem<KnifeItem> COPPER_KNIFE = register("copper_knife", properties -> new KnifeItem(ToolMaterial.COPPER, 2.0F, -1.8F, properties), Item.Properties::new);
 
     public static final DeferredItem<PickaxeAxeItem> IRON_PICKAXE_AXE = register("iron_pickaxe_axe", properties -> new PickaxeAxeItem(ToolMaterial.IRON, 6.0f, -3.1f, properties), Item.Properties::new);
     public static final DeferredItem<MattockItem> IRON_MATTOCK = register("iron_mattock", properties -> new MattockItem(ToolMaterial.IRON, 1.5f, -3.0f, properties), Item.Properties::new);
@@ -63,6 +62,7 @@ public class ModItems {
     public static final DeferredItem<LumberAxeItem> IRON_LUMBER_AXE = register("iron_lumber_axe", properties -> new LumberAxeItem(ToolMaterial.IRON, 6.0f, -3.1f, properties), Item.Properties::new);
     public static final DeferredItem<HammerItem> IRON_HAMMER = register("iron_hammer", properties -> new HammerItem(ToolMaterial.IRON, 1.0f, -2.8f, properties), Item.Properties::new);
     public static final DeferredItem<ScytheItem> IRON_SCYTHE = register("iron_scythe", properties -> new ScytheItem(ToolMaterial.IRON, -2.0f, -1.0f, properties), Item.Properties::new);
+    public static final DeferredItem<KnifeItem> IRON_KNIFE = register("iron_knife", properties -> new KnifeItem(ToolMaterial.IRON, 2.0F, -1.8F, properties), Item.Properties::new);
 
     public static final DeferredItem<PickaxeAxeItem> GOLDEN_PICKAXE_AXE = register("golden_pickaxe_axe", properties -> new PickaxeAxeItem(ToolMaterial.GOLD, 6.0f, -3.0f, properties), Item.Properties::new);
     public static final DeferredItem<MattockItem> GOLDEN_MATTOCK = register("golden_mattock", properties -> new MattockItem(ToolMaterial.GOLD, 1.5f, -3.0f, properties), Item.Properties::new);
@@ -70,6 +70,7 @@ public class ModItems {
     public static final DeferredItem<LumberAxeItem> GOLDEN_LUMBER_AXE = register("golden_lumber_axe", properties -> new LumberAxeItem(ToolMaterial.GOLD, 6.0f, -3.0f, properties), Item.Properties::new);
     public static final DeferredItem<HammerItem> GOLDEN_HAMMER = register("golden_hammer", properties -> new HammerItem(ToolMaterial.GOLD, 1.0f, -2.8f, properties), Item.Properties::new);
     public static final DeferredItem<ScytheItem> GOLDEN_SCYTHE = register("golden_scythe", properties -> new ScytheItem(ToolMaterial.GOLD, 0.0f, -3.0f, properties), Item.Properties::new);
+    public static final DeferredItem<KnifeItem> GOLDEN_KNIFE = register("golden_knife", properties -> new KnifeItem(ToolMaterial.GOLD, 2.0F, -1.8F, properties), Item.Properties::new);
 
     public static final DeferredItem<PickaxeAxeItem> DIAMOND_PICKAXE_AXE = register("diamond_pickaxe_axe", properties -> new PickaxeAxeItem(ToolMaterial.DIAMOND, 5.0f, -3.0f, properties), Item.Properties::new);
     public static final DeferredItem<MattockItem> DIAMOND_MATTOCK = register("diamond_mattock", properties -> new MattockItem(ToolMaterial.DIAMOND, 1.5f, -3.0f, properties), Item.Properties::new);
@@ -77,6 +78,7 @@ public class ModItems {
     public static final DeferredItem<LumberAxeItem> DIAMOND_LUMBER_AXE = register("diamond_lumber_axe", properties -> new LumberAxeItem(ToolMaterial.DIAMOND, 5.0f, -3.0f, properties), Item.Properties::new);
     public static final DeferredItem<HammerItem> DIAMOND_HAMMER = register("diamond_hammer", properties -> new HammerItem(ToolMaterial.DIAMOND, 1.0f, -2.8f, properties), Item.Properties::new);
     public static final DeferredItem<ScytheItem> DIAMOND_SCYTHE = register("diamond_scythe", properties -> new ScytheItem(ToolMaterial.DIAMOND, -3.0f, 0.0f, properties), Item.Properties::new);
+    public static final DeferredItem<KnifeItem> DIAMOND_KNIFE = register("diamond_knife", properties -> new KnifeItem(ToolMaterial.DIAMOND, 2.0F, -1.8F, properties), Item.Properties::new);
 
     public static final DeferredItem<PickaxeAxeItem> NETHERITE_PICKAXE_AXE = register("netherite_pickaxe_axe", properties -> new PickaxeAxeItem(ToolMaterial.NETHERITE, 5.0f, -3.0f, properties), Item.Properties::new);
     public static final DeferredItem<MattockItem> NETHERITE_MATTOCK = register("netherite_mattock", properties -> new MattockItem(ToolMaterial.NETHERITE, 1.5f, -3.0f, properties), Item.Properties::new);
@@ -84,6 +86,7 @@ public class ModItems {
     public static final DeferredItem<LumberAxeItem> NETHERITE_LUMBER_AXE = register("netherite_lumber_axe", properties -> new LumberAxeItem(ToolMaterial.NETHERITE, 5.0f, -3.0f, properties), Item.Properties::new);
     public static final DeferredItem<HammerItem> NETHERITE_HAMMER = register("netherite_hammer", properties -> new HammerItem(ToolMaterial.NETHERITE, 1.0f, -2.8f, properties), Item.Properties::new);
     public static final DeferredItem<ScytheItem> NETHERITE_SCYTHE = register("netherite_scythe", properties -> new ScytheItem(ToolMaterial.NETHERITE, -4.0f, 0.0f, properties), Item.Properties::new);
+    public static final DeferredItem<KnifeItem> NETHERITE_KNIFE = register("netherite_knife", properties -> new KnifeItem(ToolMaterial.NETHERITE, 2.0F, -1.8F, properties), Item.Properties::new);
 
     public static final DeferredItem<Item> CHITIN_HELMET = register("chitin_helmet", Item::new, () -> new Item.Properties().humanoidArmor(ModArmorMaterials.CHITIN, ArmorType.HELMET));
     public static final DeferredItem<Item> CHITIN_CHESTPLATE = register("chitin_chestplate", Item::new, () -> new Item.Properties().humanoidArmor(ModArmorMaterials.CHITIN, ArmorType.CHESTPLATE));

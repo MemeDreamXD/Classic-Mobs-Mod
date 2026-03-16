@@ -1,8 +1,10 @@
 package com.memedream.classicmobs.datagen.assets.model;
 
 import com.memedream.classicmobs.client.item.BolaSwing;
+import com.memedream.classicmobs.client.item.KnifeStab;
 import com.memedream.classicmobs.init.ModEntities;
 import com.memedream.classicmobs.init.ModItems;
+import com.memedream.classicmobs.item.KnifeItem;
 import net.minecraft.client.color.item.Dye;
 import net.minecraft.client.data.models.ItemModelGenerators;
 import net.minecraft.client.data.models.ItemModelOutput;
@@ -16,7 +18,6 @@ import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredItem;
 
 import java.util.function.BiConsumer;
-import java.util.function.Supplier;
 
 public class ItemModelGen extends ItemModelGenerators {
     public ItemModelGen(ItemModelOutput itemModelOutput, BiConsumer<Identifier, ModelInstance> modelOutput) {
@@ -60,41 +61,53 @@ public class ItemModelGen extends ItemModelGenerators {
         this.generateFlatItem(ModItems.WOODEN_SCYTHE.get(), ModelTemplates.FLAT_HANDHELD_ITEM);
         this.generateFlatItem(ModItems.WOODEN_SPADE.get(), ModelTemplates.FLAT_HANDHELD_ITEM);
         this.generateFlatItem(ModItems.WOODEN_PICKAXE_AXE.get(), ModelTemplates.FLAT_HANDHELD_ITEM);
+        this.createKnife(ModItems.WOODEN_KNIFE);
         this.generateFlatItem(ModItems.STONE_HAMMER.get(), ModelTemplates.FLAT_HANDHELD_ITEM);
         this.generateFlatItem(ModItems.STONE_LUMBER_AXE.get(), ModelTemplates.FLAT_HANDHELD_ITEM);
         this.generateFlatItem(ModItems.STONE_MATTOCK.get(), ModelTemplates.FLAT_HANDHELD_ITEM);
         this.generateFlatItem(ModItems.STONE_SCYTHE.get(), ModelTemplates.FLAT_HANDHELD_ITEM);
         this.generateFlatItem(ModItems.STONE_SPADE.get(), ModelTemplates.FLAT_HANDHELD_ITEM);
         this.generateFlatItem(ModItems.STONE_PICKAXE_AXE.get(), ModelTemplates.FLAT_HANDHELD_ITEM);
+        this.createKnife(ModItems.STONE_KNIFE);
         this.generateFlatItem(ModItems.COPPER_HAMMER.get(), ModelTemplates.FLAT_HANDHELD_ITEM);
         this.generateFlatItem(ModItems.COPPER_LUMBER_AXE.get(), ModelTemplates.FLAT_HANDHELD_ITEM);
         this.generateFlatItem(ModItems.COPPER_MATTOCK.get(), ModelTemplates.FLAT_HANDHELD_ITEM);
         this.generateFlatItem(ModItems.COPPER_SCYTHE.get(), ModelTemplates.FLAT_HANDHELD_ITEM);
         this.generateFlatItem(ModItems.COPPER_SPADE.get(), ModelTemplates.FLAT_HANDHELD_ITEM);
         this.generateFlatItem(ModItems.COPPER_PICKAXE_AXE.get(), ModelTemplates.FLAT_HANDHELD_ITEM);
+        this.createKnife(ModItems.COPPER_KNIFE);
         this.generateFlatItem(ModItems.GOLDEN_HAMMER.get(), ModelTemplates.FLAT_HANDHELD_ITEM);
         this.generateFlatItem(ModItems.GOLDEN_LUMBER_AXE.get(), ModelTemplates.FLAT_HANDHELD_ITEM);
         this.generateFlatItem(ModItems.GOLDEN_MATTOCK.get(), ModelTemplates.FLAT_HANDHELD_ITEM);
         this.generateFlatItem(ModItems.GOLDEN_SCYTHE.get(), ModelTemplates.FLAT_HANDHELD_ITEM);
         this.generateFlatItem(ModItems.GOLDEN_SPADE.get(), ModelTemplates.FLAT_HANDHELD_ITEM);
         this.generateFlatItem(ModItems.GOLDEN_PICKAXE_AXE.get(), ModelTemplates.FLAT_HANDHELD_ITEM);
+        this.createKnife(ModItems.GOLDEN_KNIFE);
         this.generateFlatItem(ModItems.IRON_HAMMER.get(), ModelTemplates.FLAT_HANDHELD_ITEM);
         this.generateFlatItem(ModItems.IRON_LUMBER_AXE.get(), ModelTemplates.FLAT_HANDHELD_ITEM);
         this.generateFlatItem(ModItems.IRON_MATTOCK.get(), ModelTemplates.FLAT_HANDHELD_ITEM);
         this.generateFlatItem(ModItems.IRON_SCYTHE.get(), ModelTemplates.FLAT_HANDHELD_ITEM);
         this.generateFlatItem(ModItems.IRON_SPADE.get(), ModelTemplates.FLAT_HANDHELD_ITEM);
         this.generateFlatItem(ModItems.IRON_PICKAXE_AXE.get(), ModelTemplates.FLAT_HANDHELD_ITEM);
+        this.createKnife(ModItems.IRON_KNIFE);
         this.generateFlatItem(ModItems.DIAMOND_HAMMER.get(), ModelTemplates.FLAT_HANDHELD_ITEM);
         this.generateFlatItem(ModItems.DIAMOND_LUMBER_AXE.get(), ModelTemplates.FLAT_HANDHELD_ITEM);
         this.generateFlatItem(ModItems.DIAMOND_MATTOCK.get(), ModelTemplates.FLAT_HANDHELD_ITEM);
         this.generateFlatItem(ModItems.DIAMOND_SCYTHE.get(), ModelTemplates.FLAT_HANDHELD_ITEM);
         this.generateFlatItem(ModItems.DIAMOND_SPADE.get(), ModelTemplates.FLAT_HANDHELD_ITEM);
         this.generateFlatItem(ModItems.DIAMOND_PICKAXE_AXE.get(), ModelTemplates.FLAT_HANDHELD_ITEM);
+        this.createKnife(ModItems.DIAMOND_KNIFE);
         this.generateFlatItem(ModItems.NETHERITE_HAMMER.get(), ModelTemplates.FLAT_HANDHELD_ITEM);
         this.generateFlatItem(ModItems.NETHERITE_LUMBER_AXE.get(), ModelTemplates.FLAT_HANDHELD_ITEM);
         this.generateFlatItem(ModItems.NETHERITE_MATTOCK.get(), ModelTemplates.FLAT_HANDHELD_ITEM);
         this.generateFlatItem(ModItems.NETHERITE_SCYTHE.get(), ModelTemplates.FLAT_HANDHELD_ITEM);
         this.generateFlatItem(ModItems.NETHERITE_SPADE.get(), ModelTemplates.FLAT_HANDHELD_ITEM);
         this.generateFlatItem(ModItems.NETHERITE_PICKAXE_AXE.get(), ModelTemplates.FLAT_HANDHELD_ITEM);
+        this.createKnife(ModItems.NETHERITE_KNIFE);
+    }
+
+    private void createKnife(DeferredItem<KnifeItem> knife) {
+        ModelTemplate stabModel = ModelTemplates.createItem("classic_mobs:knife_stab", TextureSlot.LAYER0);
+        this.itemModelOutput.accept(knife.get(), ItemModelUtils.conditional(new KnifeStab(), ItemModelUtils.plainModel(stabModel.create(ModelLocationUtils.getModelLocation(knife.get(), "_stab"), TextureMapping.layer0(knife.get()), this.modelOutput)), ItemModelUtils.plainModel(this.createFlatItemModel(knife.get(), ModelTemplates.FLAT_HANDHELD_ITEM))));
     }
 }

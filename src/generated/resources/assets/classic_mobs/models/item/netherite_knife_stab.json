@@ -1,0 +1,6 @@
+{
+  "parent": "classic_mobs:item/knife_stab",
+  "textures": {
+    "layer0": "classic_mobs:item/netherite_knife"
+  }
+}
