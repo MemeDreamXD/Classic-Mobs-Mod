@@ -83,6 +83,12 @@ public class LangGen extends LanguageProvider {
 
         this.addItem(ModItems.RAW_DODO, "Raw Dodo");
         this.addItem(ModItems.COOKED_DODO, "Cooked Dodo");
+        this.addItem(ModItems.CHERRIES, "Cherries");
+        this.addItem(ModItems.DATE, "Date");
+        this.addItem(ModItems.PERSIMMON, "Persimmon");
+        this.addItem(ModItems.BIRCH_NUT, "Birch Nut");
+        this.addItem(ModItems.COOKED_BIRCH_NUT, "Cooked Birch Nut");
+        this.addItem(ModItems.PINECONE, "Pinecone");
         this.addItem(ModItems.RUBY, "Ruby");
         this.addItem(ModItems.LOCK_OF_HAG, "Lock of Hag");
         this.addItem(ModItems.HARPY_FEATHER, "Harpy Feather");

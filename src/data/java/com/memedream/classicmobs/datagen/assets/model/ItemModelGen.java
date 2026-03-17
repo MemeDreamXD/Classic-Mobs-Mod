@@ -29,6 +29,10 @@ public class ItemModelGen extends ItemModelGenerators {
         for (DeferredHolder<Item, ? extends Item> egg : ModEntities.SPAWN_EGGS.getEntries()) {
             this.generateFlatItem(egg.get(), ModelTemplates.FLAT_ITEM);
         }
+        this.generateFlatItem(ModItems.CHERRIES.get(), ModelTemplates.FLAT_ITEM);
+        this.generateFlatItem(ModItems.DATE.get(), ModelTemplates.FLAT_ITEM);
+        this.generateFlatItem(ModItems.PERSIMMON.get(), ModelTemplates.FLAT_ITEM);
+        this.generateFlatItem(ModItems.COOKED_BIRCH_NUT.get(), ModelTemplates.FLAT_ITEM);
         this.generateFlatItem(ModItems.RAW_DODO.get(), ModelTemplates.FLAT_ITEM);
         this.generateFlatItem(ModItems.COOKED_DODO.get(), ModelTemplates.FLAT_ITEM);
         this.generateFlatItem(ModItems.FLIGHT_ARROW.get(), ModelTemplates.FLAT_ITEM);
@@ -40,6 +44,8 @@ public class ItemModelGen extends ItemModelGenerators {
             ItemModelUtils.override(ItemModelUtils.plainModel(this.createFlatItemModel(ModItems.BOLA.get(), "_3", bolaSwing)), 0.5F),
             ItemModelUtils.override(ItemModelUtils.plainModel(this.createFlatItemModel(ModItems.BOLA.get(), "_4", bolaSwing)), 0.75F)),
             ItemModelUtils.plainModel(this.createFlatItemModel(ModItems.BOLA.get(), ModelTemplates.FLAT_ITEM))));
+        this.generateFlatItem(ModItems.BIRCH_NUT.get(), ModelTemplates.FLAT_ITEM);
+        this.generateFlatItem(ModItems.PINECONE.get(), ModelTemplates.FLAT_ITEM);
         this.generateFlatItem(ModItems.LOCK_OF_HAG.get(), ModelTemplates.FLAT_ITEM);
         this.generateFlatItem(ModItems.HARPY_FEATHER.get(), ModelTemplates.FLAT_ITEM);
         this.generateFlatItem(ModItems.GAZING_PEARL.get(), ModelTemplates.FLAT_ITEM);

@@ -20,6 +20,12 @@ public class ModCreativeModeTabs {
 
             output.accept(ModItems.RAW_DODO);
             output.accept(ModItems.COOKED_DODO);
+            output.accept(ModItems.CHERRIES);
+            output.accept(ModItems.DATE);
+            output.accept(ModItems.PERSIMMON);
+            output.accept(ModItems.COOKED_BIRCH_NUT);
+            output.accept(ModItems.PINECONE);
+            output.accept(ModItems.BIRCH_NUT);
             output.accept(ModItems.CHITIN);
             output.accept(ModItems.HARPY_FEATHER);
             output.accept(ModItems.LOCK_OF_HAG);

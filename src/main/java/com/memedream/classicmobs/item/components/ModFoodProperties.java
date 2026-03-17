@@ -3,14 +3,22 @@ package com.memedream.classicmobs.item.components;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.food.FoodProperties;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.component.Consumable;
 import net.minecraft.world.item.consume_effects.ApplyStatusEffectsConsumeEffect;
+import net.neoforged.neoforge.registries.DeferredItem;
 
 import java.util.function.BiFunction;
 
 public class ModFoodProperties {
     // Nutrition is 1 per half hunger refilled
     // SaturationModifier is a ratio from 0 to 1
+    public static final FoodProperties CHERRIES = new FoodProperties.Builder().nutrition(4).saturationModifier(0.3f).build();
+    public static final FoodProperties DATE = new FoodProperties.Builder().nutrition(4).saturationModifier(0.3f).build();
+    public static final FoodProperties PERSIMMON = new FoodProperties.Builder().nutrition(4).saturationModifier(0.3f).build();
+
+    public static final FoodProperties COOKED_BIRCH_NUT = new FoodProperties.Builder().nutrition(5).saturationModifier(0.6f).build();
+
     public static final FoodProperties RAW_DODO = new FoodProperties.Builder().nutrition(4).saturationModifier(0.24f).build();
     public static final FoodProperties COOKED_DODO = new FoodProperties.Builder().nutrition(10).saturationModifier(0.85f).build();
     public static final FoodProperties ROTTEN_FLESH_BLOCK = new FoodProperties.Builder().nutrition(36).saturationModifier(0.1f).build();
@@ -35,6 +43,12 @@ public class ModFoodProperties {
     public static final FoodProperties COOKED_COD_BLOCK = new FoodProperties.Builder().nutrition(45).saturationModifier(5.4F).build();
     public static final FoodProperties TROPICAL_FISH_BLOCK = new FoodProperties.Builder().nutrition(9).saturationModifier(0.9F).build();
     public static final FoodProperties PUFFERFISH_BLOCK = new FoodProperties.Builder().nutrition(9).saturationModifier(0.9F).build();
+
+    public static final Consumable CHERRIES_CONSUMABLE =  Consumable.builder().build();
+    public static final Consumable DATE_CONSUMABLE =  Consumable.builder().build();
+    public static final Consumable PERSIMMON_CONSUMABLE =  Consumable.builder().build();
+
+    public static final Consumable COOKED_BIRCH_NUT_CONSUMABLE =  Consumable.builder().build();
 
     public static final Consumable RAW_DODO_CONSUMABLE = Consumable.builder().onConsume(new ApplyStatusEffectsConsumeEffect(new MobEffectInstance(MobEffects.HUNGER, 600), 0.3F)).build();
     public static final Consumable COOKED_DODO_CONSUMABLE =  Consumable.builder().onConsume(new ApplyStatusEffectsConsumeEffect(new MobEffectInstance(MobEffects.SATURATION, 200))).build();

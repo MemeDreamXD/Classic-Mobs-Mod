@@ -23,6 +23,7 @@ public class CookingGen {
 
     public static void buildRecipes(HolderGetter<Item> getter, RecipeOutput output) {
         allCookingRecipesFor(getter, output, ModItems.RAW_DODO, ModItems.COOKED_DODO, 0.35F, 200);
+        allCookingRecipesFor(getter, output, ModItems.BIRCH_NUT, ModItems.COOKED_BIRCH_NUT, 0.35F, 200);
         allCookingRecipesFor(getter, output, ModBlocks.RAW_BEEF_BLOCK, ModBlocks.COOKED_BEEF_BLOCK, 3.15F, 1800);
         allCookingRecipesFor(getter, output, ModBlocks.RAW_MUTTON_BLOCK, ModBlocks.COOKED_MUTTON_BLOCK, 3.15F, 1800);
         allCookingRecipesFor(getter, output, ModBlocks.RAW_PORK_BLOCK, ModBlocks.COOKED_PORK_BLOCK, 3.15F, 1800);
