@@ -1,4 +1,4 @@
-// 26.1-snapshot-10	2026-03-17T19:03:50.2734445	Model Definitions - classic_mobs
+// 26.1-snapshot-10	2026-03-17T18:01:42.233990418	Model Definitions - classic_mobs
 e7fac52b34d2d13206e904abb50c6fdd810e0616 assets/classic_mobs/blockstates/chitin_block.json
 f024fc4e2b3331b4502302eddacc64ec6d1cf7a2 assets/classic_mobs/blockstates/cooked_beef_block.json
 19b1e68153e7ff9340d5fdc5d153f2234807c185 assets/classic_mobs/blockstates/cooked_chicken_block.json
@@ -110,6 +110,7 @@ bfc127ad59e8e39247b37bc309675d7107ff8fe5 assets/classic_mobs/items/netherite_ham
 f49e74843c0ebfd96f1a2fddd3245f1e8d7bb2d0 assets/classic_mobs/items/netherite_pickaxe_axe.json
 f5d44e06a0a823caf8807670ce422823cd2d6aac assets/classic_mobs/items/netherite_scythe.json
 12549c774becd5c72dc33640c243a57b62dd3540 assets/classic_mobs/items/netherite_spade.json
+44c22706fb1f0cf2d38e04074d6177e21f6591b9 assets/classic_mobs/items/pale_apple.json
 c9a10b39760614d7af12d5193c16f58d6156bc48 assets/classic_mobs/items/palm_leaves.json
 ca757224b27a49898aa6a56f372e5b36e3c0efa4 assets/classic_mobs/items/palm_log.json
 794d157926039f1f7aa59d46c48261f2735ec71f assets/classic_mobs/items/palm_planks.json
@@ -307,6 +308,7 @@ cfde54be24cf4be93ad41b48fdc15aa4c9fe1363 assets/classic_mobs/models/item/iron_sc
 879d8f215854614320cfa4215db435ecad8a5d65 assets/classic_mobs/models/item/netherite_pickaxe_axe.json
 814b494ef89110f2fe53b5308a3d8575df3bbb79 assets/classic_mobs/models/item/netherite_scythe.json
 8395e0334047e668f726a3bcbb8cae39824baef3 assets/classic_mobs/models/item/netherite_spade.json
+296279c677f893a1dd62d788ad506bf9c3ef0738 assets/classic_mobs/models/item/pale_apple.json
 419b92b3a9dc60b2c64acdce913ddf344a80c9db assets/classic_mobs/models/item/palm_sapling.json
 03f11fdafba127294799d0d1e790fcaf8de29083 assets/classic_mobs/models/item/persimmon.json
 9287e71edc6cc90ad3d4dfb00707296d0c8c1696 assets/classic_mobs/models/item/pinecone.json

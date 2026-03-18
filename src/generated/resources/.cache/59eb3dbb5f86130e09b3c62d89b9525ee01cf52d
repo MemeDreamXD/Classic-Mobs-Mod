@@ -1,4 +1,4 @@
-// 26.1-snapshot-10	2026-03-15T16:57:00.786068023	Loot Tables
+// 26.1-snapshot-10	2026-03-17T18:01:42.23294862	Loot Tables
 ac79f04ddbc4f6bf43c873c24a03198b5baf2d00 data/classic_mobs/loot_table/blocks/blaze_rod_block.json
 d279d5655e86f1482da23f95a3f5e05f08cd90ac data/classic_mobs/loot_table/blocks/block_of_bones.json
 0c5749fdf3466f34f48f24df2839fe008408cb7b data/classic_mobs/loot_table/blocks/breeze_rod_block.json
@@ -49,3 +49,10 @@ a7d925a9d44abcb02553ac16a39488513735bb38 data/classic_mobs/loot_table/blocks/tro
 3abde0f48bed21ad1d557182cf516a9894453cfd data/classic_mobs/loot_table/entities/myrmex.json
 d583dfc45c0fb947c11e381e352ac13267322ef8 data/classic_mobs/loot_table/entities/rocket_creeper.json
 100618d94229a20590b82edd3e740492282d4e5f data/classic_mobs/loot_table/entities/support_creeper.json
+ed5dd476098d44cfaa823b4d5e6d6e2a44fe9668 data/classic_mobs/loot_table/gameplay/modifiers/banana.json
+45ac04aafdf93a69b782ee2a96c0fddbbde6d577 data/classic_mobs/loot_table/gameplay/modifiers/birch_nut.json
+d07b1a800931bcff03a2074f530ce0d7936a6ea5 data/classic_mobs/loot_table/gameplay/modifiers/cherries.json
+946fe556f0ce9a1dd3df08a43a62aaad7779ff8f data/classic_mobs/loot_table/gameplay/modifiers/date.json
+98dcf79706365d3f4e723e7d4b205a9add58920a data/classic_mobs/loot_table/gameplay/modifiers/pale_apple.json
+7bb5eb84b2c66302839b3fcec18c5f485ebc6989 data/classic_mobs/loot_table/gameplay/modifiers/persimmon.json
+d28e6fe69850f7154c3b62980d83d8b3d7eaa3b1 data/classic_mobs/loot_table/gameplay/modifiers/pinecone.json

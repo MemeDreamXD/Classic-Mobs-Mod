@@ -21,13 +21,6 @@ public class ModItems {
     // given names for items must be JSON compliant (no spaces all lowercase)
     public static final DeferredItem<Item> RAW_DODO = register("raw_dodo", Item::new, () -> new Item.Properties().food(ModFoodProperties.RAW_DODO, ModFoodProperties.RAW_DODO_CONSUMABLE));
     public static final DeferredItem<Item> COOKED_DODO = register("cooked_dodo", Item::new, () -> new Item.Properties().food(ModFoodProperties.COOKED_DODO, ModFoodProperties.COOKED_DODO_CONSUMABLE));
-    public static final DeferredItem<Item> CHERRIES = register("cherries", Item::new, () -> new Item.Properties().food(ModFoodProperties.CHERRIES, ModFoodProperties.CHERRIES_CONSUMABLE));
-    public static final DeferredItem<Item> DATE = register("date", Item::new, () -> new Item.Properties().food(ModFoodProperties.DATE, ModFoodProperties.DATE_CONSUMABLE));
-    public static final DeferredItem<Item> PERSIMMON = register("persimmon", Item::new, () -> new Item.Properties().food(ModFoodProperties.PERSIMMON, ModFoodProperties.PERSIMMON_CONSUMABLE));
-    public static final DeferredItem<Item> COOKED_BIRCH_NUT = register("cooked_birch_nut", Item::new, () -> new Item.Properties().food(ModFoodProperties.COOKED_BIRCH_NUT, ModFoodProperties.COOKED_BIRCH_NUT_CONSUMABLE));
-
-    public static final DeferredItem<Item> PINECONE = register("pinecone", Item::new, Item.Properties::new);
-    public static final DeferredItem<Item> BIRCH_NUT = register("birch_nut", Item::new, Item.Properties::new);
     public static final DeferredItem<Item> CHITIN = register("chitin", Item::new, Item.Properties::new);
     public static final DeferredItem<Item> HARPY_FEATHER = register("harpy_feather", Item::new, Item.Properties::new);
     public static final DeferredItem<Item> LOCK_OF_HAG = register("lock_of_hag", Item::new, Item.Properties::new);
@@ -38,6 +31,16 @@ public class ModItems {
     public static final DeferredItem<Item> RUBY = register("ruby", Item::new, () -> new Item.Properties().rarity(Rarity.UNCOMMON));
     public static final DeferredItem<Item> FLIGHT_ARROW = register("flight_arrow", FlightArrowItem::new, Item.Properties::new);
     public static final DeferredItem<Item> BOLA = register("bola", BolaItem::new, () -> new Item.Properties().stacksTo(16));
+
+    public static final DeferredItem<Item> BIRCH_NUT = register("birch_nut", Item::new, Item.Properties::new);
+    public static final DeferredItem<Item> COOKED_BIRCH_NUT = register("cooked_birch_nut", Item::new, () -> new Item.Properties().food(ModFoodProperties.COOKED_BIRCH_NUT));
+    public static final DeferredItem<Item> BANANA = register("banana", Item::new, () -> new Item.Properties().food(ModFoodProperties.BANANA));
+    public static final DeferredItem<Item> PINECONE = register("pinecone", Item::new, Item.Properties::new);
+    public static final DeferredItem<Item> DATE = register("date", Item::new, () -> new Item.Properties().food(ModFoodProperties.DATE));
+    public static final DeferredItem<Item> CHERRIES = register("cherries", Item::new, () -> new Item.Properties().food(ModFoodProperties.CHERRIES));
+    public static final DeferredItem<Item> PERSIMMON = register("persimmon", Item::new, () -> new Item.Properties().food(ModFoodProperties.PERSIMMON));
+    public static final DeferredItem<Item> PALE_APPLE = register("pale_apple", Item::new, () -> new Item.Properties().food(ModFoodProperties.PALE_APPLE));
+    //coconut
 
     public static final DeferredItem<PickaxeAxeItem> WOODEN_PICKAXE_AXE = register("wooden_pickaxe_axe", properties -> new PickaxeAxeItem(ToolMaterial.WOOD, 6.0f, -3.2f, properties), Item.Properties::new);
     public static final DeferredItem<MattockItem> WOODEN_MATTOCK = register("wooden_mattock", properties -> new MattockItem(ToolMaterial.WOOD, 1.5f, -3.0f, properties), Item.Properties::new);

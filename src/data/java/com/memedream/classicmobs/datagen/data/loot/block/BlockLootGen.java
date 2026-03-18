@@ -1,13 +1,11 @@
-package com.memedream.classicmobs.datagen.data.loot;
+package com.memedream.classicmobs.datagen.data.loot.block;
 
 import com.memedream.classicmobs.init.ModBlocks;
 import com.memedream.classicmobs.init.ModItems;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.loot.BlockLootSubProvider;
 import net.minecraft.world.flag.FeatureFlags;
-import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Blocks;
 import net.neoforged.neoforge.registries.DeferredHolder;
 
 import java.util.Set;
@@ -15,7 +13,7 @@ import java.util.stream.Collectors;
 
 public class BlockLootGen extends BlockLootSubProvider {
 
-    protected BlockLootGen(HolderLookup.Provider provider) {
+    public BlockLootGen(HolderLookup.Provider provider) {
         super(Set.of(), FeatureFlags.REGISTRY.allFlags(), provider);
     }
 

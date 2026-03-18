@@ -9,6 +9,7 @@ import com.memedream.classicmobs.datagen.assets.model.ModelGen;
 import com.memedream.classicmobs.datagen.data.DataMapGen;
 import com.memedream.classicmobs.datagen.data.RegistryDataGen;
 import com.memedream.classicmobs.datagen.data.loot.LootGen;
+import com.memedream.classicmobs.datagen.data.loot.LootModifierGen;
 import com.memedream.classicmobs.datagen.data.recipe.CraftingGenRunner;
 import com.memedream.classicmobs.datagen.data.tags.*;
 import net.minecraft.core.HolderLookup;
@@ -43,6 +44,7 @@ public class DataGen {
         generator.addProvider(true, datapackProvider);
         generator.addProvider(true, new CraftingGenRunner(output, lookupProvider));
         generator.addProvider(true, new LootGen(output, lookupProvider));
+        generator.addProvider(true, new LootModifierGen(output, lookupProvider));
         generator.addProvider(true, new DataMapGen(output, lookupProvider));
         //tags
         generator.addProvider(true, new BiomeTagGen(output, lookupProvider));

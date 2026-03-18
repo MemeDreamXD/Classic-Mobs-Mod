@@ -13,9 +13,11 @@ import java.util.function.BiFunction;
 public class ModFoodProperties {
     // Nutrition is 1 per half hunger refilled
     // SaturationModifier is a ratio from 0 to 1
+    public static final FoodProperties BANANA = new FoodProperties.Builder().nutrition(4).saturationModifier(0.3f).build();
     public static final FoodProperties CHERRIES = new FoodProperties.Builder().nutrition(4).saturationModifier(0.3f).build();
     public static final FoodProperties DATE = new FoodProperties.Builder().nutrition(4).saturationModifier(0.3f).build();
     public static final FoodProperties PERSIMMON = new FoodProperties.Builder().nutrition(4).saturationModifier(0.3f).build();
+    public static final FoodProperties PALE_APPLE = new FoodProperties.Builder().nutrition(4).saturationModifier(0.3f).build();
 
     public static final FoodProperties COOKED_BIRCH_NUT = new FoodProperties.Builder().nutrition(5).saturationModifier(0.6f).build();
 
@@ -43,12 +45,6 @@ public class ModFoodProperties {
     public static final FoodProperties COOKED_COD_BLOCK = new FoodProperties.Builder().nutrition(45).saturationModifier(5.4F).build();
     public static final FoodProperties TROPICAL_FISH_BLOCK = new FoodProperties.Builder().nutrition(9).saturationModifier(0.9F).build();
     public static final FoodProperties PUFFERFISH_BLOCK = new FoodProperties.Builder().nutrition(9).saturationModifier(0.9F).build();
-
-    public static final Consumable CHERRIES_CONSUMABLE =  Consumable.builder().build();
-    public static final Consumable DATE_CONSUMABLE =  Consumable.builder().build();
-    public static final Consumable PERSIMMON_CONSUMABLE =  Consumable.builder().build();
-
-    public static final Consumable COOKED_BIRCH_NUT_CONSUMABLE =  Consumable.builder().build();
 
     public static final Consumable RAW_DODO_CONSUMABLE = Consumable.builder().onConsume(new ApplyStatusEffectsConsumeEffect(new MobEffectInstance(MobEffects.HUNGER, 600), 0.3F)).build();
     public static final Consumable COOKED_DODO_CONSUMABLE =  Consumable.builder().onConsume(new ApplyStatusEffectsConsumeEffect(new MobEffectInstance(MobEffects.SATURATION, 200))).build();

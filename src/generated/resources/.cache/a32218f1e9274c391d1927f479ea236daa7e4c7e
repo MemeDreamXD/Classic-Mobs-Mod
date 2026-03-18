@@ -1,0 +1,9 @@
+// 26.1-snapshot-10	2026-03-17T18:01:42.239348138	Global Loot Modifiers : classic_mobs
+0c8d4710d3049195ab248f580e3a265a57099649 data/classic_mobs/loot_modifiers/add_banana.json
+1ec1db8d7e363fd59ae60aee36696a74b8e4c884 data/classic_mobs/loot_modifiers/add_birch_nut.json
+5f886ef7c5cf470fa867dc756935868f7262d8be data/classic_mobs/loot_modifiers/add_cherries.json
+2fbfe5dfaa3631930cb86c587be4f89115bcf9a1 data/classic_mobs/loot_modifiers/add_date.json
+136c3e3111af5d7665f6f47b56e0a579329146f4 data/classic_mobs/loot_modifiers/add_pale_apple.json
+26b6bb37e5f702e751afa14f73da695933e4a854 data/classic_mobs/loot_modifiers/add_persimmon.json
+d9215dc41e6362028b14d3c243853b80131169ac data/classic_mobs/loot_modifiers/add_pinecone.json
+ac9dd7a48f35c96b78c84d6ade987ed8425e1ae6 data/neoforge/loot_modifiers/global_loot_modifiers.json

@@ -1,0 +1,12 @@
+{
+  "entries": [
+    "classic_mobs:add_birch_nut",
+    "classic_mobs:add_pinecone",
+    "classic_mobs:add_banana",
+    "classic_mobs:add_date",
+    "classic_mobs:add_pale_apple",
+    "classic_mobs:add_cherries",
+    "classic_mobs:add_persimmon"
+  ],
+  "replace": false
+}
