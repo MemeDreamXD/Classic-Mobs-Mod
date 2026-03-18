@@ -110,6 +110,7 @@ public class LangGen extends LanguageProvider {
         this.add(CombinationTemplateItem.COMBINATION_UPGRADE_ADDITIONS_SLOT_DESCRIPTION.getString(), "Add compatible tool");
         this.add(CombinationTemplateItem.COMBINATION_UPGRADE_BASE_SLOT_DESCRIPTION.getString(), "Add basic tool");
 
+        this.addItem(ModItems.PRIMROSE, "Primrose");
         this.addItem(ModItems.BIRCH_NUT, "Birch Nut");
         this.addItem(ModItems.COOKED_BIRCH_NUT, "Cooked Birch Nut");
         this.addItem(ModItems.PINECONE, "Pinecone");
@@ -198,6 +199,8 @@ public class LangGen extends LanguageProvider {
         this.addDeathMessage("adventurous_eater", "%1$s was an adventurous eater");
 
         this.add("creativetab.classic_mobs.classic_mobs_tab", "Classic Mobs");
+
+        this.add("container.classicmobs.kettle", "Tea Kettle");
 
         SUBTITLE_GENERATOR.forEach(this::add);
     }

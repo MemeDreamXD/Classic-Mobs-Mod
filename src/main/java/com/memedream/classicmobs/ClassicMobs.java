@@ -43,6 +43,7 @@ public class ClassicMobs {
         ModTreeFeatures.TRUNK_PLACERS.register(bus);
         ModDataComponents.COMPONENTS.register(bus);
         ModDataAttachments.ATTACHMENTS.register(bus);
+        ModMenuTypes.MENUS.register(bus);
 
         // Register our mod's ModConfigSpec so that FML can create and load the config file for us
         //...we'll do this if we actually add a config file

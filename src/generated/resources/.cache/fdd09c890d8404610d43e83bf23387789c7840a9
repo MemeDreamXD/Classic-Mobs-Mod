@@ -1,4 +1,4 @@
-// 26.1-snapshot-10	2026-03-17T18:01:42.233990418	Model Definitions - classic_mobs
+// 26.1-snapshot-10	2026-03-18T15:40:46.476565828	Model Definitions - classic_mobs
 e7fac52b34d2d13206e904abb50c6fdd810e0616 assets/classic_mobs/blockstates/chitin_block.json
 f024fc4e2b3331b4502302eddacc64ec6d1cf7a2 assets/classic_mobs/blockstates/cooked_beef_block.json
 19b1e68153e7ff9340d5fdc5d153f2234807c185 assets/classic_mobs/blockstates/cooked_chicken_block.json
@@ -120,6 +120,7 @@ c548d363fd8857e8bd8a35b9376e4b772510ba52 assets/classic_mobs/items/persimmon.jso
 a5df2ada417b7e99c65d606bd1255811ebab81ac assets/classic_mobs/items/phantom_membrane_block.json
 2c238a93074b7e7705b057e98ab2f2617aff3b8c assets/classic_mobs/items/pinecone.json
 43ed0f8512f0509842793dd92b14d21a35395690 assets/classic_mobs/items/pop_powder.json
+941c6aecb38450f23a28d623a5655e2065611f65 assets/classic_mobs/items/primrose.json
 c46c35f475033968fb08205d53bbb44096e500d8 assets/classic_mobs/items/pufferfish_block.json
 bd3502025f8e18785ea13ee20b0cf181368b8538 assets/classic_mobs/items/raw_beef_block.json
 ae0a1e0e9c9b2dc1bad1039104b09ba944d12403 assets/classic_mobs/items/raw_chicken_block.json
@@ -313,6 +314,7 @@ cfde54be24cf4be93ad41b48fdc15aa4c9fe1363 assets/classic_mobs/models/item/iron_sc
 03f11fdafba127294799d0d1e790fcaf8de29083 assets/classic_mobs/models/item/persimmon.json
 9287e71edc6cc90ad3d4dfb00707296d0c8c1696 assets/classic_mobs/models/item/pinecone.json
 aca6dc9b655aae1330cb70185a5e5c3bd017edd3 assets/classic_mobs/models/item/pop_powder.json
+27de24aae4f1fb7a35f8923a73af5a1fc26da202 assets/classic_mobs/models/item/primrose.json
 b0b60f852209f8357f28b70832cd4c1eae4ccdc2 assets/classic_mobs/models/item/raw_dodo.json
 323c2a548944d94cb00dfaa043826c17f9739428 assets/classic_mobs/models/item/rocket_creeper_spawn_egg.json
 8b43e44097f8eac8f80c47ce7dc28f3e0a742fa9 assets/classic_mobs/models/item/ruby.json

@@ -3,10 +3,14 @@ package com.memedream.classicmobs.client.event;
 import com.google.common.reflect.TypeToken;
 import com.memedream.classicmobs.ClassicMobs;
 import com.memedream.classicmobs.client.ModModelLayers;
+import com.memedream.classicmobs.client.gui.KettleScreen;
+import com.memedream.classicmobs.client.gui.pip.FluidRenderState;
+import com.memedream.classicmobs.client.gui.pip.FluidRenderer;
 import com.memedream.classicmobs.client.item.BolaSwing;
 import com.memedream.classicmobs.client.item.KnifeStab;
 import com.memedream.classicmobs.client.model.*;
 import com.memedream.classicmobs.client.particle.FleshDripParticle;
+import com.memedream.classicmobs.client.particle.KettleSmokeParticle;
 import com.memedream.classicmobs.client.renderer.*;
 import com.memedream.classicmobs.client.renderer.layer.BolaLayer;
 import com.memedream.classicmobs.client.renderer.layer.StuckKnifeLayer;
@@ -17,6 +21,7 @@ import com.memedream.classicmobs.item.BolaItem;
 import com.memedream.classicmobs.item.KnifeItem;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.model.EntityModel;
+import net.minecraft.client.particle.WhiteSmokeParticle;
 import net.minecraft.client.renderer.BiomeColors;
 import net.minecraft.client.renderer.entity.EntityRenderer;
 import net.minecraft.client.renderer.entity.FallingBlockRenderer;
@@ -58,6 +63,8 @@ public class ModClientRegistrationEvents {
         bus.addListener(ModClientRegistrationEvents::registerCustomRenderData);
         bus.addListener(ModClientRegistrationEvents::registerExtensions);
         bus.addListener(ModClientRegistrationEvents::registerBlockColors);
+        bus.addListener(ModClientRegistrationEvents::registerScreens);
+        bus.addListener(ModClientRegistrationEvents::registerPips);
         NeoForge.EVENT_BUS.addListener(ModClientRegistrationEvents::displayAOEHitboxes);
         NeoForge.EVENT_BUS.addListener(ElevatorHandler::handleElevatorTeleport);
 
@@ -96,9 +103,18 @@ public class ModClientRegistrationEvents {
     }
 
     private static void registerParticles(RegisterParticleProvidersEvent event) {
+        event.registerSpriteSet(ModParticles.KETTLE_SMOKE.get(), KettleSmokeParticle.Provider::new);
         event.registerSpriteSet(ModParticles.DRIPPING_FLESH.get(), FleshDripParticle.FleshFallProvider::new);
         event.registerSpriteSet(ModParticles.FALLING_FLESH.get(), FleshDripParticle.FleshFallProvider::new);
         event.registerSpriteSet(ModParticles.LANDING_FLESH.get(), FleshDripParticle.FleshLandProvider::new);
+    }
+
+    private static void registerScreens(RegisterMenuScreensEvent event) {
+        event.register(ModMenuTypes.KETTLE.get(), KettleScreen::new);
+    }
+
+    private static void registerPips(RegisterPictureInPictureRenderersEvent event) {
+        event.register(FluidRenderState.class, FluidRenderer::new);
     }
 
     private static void displayAOEHitboxes(ExtractBlockOutlineRenderStateEvent event) {

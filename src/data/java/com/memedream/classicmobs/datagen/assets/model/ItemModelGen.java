@@ -55,6 +55,7 @@ public class ItemModelGen extends ItemModelGenerators {
         this.generateFlatItem(ModItems.CHITIN_UPGRADE_SMITHING_TEMPLATE.get(), ModelTemplates.FLAT_ITEM);
         this.generateFlatItem(ModItems.COMBINATION_UPGRADE_SMITHING_TEMPLATE.get(), ModelTemplates.FLAT_ITEM);
 
+        this.generateFlatItem(ModItems.PRIMROSE.get(), ModelTemplates.FLAT_ITEM);
         this.generateFlatItem(ModItems.BIRCH_NUT.get(), ModelTemplates.FLAT_ITEM);
         this.generateFlatItem(ModItems.COOKED_BIRCH_NUT.get(), ModelTemplates.FLAT_ITEM);
         this.generateFlatItem(ModItems.PINECONE.get(), ModelTemplates.FLAT_ITEM);

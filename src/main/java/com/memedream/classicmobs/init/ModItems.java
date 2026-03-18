@@ -32,6 +32,7 @@ public class ModItems {
     public static final DeferredItem<Item> FLIGHT_ARROW = register("flight_arrow", FlightArrowItem::new, Item.Properties::new);
     public static final DeferredItem<Item> BOLA = register("bola", BolaItem::new, () -> new Item.Properties().stacksTo(16));
 
+    public static final DeferredItem<Item> PRIMROSE = register("primrose", Item::new, Item.Properties::new);
     public static final DeferredItem<Item> BIRCH_NUT = register("birch_nut", Item::new, Item.Properties::new);
     public static final DeferredItem<Item> COOKED_BIRCH_NUT = register("cooked_birch_nut", Item::new, () -> new Item.Properties().food(ModFoodProperties.COOKED_BIRCH_NUT));
     public static final DeferredItem<Item> BANANA = register("banana", Item::new, () -> new Item.Properties().food(ModFoodProperties.BANANA));

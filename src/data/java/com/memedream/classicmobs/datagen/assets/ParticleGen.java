@@ -13,6 +13,8 @@ public class ParticleGen extends ParticleDescriptionProvider {
 
     @Override
     protected void addDescriptions() {
+        this.spriteSet(ModParticles.KETTLE_SMOKE.get(), Identifier.withDefaultNamespace("generic"), 8, true);
+
         this.spriteSet(ModParticles.DRIPPING_FLESH.get(), Identifier.withDefaultNamespace("drip_hang"));
         this.spriteSet(ModParticles.FALLING_FLESH.get(), Identifier.withDefaultNamespace("drip_fall"));
         this.spriteSet(ModParticles.LANDING_FLESH.get(), Identifier.withDefaultNamespace("drip_land"));
