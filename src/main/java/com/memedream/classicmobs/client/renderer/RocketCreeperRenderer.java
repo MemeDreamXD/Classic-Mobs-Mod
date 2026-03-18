@@ -5,12 +5,8 @@ import com.memedream.classicmobs.client.state.RocketCreeperRenderState;
 import com.memedream.classicmobs.entity.RocketCreeperEntity;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.math.Axis;
-import net.minecraft.client.model.geom.ModelLayers;
-import net.minecraft.client.model.monster.creeper.CreeperModel;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
-import net.minecraft.client.renderer.entity.MobRenderer;
 import net.minecraft.resources.Identifier;
-import net.minecraft.util.Mth;
 
 public class RocketCreeperRenderer extends BasicCreeperRenderer<RocketCreeperEntity, RocketCreeperRenderState> {
 

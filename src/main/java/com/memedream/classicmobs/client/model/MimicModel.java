@@ -1,7 +1,6 @@
 package com.memedream.classicmobs.client.model;
 
 import com.memedream.classicmobs.client.state.MimicRenderState;
-import com.memedream.classicmobs.entity.MimicEntity;
 import net.minecraft.client.model.EntityModel;
 import net.minecraft.client.model.geom.ModelPart;
 import net.minecraft.client.model.geom.PartPose;

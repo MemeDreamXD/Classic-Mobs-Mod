@@ -7,7 +7,8 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.util.RandomSource;
 import net.minecraft.util.valueproviders.IntProvider;
-import net.minecraft.world.level.LevelSimulatedReader;
+import net.minecraft.util.valueproviders.IntProviders;
+import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.levelgen.feature.configurations.TreeConfiguration;
 import net.minecraft.world.level.levelgen.feature.foliageplacers.FoliagePlacer;
 import net.minecraft.world.level.levelgen.feature.foliageplacers.FoliagePlacerType;
@@ -16,8 +17,8 @@ public class PalmTreeFoliagePlacer extends FoliagePlacer {
 
     public static final MapCodec<PalmTreeFoliagePlacer> CODEC = RecordCodecBuilder.mapCodec(i -> foliagePlacerParts(i)
         .and(i.group(
-            IntProvider.codec(1, 5).fieldOf("branching_leaf_length").forGetter(o -> o.branchingLeafLength),
-            IntProvider.codec(1, 5).fieldOf("diagonal_branching_leaf_length").forGetter(o -> o.diagonalBranchingLeafLength)))
+            IntProviders.codec(1, 5).fieldOf("branching_leaf_length").forGetter(o -> o.branchingLeafLength),
+            IntProviders.codec(1, 5).fieldOf("diagonal_branching_leaf_length").forGetter(o -> o.diagonalBranchingLeafLength)))
         .apply(i, PalmTreeFoliagePlacer::new));
 
     private final IntProvider branchingLeafLength;
@@ -35,7 +36,7 @@ public class PalmTreeFoliagePlacer extends FoliagePlacer {
     }
 
     @Override
-    protected void createFoliage(LevelSimulatedReader level, FoliageSetter foliageSetter, RandomSource random, TreeConfiguration config, int treeHeight, FoliageAttachment foliageAttachment, int foliageHeight, int leafRadius, int offset) {
+    protected void createFoliage(WorldGenLevel level, FoliageSetter foliageSetter, RandomSource random, TreeConfiguration config, int treeHeight, FoliageAttachment foliageAttachment, int foliageHeight, int leafRadius, int offset) {
         BlockPos pos = foliageAttachment.pos().above(offset);
         BlockPos.MutableBlockPos placePos = new BlockPos.MutableBlockPos();
         int branchingLength = this.branchingLeafLength.sample(random);

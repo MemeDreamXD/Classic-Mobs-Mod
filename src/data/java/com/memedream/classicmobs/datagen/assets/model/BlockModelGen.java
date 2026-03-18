@@ -1,6 +1,5 @@
 package com.memedream.classicmobs.datagen.assets.model;
 
-import com.memedream.classicmobs.ClassicMobs;
 import com.memedream.classicmobs.block.KettleBlock;
 import com.memedream.classicmobs.block.MeatBlock;
 import com.memedream.classicmobs.init.ModBlocks;
@@ -11,17 +10,10 @@ import net.minecraft.client.data.models.blockstates.BlockModelDefinitionGenerato
 import net.minecraft.client.data.models.blockstates.MultiVariantGenerator;
 import net.minecraft.client.data.models.blockstates.PropertyDispatch;
 import net.minecraft.client.data.models.model.*;
-import net.minecraft.client.renderer.block.model.Material;
-import net.minecraft.client.renderer.block.model.TextureSlots;
-import net.minecraft.client.renderer.block.model.Variant;
-import net.minecraft.core.Direction;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.Identifier;
 import net.minecraft.world.level.FoliageColor;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.state.properties.BlockStateProperties;
-import net.minecraft.world.level.block.state.properties.StairsShape;
 
 import java.util.function.BiConsumer;
 import java.util.function.Consumer;

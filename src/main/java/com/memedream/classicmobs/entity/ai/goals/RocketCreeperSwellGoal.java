@@ -3,7 +3,6 @@ package com.memedream.classicmobs.entity.ai.goals;
 import com.memedream.classicmobs.entity.RocketCreeperEntity;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.goal.Goal;
-import net.minecraft.world.entity.monster.Creeper;
 import org.jspecify.annotations.Nullable;
 
 import java.util.EnumSet;

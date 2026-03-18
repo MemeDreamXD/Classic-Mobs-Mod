@@ -18,7 +18,7 @@ import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.configurations.TreeConfiguration;
 import net.minecraft.world.level.levelgen.feature.featuresize.TwoLayersFeatureSize;
 import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvider;
-import net.minecraft.world.level.levelgen.feature.stateproviders.RuleBasedBlockStateProvider;
+import net.minecraft.world.level.levelgen.feature.stateproviders.RuleBasedStateProvider;
 import net.minecraft.world.level.levelgen.placement.*;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
@@ -54,7 +54,7 @@ public class ModFeatures {
             new PalmTreeFoliagePlacer(ConstantInt.of(1), ConstantInt.ZERO, ConstantInt.of(3), ConstantInt.of(1)),
             new TwoLayersFeatureSize(1, 0, 1))
             .ignoreVines()
-            .belowTrunkProvider(RuleBasedBlockStateProvider.ifTrueThenProvide(BlockPredicate.matchesTag(BlockTags.GRASS_BLOCKS), Blocks.DIRT)) //only replace if on grass since we grow on sand naturally
+            .belowTrunkProvider(RuleBasedStateProvider.ifTrueThenProvide(BlockPredicate.matchesTag(BlockTags.GRASS_BLOCKS), Blocks.DIRT)) //only replace if on grass since we grow on sand naturally
             .build()));
     }
 

@@ -1,13 +1,13 @@
 package com.memedream.classicmobs.client.gui.pip;
 
-import com.mojang.blaze3d.vertex.*;
+import com.mojang.blaze3d.vertex.PoseStack;
+import com.mojang.blaze3d.vertex.VertexConsumer;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.render.pip.PictureInPictureRenderer;
 import net.minecraft.client.renderer.MultiBufferSource;
-import net.minecraft.client.renderer.Sheets;
+import net.minecraft.client.renderer.block.FluidModel;
 import net.minecraft.client.renderer.rendertype.RenderTypes;
 import net.minecraft.client.renderer.texture.TextureAtlasSprite;
-import net.neoforged.neoforge.client.extensions.common.IClientFluidTypeExtensions;
 import org.joml.Matrix4f;
 
 //TODO
@@ -26,8 +26,9 @@ public class FluidRenderer extends PictureInPictureRenderer<FluidRenderState> {
 
     @Override
     protected void renderToTexture(FluidRenderState state, PoseStack stack) {
-        TextureAtlasSprite sprite = Minecraft.getInstance().getAtlasManager().get(Sheets.BLOCKS_MAPPER.apply(IClientFluidTypeExtensions.of(state.stack().getFluid()).getStillTexture(state.stack())));
-        int color = IClientFluidTypeExtensions.of(state.stack().getFluid()).getTintColor(state.stack());
+        FluidModel model = Minecraft.getInstance().getModelManager().getFluidStateModelSet().get(state.stack().getFluid().defaultFluidState());
+        TextureAtlasSprite sprite = model.stillMaterial().sprite();
+        int color = model.fluidTintSource() != null ? model.fluidTintSource().colorAsStack(state.stack()) : -1;
         int desiredWidth = state.x1() - state.x0();
         int desiredHeight = state.y1() - state.y0();
         int xTileCount = desiredWidth / 16;

@@ -8,6 +8,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.util.RandomSource;
 import net.minecraft.util.valueproviders.IntProvider;
+import net.minecraft.util.valueproviders.IntProviders;
 import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.feature.configurations.TreeConfiguration;
@@ -21,7 +22,7 @@ import java.util.function.BiConsumer;
 public class PalmTreeTrunkPlacer extends TrunkPlacer {
 
     public static final MapCodec<PalmTreeTrunkPlacer> CODEC = RecordCodecBuilder.mapCodec(instance -> trunkPlacerParts(instance).and(instance.group(
-            IntProvider.POSITIVE_CODEC.fieldOf("segment_lengths").forGetter(o -> o.segmentSplit),
+            IntProviders.POSITIVE_CODEC.fieldOf("segment_lengths").forGetter(o -> o.segmentSplit),
             Codec.BOOL.fieldOf("generate_root_stumps").forGetter(o -> o.generateRootBlocks)))
         .apply(instance, PalmTreeTrunkPlacer::new));
 

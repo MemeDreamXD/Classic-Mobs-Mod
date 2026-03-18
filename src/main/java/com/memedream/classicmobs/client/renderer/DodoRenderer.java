@@ -7,7 +7,6 @@ import com.memedream.classicmobs.client.state.DodoRenderState;
 import com.memedream.classicmobs.entity.DodoEntity;
 import net.minecraft.client.renderer.entity.AgeableMobRenderer;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
-import net.minecraft.client.renderer.entity.state.ChickenRenderState;
 import net.minecraft.resources.Identifier;
 import net.minecraft.util.Mth;
 

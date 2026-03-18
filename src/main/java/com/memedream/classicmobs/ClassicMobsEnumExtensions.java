@@ -1,7 +1,6 @@
 package com.memedream.classicmobs;
 
 import net.minecraft.client.model.HumanoidModel;
-import net.minecraft.client.renderer.item.properties.numeric.UseDuration;
 import net.minecraft.util.Mth;
 import net.minecraft.world.entity.HumanoidArm;
 import net.minecraft.world.phys.Vec2;

@@ -3,8 +3,7 @@ package com.memedream.classicmobs.client.gui;
 import com.memedream.classicmobs.ClassicMobs;
 import com.memedream.classicmobs.client.gui.pip.FluidRenderState;
 import com.memedream.classicmobs.inventory.KettleMenu;
-import com.mojang.blaze3d.vertex.*;
-import net.minecraft.client.gui.GuiGraphics;
+import net.minecraft.client.gui.GuiGraphicsExtractor;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
 import net.minecraft.client.renderer.RenderPipelines;
 import net.minecraft.network.chat.Component;
@@ -32,7 +31,7 @@ public class KettleScreen extends AbstractContainerScreen<KettleMenu> {
     }
 
     @Override
-    protected void renderBg(GuiGraphics graphics, float a, int xm, int ym) {
+    public void extractRenderState(GuiGraphicsExtractor graphics, int mouseX, int mouseY, float a) {
         int xo = this.leftPos;
         int yo = this.topPos;
         graphics.blit(RenderPipelines.GUI_TEXTURED, BACKGROUND, xo, yo, 0.0F, 0.0F, this.imageWidth, this.imageHeight, 256, 256);

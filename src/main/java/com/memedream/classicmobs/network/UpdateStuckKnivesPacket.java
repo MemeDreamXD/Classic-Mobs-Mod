@@ -3,7 +3,6 @@ package com.memedream.classicmobs.network;
 import com.memedream.classicmobs.ClassicMobs;
 import com.memedream.classicmobs.component.entity.StuckKnifeAttachment;
 import com.memedream.classicmobs.init.ModDataAttachments;
-import com.memedream.classicmobs.init.ModDataComponents;
 import net.minecraft.network.RegistryFriendlyByteBuf;
 import net.minecraft.network.codec.ByteBufCodecs;
 import net.minecraft.network.codec.StreamCodec;

@@ -22,7 +22,10 @@ import net.minecraft.world.level.levelgen.structure.templatesystem.StructureTemp
 import net.minecraft.world.phys.shapes.BitSetDiscreteVoxelShape;
 import net.minecraft.world.phys.shapes.DiscreteVoxelShape;
 
-import java.util.*;
+import java.util.Iterator;
+import java.util.List;
+import java.util.OptionalInt;
+import java.util.Set;
 import java.util.function.BiConsumer;
 
 public class PalmTreeFeature extends TreeFeature {

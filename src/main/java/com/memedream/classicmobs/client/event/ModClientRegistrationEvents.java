@@ -20,21 +20,21 @@ import com.memedream.classicmobs.item.AOEItem;
 import com.memedream.classicmobs.item.BolaItem;
 import com.memedream.classicmobs.item.KnifeItem;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.color.block.BlockTintSources;
 import net.minecraft.client.model.EntityModel;
-import net.minecraft.client.particle.WhiteSmokeParticle;
-import net.minecraft.client.renderer.BiomeColors;
+import net.minecraft.client.renderer.block.dispatch.BlockStateModel;
 import net.minecraft.client.renderer.entity.EntityRenderer;
 import net.minecraft.client.renderer.entity.FallingBlockRenderer;
 import net.minecraft.client.renderer.entity.LivingEntityRenderer;
 import net.minecraft.client.renderer.entity.state.LivingEntityRenderState;
-import net.minecraft.client.renderer.state.BlockOutlineRenderState;
+import net.minecraft.client.renderer.state.level.BlockOutlineRenderState;
+import net.minecraft.client.resources.model.geometry.BakedQuad;
 import net.minecraft.core.BlockPos;
 import net.minecraft.util.context.ContextKey;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.level.FoliageColor;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
@@ -125,7 +125,8 @@ public class ModClientRegistrationEvents {
                 for (BlockPos pos : AOEItem.getBlocksToBeDestroyed(1, event.getBlockPos(), player)) {
                     BlockState state = event.getLevel().getBlockState(pos);
                     if (!AOEItem.isValidForOutline(event.getLevel(), pos, event.getBlockPos(), player.getMainHandItem())) continue;
-                    boolean isBlockTranslucent = Minecraft.getInstance().getBlockRenderer().getBlockModel(state).hasTranslucency(event.getLevel(), pos, state);
+                    BlockStateModel blockStateModel = Minecraft.getInstance().getModelManager().getBlockStateModelSet().get(state);
+                    boolean isBlockTranslucent = blockStateModel.hasMaterialFlag(event.getLevel(), pos, state, BakedQuad.FLAG_TRANSLUCENT);
                     boolean highContrast = Minecraft.getInstance().options.highContrastBlockOutline().get();
                     CollisionContext context = CollisionContext.of(player);
                     VoxelShape shape = state.getShape(event.getLevel(), pos, context);
@@ -179,13 +180,8 @@ public class ModClientRegistrationEvents {
         event.registerItem(new KnifeItem.KnifeAnimation(), ModItems.WOODEN_KNIFE, ModItems.STONE_KNIFE, ModItems.COPPER_KNIFE, ModItems.IRON_KNIFE, ModItems.GOLDEN_KNIFE, ModItems.DIAMOND_KNIFE, ModItems.NETHERITE_KNIFE);
     }
 
-    private static void registerBlockColors(RegisterColorHandlersEvent.Block event) {
-        event.register((state, level, pos, tintIndex) -> {
-            if (tintIndex != 1) {
-                return level != null && pos != null ? BiomeColors.getAverageFoliageColor(level, pos) : FoliageColor.FOLIAGE_DEFAULT;
-            }
-            return -1;
-        }, ModBlocks.PALM_LEAVES.get());
+    private static void registerBlockColors(RegisterColorHandlersEvent.BlockTintSources event) {
+        event.register(List.of(BlockTintSources.constant(-1), BlockTintSources.foliage()), ModBlocks.PALM_LEAVES.get());
     }
 
     public record StuckKnifeInfo(int entityID, List<ItemStack> stuckKnives) {}
