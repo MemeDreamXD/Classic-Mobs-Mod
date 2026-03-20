@@ -1,6 +1,6 @@
 {
   "type": "minecraft:crafting_shaped",
-  "category": "building",
+  "category": "equipment",
   "key": {
     "c": "#c:cobblestones",
     "h": "classic_mobs:chitin",
