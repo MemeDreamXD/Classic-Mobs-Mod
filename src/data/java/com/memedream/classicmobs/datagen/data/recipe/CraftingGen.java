@@ -63,7 +63,7 @@ public class CraftingGen extends RecipeProvider {
 		createStorageBlock(getter, this.output, RecipeCategory.FOOD, ModBlocks.PUFFERFISH_BLOCK, Items.PUFFERFISH);
 		createStorageBlock(getter, this.output, RecipeCategory.FOOD, ModBlocks.ROTTEN_FLESH_BLOCK, Items.ROTTEN_FLESH);
 
-		ShapedRecipeBuilder.shaped(getter, RecipeCategory.BUILDING_BLOCKS, ModItems.BOLA)
+		ShapedRecipeBuilder.shaped(getter, RecipeCategory.COMBAT, ModItems.BOLA)
 				.pattern(" l ")
 				.pattern("s s")
 				.pattern("hch")
@@ -74,7 +74,7 @@ public class CraftingGen extends RecipeProvider {
 				.unlockedBy("has_chitin", this.has(ModItems.CHITIN))
 				.save(this.output);
 
-		ShapedRecipeBuilder.shaped(getter, RecipeCategory.BUILDING_BLOCKS, ModItems.FLIGHT_ARROW, 4)
+		ShapedRecipeBuilder.shaped(getter, RecipeCategory.COMBAT, ModItems.FLIGHT_ARROW, 4)
 				.pattern("f")
 				.pattern("s")
 				.pattern("h")
