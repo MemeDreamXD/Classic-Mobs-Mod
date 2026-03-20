@@ -42,8 +42,10 @@ public class CraftingGen extends RecipeProvider {
 		createStorageBlock(getter, this.output, RecipeCategory.BUILDING_BLOCKS, ModBlocks.PHANTOM_MEMBRANE_BLOCK, Items.PHANTOM_MEMBRANE);
 		createStorageBlock(getter, this.output, RecipeCategory.BUILDING_BLOCKS, ModBlocks.SPIDER_EYE_BLOCK, Items.SPIDER_EYE);
 		createStorageBlock(getter, this.output, RecipeCategory.BUILDING_BLOCKS, ModBlocks.STRING_BLOCK, Items.STRING);
+        createStorageBlock(getter, this.output, RecipeCategory.BUILDING_BLOCKS, ModBlocks.RUBY_BLOCK, ModItems.RUBY);
 
-		createStorageBlock(getter, this.output, RecipeCategory.FOOD, ModBlocks.RAW_BEEF_BLOCK, Items.BEEF);
+
+        createStorageBlock(getter, this.output, RecipeCategory.FOOD, ModBlocks.RAW_BEEF_BLOCK, Items.BEEF);
 		createStorageBlock(getter, this.output, RecipeCategory.FOOD, ModBlocks.COOKED_BEEF_BLOCK, Items.COOKED_BEEF);
 		createStorageBlock(getter, this.output, RecipeCategory.FOOD, ModBlocks.RAW_DODO_BLOCK, ModItems.RAW_DODO);
 		createStorageBlock(getter, this.output, RecipeCategory.FOOD, ModBlocks.COOKED_DODO_BLOCK, ModItems.COOKED_DODO);

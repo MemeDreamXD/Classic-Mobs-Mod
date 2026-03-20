@@ -30,6 +30,7 @@
     "classic_mobs:raw_salmon_block",
     "classic_mobs:raw_cod_block",
     "classic_mobs:raw_dodo_block",
-    "classic_mobs:leather_block"
+    "classic_mobs:leather_block",
+    "classic_mobs:ruby_block"
   ]
 }

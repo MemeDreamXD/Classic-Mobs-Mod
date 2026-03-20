@@ -66,7 +66,8 @@ public class BlockTagGen extends BlockTagsProvider {
             ModBlocks.RAW_SALMON_BLOCK.get(),
             ModBlocks.RAW_COD_BLOCK.get(),
             ModBlocks.RAW_DODO_BLOCK.get(),
-            ModBlocks.LEATHER_BLOCK.get()
+            ModBlocks.LEATHER_BLOCK.get(),
+            ModBlocks.RUBY_BLOCK.get()
         );
 
         this.tag(BlockTags.DAMPENS_VIBRATIONS).add(
@@ -107,11 +108,13 @@ public class BlockTagGen extends BlockTagsProvider {
             ModBlocks.CHITIN_BLOCK.get(),
             ModBlocks.BLOCK_OF_BONES.get(),
             ModBlocks.RUBY_ORE.get(),
-            ModBlocks.KETTLE.get()
+            ModBlocks.KETTLE.get(),
+            ModBlocks.RUBY_BLOCK.get()
         );
 
         this.tag(BlockTags.NEEDS_IRON_TOOL).add(
-            ModBlocks.RUBY_ORE.get()
+            ModBlocks.RUBY_ORE.get(),
+            ModBlocks.RUBY_BLOCK.get()
         );
 
         this.tag(BlockTags.MINEABLE_WITH_SHOVEL).add(
@@ -147,6 +150,10 @@ public class BlockTagGen extends BlockTagsProvider {
 
         this.tag(BlockTags.PLANKS).add(
             ModBlocks.PALM_PLANKS.get()
+        );
+
+        this.tag(BlockTags.BEACON_BASE_BLOCKS).add(
+            ModBlocks.RUBY_BLOCK.get()
         );
 
         this.tag(ModTags.Blocks.KETTLE_HEATER).addTags(

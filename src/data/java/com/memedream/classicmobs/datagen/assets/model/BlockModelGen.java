@@ -33,6 +33,7 @@ public class BlockModelGen extends BlockModelGenerators {
         this.wrapBlockItem(ModBlocks.PHANTOM_MEMBRANE_BLOCK.get(), this::createTrivialCube);
         this.wrapBlockItem(ModBlocks.ROTTEN_FLESH_BLOCK.get(), this::createTrivialCube);
         this.wrapBlockItem(ModBlocks.RUBY_ORE.get(), this::createTrivialCube);
+        this.wrapBlockItem(ModBlocks.RUBY_BLOCK.get(), this::createTrivialCube);
         this.wrapBlockItem(ModBlocks.PALM_PLANKS.get(), this::createTrivialCube);
         this.woodProvider(ModBlocks.PALM_LOG.get()).logWithHorizontal(ModBlocks.PALM_LOG.get()).wood(ModBlocks.PALM_WOOD.get());
         this.woodProvider(ModBlocks.STRIPPED_PALM_LOG.get()).logWithHorizontal(ModBlocks.STRIPPED_PALM_LOG.get()).wood(ModBlocks.STRIPPED_PALM_WOOD.get());

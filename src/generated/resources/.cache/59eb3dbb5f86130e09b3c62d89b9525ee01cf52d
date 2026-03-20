@@ -1,4 +1,4 @@
-// 26.1-pre-3	2026-03-18T16:35:05.475559329	Loot Tables
+// 26.1-pre-3	2026-03-20T12:25:10.5592488	Loot Tables
 ac79f04ddbc4f6bf43c873c24a03198b5baf2d00 data/classic_mobs/loot_table/blocks/blaze_rod_block.json
 d279d5655e86f1482da23f95a3f5e05f08cd90ac data/classic_mobs/loot_table/blocks/block_of_bones.json
 0c5749fdf3466f34f48f24df2839fe008408cb7b data/classic_mobs/loot_table/blocks/breeze_rod_block.json
@@ -34,6 +34,7 @@ b397d68413d2889c134efaf3495ba642aab30cf9 data/classic_mobs/loot_table/blocks/raw
 eab5dd972ad56ab43ae077eef8957aec63e72fcd data/classic_mobs/loot_table/blocks/raw_rabbit_block.json
 349d9fe07bad8b92ac2bff32dcf88be683590e64 data/classic_mobs/loot_table/blocks/raw_salmon_block.json
 0914fbf3bd39899099091dbb7d4ee44c756ba883 data/classic_mobs/loot_table/blocks/rotten_flesh_block.json
+d10fa499381cfea19c35631f97445e2ca47ba2b8 data/classic_mobs/loot_table/blocks/ruby_block.json
 5a1551e1bef438ff02214bdfcdf8b600c03fc389 data/classic_mobs/loot_table/blocks/ruby_ore.json
 28b462424fe4a4fa2be6c6e5672979cde7d5ab45 data/classic_mobs/loot_table/blocks/spider_eye_block.json
 8298c0239487a5a20bb50230c8894a9dd96d3d4e data/classic_mobs/loot_table/blocks/string_block.json

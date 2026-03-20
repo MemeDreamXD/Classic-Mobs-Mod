@@ -55,6 +55,10 @@ public class ItemTagGen extends ItemTagsProvider {
             ModBlocks.COOKED_DODO_BLOCK.asItem()
         );
 
+        this.tag(Tags.Items.GEMS).add(
+            ModItems.RUBY.get()
+        );
+
         this.tag(Tags.Items.FOODS_RAW_MEAT).add(
             ModItems.RAW_DODO.get(),
             ModBlocks.RAW_BEEF_BLOCK.asItem(),

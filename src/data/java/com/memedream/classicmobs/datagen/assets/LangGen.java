@@ -38,6 +38,7 @@ public class LangGen extends LanguageProvider {
     @Override
     protected void addTranslations() {
         this.addBlock(ModBlocks.RUBY_ORE, "Ruby Ore");
+        this.addBlock(ModBlocks.RUBY_BLOCK, "Ruby Block");
         this.addBlock(ModBlocks.PALM_LOG, "Palm Log");
         this.addBlock(ModBlocks.STRIPPED_PALM_LOG, "Stripped Palm Log");
         this.addBlock(ModBlocks.PALM_PLANKS, "Palm Planks");

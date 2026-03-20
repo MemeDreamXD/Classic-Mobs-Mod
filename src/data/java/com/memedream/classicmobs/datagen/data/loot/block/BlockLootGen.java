@@ -32,6 +32,7 @@ public class BlockLootGen extends BlockLootSubProvider {
         this.add(ModBlocks.PALM_LEAVES.get(), block -> this.createLeavesDrops(block, ModBlocks.PALM_SAPLING.get(), NORMAL_LEAVES_SAPLING_CHANCES));
 
         //storage blocks
+        this.dropSelf(ModBlocks.RUBY_BLOCK.get());
         this.dropSelf(ModBlocks.GUNPOWDER_BLOCK.get());
         this.dropSelf(ModBlocks.ROTTEN_FLESH_BLOCK.get());
         this.dropSelf(ModBlocks.CHITIN_BLOCK.get());

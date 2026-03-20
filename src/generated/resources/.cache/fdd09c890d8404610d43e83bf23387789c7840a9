@@ -1,4 +1,4 @@
-// 26.1-pre-3	2026-03-18T16:35:05.476452865	Model Definitions - classic_mobs
+// 26.1-pre-3	2026-03-20T12:25:10.5602485	Model Definitions - classic_mobs
 e7fac52b34d2d13206e904abb50c6fdd810e0616 assets/classic_mobs/blockstates/chitin_block.json
 f024fc4e2b3331b4502302eddacc64ec6d1cf7a2 assets/classic_mobs/blockstates/cooked_beef_block.json
 19b1e68153e7ff9340d5fdc5d153f2234807c185 assets/classic_mobs/blockstates/cooked_chicken_block.json
@@ -28,6 +28,7 @@ d1dbc894c65674ae5f7c10749b30dbdc02f3a0d8 assets/classic_mobs/blockstates/raw_mut
 284f7b31cf99b68375d39d19bdb1f14b3cea9ceb assets/classic_mobs/blockstates/raw_rabbit_block.json
 3e61118515771ae16b77b0c9db42fe091575197a assets/classic_mobs/blockstates/raw_salmon_block.json
 fb5d7d0af2cc2c8db70390d5025930d74914d802 assets/classic_mobs/blockstates/rotten_flesh_block.json
+302db037155e5a6cb18533d2e338372183a9c539 assets/classic_mobs/blockstates/ruby_block.json
 7a1ee4eb2145e228750a72027039f4054960668e assets/classic_mobs/blockstates/ruby_ore.json
 046cf2ecc9cd2c2a7443c865cd1ded13b8c0b62f assets/classic_mobs/blockstates/stripped_palm_log.json
 ad00605a8a5c93ae429bb978aa26337958ae4e44 assets/classic_mobs/blockstates/stripped_palm_wood.json
@@ -134,6 +135,7 @@ b03e0af982d6527ff67c5e0e20400d9c70c04dd8 assets/classic_mobs/items/raw_salmon_bl
 b69921e171202dc2fa75785ff835543f535117fd assets/classic_mobs/items/rocket_creeper_spawn_egg.json
 70fb7ca3b579664558569ff9d7af8a7d7a03b76a assets/classic_mobs/items/rotten_flesh_block.json
 6acdf469e9f4db33ea6509a01134c8ec30444859 assets/classic_mobs/items/ruby.json
+3f2dc2af158d1a01f51dd88853a86c86c1447592 assets/classic_mobs/items/ruby_block.json
 b84c60eade8563720c07438681e87655390fd184 assets/classic_mobs/items/ruby_ore.json
 81522c85bef796a58dd90435059e6689a27b6311 assets/classic_mobs/items/spider_eye_block.json
 1da5cb16d76717face9467372d66e710dae48370 assets/classic_mobs/items/stone_hammer.json
@@ -232,6 +234,7 @@ c73666a2cc2305939efc25b1d110ad5604978d83 assets/classic_mobs/models/block/raw_ra
 ac958a0f36a1e070f100a5276c1519a37ff8de69 assets/classic_mobs/models/block/raw_salmon_block_bite_2.json
 6d474ea4d87a59ee79b580310c59ffc9f8c8f8cb assets/classic_mobs/models/block/raw_salmon_block_bite_3.json
 eb6dc9b44da4f8750bfd70bc5e2cb1133a9875ba assets/classic_mobs/models/block/rotten_flesh_block.json
+0ef40249e02f14c77f63738a5c0e97f230a34bb5 assets/classic_mobs/models/block/ruby_block.json
 acca6809f8a74e5a39b757717377c8b9ade2e1ed assets/classic_mobs/models/block/ruby_ore.json
 300fb0380fc14e5e21887f66752d3548d193ceb0 assets/classic_mobs/models/block/stripped_palm_log.json
 b80e5f0dbdb1b7cea4d55cbb18fafddaf5e06dcc assets/classic_mobs/models/block/stripped_palm_log_horizontal.json

@@ -3,6 +3,7 @@
     "classic_mobs:chitin_block",
     "classic_mobs:block_of_bones",
     "classic_mobs:ruby_ore",
-    "classic_mobs:kettle"
+    "classic_mobs:kettle",
+    "classic_mobs:ruby_block"
   ]
 }

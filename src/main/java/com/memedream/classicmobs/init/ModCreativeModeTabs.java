@@ -96,6 +96,7 @@ public class ModCreativeModeTabs {
 
             output.accept(ModItems.RUBY);
             output.accept(ModBlocks.RUBY_ORE);
+            output.accept(ModBlocks.RUBY_BLOCK);
             output.accept(ModBlocks.PALM_LEAVES);
             output.accept(ModBlocks.PALM_LOG);
             output.accept(ModBlocks.PALM_WOOD);
